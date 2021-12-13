@@ -1,0 +1,33 @@
+# Database marketing substantive domain
+
+## Key Issues
+
+### Data Privacy
+
+### Customer lifetime value (LTV)
+
+## Method
+
+### RFM
+
+### Market basket analysis
+
+### Collaborative filtering
+
+### Cluster analysis
+
+### Decision trees
+
+### Machine learning
+
+## Sub - substantive areas
+
+### Acquisition
+
+### Retention/ Churn management
+
+### Cross-selling and up-selling
+
+### Reward program
+
+### Multichannel customer 
