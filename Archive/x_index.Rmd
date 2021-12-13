@@ -1,12 +1,11 @@
 --- 
-title: "Frank's second book"
-author: "Frank Lin"
+title: "Frank's first book"
+author: "John Doe"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-
 documentclass: book
 bibliography: [book.bib, packages.bib, references.bib]
-url: https://lyf718718.github.io/Book2/
+url: https://bookdown.org/lyf918918/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is a minimal example of using the bookdown package to write a book.
@@ -15,7 +14,6 @@ description: |
 link-citations: yes
 # github-repo: rstudio/bookdown-demo
 ---
-
 
 ```{r}
 knitr::opts_chunk$set(warning = FALSE)
