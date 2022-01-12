@@ -12,91 +12,106 @@ I list the specific duties of each track below, along with the resources to deve
 
 ### Database marketing
 
-        -   RFM targeting
-        -   offer design, discount offer optimization
-        -   See the Database marketing page
+-   RFM targeting offer design, discount offer optimization See the Database marketing page
 
-### SQL:
+### Programming
 
-        -   Data quality validation
-        -   Data manipulation and merging
+-   SQL:
+
+    -   Data quality validation Data manipulation and merging
+    -   <https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid>
+
+-   Python
+
+    -   <https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165>
+
+    -   [Introduction to Data Science in Python - Week 1 \| Coursera](https://www.coursera.org/learn/python-data-analysis/home/week/1)
+
+        -   map()
+
+        -   lambda list comprehension
+
+        -   numpy library
+
+        -   series, data frame
+
+        -   groupby, pivot, merging
+
+        -   Distribution
+
+-   R
+
+    -   Base
+    -   MAP → same function to all variables.
+    -   Ggplot → viusalization
+    -   Tidyr → data manipulation
+    -   [<https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ>](https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ){.uri}
 
 ### Statistics:
 
-        -   Statistical tests for differences:
+-   Statistical tests for differences:
 
-            -   Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)
+    -   Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)
+    -   Incrementality
+    -   Regression
+    -   Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis
+    -   Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)
 
-            -   Incrementality
+-   Advanced: Causal inference
 
-        -   Regression
-
-            -   Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis
-
-            -   Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)
-
-            -   Advanced: Causal inference
-
-                -   Control for observables
-
-                -   Mixed model / Hierachical linear model
-
-                -   Difference in Difference
-
-                -   Regression Discontinuity
-
-            -   Modeling process
+    -   Control for observables
+    -   Mixed model / Hierachical linear model
+    -   Difference in Difference
+    -   Regression Discontinuity
+    -   Modeling process
 
 ### Visualization
 
-        -   Drawing Interaction plot
-        -   Decile plots
-        -   Written report on the analysis
+-   Drawing Interaction plot
+-   Decile plots
+-   Written report on the analysis
 
 ### Automation
 
-        -   Function building
-
-        -   Analysis library
+-   Function building
+-   Analysis library
 
 ## Consumer insight Track (aka. Marketing Research)
 
-    -   Qualitative study design
+-   Qualitative study design
 
-    -   Quantitative study design (i.e., survey)
+-   Quantitative study design (i.e., survey)
 
-        -   Qualtrics for questionnaire or experiment design
+    -   Qualtrics for questionnaire or experiment design
+    -   Generating research questions
 
-        -   Generating research questions
+-   Data analysis
 
-    -   Data analysis
-
-        -   Meditation , Path Model
-
-        -   Measurement model
+    -   Meditation , Path Model
+    -   Measurement model
 
 ## Optimization Track (a.k.a Operational Research)
 
 ### Model optimization
 
-        -   Machine learning - regularization
-        -   dimension reduction
-        -   <https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ>
+-   Machine learning - regularization
+-   dimension reduction
+-   [Chapter 34 Model Stacking \| Advanced Data Analysis (bookdown.org)](https://bookdown.org/mike/advanced_data_analysis/model-stacking.html)
 
 ### Macro level models
 
-        -   Marketing Mix Models
+-   Marketing Mix Models
 
-            -   <https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c>
-
-            -   Ad stock function
-
-        -   Media Attribution Modeling
-
-            -   [Attribution Modeling in Marketing Python \| Kaggle](https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python)
+    -   <https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c>
+    -   Ad stock function
+    -   Media Attribution Modeling
+    -   [Attribution Modeling in Marketing Python \| Kaggle](https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python)
+    -   <https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1>
 
 ### Academic Paper implementation
 
-        -   Conceptual understanding
+-   Conceptual understanding
 
-        -   Composing or Modifying R, Python package per the paper's idea
+-   Composing or Modifying R, Python package per the paper's idea
+
+    -   <https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c>
