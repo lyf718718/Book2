@@ -1,0 +1,102 @@
+# Data Scientist Job
+
+In general, the data scientist role can be divided into decision scientist and the machine scientist [The Kinds of Data Scientist (hbr.org)](https://hbr.org/2018/11/the-kinds-of-data-scientist) [4 Types of Data Science Jobs \| Udacity](https://www.udacity.com/blog/2018/01/4-types-data-science-jobs.html)
+
+The entry-level (i.e., data analyst) deals with basic analysis tools such as Excel and SQL programming skills to pull data. The middle-level (i.e., data scientist I) deals with more advanced analytics tools such as R, Python. The senior-level uses the same analytics tool but can write or modify the published package/ library. On a side note, the data product management side deals with data product/service, which is akin to the product manager in general.
+
+In practice, the substantive job content can be differentiated based on strategy, consumer behavior, and optimization tracks. The strategy track produces the analysis for managers to make further decisions. In the consumer behavior track, they produce the analysis to elucidate the psychological mechanism and come up with interesting mental models used by the consumers. The optimization track focuses on making things more efficient on a large scale or using machine learning to automate the analysis.
+
+I list the specific duties of each track below, along with the resources to develop the corresponding skills or business sense.
+
+## Business strategy Track (a.k.a Marketing Analytics)
+
+### Database marketing
+
+        -   RFM targeting
+        -   offer design, discount offer optimization
+        -   See the Database marketing page
+
+### SQL:
+
+        -   Data quality validation
+        -   Data manipulation and merging
+
+### Statistics:
+
+        -   Statistical tests for differences:
+
+            -   Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)
+
+            -   Incrementality
+
+        -   Regression
+
+            -   Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis
+
+            -   Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)
+
+            -   Advanced: Causal inference
+
+                -   Control for observables
+
+                -   Mixed model / Hierachical linear model
+
+                -   Difference in Difference
+
+                -   Regression Discontinuity
+
+            -   Modeling process
+
+### Visualization
+
+        -   Drawing Interaction plot
+        -   Decile plots
+        -   Written report on the analysis
+
+### Automation
+
+        -   Function building
+
+        -   Analysis library
+
+## Consumer insight Track (aka. Marketing Research)
+
+    -   Qualitative study design
+
+    -   Quantitative study design (i.e., survey)
+
+        -   Qualtrics for questionnaire or experiment design
+
+        -   Generating research questions
+
+    -   Data analysis
+
+        -   Meditation , Path Model
+
+        -   Measurement model
+
+## Optimization Track (a.k.a Operational Research)
+
+### Model optimization
+
+        -   Machine learning - regularization
+        -   dimension reduction
+        -   <https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ>
+
+### Macro level models
+
+        -   Marketing Mix Models
+
+            -   <https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c>
+
+            -   Ad stock function
+
+        -   Media Attribution Modeling
+
+            -   [Attribution Modeling in Marketing Python \| Kaggle](https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python)
+
+### Academic Paper implementation
+
+        -   Conceptual understanding
+
+        -   Composing or Modifying R, Python package per the paper's idea

@@ -61,3 +61,20 @@ A demo video showing how to create a **bookdown book** following these instructi
 
 Please consult the official guide to **bookdown**: https://bookdown.org/yihui/bookdown
 
+### To use the R book and Git
+git config --global user.email "lyf718718@gmail.com"
+https://lyf718718.github.io/wonderland/
+
+Steps:
+1) use template 
+https://github.com/jtr13/bookdown-template/generate
+2) Setting: pages master doc save. 
+3)url: 
+https://lyf718718.github.io/Book2/
+
+4) New project - version control - Git 
+using the code not the website: https://github.com/lyf718718/Book2.git
+
+5) Need to render book first before committ then push. 
+
+
