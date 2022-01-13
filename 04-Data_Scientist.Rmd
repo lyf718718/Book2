@@ -42,10 +42,34 @@ I list the specific duties of each track below, along with the resources to deve
 -   R
 
     -   Base
+
     -   MAP → same function to all variables.
+
     -   Ggplot → viusalization
+
     -   Tidyr → data manipulation
+
     -   [<https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ>](https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ){.uri}
+
+        -   basic commands
+
+        -   model accuracy
+
+        -   KNN
+
+        -   Classification - LDA?
+
+        -   Bootstraping
+
+        -   Regularization
+
+        -   Non-linear model
+
+        -   Tree based
+
+        -   SVM
+
+        -   Unsupervised
 
 ### Statistics:
 
@@ -95,7 +119,11 @@ I list the specific duties of each track below, along with the resources to deve
 ### Model optimization
 
 -   Machine learning - regularization
+
+    -   [Machine Learning (coggle.it)](https://coggle.it/diagram/Yb6sPjXbzAp_60P4/t/machine-learning)
+
 -   dimension reduction
+
 -   [Chapter 34 Model Stacking \| Advanced Data Analysis (bookdown.org)](https://bookdown.org/mike/advanced_data_analysis/model-stacking.html)
 
 ### Macro level models
