@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Question 1: | Applied Stats Model II - HW1 (Yufan Lin)</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Question 1: | Applied Stats Model II - HW1 (Yufan Lin)" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Question 1: | Applied Stats Model II - HW1 (Yufan Lin)" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Frank Lin" />
+
+
+<meta name="date" content="2022-02-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="question-1.html"/>
+<link rel="next" href="question-2.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Frank second book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html"><i class="fa fa-check"></i><b>1</b> Selling and buying process:</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salespeople-skill-perception"><i class="fa fa-check"></i><b>1.0.1</b> Salespeople skill/ perception</a></li>
+<li class="chapter" data-level="1.0.2" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication---intraorganization"><i class="fa fa-check"></i><b>1.0.2</b> Communication - intraorganization</a></li>
+<li class="chapter" data-level="1.0.3" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication-interorganization---fle-interactions"><i class="fa fa-check"></i><b>1.0.3</b> Communication Interorganization - FLE interactions</a></li>
+<li class="chapter" data-level="1.0.4" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#sales-marketing-interface"><i class="fa fa-check"></i><b>1.0.4</b> Sales marketing interface</a></li>
+<li class="chapter" data-level="1.0.5" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#firm-level-impact-on-salespeople"><i class="fa fa-check"></i><b>1.0.5</b> Firm level impact on salespeople</a></li>
+<li class="chapter" data-level="1.0.6" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-trait-orientation"><i class="fa fa-check"></i><b>1.0.6</b> Salesperson trait orientation</a></li>
+<li class="chapter" data-level="1.0.7" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-non-sales-activity-service"><i class="fa fa-check"></i><b>1.0.7</b> Salesperson non-sales activity/ service</a></li>
+<li class="chapter" data-level="1.0.8" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#b2g-selling"><i class="fa fa-check"></i><b>1.0.8</b> B2G selling</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="literature-review-note.html"><a href="literature-review-note.html"><i class="fa fa-check"></i><b>2</b> Literature Review Note</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="literature-review-note.html"><a href="literature-review-note.html#persuasion-knowledge-model-review"><i class="fa fa-check"></i><b>2.1</b> Persuasion knowledge Model Review</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="literature-review-note.html"><a href="literature-review-note.html#summary-for-pkm-in-online-environment"><i class="fa fa-check"></i><b>2.1.1</b> Summary for PKM in online environment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html"><i class="fa fa-check"></i><b>3</b> Database marketing substantive domain</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#key-issues"><i class="fa fa-check"></i><b>3.1</b> Key Issues</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#data-privacy"><i class="fa fa-check"></i><b>3.1.1</b> Data Privacy</a></li>
+<li class="chapter" data-level="3.1.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#customer-lifetime-value-ltv"><i class="fa fa-check"></i><b>3.1.2</b> Customer lifetime value (LTV)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#method"><i class="fa fa-check"></i><b>3.2</b> Method</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#rfm"><i class="fa fa-check"></i><b>3.2.1</b> RFM</a></li>
+<li class="chapter" data-level="3.2.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#market-basket-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Market basket analysis</a></li>
+<li class="chapter" data-level="3.2.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#collaborative-filtering"><i class="fa fa-check"></i><b>3.2.3</b> Collaborative filtering</a></li>
+<li class="chapter" data-level="3.2.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cluster-analysis"><i class="fa fa-check"></i><b>3.2.4</b> Cluster analysis</a></li>
+<li class="chapter" data-level="3.2.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#decision-trees"><i class="fa fa-check"></i><b>3.2.5</b> Decision trees</a></li>
+<li class="chapter" data-level="3.2.6" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#machine-learning"><i class="fa fa-check"></i><b>3.2.6</b> Machine learning</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#sub---substantive-areas"><i class="fa fa-check"></i><b>3.3</b> Sub - substantive areas</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#acquisition"><i class="fa fa-check"></i><b>3.3.1</b> Acquisition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#retention-churn-management"><i class="fa fa-check"></i><b>3.3.2</b> Retention/ Churn management</a></li>
+<li class="chapter" data-level="3.3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cross-selling-and-up-selling"><i class="fa fa-check"></i><b>3.3.3</b> Cross-selling and up-selling</a></li>
+<li class="chapter" data-level="3.3.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#reward-program"><i class="fa fa-check"></i><b>3.3.4</b> Reward program</a></li>
+<li class="chapter" data-level="3.3.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#multichannel-customer"><i class="fa fa-check"></i><b>3.3.5</b> Multichannel customer</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-scientist-job.html"><a href="data-scientist-job.html"><i class="fa fa-check"></i><b>4</b> Data Scientist Job</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics"><i class="fa fa-check"></i><b>4.1</b> Business strategy Track (a.k.a Marketing Analytics)</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#database-marketing"><i class="fa fa-check"></i><b>4.1.1</b> Database marketing</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#programming"><i class="fa fa-check"></i><b>4.1.2</b> Programming</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#statistics"><i class="fa fa-check"></i><b>4.1.3</b> Statistics:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-scientist-job.html"><a href="data-scientist-job.html#visualization"><i class="fa fa-check"></i><b>4.1.4</b> Visualization</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-scientist-job.html"><a href="data-scientist-job.html#automation"><i class="fa fa-check"></i><b>4.1.5</b> Automation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research"><i class="fa fa-check"></i><b>4.2</b> Consumer insight Track (aka. Marketing Research)</a></li>
+<li class="chapter" data-level="4.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#optimization-track-a.k.a-operational-research"><i class="fa fa-check"></i><b>4.3</b> Optimization Track (a.k.a Operational Research)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#model-optimization"><i class="fa fa-check"></i><b>4.3.1</b> Model optimization</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#macro-level-models"><i class="fa fa-check"></i><b>4.3.2</b> Macro level models</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#academic-paper-implementation"><i class="fa fa-check"></i><b>4.3.3</b> Academic Paper implementation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html"><i class="fa fa-check"></i><b>5</b> Marketing Strategy PhD skills</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading"><i class="fa fa-check"></i><b>5.1</b> Reading</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#meta-skill-to-gain"><i class="fa fa-check"></i><b>5.1.1</b> Meta skill to gain</a></li>
+<li class="chapter" data-level="5.1.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading-purpose"><i class="fa fa-check"></i><b>5.1.2</b> Reading Purpose</a></li>
+<li class="chapter" data-level="5.1.3" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#how-to-train"><i class="fa fa-check"></i><b>5.1.3</b> How to train</a></li>
+<li class="chapter" data-level="5.1.4" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#suggested-reading-optional"><i class="fa fa-check"></i><b>5.1.4</b> Suggested reading (optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#writing"><i class="fa fa-check"></i><b>5.2</b> Writing</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="question-1.html"><a href="question-1.html"><i class="fa fa-check"></i><b>6</b> Question 1:</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="question-1.html"><a href="question-1.html#a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings."><i class="fa fa-check"></i><b>6.1</b> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.</a></li>
+<li class="chapter" data-level="6.2" data-path="question-1.html"><a href="question-1.html#b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model."><i class="fa fa-check"></i><b>6.2</b> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.</a></li>
+<li class="chapter" data-level="6.3" data-path="question-1.html"><a href="question-1.html#c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary."><i class="fa fa-check"></i><b>6.3</b> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().</a></li>
+<li class="chapter" data-level="6.4" data-path="question-1.html"><a href="question-1.html#d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis"><i class="fa fa-check"></i><b>6.4</b> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="question-1.html"><a href="question-1.html#e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value."><i class="fa fa-check"></i><b>6.5</b> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.</a></li>
+<li class="chapter" data-level="6.6" data-path="question-1.html"><a href="question-1.html#f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model."><i class="fa fa-check"></i><b>6.6</b> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.</a></li>
+<li class="chapter" data-level="6.7" data-path="question-1.html"><a href="question-1.html#g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate"><i class="fa fa-check"></i><b>6.7</b> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?</a></li>
+<li class="chapter" data-level="6.8" data-path="question-1.html"><a href="question-1.html#h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident"><i class="fa fa-check"></i><b>6.8</b> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?</a></li>
+<li class="chapter" data-level="6.9" data-path="question-1.html"><a href="question-1.html#i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe."><i class="fa fa-check"></i><b>6.9</b> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.</a></li>
+<li class="chapter" data-level="6.10" data-path="question-1.html"><a href="question-1.html#j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model"><i class="fa fa-check"></i><b>6.10</b> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?</a></li>
+<li class="chapter" data-level="6.11" data-path="question-1.html"><a href="question-1.html#k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense"><i class="fa fa-check"></i><b>6.11</b> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="question-1.html"><a href="question-1.html#section"><i class="fa fa-check"></i><b>6.11.1</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="question-1.html"><a href="question-1.html#a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes."><i class="fa fa-check"></i><b>6.12</b> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.</a></li>
+<li class="chapter" data-level="6.13" data-path="question-1.html"><a href="question-1.html#b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results."><i class="fa fa-check"></i><b>6.13</b> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.</a></li>
+<li class="chapter" data-level="6.14" data-path="question-1.html"><a href="question-1.html#c.-6-points-interpret-the-values-of-the-intercepts-θj-."><i class="fa fa-check"></i><b>6.14</b> c. (6 points) Interpret the values of the intercepts θj .</a></li>
+<li class="chapter" data-level="6.15" data-path="question-1.html"><a href="question-1.html#d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics."><i class="fa fa-check"></i><b>6.15</b> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.</a></li>
+<li class="chapter" data-level="6.16" data-path="question-1.html"><a href="question-1.html#e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis"><i class="fa fa-check"></i><b>6.16</b> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="question-1-1.html"><a href="question-1-1.html"><i class="fa fa-check"></i><b>7</b> Question 1:</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="question-1-1.html"><a href="question-1-1.html#a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings.-1"><i class="fa fa-check"></i><b>7.1</b> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.</a></li>
+<li class="chapter" data-level="7.2" data-path="question-1-1.html"><a href="question-1-1.html#b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model.-1"><i class="fa fa-check"></i><b>7.2</b> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.</a></li>
+<li class="chapter" data-level="7.3" data-path="question-1-1.html"><a href="question-1-1.html#c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary.-1"><i class="fa fa-check"></i><b>7.3</b> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().</a></li>
+<li class="chapter" data-level="7.4" data-path="question-1-1.html"><a href="question-1-1.html#d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis-1"><i class="fa fa-check"></i><b>7.4</b> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="question-1-1.html"><a href="question-1-1.html#e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value.-1"><i class="fa fa-check"></i><b>7.5</b> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.</a></li>
+<li class="chapter" data-level="7.6" data-path="question-1-1.html"><a href="question-1-1.html#f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model.-1"><i class="fa fa-check"></i><b>7.6</b> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.</a></li>
+<li class="chapter" data-level="7.7" data-path="question-1-1.html"><a href="question-1-1.html#g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate-1"><i class="fa fa-check"></i><b>7.7</b> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?</a></li>
+<li class="chapter" data-level="7.8" data-path="question-1-1.html"><a href="question-1-1.html#h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident-1"><i class="fa fa-check"></i><b>7.8</b> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?</a></li>
+<li class="chapter" data-level="7.9" data-path="question-1-1.html"><a href="question-1-1.html#i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe.-1"><i class="fa fa-check"></i><b>7.9</b> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.</a></li>
+<li class="chapter" data-level="7.10" data-path="question-1-1.html"><a href="question-1-1.html#j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model-1"><i class="fa fa-check"></i><b>7.10</b> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?</a></li>
+<li class="chapter" data-level="7.11" data-path="question-1-1.html"><a href="question-1-1.html#k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense-1"><i class="fa fa-check"></i><b>7.11</b> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="question-1-1.html"><a href="question-1-1.html#section-1"><i class="fa fa-check"></i><b>7.11.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="question-2.html"><a href="question-2.html"><i class="fa fa-check"></i><b>8</b> Question 2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="question-2.html"><a href="question-2.html#a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes.-1"><i class="fa fa-check"></i><b>8.1</b> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.</a></li>
+<li class="chapter" data-level="8.2" data-path="question-2.html"><a href="question-2.html#b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results.-1"><i class="fa fa-check"></i><b>8.2</b> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.</a></li>
+<li class="chapter" data-level="8.3" data-path="question-2.html"><a href="question-2.html#c.-6-points-interpret-the-values-of-the-intercepts-θj-.-1"><i class="fa fa-check"></i><b>8.3</b> c. (6 points) Interpret the values of the intercepts θj .</a></li>
+<li class="chapter" data-level="8.4" data-path="question-2.html"><a href="question-2.html#d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics.-1"><i class="fa fa-check"></i><b>8.4</b> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.</a></li>
+<li class="chapter" data-level="8.5" data-path="question-2.html"><a href="question-2.html#e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis-1"><i class="fa fa-check"></i><b>8.5</b> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Stats Model II - HW1 (Yufan Lin)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="question-1-1" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Question 1:</h1>
+<p><span class="math inline">\(1\)</span> Logistic Regression: Major League Baseball (MLB) maintains a public facing version of it’s “Statcast” system. Since 2015, MLB teams have been leveraging data analytics to gain a competitive advantage using the raw data out of Statcast, which captures extremely high resolution views of player performance. Here we will study a dataset I have pulled and curated. We will examine which of several characteristics are predictive of a hit yielding a “home run.” The selected variables are as follows: • pitch_speed: Speed of pitch in mph. • pitch_spin: Spin rate of pitch • pitch_horizontal_movement: Horizontal movement of the pitch in feet from the catcher’s perspective. • pitch_vertical_movement: Vertical movement of the pitch in feet from the catcher’s perpsective. • plate_x: Horizontal position of the ball when it crosses home plate from the catcher’s perspective. • plate_z: Vertical position of the ball when it crosses home plate from the catcher’s perspective. • pitcher_hand: Pitcher’s throwing hand. • launch_angle: Launch angle of the batted ball. • launch_speed: Exit velocity of the batted ball (so, how fast it is going once hit by the batter) • stand: Side of the plate batter is standing from the pitcher’s perspective. • home_run: 1/0, the target variable The dataset can be loaded with the command HomeRun &lt;- read.csv(“…/HomeRunData.csv,” stringsAsFactors = TRUE)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="question-1-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Cannot knit the single document?</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="question-1-1.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input the dataset</span></span>
+<span id="cb3-2"><a href="question-1-1.html#cb3-2" aria-hidden="true" tabindex="-1"></a>HomeRun <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/HomeRunData.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings.-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.</h2>
+<p>On the first plot between launch speed and the probability of a home run, as the launch speed increase to 80 and above, the home run chance increases.</p>
+<p>On the second plot between launch angle and the probability of a home run, as the launch angle increase to be above 10, the chance of home run increases. However, when it surpass 50 the chance of home run decreases.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="question-1-1.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S39. class is the DV, thickness is the IV. ??? why it doesn&#39;t need binning but deviances needs it? Why is my output different from the ppt?</span></span>
+<span id="cb4-2"><a href="question-1-1.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="question-1-1.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(home_run <span class="sc">~</span> launch_speed,HomeRun)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="question-1-1.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as the lauch speed increase to 80, the home run chance increase.</span></span>
+<span id="cb5-2"><a href="question-1-1.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="question-1-1.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(home_run <span class="sc">~</span> launch_angle,HomeRun)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="question-1-1.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seems to have an u-shape effect. less than 0 and more than 50 are both bad. </span></span></code></pre></div>
+</div>
+<div id="b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model.-1" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.</h2>
+<p>I ran the logistic regression to predict home run using all other variables.</p>
+<p>The results show the pitch_speed, launch angle and launch speed are statistically significant predictors at 95% confidence level.</p>
+<p>I then conducted the deviance test. The result is significant. Thus, the model is better than the null model.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="question-1-1.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model with all variables. Note &lt;- not =  </span></span>
+<span id="cb7-2"><a href="question-1-1.html#cb7-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model <span class="ot">&lt;-</span> <span class="fu">glm</span>(home_run <span class="sc">~</span> ., <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span>
+<span id="cb7-3"><a href="question-1-1.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred. ??? What does the warning mean? still can run. move on for now. </span></span>
+<span id="cb7-4"><a href="question-1-1.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.statology.org/glm-fit-fitted-probabilities-numerically-0-or-1-occurred/</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="question-1-1.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ ., family = binomial, data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7030  -0.1785  -0.0455  -0.0036   4.2501  
+## 
+## Coefficients:
+##                             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)               -3.288e+01  1.073e+00 -30.632  &lt; 2e-16 ***
+## pitch_speed               -5.416e-02  8.723e-03  -6.209 5.32e-10 ***
+## pitch_spin                 6.729e-05  1.221e-04   0.551    0.581    
+## pitch_horizontal_movement -2.779e-02  5.151e-02  -0.539    0.590    
+## pitch_vertical_movement   -5.401e-02  7.207e-02  -0.749    0.454    
+## plate_x                   -4.299e-02  8.223e-02  -0.523    0.601    
+## plate_z                    1.040e-01  7.133e-02   1.458    0.145    
+## pitcher_handR             -6.163e-02  9.391e-02  -0.656    0.512    
+## launch_angle               9.850e-02  2.962e-03  33.253  &lt; 2e-16 ***
+## launch_speed               3.250e-01  7.796e-03  41.691  &lt; 2e-16 ***
+## standR                    -8.384e-02  7.141e-02  -1.174    0.240    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6109.7  on 29585  degrees of freedom
+## AIC: 6131.7
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="question-1-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(Logistic_Model)$coefficients</span></span>
+<span id="cb10-2"><a href="question-1-1.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># S22: change the df per the summary stats above. </span></span>
+<span id="cb10-3"><a href="question-1-1.html#cb10-3" aria-hidden="true" tabindex="-1"></a>Test_Dev <span class="ot">=</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>null.deviance <span class="sc">-</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>deviance</span>
+<span id="cb10-4"><a href="question-1-1.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="at">q =</span> Test_Dev, <span class="at">df =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="question-1-1.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? What does the 0 stands for here? significant?</span></span></code></pre></div>
+</div>
+<div id="c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary.-1" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().</h2>
+<p>I conducted the deviance test using drop1 function. The pitch speed, plate_z, launch_angle, launch_speed and stand are significant at 95% confidence level.</p>
+<p>The p-value are different from the summary. Plate_z went from 0.145 to 0.001; Stand went 0.240 from to 0.01. All other variables have similar p values as before.</p>
+<p>I would trust the drop1 function’s results as it doesn’t rely on the unreliable walt’s test.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="question-1-1.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S30, S67: stepwise selection - backward. large predictors some will randomly be significant. but note, you are not eliminate the one with p at border? once your predictors number is small enough. it is ok? </span></span>
+<span id="cb13-2"><a href="question-1-1.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Why no reaction for a long time?</span></span>
+<span id="cb13-3"><a href="question-1-1.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="question-1-1.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(Logistic_Model,<span class="at">test=</span><span class="st">&quot;F&quot;</span>)</span></code></pre></div>
+<pre><code>## Single term deletions
+## 
+## Model:
+## home_run ~ pitch_speed + pitch_spin + pitch_horizontal_movement + 
+##     pitch_vertical_movement + plate_x + plate_z + pitcher_hand + 
+##     launch_angle + launch_speed + stand
+##                           Df Deviance     AIC    F value    Pr(&gt;F)    
+## &lt;none&gt;                         6109.7  6131.7                         
+## pitch_speed                1   6147.7  6167.7   183.9705 &lt; 2.2e-16 ***
+## pitch_spin                 1   6110.0  6130.0     1.4772  0.224219    
+## pitch_horizontal_movement  1   6110.0  6130.0     1.4068  0.235594    
+## pitch_vertical_movement    1   6110.3  6130.3     2.7214  0.099019 .  
+## plate_x                    1   6110.0  6130.0     1.3233  0.250003    
+## plate_z                    1   6111.8  6131.8    10.2774  0.001348 ** 
+## pitcher_hand               1   6110.1  6130.1     2.0781  0.149433    
+## launch_angle               1   7716.6  7736.6  7781.3469 &lt; 2.2e-16 ***
+## launch_speed               1  10133.9 10153.9 19486.6009 &lt; 2.2e-16 ***
+## stand                      1   6111.1  6131.1     6.6608  0.009861 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis-1" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis</h2>
+<p>I compare the smaller model with the larger model, they are not significantly different per the deviance test.</p>
+<p>The result suggests that larger model doesn’t add much explanation power. I should use the smaller model for parsimonious explanation.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="question-1-1.html#cb15-1" aria-hidden="true" tabindex="-1"></a>Logistic_Model_better <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span> pitch_speed<span class="sc">+</span> plate_z <span class="sc">+</span> launch_angle <span class="sc">+</span> launch_speed <span class="sc">+</span> stand, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="question-1-1.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_better)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ pitch_speed + plate_z + launch_angle + 
+##     launch_speed + stand, family = binomial, data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7028  -0.1792  -0.0455  -0.0036   4.2511  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -32.484157   0.935687 -34.717   &lt;2e-16 ***
+## pitch_speed   -0.057392   0.006136  -9.354   &lt;2e-16 ***
+## plate_z        0.096252   0.070659   1.362    0.173    
+## launch_angle   0.098273   0.002941  33.420   &lt;2e-16 ***
+## launch_speed   0.324831   0.007788  41.711   &lt;2e-16 ***
+## standR        -0.088306   0.069221  -1.276    0.202    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6111.3  on 29590  degrees of freedom
+## AIC: 6123.3
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="question-1-1.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Is sthe plate_Z and standR just noise? random significant on the backward selection drop1 process?</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="question-1-1.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the df difference 11 (baseline all variable) - 5 (better model) = 6</span></span>
+<span id="cb19-2"><a href="question-1-1.html#cb19-2" aria-hidden="true" tabindex="-1"></a>Test_Dev_better <span class="ot">=</span> <span class="fu">summary</span>(Logistic_Model_better)<span class="sc">$</span>deviance <span class="sc">-</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>deviance</span>
+<span id="cb19-3"><a href="question-1-1.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="at">q =</span> Test_Dev_better, <span class="at">df =</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9502016</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="question-1-1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The result shows insignificant difference between the two. Thus, better model is parsimony.</span></span></code></pre></div>
+</div>
+<div id="e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value.-1" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.</h2>
+<p>The odds is 1.38. As the launch speed increase by 1, the chance of success will increase by 100% * (1.38-1) = 38%</p>
+<p>The confidence interval for the odds is between 1.36 to 1.40.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="question-1-1.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S57/ </span></span>
+<span id="cb22-2"><a href="question-1-1.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="question-1-1.html#cb22-3" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(Logistic_Model_better)</span>
+<span id="cb22-4"><a href="question-1-1.html#cb22-4" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##  (Intercept)  pitch_speed      plate_z launch_angle launch_speed       standR 
+## 7.803867e-15 9.442236e-01 1.101037e+00 1.103264e+00 1.383797e+00 9.154811e-01</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="question-1-1.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1.383797e+00  ??? interpret e+00 menas integer? 1.38 more success than failure to hit home rum </span></span>
+<span id="cb24-2"><a href="question-1-1.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S17: When launch speed increases by 1, the odds of success increases by a factor of 1.38 pr 100% * (1.38-1) = 38% increase in chance/ odds??? of sucess. </span></span>
+<span id="cb24-3"><a href="question-1-1.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="question-1-1.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#What if I want the chance vs. odds???</span></span>
+<span id="cb24-5"><a href="question-1-1.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># why the number different? 1.38/(1+1.38) = .57 </span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="question-1-1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type of confidenec interval</span></span>
+<span id="cb25-2"><a href="question-1-1.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#??? What if I use directly the CI from the model? violate assumption in binomial family?</span></span>
+<span id="cb25-3"><a href="question-1-1.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A lot of warning message: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred ???</span></span>
+<span id="cb25-4"><a href="question-1-1.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#S44: </span></span>
+<span id="cb25-5"><a href="question-1-1.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Confidence_Intervals &lt;- confint(Logistic_Model_better)</span></span>
+<span id="cb25-6"><a href="question-1-1.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Confidence_Intervals</span></span>
+<span id="cb25-7"><a href="question-1-1.html#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="question-1-1.html#cb25-8" aria-hidden="true" tabindex="-1"></a>Confidence_Intervals <span class="ot">&lt;-</span> <span class="fu">confint</span>(Logistic_Model_better)</span></code></pre></div>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="question-1-1.html#cb27-1" aria-hidden="true" tabindex="-1"></a>Confidence_Intervals <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##                     2.5 %       97.5 %
+## (Intercept)  1.218007e-15 4.773109e-14
+## pitch_speed  9.329500e-01 9.556669e-01
+## plate_z      9.584535e-01 1.264379e+00
+## launch_angle 1.096995e+00 1.109715e+00
+## launch_speed 1.363138e+00 1.405399e+00
+## standR       7.995274e-01 1.048816e+00</code></pre>
+</div>
+<div id="f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model.-1" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.</h2>
+<p>The model doesn’t fit well. The residual gets bigger rather than smaller when the probability increases. Based on the theoretical distribution, as the probability increases, the variance should be smaller. Thus, there may be misspecification in the model.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="question-1-1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bin plot vs. fitted plt </span></span>
+<span id="cb29-2"><a href="question-1-1.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># random subset is not required.</span></span>
+<span id="cb29-3"><a href="question-1-1.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.2.0     v stringr 1.4.0
+## v readr   2.1.2     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="question-1-1.html#cb33-1" aria-hidden="true" tabindex="-1"></a>plot_bin <span class="ot">&lt;-</span> <span class="cf">function</span>(Y, X, <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">return.DF =</span> <span class="cn">FALSE</span>){</span>
+<span id="cb33-2"><a href="question-1-1.html#cb33-2" aria-hidden="true" tabindex="-1"></a>Y_Name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(Y))</span>
+<span id="cb33-3"><a href="question-1-1.html#cb33-3" aria-hidden="true" tabindex="-1"></a>X_Name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(X))</span>
+<span id="cb33-4"><a href="question-1-1.html#cb33-4" aria-hidden="true" tabindex="-1"></a>Binned_Plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Plot_Y =</span> Y, <span class="at">Plot_X =</span> X)</span>
+<span id="cb33-5"><a href="question-1-1.html#cb33-5" aria-hidden="true" tabindex="-1"></a>Binned_Plot<span class="sc">$</span>bin <span class="ot">&lt;-</span> <span class="fu">cut</span>(Binned_Plot<span class="sc">$</span>Plot_X,<span class="at">breaks =</span> bins) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a href="question-1-1.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>()</span>
+<span id="cb33-7"><a href="question-1-1.html#cb33-7" aria-hidden="true" tabindex="-1"></a>Binned_Plot_summary <span class="ot">&lt;-</span> Binned_Plot <span class="sc">|&gt;</span></span>
+<span id="cb33-8"><a href="question-1-1.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(bin) <span class="sc">|&gt;</span></span>
+<span id="cb33-9"><a href="question-1-1.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">Y_ave =</span> <span class="fu">mean</span>(Plot_Y),</span>
+<span id="cb33-10"><a href="question-1-1.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="at">X_ave =</span> <span class="fu">mean</span>(Plot_X),</span>
+<span id="cb33-11"><a href="question-1-1.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="at">Count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb33-12"><a href="question-1-1.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y =</span> Binned_Plot_summary<span class="sc">$</span>Y_ave,</span>
+<span id="cb33-13"><a href="question-1-1.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> Binned_Plot_summary<span class="sc">$</span>X_ave,</span>
+<span id="cb33-14"><a href="question-1-1.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="at">ylab =</span> Y_Name,<span class="at">xlab =</span> X_Name)</span>
+<span id="cb33-15"><a href="question-1-1.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(return.DF) <span class="fu">return</span>(Binned_Plot_summary)</span>
+<span id="cb33-16"><a href="question-1-1.html#cb33-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="question-1-1.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S32: vs. fitted probability plot rather than individual variable. ??? When to use the individual variable on?</span></span>
+<span id="cb34-2"><a href="question-1-1.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="question-1-1.html#cb34-3" aria-hidden="true" tabindex="-1"></a>Logistic_better_Resids <span class="ot">&lt;-</span> <span class="fu">residuals</span>(Logistic_Model_better,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb34-4"><a href="question-1-1.html#cb34-4" aria-hidden="true" tabindex="-1"></a>Logistic_better_Predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better,<span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb34-5"><a href="question-1-1.html#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="question-1-1.html#cb34-6" aria-hidden="true" tabindex="-1"></a>NumBins <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb34-7"><a href="question-1-1.html#cb34-7" aria-hidden="true" tabindex="-1"></a>Binned_Data <span class="ot">&lt;-</span> <span class="fu">plot_bin</span>(<span class="at">Y =</span> Logistic_better_Resids,</span>
+<span id="cb34-8"><a href="question-1-1.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="at">X =</span> Logistic_better_Predictions,</span>
+<span id="cb34-9"><a href="question-1-1.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="at">bins =</span> NumBins,</span>
+<span id="cb34-10"><a href="question-1-1.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="at">return.DF =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-11"><a href="question-1-1.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="question-1-1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The model doesn&#39;t fit well??? why? </span></span>
+<span id="cb35-2"><a href="question-1-1.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S28 ??? why deviance not the same. why no u shape. np vs. npq.</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="question-1-1.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#need more bins, the shape will follow theroy on S18 Chapter 2.</span></span></code></pre></div>
+</div>
+<div id="g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate-1" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?</h2>
+<p>The model predicts well as the accuracy rate is high.</p>
+<p>The misclassification rate is 0.043 or 4%. However, the sensitivity and specificity are poor.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="question-1-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix </span></span>
+<span id="cb37-2"><a href="question-1-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="question-1-1.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># S47:</span></span>
+<span id="cb37-4"><a href="question-1-1.html#cb37-4" aria-hidden="true" tabindex="-1"></a>Predicted_Prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb37-5"><a href="question-1-1.html#cb37-5" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> <span class="fl">0.5</span>,<span class="at">yes =</span> <span class="st">&quot;home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;no_home_run&quot;</span>)</span>
+<span id="cb37-6"><a href="question-1-1.html#cb37-6" aria-hidden="true" tabindex="-1"></a>Observed_Class <span class="ot">&lt;-</span> HomeRun<span class="sc">$</span>home_run</span>
+<span id="cb37-7"><a href="question-1-1.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Observed_Class,Predicted_Class)</span></code></pre></div>
+<pre><code>##               Predicted_Class
+## Observed_Class home_run no_home_run
+##              0      190       28113
+##              1      274        1019</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="question-1-1.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Misclassification rate:</span></span>
+<span id="cb39-2"><a href="question-1-1.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="question-1-1.html#cb39-3" aria-hidden="true" tabindex="-1"></a>table_classify <span class="ot">=</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb39-4"><a href="question-1-1.html#cb39-4" aria-hidden="true" tabindex="-1"></a>Accuracy_rate <span class="ot">=</span> (table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>])<span class="sc">/</span>(table_classify[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb39-5"><a href="question-1-1.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>Accuracy_rate</span></code></pre></div>
+<pre><code>## [1] 0.04085011</code></pre>
+</div>
+<div id="h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident-1" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?</h2>
+<p>The inverse relationship is strongly evident as the threshold increases.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="question-1-1.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ROC curve</span></span>
+<span id="cb41-2"><a href="question-1-1.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="question-1-1.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#S48: </span></span>
+<span id="cb41-4"><a href="question-1-1.html#cb41-4" aria-hidden="true" tabindex="-1"></a>thresh <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.005</span>,<span class="fl">0.995</span>,<span class="fl">0.001</span>)</span>
+<span id="cb41-5"><a href="question-1-1.html#cb41-5" aria-hidden="true" tabindex="-1"></a>Sensitivity <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(thresh))</span>
+<span id="cb41-6"><a href="question-1-1.html#cb41-6" aria-hidden="true" tabindex="-1"></a>Specificity <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(thresh))</span>
+<span id="cb41-7"><a href="question-1-1.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">along=</span>thresh)){</span>
+<span id="cb41-8"><a href="question-1-1.html#cb41-8" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> thresh[j],</span>
+<span id="cb41-9"><a href="question-1-1.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="at">yes =</span> <span class="st">&quot;1_home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;0_no_home_run&quot;</span>)</span>
+<span id="cb41-10"><a href="question-1-1.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Conf_Matrix <span class="ot">&lt;-</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb41-11"><a href="question-1-1.html#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb41-12"><a href="question-1-1.html#cb41-12" aria-hidden="true" tabindex="-1"></a>Specificity[j] <span class="ot">&lt;-</span> Conf_Matrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">/</span>(Conf_Matrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>Conf_Matrix[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb41-13"><a href="question-1-1.html#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb41-14"><a href="question-1-1.html#cb41-14" aria-hidden="true" tabindex="-1"></a>Sensitivity[j] <span class="ot">&lt;-</span> Conf_Matrix[<span class="dv">2</span>,<span class="dv">2</span>]<span class="sc">/</span>(Conf_Matrix[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>Conf_Matrix[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb41-15"><a href="question-1-1.html#cb41-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="question-1-1.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">-</span>Specificity,Sensitivity,<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">main =</span> <span class="st">&quot;ROC curve&quot;</span>,</span>
+<span id="cb42-2"><a href="question-1-1.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb42-3"><a href="question-1-1.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+<div id="i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe.-1" class="section level2" number="7.9">
+<h2><span class="header-section-number">7.9</span> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.</h2>
+<p>The optimal threshold is 0.05.</p>
+<p>The result is better than 0.5 as the cut-off: The accuracy is worse but sensitivity and specificity are higher or more discriminant. The accuracy rate is not a good indicator of model performance when the outcomes is rare such as home run.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="question-1-1.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#! The result is better than 0.5 as the cut-off  The accuracy is worse but senstivity and specificity is higher</span></span>
+<span id="cb43-2"><a href="question-1-1.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S50</span></span>
+<span id="cb43-3"><a href="question-1-1.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="question-1-1.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(thresh,<span class="fu">cbind</span>(Sensitivity,Specificity),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
+<span id="cb43-5"><a href="question-1-1.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">&quot;Threshold&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Proportion&quot;</span>,<span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="question-1-1.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># abline, v = cutoff. </span></span></code></pre></div>
+<p># <strong>Rewrie the answer</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="question-1-1.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix </span></span>
+<span id="cb45-2"><a href="question-1-1.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># when we lower the threshold, more on the home run category. if choose 0.5, for the rare. </span></span>
+<span id="cb45-3"><a href="question-1-1.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># S47:</span></span>
+<span id="cb45-4"><a href="question-1-1.html#cb45-4" aria-hidden="true" tabindex="-1"></a>Predicted_Prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb45-5"><a href="question-1-1.html#cb45-5" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> <span class="fl">0.05</span>,<span class="at">yes =</span> <span class="st">&quot;home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;no_home_run&quot;</span>)</span>
+<span id="cb45-6"><a href="question-1-1.html#cb45-6" aria-hidden="true" tabindex="-1"></a>Observed_Class <span class="ot">&lt;-</span> HomeRun<span class="sc">$</span>home_run</span>
+<span id="cb45-7"><a href="question-1-1.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Observed_Class,Predicted_Class)</span></code></pre></div>
+<pre><code>##               Predicted_Class
+## Observed_Class home_run no_home_run
+##              0     4222       24081
+##              1     1182         111</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="question-1-1.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Misclassification rate:</span></span>
+<span id="cb47-2"><a href="question-1-1.html#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="question-1-1.html#cb47-3" aria-hidden="true" tabindex="-1"></a>table_classify <span class="ot">=</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb47-4"><a href="question-1-1.html#cb47-4" aria-hidden="true" tabindex="-1"></a>Accuracy_rate <span class="ot">=</span> (table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>])<span class="sc">/</span>(table_classify[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb47-5"><a href="question-1-1.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>Accuracy_rate</span></code></pre></div>
+<pre><code>## [1] 0.1464049</code></pre>
+</div>
+<div id="j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model-1" class="section level2" number="7.10">
+<h2><span class="header-section-number">7.10</span> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?</h2>
+<p>The AIC of the model is 6203.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="question-1-1.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce AIC </span></span>
+<span id="cb49-2"><a href="question-1-1.html#cb49-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model_reduced <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span>  launch_angle <span class="sc">+</span> launch_speed, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="question-1-1.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7202  -0.1812  -0.0479  -0.0038   4.2110  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -36.664943   0.835606  -43.88   &lt;2e-16 ***
+## launch_angle   0.097468   0.002849   34.22   &lt;2e-16 ***
+## launch_speed   0.317479   0.007616   41.69   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6197.6  on 29593  degrees of freedom
+## AIC: 6203.6
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+</div>
+<div id="k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense-1" class="section level2" number="7.11">
+<h2><span class="header-section-number">7.11</span> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?</h2>
+<p>The model with dummy’s AIC is 4508 which is much smaller than the 6203.</p>
+<p>The dummy variable means when the launch_angle is between 20 and 40 degree the odds of success is higher than the launch_angle outside the window. Thus, there is a optimal point of the launch angle.</p>
+<p>The intercept is very small or 4.186275e-17 which means the chance of making a home run when all other variables are set to 0 is very small.</p>
+<div id="section-1" class="section level3" number="7.11.1">
+<h3><span class="header-section-number">7.11.1</span> </h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="question-1-1.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare with other temp, here is more likely.</span></span>
+<span id="cb52-2"><a href="question-1-1.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="question-1-1.html#cb52-3" aria-hidden="true" tabindex="-1"></a>HomeRun<span class="sc">$</span>launch_angle_d <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HomeRun<span class="sc">$</span>launch_angle <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> HomeRun<span class="sc">$</span>launch_angle <span class="sc">&lt;=</span> <span class="dv">40</span> ,<span class="dv">1</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="question-1-1.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce AIC </span></span>
+<span id="cb53-2"><a href="question-1-1.html#cb53-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model_reduced_d <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span>  launch_angle_d <span class="sc">+</span> launch_speed, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun) </span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="question-1-1.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7202  -0.1812  -0.0479  -0.0038   4.2110  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -36.664943   0.835606  -43.88   &lt;2e-16 ***
+## launch_angle   0.097468   0.002849   34.22   &lt;2e-16 ***
+## launch_speed   0.317479   0.007616   41.69   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6197.6  on 29593  degrees of freedom
+## AIC: 6203.6
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="question-1-1.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced_d)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle_d + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.1862  -0.0780  -0.0148  -0.0025   3.9332  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)    -37.712135   0.991093  -38.05   &lt;2e-16 ***
+## launch_angle_d   5.329550   0.156367   34.08   &lt;2e-16 ***
+## launch_speed     0.313245   0.009108   34.39   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  4502.2  on 29593  degrees of freedom
+## AIC: 4508.2
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="question-1-1.html#cb58-1" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds_d <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(Logistic_Model_reduced_d)</span>
+<span id="cb58-2"><a href="question-1-1.html#cb58-2" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds_d <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##    (Intercept) launch_angle_d   launch_speed 
+##   4.186275e-17   2.063451e+02   1.367857e+00</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="question-1-1.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert intercept to probability odds/ (1+odds)</span></span>
+<span id="cb60-2"><a href="question-1-1.html#cb60-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">4.186275e-17</span>)<span class="sc">/</span>(<span class="dv">1</span><span class="fl">-4.186275e-17</span>)</span></code></pre></div>
+<pre><code>## [1] 4.186275e-17</code></pre>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="question-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="question-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW1v2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW1v2.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Applied Stats Model II - HW1 (Yufan Lin)</title>
+  <title>Chapter 7 Question 2 | Applied Stats Model II - HW1 (Yufan Lin)</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Applied Stats Model II - HW1 (Yufan Lin)" />
+  <meta property="og:title" content="Chapter 7 Question 2 | Applied Stats Model II - HW1 (Yufan Lin)" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Stats Model II - HW1 (Yufan Lin)" />
+  <meta name="twitter:title" content="Chapter 7 Question 2 | Applied Stats Model II - HW1 (Yufan Lin)" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="question-1.html"/>
 
-<link rel="next" href="literature-review-note.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -281,472 +281,308 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Applied Stats Model II - HW1 (Yufan Lin)</h1>
-<p class="author"><em>Frank Lin</em></p>
-<p class="date"><em>2022-02-25</em></p>
+<div id="question-2" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Question 2</h1>
+<p><strong>2) Ordinal Regression</strong> The DrugConsumption.csv file on Canvas contains records for 1458 respondents. For each respondent 12 attributes are known: Personality measurements which include NEO-FFI-R (neuroticism, extraversion, openness to experience, agreeableness, and conscientiousness), BIS-11 (impulsivity), and ImpSS (sensation seeking), level of education, age, gender and country of residence. In addition, participants were questioned concerning their use of 18 legal and illegal drugs, of which only LSD is included for our study. The variables are as follows: • LSD: Target variable, ordinal with levels CL0-CL5, which correspond to “Never Used,” “Used over a Decade Ago,” “Used in Last Decade,” “Used in Last Year,” “Used in Last Month,” “Used in Last Week.” • Age: Categorical age • Gender: Gender • Education: Categorical Educational level • Country: UK or USA • Nscore: NEO-FFI-R, a psychological measure of Neuroticism • Escore: NEO-FFI-R Extraversion. • Oscore: NEO-FFI-R Openness to experience • Ascore: NEO-FFI-R Agreeableness • Cscore: NEO-FFI-R Conscientiousness • Impulsive: Impulsiveness score measured by BIS-11 • SS: Impulsive Sensation Seeking measured by ImpSS You may read the data as follows: Drugs &lt;- read.csv(“…/DrugConsumption.csv,” stringsAsFactors = TRUE) Drugs$LSD &lt;- ordered(Drugs$LSD,levels = c(paste0(“CL,”0:5)))</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="question-2.html#cb62-1" aria-hidden="true" tabindex="-1"></a>Drugs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/DrugConsumption.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="question-2.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb63-2"><a href="question-2.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for mutate function</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="question-2.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? the following code gave me error. What is it?</span></span>
+<span id="cb64-2"><a href="question-2.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Drugs$LSD &lt;- ordered(Drugs$LSD,levels = c(paste0(&quot;CL&quot;,0:5)))</span></span></code></pre></div>
+<div id="a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes." class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.</h2>
+<p>I re-coded the categories into descriptive names “Used over a Decade Ago,” “Used in Last Decade,” “Used in Last Year,” “Used in Last Month,” “Used in Last Week.”</p>
+<p>Based on the plot, male are more likely to use drugs than female. Many female never used any drugs.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="question-2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb65-2"><a href="question-2.html#cb65-2" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL0&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Never Used&quot;</span></span>
+<span id="cb65-3"><a href="question-2.html#cb65-3" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL1&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used over a Decade Ago&quot;</span></span>
+<span id="cb65-4"><a href="question-2.html#cb65-4" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL2&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Decade&quot;</span></span>
+<span id="cb65-5"><a href="question-2.html#cb65-5" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL3&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Year&quot;</span></span>
+<span id="cb65-6"><a href="question-2.html#cb65-6" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL4&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Month&quot;</span></span>
+<span id="cb65-7"><a href="question-2.html#cb65-7" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL5&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Week&quot;</span></span>
+<span id="cb65-8"><a href="question-2.html#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Drugs<span class="sc">$</span>LSD_o)</span></code></pre></div>
+<pre><code>## 
+##             Never Used    Used in Last Decade     Used in Last Month 
+##                    866                    134                     62 
+##      Used in Last Week      Used in Last Year Used over a Decade Ago 
+##                     40                    146                    210</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="question-2.html#cb67-1" aria-hidden="true" tabindex="-1"></a>Plot_DF <span class="ot">&lt;-</span> Drugs <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="question-2.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Gender, LSD_o) <span class="sc">|&gt;</span></span>
+<span id="cb67-3"><a href="question-2.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb67-4"><a href="question-2.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Gender) <span class="sc">|&gt;</span></span>
+<span id="cb67-5"><a href="question-2.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">etotal=</span><span class="fu">sum</span>(count), <span class="at">proportion=</span>count<span class="sc">/</span>etotal)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;Gender&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="question-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(Age_Grp=cut_number(age,4)) |&gt;  not used since the gender is not continous.</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="question-2.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot_DF -&gt; only a dataframe</span></span>
+<span id="cb70-2"><a href="question-2.html#cb70-2" aria-hidden="true" tabindex="-1"></a>Gender_Plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Plot_DF, <span class="fu">aes</span>(<span class="at">x=</span>Gender, <span class="at">y=</span>proportion,</span>
+<span id="cb70-3"><a href="question-2.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="at">group=</span>LSD_o, <span class="at">linetype=</span>LSD_o))<span class="sc">+</span></span>
+<span id="cb70-4"><a href="question-2.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>()</span>
+<span id="cb70-5"><a href="question-2.html#cb70-5" aria-hidden="true" tabindex="-1"></a>Gender_Plot</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 </div>
-<div id="selling-and-buying-process" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Selling and buying process:</h1>
-<div id="salespeople-skill-perception" class="section level3" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> Salespeople skill/ perception</h3>
-<p>include the intuition/ first impression, price importance sensing.
-salespeople skill vs. adaptive selling, SOCO.</p>
-<p><span class="citation">(<a href="#ref-spiro1990" role="doc-biblioref">Spiro and Weitz 1990</a>)</span></p>
-<p>Adaptive selling: conceptualization, measurement, and nomological
-validity</p>
-<p>Introduce the skill of adaptive selling. even thought all adapt, but to
-what extent is not clear. how effective is not clear.</p>
-<p>A 16-item scale is developed to measure the degree to which salespeople
-practice adaptive selling-the degree to which they alter their sales
-presentation across and during customer interactions in response to the
-perceived nature of the sales situ- ation. This paper-and-pencil scale
-assesses self-reports of five facets of adaptive selling: (1)
-recognition that different sales approaches are needed for different
-cus- tomers, (2) confidence in ability to use a variety of approaches,
-(3) confidence in ability to alter approach during an interaction, (4)
-collection of information to fa- cilitate adaptation, and (5) actual use
-of different approaches. The reliability of the scale is .85. Support
-for the nomological validity of the scale is found by failure to
-disconfirm relationships with an antecedent (intrinsic motivation),
-several general personality measures of interpersonal flexibility
-(self-monitoring, empathy, locus of control, and androgyny), and a
-consequence (self-reported perfo</p>
-<p><span class="citation">(<a href="#ref-mullins2014" role="doc-biblioref">Mullins et al. 2014</a>)</span></p>
-<p>Know Your Customer: How Salesperson Perceptions of Customer Relationship
-Quality Form and Influence Account Profitability</p>
-<p>salespeople’s skill in sense the customer impacts the account profit</p>
-<p>Firms often utilize salesperson intelligence in marketing strategies to
-improve sales performance. However, this approach is problematic if the
-information is based on inaccurate perceptions. In light of this, the
-authors introduce a theoretical model to study the antecedents and
-profit impact of salesperson perceptions of customer relationship
-quality. Dyadic analyses using matched survey responses from
-salesperson–customer dyads and secondary performance data reveal
-several insightful findings. Results show that self-efficacious
-salespeople are upwardly biased, whereas customer-oriented salespeople
-are downwardly biased in their perceptions of customer relationship
-quality. However, managers can correct these inaccuracies using a
-behavior-based control system. Response surface analyses illustrate that
-the effects of salesperson accuracy and inaccuracy are distinct and
-curvilinear. During later relationship phases, salespeople profit more
-from salesperson accuracy in high- and lowquality relationships (i.e., a
-U-shaped effect). Yet the increasingly harmful impact of salesperson
-inaccuracy on profit is more severe during earlier relationship phases.
-Together, these findings highlight the benefits of measuring salesperson
-perceptions and how to manage them</p>
-<p><span class="citation">(<a href="#ref-romanavila2010" role="doc-biblioref">Roman Avila and Iacobucci 2010</a>)</span></p>
-<p>Antecedents and consequences of adaptive selling confidence and
-behavior: a dyadic analysis of salespeople and their customers</p>
-<p>antecdent and consequence of adaptive selling</p>
-<p>Personal selling is thought to be a very effective marketing vehicle.
-The notion of adaptive selling suggests that it should work better than
-any other means of communication because salespeople are able to develop
-a unique message for each customer. This research proposes a model of
-key antecedents and consequences of adaptive selling. In particular, we
-distinguish, measure, and model the attitudinal and behavioral aspects
-of adaptive selling, something that is encouraged but not thoroughly
-examined in the literature. Hypotheses are tested using data from 210
-salesperson-customer dyads. The results indicate that a salesperson’s
-perception of the firm’s customer orientation has an effect on adaptive
-selling behavior through the salesperson’s adaptive selling confidence,
-role ambiguity, intrinsic motivation and customer-qualification skills.
-Adaptive selling behavior increases salesperson’s outcome performance,
-customers’ evaluations of satisfaction with the product and with the
-salesperson, which enhance customers’ anticipation of future
-interactions with the salesperson. The implications for management and
-theory are discussed.</p>
+<div id="b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results." class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.</h2>
+<p>The significant variables are age 55+, GenderMale, CountryUSA, Oscore and Cscore.</p>
+<p>The drop1 function shows gender, country, Oscore and Cscore are significant but not the age 55+. Strangely the drop1 function doesn’t factorize the categorical variables such as age and education.</p>
+<p>Overall, the two results are quite consistent with each other.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="question-2.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked _by_ &#39;.GlobalEnv&#39;:
+## 
+##     biopsy</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="question-2.html#cb75-1" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o <span class="ot">&lt;-</span> <span class="fu">ordered</span>(Drugs<span class="sc">$</span>LSD_o,</span>
+<span id="cb75-2"><a href="question-2.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Never Used&quot;</span>, <span class="st">&quot;Used over a Decade Ago&quot;</span>, <span class="st">&quot;Used in Last Decade&quot;</span>, <span class="st">&quot;Used in Last Year&quot;</span>, <span class="st">&quot;Used in Last Month&quot;</span>, <span class="st">&quot;Used in Last Week&quot;</span>))</span>
+<span id="cb75-3"><a href="question-2.html#cb75-3" aria-hidden="true" tabindex="-1"></a>PropOdds_Model <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">polr</span>(LSD_o <span class="sc">~</span> Age <span class="sc">+</span> Gender <span class="sc">+</span> Education <span class="sc">+</span> Country <span class="sc">+</span> Nscore <span class="sc">+</span> Escore <span class="sc">+</span> Oscore <span class="sc">+</span> Ascore <span class="sc">+</span> Cscore, Drugs)</span>
+<span id="cb75-4"><a href="question-2.html#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<pre><code>## Call:
+## MASS::polr(formula = LSD_o ~ Age + Gender + Education + Country + 
+##     Nscore + Escore + Oscore + Ascore + Cscore, data = Drugs)
+## 
+## Coefficients:
+##                               Value Std. Error  t value
+## Age25-34                  -0.097001    0.16037 -0.60486
+## Age35-44                  -0.006247    0.17504 -0.03569
+## Age45-54                  -0.218738    0.18630 -1.17412
+## Age55+                    -0.671385    0.26083 -2.57408
+## GenderMale                 0.773020    0.12094  6.39159
+## EducationHighSchool       -0.105167    0.29551 -0.35588
+## EducationHSDropout         0.124446    0.22553  0.55180
+## EducationPostGraduate     -0.294833    0.17637 -1.67163
+## EducationProfessionalCert  0.011469    0.19528  0.05873
+## EducationSomeCollege       0.078480    0.16218  0.48392
+## CountryUSA                 1.708138    0.13773 12.40252
+## Nscore                    -0.110185    0.06866 -1.60469
+## Escore                     0.014487    0.06745  0.21478
+## Oscore                     0.597784    0.06685  8.94237
+## Ascore                    -0.018913    0.05870 -0.32221
+## Cscore                    -0.178554    0.06696 -2.66662
+## 
+## Intercepts:
+##                                            Value   Std. Error t value
+## Never Used|Used over a Decade Ago           1.2133  0.1750     6.9337
+## Used over a Decade Ago|Used in Last Decade  2.1296  0.1832    11.6275
+## Used in Last Decade|Used in Last Year       2.9048  0.1887    15.3969
+## Used in Last Year|Used in Last Month        4.1597  0.2054    20.2562
+## Used in Last Month|Used in Last Week        5.2439  0.2415    21.7105
+## 
+## Residual Deviance: 3143.917 
+## AIC: 3185.917</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="question-2.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#problen with converge if I include the same variable LSD. need to remove it.</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="question-2.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(PropOdds_Model,<span class="at">test=</span><span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<pre><code>## Single term deletions
+## 
+## Model:
+## LSD_o ~ Age + Gender + Education + Country + Nscore + Escore + 
+##     Oscore + Ascore + Cscore
+##           Df    AIC     LRT  Pr(&gt;Chi)    
+## &lt;none&gt;       3185.9                      
+## Age        4 3186.2   8.270  0.082171 .  
+## Gender     1 3225.3  41.410 1.234e-10 ***
+## Education  5 3181.0   5.122  0.401142    
+## Country    1 3343.6 159.732 &lt; 2.2e-16 ***
+## Nscore     1 3186.5   2.573  0.108671    
+## Escore     1 3184.0   0.046  0.829943    
+## Oscore     1 3266.8  82.918 &lt; 2.2e-16 ***
+## Ascore     1 3184.0   0.104  0.747364    
+## Cscore     1 3191.1   7.183  0.007359 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="question-2.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop1(PropOdds_Model)</span></span>
+<span id="cb81-2"><a href="question-2.html#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="question-2.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co"># why is the age not broken down as factors? </span></span>
+<span id="cb81-4"><a href="question-2.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop1 will drop all in age variable. </span></span></code></pre></div>
 </div>
-<div id="communication---intraorganization" class="section level3" number="1.0.2">
-<h3><span class="header-section-number">1.0.2</span> Communication - intraorganization</h3>
-<p><span class="citation">(<a href="#ref-johlke2000" role="doc-biblioref">Johlke et al. 2000</a>)</span></p>
-<p>Sales manager’s impact on the salesperson job outcomes</p>
-<p>drawing from several diverse streams of research, the authors develop
-the rationale and empirical background for considering the role of sales
-manager communication practices. Using a multifaceted conceptualization
-of communication as its base, the study justifies, proposes, and
-evaluates a model describing the relations among sales
-managers’communication practices and salesperson ambiguity,
-satisfaction, performance, and commitment. The results support the
-hypothesized model and suggest that sales manager communication
-practices are associated with these important salesperson job outcomes.</p>
-<p><span class="citation">(<a href="#ref-bolander2015" role="doc-biblioref">Bolander et al. 2015</a>)</span></p>
-<p>Social Networks Within Sales Organizations: Their Development and
-Importance for Salesperson Performance</p>
-<p>Salespeople’s communication among peers on their job performance</p>
-<p>Although the study of salesperson performance traditionally has focused
-on salespeople’s activities and relationships with customers, scholars
-recently have proposed that salespeople’s intraorganizational
-relationships and activities also play a vital role in driving sales
-performance. Using data from 286 salespeople in a unique social network
-analysis, the authors explore the effects of salespeople’s
-intraorganizational relationships on objective salesperson performance
-as well as the role of political skill in developing intraorganizational
-relationships. The results indicate that two types of social network
-characteristics (i.e., relational centrality and positional centrality)
-contribute substantially to salesperson performance. Moreover,
-salespeople’s political skill is shown to be an antecedent to relational
-centrality but, surprisingly, not positional centrality. This finding
-demonstrates that researchers should not assume that all centralities
-represent similar underlying network characteristics. In light of these
-results, the authors discuss several implications for both managers and
-researchers as well as directions for further research</p>
+<div id="c.-6-points-interpret-the-values-of-the-intercepts-θj-." class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> c. (6 points) Interpret the values of the intercepts θj .</h2>
+<p>The intercepts are listed as below:</p>
+<p>Never Used|Used over a Decade Ago 3.364569 . It means cumulative odds of being never used is 3.36 when all other variables are set to 0.</p>
+<p>Used over a Decade Ago|Used in Last Decade 8.411502 It means cumulative odds of being Used in last decade is 8.411502 when all other variables are set to 0.</p>
+<p>Used in Last Decade|Used in Last Year 18.26159 It means cumulative odds of being Used in last year is 18.2615 when all other variables are set to 0.</p>
+<p>Used in Last Year|Used in Last Month 64.0523 It means cumulative odds of being Used in last month is 64.0523 when all other variables are set to 0.</p>
+<p>Used in Last Month|Used in Last Week 189.4074 It means cumulative odds of being Used in last week is 189 when all other variables are set to 0.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="question-2.html#cb82-1" aria-hidden="true" tabindex="-1"></a>PropOdds_Model_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="question-2.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PropOdds_Model_sum$coefficients    </span></span>
+<span id="cb84-2"><a href="question-2.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">1.2133</span>)</span></code></pre></div>
+<pre><code>## [1] 3.364569</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="question-2.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.1296</span>)</span></code></pre></div>
+<pre><code>## [1] 8.411502</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="question-2.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.9048</span>)</span></code></pre></div>
+<pre><code>## [1] 18.26159</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="question-2.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">4.1597</span>)</span></code></pre></div>
+<pre><code>## [1] 64.0523</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="question-2.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">5.2439</span>)</span></code></pre></div>
+<pre><code>## [1] 189.4074</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="question-2.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!not sure how to explain it. S97. Does it also needs a exp()? -&gt; how to extract it automatically? does it mean % of ppl???</span></span></code></pre></div>
 </div>
-<div id="communication-interorganization---fle-interactions" class="section level3" number="1.0.3">
-<h3><span class="header-section-number">1.0.3</span> Communication Interorganization - FLE interactions</h3>
-<p><span class="citation">(<a href="#ref-emailb2" role="doc-biblioref">S. K. Singh, n.d.</a>)</span></p>
-<p>E-negotiations, or sales negotiations over email, are increasingly
-common in business-to-business (B2B) sales, but little is known about
-selling effectiveness in this medium. This research investigates
-salespeople’s use of influence tactics as textual cues to manage buyers’
-attention during B2B e-negotiations to win sales contract award. Drawing
-on studies of attention as a selection heuristic, the authors advance
-the literature on mechanisms of sales influence by theorizing buyer
-attention as a key mediating variable between the use of influence
-tactics and contract award. They use a unique, longitudinal panel
-spanning more than two years of email communications between buyers and
-salespeople during B2B sales negotiations to develop a validated corpus
-of textual cues that are diagnostic of salespeople’s influence tactics
-in e-negotiations. These e-communications data are augmented by
-salesperson in-depth interviews and survey, archival performance data,
-and a controlled experimental study with professional salespeople. The
-obtained results indicate that the concurrent use of compliance <em>or</em>
-internalization-based tactics as textual cues bolsters buyers’ attention
-and is associated with greater likelihood of contract award. In
-contrast, concurrent use of compliance <em>and</em> internalization-based
-tactics is prone to degrade buyer attention and likely to put the
-salesperson at a disadvantage in closing the contract award.</p>
-<p><span class="citation">(<a href="#ref-singh2017" role="doc-biblioref">S. Singh et al. 2017</a>)</span></p>
-<p>Using a novel approach with video-recordings of sales interactions, this
-study focuses on a dynamic analysis of salesperson effectiveness in
-handling customer queries. We conceptualize salesperson behaviors,
-namely, <em>resolving</em>, <em>relating</em>, and <em>emoting</em>, as separate elements of
-customer query handling and empirically identify the distinct verbal and
-nonverbal cues that salespeople use to display these behaviors during
-sales interactions. We draw from compensation effects in social
-cognition theory to propose that customers’ perceptions of a
-salesperson’s effectiveness are prone to trade-offs between competence
-(resolving behaviors) and warmth (relating and emoting behaviors).
-Results, robust to endogeneity corrections, support the proposed
-tradeoffs such that the effectiveness of salesperson’s resolving
-behavior is significantly curtailed, even neutralized, by the
-salesperson’s relating and emoting behaviors. We situate these
-counterintuitive results within the extant theory and research on sales
-interactions, and outline implications for practice.</p>
-<p><span class="citation">(<a href="#ref-boorom1998" role="doc-biblioref">Boorom, Goolsby, and Ramsey 1998</a>)</span></p>
-<p>Relational Communication Traits and Their Effect on Adaptiveness and
-Sales Performance</p>
-<p>How does the salesperson trait affects the communication effectiveness
-and then on the job performance.</p>
-<p>Two relational communication traits, communication apprehension and
-interaction involvement, are investigated within an adaptive selling
-framework to assess their impact on salesperson adaptiveness and sales
-performance. Using a sample of 239 insurance salespeople, results
-demonstrate that salespeople exhibiting lower levels of communication
-apprehension are more highly involved in communication interactions, and
-higher involvement facilitates increased adaptiveness and sales
-performance. This research highlights the importance of effective
-communication within sales interactions and offers suggestions to
-improve salesperson communication skill</p>
-<p><span class="citation">(<a href="#ref-soldow1984" role="doc-biblioref">Soldow and Thomas 1984</a>)</span></p>
-<p>Relational Communication: Form versus Content in the Sales Interaction</p>
-<p>two type of f2f comm: content and relationship</p>
-<p>In view of the importance of interpersonal com- munication in the
-face-to-face selling interaction, this discussion seeks to provide a
-more complete picture of the actual communication process by introducing
-a concept new to the marketing liter- ature. The concept is relational
-communication, which refers to that part of a message beyond the actual
-content which allows communicators to ne- gotiate their relative
-positions. Thus, the message sender can either bid for dominance,
-deference, or equality. The message receiver, in turn, can ac- cept the
-bid or deny</p>
+<div id="d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics." class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.</h2>
+<p>The open to experience increase the odds of using the drugs by 1.81.</p>
+<p>Conscientiousness decreases the odds of using the drugs by 0.8.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="question-2.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>##                  Age25-34                  Age35-44                  Age45-54 
+##              -0.097000990              -0.006246867              -0.218738114 
+##                    Age55+                GenderMale       EducationHighSchool 
+##              -0.671384707               0.773019582              -0.105166700 
+##        EducationHSDropout     EducationPostGraduate EducationProfessionalCert 
+##               0.124446396              -0.294833364               0.011469188 
+##      EducationSomeCollege                CountryUSA                    Nscore 
+##               0.078480163               1.708138461              -0.110184787 
+##                    Escore                    Oscore                    Ascore 
+##               0.014486532               0.597783608              -0.018912601 
+##                    Cscore 
+##              -0.178553588</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="question-2.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? are the coefficient intercept or beta?</span></span>
+<span id="cb97-2"><a href="question-2.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Both personality significant. The higher the less likely to move ?!!!</span></span>
+<span id="cb97-3"><a href="question-2.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Oscore </span></span>
+<span id="cb97-4"><a href="question-2.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">0.597784</span>) </span></code></pre></div>
+<pre><code>## [1] 1.818085</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="question-2.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cscore</span></span>
+<span id="cb99-2"><a href="question-2.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.178554</span>)</span></code></pre></div>
+<pre><code>## [1] 0.8364789</code></pre>
 </div>
-<div id="sales-marketing-interface" class="section level3" number="1.0.4">
-<h3><span class="header-section-number">1.0.4</span> Sales marketing interface</h3>
-<p><span class="citation">(<a href="#ref-smith2006" role="doc-biblioref">T. M. Smith, Gopalakrishna, and Chatterjee 2006</a>)</span></p>
-<p>A Three-Stage Model of Integrated Marketing Communications at the
-Marketing–Sales Interface</p>
-<p>The marketing and sales functions in many firms are often at odds
-despite their common goal of increasing revenue and profit. The finger
-pointing goes both ways: Marketing complains of poor lead follow-up by
-sales, and in turn, sales grumbles about the quality of leads generated
-by marketing. This disconnect can be damaging; high lead volumes
-generated through effective marketing campaigns could actually hurt
-downstream sales because of wasted effort on poorly qualified leads
-and/or delays in sales follow-up resulting from limited sales force
-capacity. To examine the revenue and profit implications of coordinated
-communications efforts at the marketing–sales interface, the authors
-develop a three-stage model that captures the effects of sequential
-marketing/sales communications on lead generation, appointment
-conversion, and sales closure. The results, which are based on a
-collaborative effort with a large home improvement retailer, suggest a
-complex interplay among marketing efforts (multiple media that generate
-leads), delays in follow-up (time lag between inquiry and sales force
-contact), and sales efficiencies (appointment and sales conversion). The
-findings underscore the impact of multimedia spending on the timing and
-effectiveness of subsequent communications, implying that improved
-internal collaboration between marketing and sales can offer significant
-upside potential for the firm. Finally, the authors develop a managerial
-decision support tool to simulate the impact of varying communications
-budgets, timing, and allocation on the marketing and sales planning
-system.</p>
-</div>
-<div id="firm-level-impact-on-salespeople" class="section level3" number="1.0.5">
-<h3><span class="header-section-number">1.0.5</span> Firm level impact on salespeople</h3>
-<p><span class="citation">(<a href="#ref-salonen2020a" role="doc-biblioref">Salonen et al. 2020</a>)</span></p>
-<p>Engaging a product-focused sales force in solution selling: interplay of
-individual- and organizational-level conditions Solution selling
-transform from product focused selling .</p>
-<p>This study explains how manufacturers tackle the critical managerial
-challenge of transforming a product-focused sales force to undertake
-solution selling. Through an application of configurational theory, the
-authors explain how individual and organizational conditions combine to
-determine salespeople’s engagement in solution selling. Multilevel,
-multisource data from the sales organization of a global supplier of
-building solutions represent input from salespeople (N = 184), solution
-champions (N = 23), and sales managers (N = 26). A fuzzy set qualitative
-comparative analysis reveals no single, optimal way to overcome
-transformation challenges. Rather, consistent with prior research,
-solution selling requires certain types of salespeople, because
-valuebased selling is a necessary condition for successful engagement.
-Beyond this foundational condition, a heterogeneous sales force can be
-engaged, as long as the organization provides appropriate support that
-is tailored to individual salespersons’ needs. The findings affirm that
-this viable support can come from either sales managers or solution
-champions</p>
-<p><span class="citation">(<a href="#ref-smith1997" role="doc-biblioref">J. B. Smith and Barclay 1997</a>)</span></p>
-<p>The Effects of Organizational Differences and Trust on the Effectiveness
-of Selling Partner Relationships</p>
-<p>organizational level selling together</p>
-<p>Selling alliances that are formed to cooperatively develop and maintain
-customer relationships are among the new organizational forms that
-marketing managers utilize for competitive advantage. To be successful,
-these alliances require sales representatives from allied organizations
-to work effectively as selling partners. The authors develop a
-trust-based model of effective selling partner relationships and test it
-in the context of the computer industry. Par- tial Least Squares
-analysis of 103 dyadic relationships found that organizational
-differences were modest predic- tors of three dimensions of mutual
-perceived trustworthiness, which in turn differentially affected three
-trusting behaviors. Trusting behaviors were found to have a somewhat
-greater effect on perceived task performance than on mutual
-satisfaction, whereas dimensions of trustworthiness had both direct and
-indirect effects on satisfaction. The authors discuss the managerial and
-theoretical implications of th</p>
-</div>
-<div id="salesperson-trait-orientation" class="section level3" number="1.0.6">
-<h3><span class="header-section-number">1.0.6</span> Salesperson trait orientation</h3>
-<p><span class="citation">(<a href="#ref-kidwell2011" role="doc-biblioref">Kidwell et al. 2011</a>)</span></p>
-<p>Emotional Intelligence in Marketing Exchanges</p>
-<p>EQ’s impact on the sales performance</p>
-<p>This research examines how sales professionals use emotions in marketing
-exchanges to facilitate positive outcomes for their firms, themselves,
-and their customers. The authors conduct three field studies to examine
-the impact of emotional intelligence (EI) in marketing exchanges on
-sales performance and customer relationships. They find that EI is
-positively related to performance of real estate and insurance agents,
-even when controlling for the effects of domain-general EI, self-report
-EI, cognitive ability, and several control variables. Sales
-professionals with higher EI are not only superior revenue generators
-but also better at retaining customers. In addition, the authors
-demonstrate that EI interacts with key marketing exchange
-variables—customer orientation and manifest influence—to heighten
-performance such that high-EI salespeople more effectively employ
-customer-oriented selling and influence customer decisions. Finally, the
-results indicate a complementary relationship between EI and cognitive
-ability in that EI positively influences performance at higher levels of
-cognitive ability. These findings have implications for improving
-interactions between buyers and sellers and for employee selection and
-training</p>
-<p><span class="citation">(<a href="#ref-mcfarland2015" role="doc-biblioref">McFarland, Rode, and Shervani 2015</a>)</span></p>
-<p>Moderator of the EQ’s effect on job outcomes</p>
-<p>A contingency model of emotional intelligence in professional selling
-Abstract Despite significant attention from practitioners and broad
-claims of the importance of Emotional Intelligence (EI), empirical
-support for its incremental direct effects on outcomes relevant to
-professional selling has been disappointing. However, little research
-has included relevant contextual variables or the potential interactions
-of EI with contextual variables when considering its effects. This
-contingency view of EI maintains that EI is important in work settings,
-but only under certain conditions. Drawing on the appraisal theory of
-emotions, the authors develop a contingency model, which proposes that
-salesperson EI moderates the harmful effects of role stress on three
-work outcomes—emotional exhaustion, customer-oriented selling, and
-sales performance. Using three matched data sources from multiple
-professional selling workgroups in a business-tobusiness sales setting,
-the authors find that EI moderates the relationship between role
-ambiguity and all three outcome variables.</p>
-<p><span class="citation">(<a href="#ref-lam2019" role="doc-biblioref">Lam, DeCarlo, and Sharma 2019</a>)</span></p>
-<p><strong>Salesperson ambidexterity in customer engagement: do customer base
-characteristics matter?</strong></p>
-<p>salesperson orientation moderated by customer base on sales performance</p>
-<p>This research examines how sales professionals use emotions in marketing
-exchanges to facilitate positive outcomes for their firms, themselves,
-and their customers. The authors conduct three field studies to examine
-the impact of emotional intelligence (EI) in marketing exchanges on
-sales performance and customer relationships. They find that EI is
-positively related to performance of real estate and insurance agents,
-even when controlling for the effects of domain-general EI, self-report
-EI, cognitive ability, and several control variables. Sales
-professionals with higher EI are not only superior revenue generators
-but also better at retaining customers. In addition, the authors
-demonstrate that EI interacts with key marketing exchange
-variables—customer orientation and manifest influence—to heighten
-performance such that high-EI salespeople more effectively employ
-customer-oriented selling and influence customer decisions. Finally, the
-results indicate a complementary relationship between EI and cognitive
-ability in that EI positively influences performance at higher levels of
-cognitive ability. These findings have implications for improving
-interactions between buyers and sellers and for employee selection and
-training</p>
-</div>
-<div id="salesperson-non-sales-activity-service" class="section level3" number="1.0.7">
-<h3><span class="header-section-number">1.0.7</span> Salesperson non-sales activity/ service</h3>
-<p><span class="citation">(<a href="#ref-johnson2015" role="doc-biblioref">Johnson and Sohi 2015</a>)</span></p>
-<p>Understanding and resolving major contractual breaches in buyer–seller
-relationships: a grounded theory approach</p>
-<p>Abstract In business-to-business relationships, sellers are often faced
-with instances of contractual breaches by buyers. In many cases,
-relationship factors preclude legal enforcement of contract terms,
-requiring sellers to explore alternate resolution options. Literature on
-contractual breaches has primarily focused on enforcement options based
-on terms specified in the contract. However, little is known about how
-companies deal with contractual breaches by their customers when legal
-enforcement is not a viable option. The authors use a grounded theory
-approach to investigate this important issue. Based on in-depth
-interviews with 40 supplier managers and executives in multiple
-industries, the authors identify: (a) types of out-ofcontract
-alternatives for resolving breaches, (b) factors that lead to use of
-enforcement options outside the terms specified in the contract, (c)
-contextual influences, and (d) individual and firm-level consequences of
-outside-ofcontract enforcement.</p>
-<p><span class="citation">(<a href="#ref-malshe2018a" role="doc-biblioref">Malshe and Friend 2018</a>)</span></p>
-<p>Initiating value co-creation: Dealing with non-receptive customers</p>
-<p>deal with co-creation reluctance. co-creation to improve the offering.</p>
-<p>Scholarly emphasis on the significance of integrating customer and
-supplier work processes to co-create customer value is increasingly
-important. While suppliers and customers working closely is imperative
-for the success of the value co-creation (VCC) process, customers’
-reluctance at times to allow suppliers into their environments has not
-been fully explored. The present study is an expansive qualitative
-inquiry consisting of 114 in-depth interviews across 57
-business-to-business evaluations that aims to understand both the
-nuanced nature of customer non-receptivity to specific VCC initiatives
-and those strategies suppliers may adopt to successfully manage it.
-Findings elicit three potential kinds of customer non-receptivity:
-apathy, ambivalence, and annoyance. Furthermore, conclusions propose six
-strategies suppliers may use to manage customer non-receptivity:
-intrinsic initiative, inspiration and implementation, complexity
-absorption, value alignment, credibility building, and objective
-centrality.</p>
-<p><span class="citation">(<a href="#ref-panagopoulos2017" role="doc-biblioref">Panagopoulos, Rapp, and Ogilvie 2017</a>)</span></p>
-<p>Salesperson Solution Involvement and Sales Performance: The Contingent
-Role of Supplier Firm and Customer–Supplier Relationship
-Characteristics</p>
-<p>salespeople invovled in the solution (not solution selling)’s impaact on
-the long term performance</p>
-<p>Salespeople play a crucial role in their firms’ efforts to provide
-customer solutions. However, little research has examined how
-salesperson involvement in customer solutions can be conceptualized,
-whether it pays off, and what boundary conditions might heighten its
-performance effects. This study addresses these gaps and offers a
-conceptualization of salesperson solution involvement by focusing on the
-set of salesperson-related activities that enact the four relational
-processes inherent in customer solutions. The authors collect a unique
-data set that includes a wide range of firms, industries, and countries,
-as well as the perspectives of both salespeople and customers, across
-five studies. Results validate the stability of the conceptualization
-across contexts. They also reveal that salesperson solution involvement
-is systematically related to increases in both subjective and objective,
-time-lagged measures of sales performance. Finally, results show that
-the performance effects of salesperson solution involvement are
-amplified under higher levels of firm’s product portfolio scope, sales
-unit cross-functional cooperation, and customer–supplier relationship
-tie strength. Surprisingly, customer adaptiveness is not found to
-moderate the performance effects of salesperson solution involvement.</p>
-</div>
-<div id="b2g-selling" class="section level3" number="1.0.8">
-<h3><span class="header-section-number">1.0.8</span> B2G selling</h3>
-<p><span class="citation">(<a href="#ref-chase2019" role="doc-biblioref">Chase and Murtha 2019</a>)</span></p>
-<p>In business-to-government and business-to-business transactions,
-suppliers often have limited access to buyers during the buying process.
-The authors term these buyers “barricaded buyers.” Despite the
-prevalence of barricaded buyers in practice, research has remained
-largely silent on the topic. Therefore, the authors combine insights
-from eight organizational purchasing case studies and individual
-interviews with signaling theory to advance a conceptual framework that
-highlights ways a supplier can increase its competitiveness (and,
-correspondingly, its selection likelihood) when selling to barricaded
-buyers. The framework reflects three distinct ways in which signaling
-occurs or influences the barricaded buying process: the seller signals
-to buyers (e.g., through novel solutions, explicit responding), the
-seller signals to competing sellers (e.g., through peacocking), and the
-buyer signals to sellers whose meaning is jammed (e.g., through
-supplier-specific capabilities and language). The framework invokes
-barricade restrictiveness as an important contingency variable that
-lends nuance to when the signaling activities are most likely to affect
-suppliers’ competitiveness.</p>
+<div id="e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?</h2>
+<p>I tested the interaction between demographic variables (age, gender and education) and personality measurements (Oscore, Cscore).</p>
+<p>I found the following significant interactions:</p>
+<p>Age35-44:Oscore -0.396513</p>
+<p>Age25-34:Cscore -0.368074</p>
+<p>Age35-44:Cscore -0.590439</p>
+<p>Age45-54:Cscore -0.587787</p>
+<p>Age55+:Cscore -0.614652</p>
+<p>The results have a consistent theme that more mature people (age above 18-24) and higher on open to experience or conscientiousness scores are less likely to use drugs.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="question-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a>PropOdds_Model_int <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">polr</span>(LSD_o <span class="sc">~</span> Age <span class="sc">+</span> Gender <span class="sc">+</span> Education <span class="sc">+</span> Country <span class="sc">+</span> Nscore <span class="sc">+</span> Escore <span class="sc">+</span> Oscore <span class="sc">+</span> Ascore <span class="sc">+</span> Cscore <span class="sc">+</span> Age<span class="sc">*</span>Oscore <span class="sc">+</span> Age<span class="sc">*</span>Cscore <span class="sc">+</span> Gender<span class="sc">*</span>Oscore <span class="sc">+</span> Gender<span class="sc">*</span>Cscore <span class="sc">+</span> Education<span class="sc">*</span>Oscore <span class="sc">+</span> Education <span class="sc">*</span>Cscore, Drugs)</span>
+<span id="cb101-2"><a href="question-2.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PropOdds_Model_int)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<pre><code>## Call:
+## MASS::polr(formula = LSD_o ~ Age + Gender + Education + Country + 
+##     Nscore + Escore + Oscore + Ascore + Cscore + Age * Oscore + 
+##     Age * Cscore + Gender * Oscore + Gender * Cscore + Education * 
+##     Oscore + Education * Cscore, data = Drugs)
+## 
+## Coefficients:
+##                                      Value Std. Error  t value
+## Age25-34                         -0.172081    0.17273 -0.99623
+## Age35-44                         -0.104423    0.18315 -0.57016
+## Age45-54                         -0.280105    0.19515 -1.43533
+## Age55+                           -0.654289    0.26780 -2.44318
+## GenderMale                        0.774285    0.12648  6.12198
+## EducationHighSchool               0.019760    0.32261  0.06125
+## EducationHSDropout               -0.102915    0.24983 -0.41194
+## EducationPostGraduate            -0.306062    0.19143 -1.59878
+## EducationProfessionalCert         0.046031    0.20393  0.22572
+## EducationSomeCollege              0.070706    0.17446  0.40528
+## CountryUSA                        1.744167    0.14162 12.31579
+## Nscore                           -0.118884    0.06971 -1.70541
+## Escore                            0.038420    0.06843  0.56143
+## Oscore                            0.685866    0.17126  4.00483
+## Ascore                           -0.018826    0.06047 -0.31131
+## Cscore                            0.116770    0.16389  0.71247
+## Age25-34:Oscore                   0.004876    0.17067  0.02857
+## Age35-44:Oscore                  -0.396513    0.17969 -2.20666
+## Age45-54:Oscore                  -0.143649    0.21006 -0.68386
+## Age55+:Oscore                    -0.227344    0.27432 -0.82876
+## Age25-34:Cscore                  -0.368074    0.16557 -2.22312
+## Age35-44:Cscore                  -0.590439    0.17650 -3.34527
+## Age45-54:Cscore                  -0.587787    0.19676 -2.98727
+## Age55+:Cscore                    -0.614652    0.29484 -2.08467
+## GenderMale:Oscore                 0.009991    0.12113  0.08248
+## GenderMale:Cscore                -0.052592    0.12510 -0.42040
+## EducationHighSchool:Oscore       -0.293782    0.27753 -1.05855
+## EducationHSDropout:Oscore        -0.255640    0.25420 -1.00565
+## EducationPostGraduate:Oscore      0.058642    0.19749  0.29693
+## EducationProfessionalCert:Oscore  0.303077    0.21251  1.42618
+## EducationSomeCollege:Oscore       0.012843    0.16599  0.07737
+## EducationHighSchool:Cscore        0.056019    0.32688  0.17138
+## EducationHSDropout:Cscore        -0.226221    0.24937 -0.90717
+## EducationPostGraduate:Cscore      0.254668    0.19192  1.32694
+## EducationProfessionalCert:Cscore  0.101606    0.21581  0.47082
+## EducationSomeCollege:Cscore       0.026077    0.16748  0.15571
+## 
+## Intercepts:
+##                                            Value   Std. Error t value
+## Never Used|Used over a Decade Ago           1.1821  0.1815     6.5142
+## Used over a Decade Ago|Used in Last Decade  2.1166  0.1893    11.1805
+## Used in Last Decade|Used in Last Year       2.9087  0.1952    14.9009
+## Used in Last Year|Used in Last Month        4.1936  0.2136    19.6321
+## Used in Last Month|Used in Last Week        5.2923  0.2499    21.1740
+## 
+## Residual Deviance: 3108.449 
+## AIC: 3190.449</code></pre>
 
-</div>
-</div>
-<h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-bolander2015" class="csl-entry">
+<div class="csl-entry">
 Bolander, Willy, Cinthia B. Satornino, Douglas E. Hughes, and Gerald R. Ferris. 2015. <span>“Social Networks Within Sales Organizations: Their Development and Importance for Salesperson Performance.”</span> <em>Journal of Marketing</em> 79 (6): 1–16. <a href="https://doi.org/10.1509/jm.14.0444">https://doi.org/10.1509/jm.14.0444</a>.
 </div>
-<div id="ref-boorom1998" class="csl-entry">
+<div class="csl-entry">
 Boorom, M. L., J. R. Goolsby, and R. P. Ramsey. 1998. <span>“Relational Communication Traitsand Their Effect on Adaptiveness and Sales Performance.”</span> <em>Journal of the Academy of Marketing Science</em> 26 (1): 16–30. <a href="https://doi.org/10.1177/0092070398261003">https://doi.org/10.1177/0092070398261003</a>.
 </div>
-<div id="ref-chase2019" class="csl-entry">
+<div class="csl-entry">
+Campbell, Margaret C., and Amna Kirmani. 2000. <span>“Consumers’ Use of Persuasion Knowledge: The Effects of Accessibility and Cognitive Capacity on Perceptions of an Influence Agent.”</span> <em>Journal of Consumer Research</em> 27 (1): 69–83. <a href="https://doi.org/10.1086/314309">https://doi.org/10.1086/314309</a>.
+</div>
+<div class="csl-entry">
 Chase, Kevin S., and Brian Murtha. 2019. <span>“Selling to Barricaded Buyers.”</span> <em>Journal of Marketing</em> 83 (6): 2–20. <a href="https://doi.org/10.1177/0022242919874778">https://doi.org/10.1177/0022242919874778</a>.
 </div>
-<div id="ref-johlke2000" class="csl-entry">
+<div class="csl-entry">
 Johlke, M. C., D. F. Duhan, R. D. Howell, and R. W. Wilkes. 2000. <span>“An Integrated Model of Sales Managers’ Communication Practices.”</span> <em>Journal of the Academy of Marketing Science</em> 28 (2): 263–77. <a href="https://doi.org/10.1177/0092070300282007">https://doi.org/10.1177/0092070300282007</a>.
 </div>
-<div id="ref-johnson2015" class="csl-entry">
+<div class="csl-entry">
 Johnson, Jeff S., and Ravipreet S. Sohi. 2015. <span>“Understanding and Resolving Major Contractual Breaches in Buyer<span></span>seller Relationships: A Grounded Theory Approach.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (2): 185–205. <a href="https://doi.org/10.1007/s11747-015-0427-8">https://doi.org/10.1007/s11747-015-0427-8</a>.
 </div>
-<div id="ref-kidwell2011" class="csl-entry">
+<div class="csl-entry">
 Kidwell, Blair, David M Hardesty, Brian R Murtha, and Shibin Sheng. 2011. <span>“Emotional Intelligence in Marketing Exchanges.”</span> <em>Journal of Marketing</em> 75 (1): 78–95. <a href="https://doi.org/10.1509/jmkg.75.1.78">https://doi.org/10.1509/jmkg.75.1.78</a>.
 </div>
-<div id="ref-lam2019" class="csl-entry">
+<div class="csl-entry">
 Lam, Son K., Thomas E. DeCarlo, and Ashish Sharma. 2019. <span>“Salesperson Ambidexterity in Customer Engagement: Do Customer Base Characteristics Matter?”</span> <em>Journal of the Academy of Marketing Science</em> 47 (4): 659–80. <a href="https://doi.org/10.1007/s11747-019-00650-0">https://doi.org/10.1007/s11747-019-00650-0</a>.
 </div>
-<div id="ref-malshe2018a" class="csl-entry">
+<div class="csl-entry">
 Malshe, Avinash, and Scott B. Friend. 2018. <span>“Initiating Value Co-Creation: Dealing with Non-Receptive Customers.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 895–920. <a href="https://doi.org/10.1007/s11747-018-0577-6">https://doi.org/10.1007/s11747-018-0577-6</a>.
 </div>
-<div id="ref-mcfarland2015" class="csl-entry">
+<div class="csl-entry">
 McFarland, Richard G., Joseph C. Rode, and Tasadduq A. Shervani. 2015. <span>“A Contingency Model of Emotional Intelligence in Professional Selling.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (1): 108–18. <a href="https://doi.org/10.1007/s11747-015-0435-8">https://doi.org/10.1007/s11747-015-0435-8</a>.
 </div>
-<div id="ref-mullins2014" class="csl-entry">
+<div class="csl-entry">
 Mullins, Ryan R., Michael Ahearne, Son K. Lam, Zachary R. Hall, and Jeffrey P. Boichuk. 2014. <span>“Know Your Customer: How Salesperson Perceptions of Customer Relationship Quality Form and Influence Account Profitability.”</span> <em>Journal of Marketing</em> 78 (6): 38–58. <a href="https://doi.org/10.1509/jm.13.0300">https://doi.org/10.1509/jm.13.0300</a>.
 </div>
-<div id="ref-panagopoulos2017" class="csl-entry">
+<div class="csl-entry">
 Panagopoulos, Nikolaos G., Adam A. Rapp, and Jessica L. Ogilvie. 2017. <span>“Salesperson Solution Involvement and Sales Performance: The Contingent Role of Supplier Firm and Customer<span></span>Supplier Relationship Characteristics.”</span> <em>Journal of Marketing</em> 81 (4): 144–64. <a href="https://doi.org/10.1509/jm.15.0342">https://doi.org/10.1509/jm.15.0342</a>.
 </div>
-<div id="ref-romanavila2010" class="csl-entry">
+<div class="csl-entry">
 Roman Avila, Sergio Raul, and Dawn Iacobucci. 2010. <span>“Antecedents and Consequences of Adaptive Selling Confidence and Behavior: A Dyadic Analysis of Salespeople and Their Customers.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.2691640">https://doi.org/10.2139/ssrn.2691640</a>.
 </div>
-<div id="ref-salonen2020a" class="csl-entry">
+<div class="csl-entry">
 Salonen, Anna, Harri Terho, Eva Böhm, Ari Virtanen, and Risto Rajala. 2020. <span>“Engaging a Product-Focused Sales Force in Solution Selling: Interplay of Individual- and Organizational-Level Conditions.”</span> <em>Journal of the Academy of Marketing Science</em> 49 (1): 139–63. <a href="https://doi.org/10.1007/s11747-020-00729-z">https://doi.org/10.1007/s11747-020-00729-z</a>.
 </div>
-<div id="ref-emailb2" class="csl-entry">
+<div class="csl-entry">
 Singh, Sunil Kumar. n.d. <span>“Email B2b Sales Negotiation : Dynamic Use of Textual Cues as Influence Tactics.”</span> PhD thesis. <a href="https://doi.org/10.32469/10355/63791">https://doi.org/10.32469/10355/63791</a>.
 </div>
-<div id="ref-singh2017" class="csl-entry">
+<div class="csl-entry">
 Singh, Sunil, Detelina Marinova, Jagdip Singh, and Kenneth R. Evans. 2017. <span>“Customer Query Handling in Sales Interactions.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 837–56. <a href="https://doi.org/10.1007/s11747-017-0569-y">https://doi.org/10.1007/s11747-017-0569-y</a>.
 </div>
-<div id="ref-smith1997" class="csl-entry">
+<div class="csl-entry">
 Smith, J. Brock, and Donald W. Barclay. 1997. <span>“The Effects of Organizational Differences and Trust on the Effectiveness of Selling Partner Relationships.”</span> <em>Journal of Marketing</em> 61 (1): 3. <a href="https://doi.org/10.2307/1252186">https://doi.org/10.2307/1252186</a>.
 </div>
-<div id="ref-smith2006" class="csl-entry">
+<div class="csl-entry">
 Smith, Timothy M., Srinath Gopalakrishna, and Rabikar Chatterjee. 2006. <span>“A Three-Stage Model of Integrated Marketing Communications at the Marketing-Sales Interface.”</span> <em>Journal of Marketing Research</em> 43 (4): 564–79. <a href="https://doi.org/10.1509/jmkr.43.4.564">https://doi.org/10.1509/jmkr.43.4.564</a>.
 </div>
-<div id="ref-soldow1984" class="csl-entry">
+<div class="csl-entry">
 Soldow, Gary F., and Gloria Penn Thomas. 1984. <span>“Relational Communication: Form Versus Content in the Sales Interaction.”</span> <em>Journal of Marketing</em> 48 (1): 84. <a href="https://doi.org/10.2307/1251314">https://doi.org/10.2307/1251314</a>.
 </div>
-<div id="ref-spiro1990" class="csl-entry">
+<div class="csl-entry">
 Spiro, Rosann L., and Barton A. Weitz. 1990. <span>“Adaptive Selling: Conceptualization, Measurement, and Nomological Validity.”</span> <em>Journal of Marketing Research</em> 27 (1): 61. <a href="https://doi.org/10.2307/3172551">https://doi.org/10.2307/3172551</a>.
+</div>
+<div class="csl-entry">
+Thompson, Debora V., and Prashant Malaviya. 2013. <span>“Consumer-Generated Ads: Does Awareness of Advertising Co-Creation Help or Hurt Persuasion?”</span> <em>Journal of Marketing</em> 77 (3): 33–47. <a href="https://doi.org/10.1509/jm.11.0403">https://doi.org/10.1509/jm.11.0403</a>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -754,8 +590,8 @@ Spiro, Rosann L., and Barton A. Weitz. 1990. <span>“Adaptive Selling: Conceptu
           </div>
         </div>
       </div>
+<a href="question-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="literature-review-note.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -786,7 +622,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/lyf718718/Book2.git/edit/master/01-Sales.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW1v2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -794,7 +630,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/lyf718718/Book2.git/blob/master/01-Sales.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW1v2.Rmd",
 "text": null
 },
 "download": null,

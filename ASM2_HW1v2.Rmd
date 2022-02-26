@@ -1,0 +1,534 @@
+---
+title: "Applied Stats Model II - HW1 (Yufan Lin)"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1:
+
+\(1\) Logistic Regression: Major League Baseball (MLB) maintains a public facing version of it's "Statcast" system. Since 2015, MLB teams have been leveraging data analytics to gain a competitive advantage using the raw data out of Statcast, which captures extremely high resolution views of player performance. Here we will study a dataset I have pulled and curated. We will examine which of several characteristics are predictive of a hit yielding a "home run." The selected variables are as follows: • pitch_speed: Speed of pitch in mph. • pitch_spin: Spin rate of pitch • pitch_horizontal_movement: Horizontal movement of the pitch in feet from the catcher's perspective. • pitch_vertical_movement: Vertical movement of the pitch in feet from the catcher's perpsective. • plate_x: Horizontal position of the ball when it crosses home plate from the catcher's perspective. • plate_z: Vertical position of the ball when it crosses home plate from the catcher's perspective. • pitcher_hand: Pitcher's throwing hand. • launch_angle: Launch angle of the batted ball. • launch_speed: Exit velocity of the batted ball (so, how fast it is going once hit by the batter) • stand: Side of the plate batter is standing from the pitcher's perspective. • home_run: 1/0, the target variable The dataset can be loaded with the command HomeRun \<- read.csv(".../HomeRunData.csv", stringsAsFactors = TRUE)
+
+```{r}
+#??? Cannot knit the single document?
+```
+
+```{r}
+# Input the dataset
+HomeRun <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/HomeRunData.csv", stringsAsFactors = TRUE)
+```
+
+## a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.
+
+On the first plot between launch speed and the probability of a home run, as the launch speed increase to 80 and above, the home run chance increases.
+
+On the second plot between launch angle and the probability of a home run, as the launch angle increase to be above 10, the chance of home run increases. However, when it surpass 50 the chance of home run decreases.
+
+```{r}
+# S39. class is the DV, thickness is the IV. ??? why it doesn't need binning but deviances needs it? Why is my output different from the ppt?
+
+plot(home_run ~ launch_speed,HomeRun)
+# as the lauch speed increase to 80, the home run chance increase.
+
+plot(home_run ~ launch_angle,HomeRun)
+# seems to have an u-shape effect. less than 0 and more than 50 are both bad. 
+
+```
+
+```{r eval=FALSE, include=FALSE}
+# Reverse the axis. seperate by the 0 , 1 DV then plot the thickness - Interaction plot purpose??? S40
+library(ggplot2)
+ggplot(biopsy, aes(x=thickness,y=u_shape))+
+geom_point(alpha=0.2, position=position_jitter())+
+facet_grid(~ class)
+
+```
+
+## b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.
+
+I ran the logistic regression to predict home run using all other variables.
+
+The results show the pitch_speed, launch angle and launch speed are statistically significant predictors at 95% confidence level.
+
+I then conducted the deviance test. The result is significant. Thus, the model is better than the null model.
+
+```{r}
+# Fit model with all variables. Note <- not =  
+Logistic_Model <- glm(home_run ~ ., family = binomial, data = HomeRun)
+# Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred. ??? What does the warning mean? still can run. move on for now. 
+# https://www.statology.org/glm-fit-fitted-probabilities-numerically-0-or-1-occurred/
+```
+
+```{r}
+summary(Logistic_Model)
+```
+
+```{r}
+# summary(Logistic_Model)$coefficients
+# S22: change the df per the summary stats above. 
+Test_Dev = summary(Logistic_Model)$null.deviance - summary(Logistic_Model)$deviance
+1-pchisq(q = Test_Dev, df = 10)
+#??? What does the 0 stands for here? significant?
+```
+
+## c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().
+
+I conducted the deviance test using drop1 function. The pitch speed, plate_z, launch_angle, launch_speed and stand are significant at 95% confidence level.
+
+The p-value are different from the summary. Plate_z went from 0.145 to 0.001; Stand went 0.240 from to 0.01. All other variables have similar p values as before.
+
+I would trust the drop1 function's results as it doesn't rely on the unreliable walt's test.
+
+```{r}
+# S30, S67: stepwise selection - backward. large predictors some will randomly be significant. but note, you are not eliminate the one with p at border? once your predictors number is small enough. it is ok? 
+#??? Why no reaction for a long time?
+
+drop1(Logistic_Model,test="F")
+
+```
+
+## d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis
+
+I compare the smaller model with the larger model, they are not significantly different per the deviance test.
+
+The result suggests that larger model doesn't add much explanation power. I should use the smaller model for parsimonious explanation.
+
+```{r}
+Logistic_Model_better <- glm(formula = home_run ~ pitch_speed+ plate_z + launch_angle + launch_speed + stand, family = binomial, data = HomeRun)
+
+```
+
+```{r}
+summary(Logistic_Model_better)
+#??? Is sthe plate_Z and standR just noise? random significant on the backward selection drop1 process?
+```
+
+```{r}
+# Note the df difference 11 (baseline all variable) - 5 (better model) = 6
+Test_Dev_better = summary(Logistic_Model_better)$deviance - summary(Logistic_Model)$deviance
+1-pchisq(q = Test_Dev_better, df = 6)
+# The result shows insignificant difference between the two. Thus, better model is parsimony.
+```
+
+## e. (7 points) How does the launch speed after the ball is hit affect the **odds of HomeRun occurring**? Provide a confidence interval for this value.
+
+The odds is 1.38. As the launch speed increase by 1, the chance of success will increase by 100% \* (1.38-1) = 38%
+
+The confidence interval for the odds is between 1.36 to 1.40.
+
+```{r}
+# S57/ 
+
+Coef_LogOdds <- coefficients(Logistic_Model_better)
+Coef_LogOdds |> exp()
+
+#1.383797e+00  ??? interpret e+00 menas integer? 1.38 more success than failure to hit home rum 
+#S17: When launch speed increases by 1, the odds of success increases by a factor of 1.38 pr 100% * (1.38-1) = 38% increase in chance/ odds??? of sucess. 
+
+#What if I want the chance vs. odds???
+# why the number different? 1.38/(1+1.38) = .57 
+
+```
+
+```{r warning=FALSE}
+# type of confidenec interval
+#??? What if I use directly the CI from the model? violate assumption in binomial family?
+# A lot of warning message: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred ???
+#S44: 
+#Confidence_Intervals <- confint(Logistic_Model_better)
+#Confidence_Intervals
+
+Confidence_Intervals <- confint(Logistic_Model_better)
+Confidence_Intervals |> exp()
+```
+
+## f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.
+
+The model doesn't fit well. The residual gets bigger rather than smaller when the probability increases. Based on the theoretical distribution, as the probability increases, the variance should be smaller. Thus, there may be misspecification in the model.
+
+```{r}
+# bin plot vs. fitted plt 
+# random subset is not required.
+library(tidyverse)
+
+plot_bin <- function(Y, X, bins = 100, return.DF = FALSE){
+Y_Name <- deparse(substitute(Y))
+X_Name <- deparse(substitute(X))
+Binned_Plot <- data.frame(Plot_Y = Y, Plot_X = X)
+Binned_Plot$bin <- cut(Binned_Plot$Plot_X,breaks = bins) |>
+as.numeric()
+Binned_Plot_summary <- Binned_Plot |>
+group_by(bin) |>
+summarise(Y_ave = mean(Plot_Y),
+X_ave = mean(Plot_X),
+Count = n()) |> as.data.frame()
+plot(y = Binned_Plot_summary$Y_ave,
+x = Binned_Plot_summary$X_ave,
+ylab = Y_Name,xlab = X_Name)
+if(return.DF) return(Binned_Plot_summary)
+}
+```
+
+```{r}
+
+#S32: vs. fitted probability plot rather than individual variable. ??? When to use the individual variable on?
+
+Logistic_better_Resids <- residuals(Logistic_Model_better,type="response")
+Logistic_better_Predictions <- predict(Logistic_Model_better,type = "response")
+
+NumBins <- 200
+Binned_Data <- plot_bin(Y = Logistic_better_Resids,
+X = Logistic_better_Predictions,
+bins = NumBins,
+return.DF = TRUE)
+abline(0,1,lty=2)
+
+# The model doesn't fit well??? why? 
+#S28 ??? why deviance not the same. why no u shape. np vs. npq.
+
+```
+
+```{r}
+#need more bins, the shape will follow theroy on S18 Chapter 2.
+```
+
+## g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?
+
+The model predicts well as the accuracy rate is high.
+
+The misclassification rate is 0.043 or 4%. However, the sensitivity and specificity are poor.
+
+```{r}
+# confusion matrix 
+
+# S47:
+Predicted_Prob <- predict(Logistic_Model_better, type="response")
+Predicted_Class <- ifelse(Predicted_Prob > 0.5,yes = "home_run",no = "no_home_run")
+Observed_Class <- HomeRun$home_run
+table(Observed_Class,Predicted_Class)
+  
+  
+```
+
+```{r}
+# Misclassification rate:
+
+table_classify = table(Observed_Class,Predicted_Class)
+Accuracy_rate = (table_classify[2,1]+table_classify[1,2])/(table_classify[1,1]+table_classify[1,2]+table_classify[2,1]+table_classify[2,2])
+1-Accuracy_rate
+```
+
+## h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model's ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?
+
+The inverse relationship is strongly evident as the threshold increases.
+
+```{r}
+# Create ROC curve
+
+#S48: 
+thresh <- seq(0.005,0.995,0.001)
+Sensitivity <- numeric(length(thresh))
+Specificity <- numeric(length(thresh))
+for(j in seq(along=thresh)){
+Predicted_Class <- ifelse(Predicted_Prob > thresh[j],
+yes = "1_home_run",no = "0_no_home_run")
+Conf_Matrix <- table(Observed_Class,Predicted_Class)
+#
+Specificity[j] <- Conf_Matrix[1,1]/(Conf_Matrix[1,1]+Conf_Matrix[1,2])
+#
+Sensitivity[j] <- Conf_Matrix[2,2]/(Conf_Matrix[2,1]+Conf_Matrix[2,2])
+}
+
+```
+
+```{r}
+plot(1-Specificity,Sensitivity,type="l",main = "ROC curve",
+xlim = c(0,1),ylim = c(0,1))
+abline(0,1,lty=2)
+```
+
+## i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.
+
+The optimal threshold is 0.05.
+
+The result is better than 0.5 as the cut-off: The accuracy is worse but sensitivity and specificity are higher or more discriminant. The accuracy rate is not a good indicator of model performance when the outcomes is rare such as home run.
+
+```{r}
+#! The result is better than 0.5 as the cut-off  The accuracy is worse but senstivity and specificity is higher
+#S50
+
+matplot(thresh,cbind(Sensitivity,Specificity),type="l",
+xlab="Threshold",ylab="Proportion",lty=1:2)
+
+# abline, v = cutoff. 
+```
+
+\# **Rewrie the answer**
+
+```{r}
+# confusion matrix 
+# when we lower the threshold, more on the home run category. if choose 0.5, for the rare. 
+# S47:
+Predicted_Prob <- predict(Logistic_Model_better, type="response")
+Predicted_Class <- ifelse(Predicted_Prob > 0.05,yes = "home_run",no = "no_home_run")
+Observed_Class <- HomeRun$home_run
+table(Observed_Class,Predicted_Class)
+  
+  
+```
+
+```{r}
+# Misclassification rate:
+
+table_classify = table(Observed_Class,Predicted_Class)
+Accuracy_rate = (table_classify[2,1]+table_classify[1,2])/(table_classify[1,1]+table_classify[1,2]+table_classify[2,1]+table_classify[2,2])
+1-Accuracy_rate
+```
+
+## j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?
+
+The AIC of the model is 6203.
+
+```{r}
+# Produce AIC 
+Logistic_Model_reduced <- glm(formula = home_run ~  launch_angle + launch_speed, family = binomial, data = HomeRun)
+
+```
+
+```{r}
+summary(Logistic_Model_reduced)
+```
+
+## k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?
+
+The model with dummy's AIC is 4508 which is much smaller than the 6203.
+
+The dummy variable means when the launch_angle is between 20 and 40 degree the odds of success is higher than the launch_angle outside the window. Thus, there is a optimal point of the launch angle.
+
+The intercept is very small or 4.186275e-17 which means the chance of making a home run when all other variables are set to 0 is very small.
+
+### 
+
+```{r}
+# compare with other temp, here is more likely.
+
+HomeRun$launch_angle_d <- ifelse(HomeRun$launch_angle >= 20 & HomeRun$launch_angle <= 40 ,1,0)
+```
+
+```{r}
+# Produce AIC 
+Logistic_Model_reduced_d <- glm(formula = home_run ~  launch_angle_d + launch_speed, family = binomial, data = HomeRun) 
+```
+
+```{r}
+summary(Logistic_Model_reduced)
+summary(Logistic_Model_reduced_d)
+```
+
+```{r}
+Coef_LogOdds_d <- coefficients(Logistic_Model_reduced_d)
+Coef_LogOdds_d |> exp()
+
+
+```
+
+```{r}
+# convert intercept to probability odds/ (1+odds)
+(4.186275e-17)/(1-4.186275e-17)
+```
+
+# Question 2
+
+**2) Ordinal Regression** The DrugConsumption.csv file on Canvas contains records for 1458 respondents. For each respondent 12 attributes are known: Personality measurements which include NEO-FFI-R (neuroticism, extraversion, openness to experience, agreeableness, and conscientiousness), BIS-11 (impulsivity), and ImpSS (sensation seeking), level of education, age, gender and country of residence. In addition, participants were questioned concerning their use of 18 legal and illegal drugs, of which only LSD is included for our study. The variables are as follows: • LSD: Target variable, ordinal with levels CL0-CL5, which correspond to "Never Used", "Used over a Decade Ago", "Used in Last Decade", "Used in Last Year", "Used in Last Month", "Used in Last Week". • Age: Categorical age • Gender: Gender • Education: Categorical Educational level • Country: UK or USA • Nscore: NEO-FFI-R, a psychological measure of Neuroticism • Escore: NEO-FFI-R Extraversion. • Oscore: NEO-FFI-R Openness to experience • Ascore: NEO-FFI-R Agreeableness • Cscore: NEO-FFI-R Conscientiousness • Impulsive: Impulsiveness score measured by BIS-11 • SS: Impulsive Sensation Seeking measured by ImpSS You may read the data as follows: Drugs \<- read.csv(".../DrugConsumption.csv", stringsAsFactors = TRUE) Drugs\$LSD \<- ordered(Drugs\$LSD,levels = c(paste0("CL",0:5)))
+
+```{r}
+Drugs <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/DrugConsumption.csv", stringsAsFactors = TRUE) 
+```
+
+```{r}
+#install.packages("tidyverse") 
+library(tidyverse) # for mutate function
+```
+
+```{r}
+#??? the following code gave me error. What is it?
+#Drugs$LSD <- ordered(Drugs$LSD,levels = c(paste0("CL",0:5)))
+```
+
+## a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.
+
+I re-coded the categories into descriptive names "Used over a Decade Ago", "Used in Last Decade", "Used in Last Year", "Used in Last Month", "Used in Last Week".
+
+Based on the plot, male are more likely to use drugs than female. Many female never used any drugs.
+
+```{r}
+Drugs$LSD_o <- NA
+Drugs$LSD_o[Drugs$LSD %in%c("CL0")] <- "Never Used"
+Drugs$LSD_o[Drugs$LSD %in%c("CL1")] <- "Used over a Decade Ago"
+Drugs$LSD_o[Drugs$LSD %in%c("CL2")] <- "Used in Last Decade"
+Drugs$LSD_o[Drugs$LSD %in%c("CL3")] <- "Used in Last Year"
+Drugs$LSD_o[Drugs$LSD %in%c("CL4")] <- "Used in Last Month"
+Drugs$LSD_o[Drugs$LSD %in%c("CL5")] <- "Used in Last Week"
+table(Drugs$LSD_o)
+```
+
+```{r}
+Plot_DF <- Drugs |>
+group_by(Gender, LSD_o) |>
+summarise(count=n()) |>
+group_by(Gender) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+
+# mutate(Age_Grp=cut_number(age,4)) |>  not used since the gender is not continous.
+```
+
+```{r}
+# Plot_DF -> only a dataframe
+Gender_Plot <- ggplot(Plot_DF, aes(x=Gender, y=proportion,
+group=LSD_o, linetype=LSD_o))+
+geom_line()
+Gender_Plot
+```
+
+## b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.
+
+The significant variables are age 55+, GenderMale, CountryUSA, Oscore and Cscore.
+
+The drop1 function shows gender, country, Oscore and Cscore are significant but not the age 55+. Strangely the drop1 function doesn't factorize the categorical variables such as age and education.
+
+Overall, the two results are quite consistent with each other.
+
+```{r}
+library(MASS)
+Drugs$LSD_o <- ordered(Drugs$LSD_o,
+levels=c("Never Used", "Used over a Decade Ago", "Used in Last Decade", "Used in Last Year", "Used in Last Month", "Used in Last Week"))
+PropOdds_Model <- MASS::polr(LSD_o ~ Age + Gender + Education + Country + Nscore + Escore + Oscore + Ascore + Cscore, Drugs)
+summary(PropOdds_Model)
+
+#problen with converge if I include the same variable LSD. need to remove it.
+
+```
+
+```{r}
+drop1(PropOdds_Model,test="Chisq")
+
+# drop1(PropOdds_Model)
+
+# why is the age not broken down as factors? 
+# Drop1 will drop all in age variable. 
+```
+
+## c. (6 points) Interpret the values of the intercepts θj .
+
+The intercepts are listed as below:
+
+Never Used\|Used over a Decade Ago 3.364569 . It means cumulative odds of being never used is 3.36 when all other variables are set to 0.
+
+Used over a Decade Ago\|Used in Last Decade 8.411502 It means cumulative odds of being Used in last decade is 8.411502 when all other variables are set to 0.
+
+Used in Last Decade\|Used in Last Year 18.26159 It means cumulative odds of being Used in last year is 18.2615 when all other variables are set to 0.
+
+Used in Last Year\|Used in Last Month 64.0523 It means cumulative odds of being Used in last month is 64.0523 when all other variables are set to 0.
+
+Used in Last Month\|Used in Last Week 189.4074 It means cumulative odds of being Used in last week is 189 when all other variables are set to 0.
+
+```{r}
+PropOdds_Model_sum <- summary(PropOdds_Model)
+```
+
+```{r}
+#PropOdds_Model_sum$coefficients    
+exp(1.2133)
+exp(2.1296)
+exp(2.9048)
+exp(4.1597)
+exp(5.2439)
+```
+
+```{r}
+#!not sure how to explain it. S97. Does it also needs a exp()? -> how to extract it automatically? does it mean % of ppl???
+```
+
+## d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.
+
+The open to experience increase the odds of using the drugs by 1.81.
+
+Conscientiousness decreases the odds of using the drugs by 0.8.
+
+```{r}
+coefficients(PropOdds_Model)
+#??? are the coefficient intercept or beta?
+#Both personality significant. The higher the less likely to move ?!!!
+#Oscore 
+exp(0.597784) 
+
+#Cscore
+exp(-0.178554)
+```
+
+## e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?
+
+I tested the interaction between demographic variables (age, gender and education) and personality measurements (Oscore, Cscore).
+
+I found the following significant interactions:
+
+Age35-44:Oscore -0.396513
+
+Age25-34:Cscore -0.368074
+
+Age35-44:Cscore -0.590439
+
+Age45-54:Cscore -0.587787
+
+Age55+:Cscore -0.614652
+
+The results have a consistent theme that more mature people (age above 18-24) and higher on open to experience or conscientiousness scores are less likely to use drugs.
+
+```{r}
+PropOdds_Model_int <- MASS::polr(LSD_o ~ Age + Gender + Education + Country + Nscore + Escore + Oscore + Ascore + Cscore + Age*Oscore + Age*Cscore + Gender*Oscore + Gender*Cscore + Education*Oscore + Education *Cscore, Drugs)
+summary(PropOdds_Model_int)
+
+```
+
+```{r eval=FALSE, include=FALSE}
+# Not RUN The plotting 
+# count the number of cases in each category.
+#??? should I run a loop to do it? or try all interactions .2?
+# cannot do the three way interactions with LSD categories
+# use color to add another dimension. facet wrap. S40. 
+Plot_DF_GO <- Drugs |>
+group_by(Gender, Oscore, LSD_o) |>
+summarise(count=n()) |>
+group_by(Gender, Oscore) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+
+#install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(Plot_DF_GO) +
+aes(x = Oscore, y = proportion, color = Gender) +
+geom_line(aes(group = cbind((Gender,LSD_o)) +
+geom_point()
+
+GO_Plot <- ggplot(Plot_DF_GO, aes(x=Oscore, y=proportion,
+group=LSD_o, linetype=LSD_o))+
+geom_line()
+#??? three ways in multiple norminal???
+
+
+#S72: empirical logit??? what is it?
+#??? why explore before run not model first?
+interaction.plot(Drugs$Gender,Drugs$Oscore,Plot_DF_GO) 
+
+
+# Take away:
+#a) attend the office hour on the day of due day. Good to hear others' thought'
+#b) great to have the markdown, so that I can update note, upload to my website.
+#c) Remaining questions - 1) ops of R, mix package MASS no summarise 2) interpretation vague 3) loop, graphs are harder. but they are the path to expert.
+# bonus: c vs. cbind
+```
