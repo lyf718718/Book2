@@ -1,0 +1,352 @@
+---
+title: "ASM2_HW2 by Yufan Lin"
+output: html_document
+---
+
+```{r setup_ASM2_HW2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#https://bookdown.org/yihui/rmarkdown-cookbook/duplicate-label.html
+```
+
+STAT 4520/7520 - Homework 2 Spring 2022 Due: March 6, 2022 The French Motor Third-Party Liability Claims dataset is located in Insurance.csv and contains records on insurance policies. A claim is the request made by a policyholder to the insurer to compensate for a loss covered by the insurance. **Insurance companies are interested in modeling how much they are expected to** payout per year. In other words the mean of the total claim amount per year also referred to as the **"pure premium."** The varibles in the dataset are as follows: "Feature" variables: • Area: The area code. • VehPower: The power of the car (ordered categorical but treat as numeric). • VehAge: The vehicle age, in years. • DrivAge: The driver age, in years. • BonusMalus: Bonus/malus, between 50 and 350 and relating to the carbon emissions of the vehicle: \< 100 means bonus(tax credit), \> 100 means malus(tax penalty). • VehBrand: The car brand (unknown categories). • VehGas: The car gas, Diesel or regular. • Density: The (log of) density of inhabitants (number of inhabitants per km2) in the city the driver of the car lives in. • Region: The policy regions in France (based on a standard French classification). "Target" variables: • ClaimNb: Total number of claims on the policy. • Exposure: Number of years the policy has been held. • Frequency: Average number of claims per year on the policy. • AvgClaimAmount: Average amount paid out per claim in the policy. • PurePremium: Expected total claim amount per year for each policy.
+
+There are several ways to create these predictions, we could: 1. Model the **number of claims with a count model,** and separately the average claim amount per claim and multiply the predictions of both in order to get the total claim amount. 2. Model the **total claim amount per exposure directly, typically with a Tweedie distribution.** We **will explore both of these options** here. The dataset can be loaded for properly formatted with the commands:
+
+```{r}
+
+Insurance <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW2/Insurance.csv", stringsAsFactors = TRUE)
+Insurance$VehBrand <- as.factor(Insurance$VehBrand)
+Insurance$VehPower <- as.factor(Insurance$VehPower)
+Insurance$VehGas <- as.factor(Insurance$VehGas)
+Insurance$Region <- as.factor(Insurance$Region)
+Insurance$Area <- as.factor(Insurance$Area)
+```
+
+# 1 1) Modeling the Number of Claims
+
+## a. (5 points) Create a table to present the distribution of the number of claims by computing the proportion of each possibility. What percent of the policies have 0 claims?
+
+```{r include=FALSE}
+#remove.packages("rlang")
+#install.packages("rlang")
+library(tidyverse) # for mutate function
+Plot_DF <- Insurance |>
+group_by(ClaimNb) |>
+summarise(count=n()) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+```
+
+```{r}
+Plot_DF
+```
+
+The result shows that about 95% of the policies have 0 claims.
+
+## b. (6 points) Create a Poisson regression to predict the number of claims in the year using only the variables for vehicle age, driver age, bonusMalus, and density. What is the deviance? Does is differ significantly from the null deviance?
+
+```{r}
+Poisson_Mod <- glm(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density, family=poisson, Insurance)
+summary(Poisson_Mod)
+
+```
+
+```{r}
+# S14
+
+pchisq(summary(Poisson_Mod)$deviance,Poisson_Mod$df.residual, lower.tail = FALSE)
+```
+
+The deviance is 14049. It is not statistically different from the null model.
+
+## c. (4 points) Generate predictions on the response scale µ and round them to the nearest count. Create a table as in part a and comment on how similar or dissimilar this result is.
+
+```{r}
+Predicted_Means <- predict(Poisson_Mod,type = "response")
+#X2 <- sum((Insurance$ClaimNb - Predicted_Means)ˆ2/Predicted_Means)
+Insurance$Predicted_Class <- round(Predicted_Means,0)
+
+  
+```
+
+```{r}
+#count(Insurance, Predicted_Class)
+```
+
+```{r eval=FALSE, include=FALSE}
+
+# Why it gave me error???
+#no applicable method for 'group_by' applied to an object of class "c('double', 'numeric')"
+#remove.packages("rlang")
+#install.packages("rlang")
+library(tidyverse) # for mutate function
+Plot_DF_predict <- Insurance$Predicted_Class |>
+group_by(Predicted_Class) |>
+summarise(count=n()) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+```
+
+The result is not very similar. There are way more 0 then the actual data.
+
+## d. (3 points) Fit a negative binomial model to the data and generate predictions as in part c. Did this solve the problem?
+
+```{r}
+#S26
+NegBinom_Mod <- MASS::glm.nb(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density,Insurance)
+# Convert back to glm() style object
+NegBinom_Mod_glm <- MASS::glm.convert(NegBinom_Mod)
+
+summary(NegBinom_Mod_glm, dispersion=1)
+
+```
+
+```{r}
+Predicted_Means_NB <- predict(NegBinom_Mod,type = "response")
+
+Insurance$Predicted_Class_NB <- round(Predicted_Means_NB,0)
+
+#count(Insurance, Predicted_Class_NB)
+```
+
+The negative Binomial result is quite similar to the Possion. Thus, it still has the issue of over-predicting 0s.
+
+## e. (5 points) Now fit a zero inflation Poisson model (ZIP) and compute the fitted proportion of zero counts as on slide 38 of the Poisson Notes. Does this help?
+
+```{r}
+
+#S34
+#install.packages(pscl)
+library(pscl)
+ZIP_Mod <- zeroinfl(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density,Insurance)
+summary(ZIP_Mod)
+
+#S38 
+Pred_zero <- predict(ZIP_Mod,type="zero")
+Pred_Count <- predict(ZIP_Mod,type="count")
+Total_Prob0 <- Pred_zero + (1-Pred_zero)*exp(-Pred_Count)
+mean(Total_Prob0)
+
+```
+
+```{r}
+
+```
+
+```{r eval=FALSE, include=FALSE}
+#??? Why I cannot use the predict function on ZIP?
+Predicted_Means_ZIP <- predict(ZIP_Mod,type = "response")
+
+Insurance$Predicted_Class_ZIP <- round(Predicted_Means_ZIP,0)
+
+#count(Insurance, Predicted_Class_ZIP)
+```
+
+```{r}
+#count(Pred_zero)
+
+```
+
+Now it helps. The proportion of 0 is close to the actual data. Moreover, there are more other count (i.e., \>0) as well.
+
+## f. (8 points) Interpret the signs of the coefficient estimates out of the ZIP model, both the count portion as well as the zero inflated portion!
+
+```{r}
+data.frame(exp.coef = exp(coef(ZIP_Mod)))
+#??? why it cannot run as S36
+```
+
+The higher the driver age and bonus miles and density reduce the likelihood of fire a claim. The increase in vehicle age increases the likelihood to fire a claim.
+
+The higher the driver age and bonus miles and density increases the number of claims being fired once they fire for a claim. The vehicle age also increases the number of claim to be fired.
+
+# 2) Modeling the Average Claim Payout
+
+## a. (3 points) In this problem we will focus on modeling the positive continuous variable "AvgClaimAmount." Attempt to fit a Gamma regression with a log link, predicting AvgClaimAmount as a function of all feature variables in the dataset. What happens when you attempt to fit this model?
+
+```{r eval=FALSE, include=FALSE}
+#S19: pos continous. #24, need to fix the non-neg to 0.
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log),data = Insurance)
+summary(Insurance_NormalGLM)$dispersion
+
+```
+
+The model cannot run since 0 is not positive value.
+
+## b. (5 points) Create a new dataset consisting of the rows that correspond to strictly positive realizations of AvgClaimAmount. Make a histogram of this variable on standard and log scale and describe your findings.
+
+```{r}
+#??? do I need to bin it?
+#42:
+hist(Insurance$AvgClaimAmount[Insurance$AvgClaimAmount>0])
+```
+
+```{r}
+hist(log(Insurance$AvgClaimAmount[Insurance$AvgClaimAmount>0]))
+```
+
+The distribution is highly skewed to the right.
+
+Once I use the log scale, it is more normally distributed.
+
+## c. (4 points) Fit the Gamma regression proposed in part a to the filtered dataset. Do you notice anything strange? How many iterations did it take glm() to find this result?
+
+```{r include=FALSE}
+library(dplyr) #must run the library again to avoid the duplicated names
+# filter the data
+Insurance_filter = filter(Insurance, Insurance$AvgClaimAmount>0)
+```
+
+```{r}
+# how to stop the code from running when it is stuck???
+
+# run the gamma
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log),data = Insurance_filter)
+#summary(Insurance_GammaGLM)$dispersion
+```
+
+It only shows not converged, so I am not sure how many iterations.
+
+## d. (3 points) To the glm() function, add the argument control = list(maxit = 500). What do you think this will do? Fit the model and examine the summary output to check the number of iterations needed for convergence.
+
+```{r}
+
+# max iteration so that more chance to converge
+# run the gamma
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log), control = list(maxit = 900),data = Insurance_filter)
+#summary(Insurance_GammaGLM)$dispersion
+```
+
+```{r}
+summary(Insurance_GammaGLM)
+
+```
+
+I set the iterations maximum to be 900 since it used 777 iterations to get a converge.
+
+## e.(3 points) From the model in e. Interpret the parameter estimate for a vehicle's age
+
+```{r}
+data.frame(exp.coef = exp(coef(Insurance_GammaGLM)))
+```
+
+As the vehicle's age increases, the claim amount decreases by 3%.
+
+```{r}
+#??? Not make sense? how could the older car requires less claim? new car costs more to repair?
+```
+
+# 3. Tweedie
+
+## a. (8 points) Using the entire dataset, create a profile likelihood of the index values p for use in a glm utilizing the Tweedie distribution to predict PurePremium directly. Make a plot of the profile likelihood and select the best value. (7520 - 3 points): For graduate students, I expect some **exploration to find the best value as these data are quite poorly behaved**. Look at the "Value" section of ?tweedie.profile for some hints, and I **would suggest narrowing the search space for p and evaluating it on a somewhat fine grid.**
+
+```{r}
+library(tweedie)
+?tweedie.profile
+
+```
+
+```{r}
+#per tweedie documentation on p.vec. if there is 0, below is the recommendated setting.
+
+TW_p_log <- tweedie.profile(AvgClaimAmount ~ .,
+p.vec = seq(from=1.2,to=1.8,by=0.1),
+link.power = 0, do.plot = TRUE,# log link
+data=Insurance)
+
+
+```
+
+```{r}
+TW_p_log <- tweedie.profile(AvgClaimAmount ~ .,
+p.vec = seq(from=1.4,to=1.7,by=0.05),
+link.power = 0, do.plot = TRUE,# log link
+data=Insurance)
+
+```
+
+```{r}
+Tweedie_p_log = TW_p_log$p.max
+Tweedie_p_log
+```
+
+The best value is 1.52.
+
+## b. Fit the Tweedie GLM model using the optimal power value you computed from the previous question. The file Insurance_test.csv contains a few additional observations which were not a portion of the data used to fit the previous models. We can read it in and format it using syntax similar to when we started. NewDataPoints \<- read.csv("..../Insurance_test.csv") NewDataPoints\$VehBrand \<- as.factor(NewDataPoints\$VehBrand) NewDataPoints\$VehPower \<- as.factor(NewDataPoints\$VehPower) NewDataPoints\$VehGas \<- as.factor(NewDataPoints\$VehGas) NewDataPoints\$Region \<- as.factor(NewDataPoints\$Region) NewDataPoints\$Area \<- as.factor(NewDataPoints\$Area)
+
+```{r}
+NewDataPoints <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW2/Insurance_test.csv") 
+NewDataPoints$VehBrand <- as.factor(NewDataPoints$VehBrand) 
+NewDataPoints$VehPower <- as.factor(NewDataPoints$VehPower) 
+NewDataPoints$VehGas <- as.factor(NewDataPoints$VehGas) 
+NewDataPoints$Region <- as.factor(NewDataPoints$Region) 
+NewDataPoints$Area <- as.factor(NewDataPoints$Area)
+
+```
+
+```{r}
+library(statmod) # For tweedie family in glm()
+
+clot_Tweedie_log <- glm(AvgClaimAmount ~ ., data=Insurance,
+family=tweedie(var.power=TW_p_log$p.max,link.power=0))
+
+
+```
+
+```{r}
+summary(clot_Tweedie_log)
+```
+
+## c.(7 points) Use your Poisson model from 1b from and your final Gamma model from 2d to generate respective predictions for the number of claims in a year as well as the average amount per claim. Multiply these together and call this product purepremium_prod. Similarly, use your Tweedie model from 3b to directly predict the PurePremium value and store this in purepremium_TW.
+
+```{r}
+count(Insurance, Predicted_Class)
+amt_predict = predict(Insurance_GammaGLM)
+mean(amt_predict)
+```
+
+```{r}
+library(dplyr)
+count(Insurance, Predicted_Class)
+```
+
+```{r}
+purepremium_prod = 44999 * mean(Total_Prob0) * mean(amt_predict) #using the ZIP model. total # of insurances * average claims predicted * average claim amount predicted. #??? won't it just be the average of the original dataset?
+purepremium_prod
+```
+
+The purepremium_prod will be \$314,268.8 using ZIP model
+
+```{r}
+clot_Tweedie_log_predict <- predict(clot_Tweedie_log,data = 'Insurance', type="response")
+p_MLE <- TW_p_log$p.max
+phi_MLE <- TW_p_log$phi.max
+#Prob_Zero_Model <- exp(-mu.Phasesˆ(2 - p_MLE)/(phi_MLE*(2 - p_MLE)))
+#error unexpected input??? what does it mean?
+```
+
+```{r}
+#S46: 
+CPoiGam <- tweedie.convert(xi=p_MLE, mu=clot_Tweedie_log_predict, phi=phi_MLE)
+PoiGamPred <- rbind("Poisson mean" = CPoiGam$poisson.lambda,
+"Gamma mean" = CPoiGam$gamma.mean,
+"Gamma dispersion" = CPoiGam$gamma.phi)
+
+```
+
+```{r}
+mean(CPoiGam$poisson.lambda * CPoiGam$gamma.mean)
+```
+
+```{r}
+purepremium_TW = 44999 * 32
+purepremium_TW
+```
+
+The purepremium_TW will be \$1,439,968 using Tweedie model
+
+```{r}
+#??? why the two results are so different?
+```

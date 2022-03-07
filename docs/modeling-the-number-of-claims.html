@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin</title>
+  <title>Chapter 8 1 1) Modeling the Number of Claims | ASM2_HW2 by Yufan Lin</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta property="og:title" content="Chapter 8 1 1) Modeling the Number of Claims | ASM2_HW2 by Yufan Lin" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta name="twitter:title" content="Chapter 8 1 1) Modeling the Number of Claims | ASM2_HW2 by Yufan Lin" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="database-marketing-substantive-domain.html"/>
-<link rel="next" href="marketing-strategy-phd-skills.html"/>
+<link rel="prev" href="question-2.html"/>
+<link rel="next" href="modeling-the-average-claim-payout.html"/>
 <script src="libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -305,153 +305,174 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-scientist-job" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data Scientist Job<a href="data-scientist-job.html#data-scientist-job" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In general, the data scientist role can be divided into decision scientist and the machine scientist <a href="https://hbr.org/2018/11/the-kinds-of-data-scientist">The Kinds of Data Scientist (hbr.org)</a> <a href="https://www.udacity.com/blog/2018/01/4-types-data-science-jobs.html">4 Types of Data Science Jobs | Udacity</a></p>
-<p>The entry-level (i.e., data analyst) deals with basic analysis tools such as Excel and SQL programming skills to pull data. The middle-level (i.e., data scientist I) deals with more advanced analytics tools such as R, Python. The senior-level uses the same analytics tool but can write or modify the published package/ library. On a side note, the data product management side deals with data product/service, which is akin to the product manager in general.</p>
-<p>In practice, the substantive job content can be differentiated based on strategy, consumer behavior, and optimization tracks. The strategy track produces the analysis for managers to make further decisions. In the consumer behavior track, they produce the analysis to elucidate the psychological mechanism and come up with interesting mental models used by the consumers. The optimization track focuses on making things more efficient on a large scale or using machine learning to automate the analysis.</p>
-<p>I list the specific duties of each track below, along with the resources to develop the corresponding skills or business sense.</p>
-<div id="business-strategy-track-a.k.a-marketing-analytics" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Business strategy Track (a.k.a Marketing Analytics)<a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="database-marketing" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Database marketing<a href="data-scientist-job.html#database-marketing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>RFM targeting offer design, discount offer optimization See the Database marketing page</li>
-</ul>
+<div id="modeling-the-number-of-claims" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> 1 1) Modeling the Number of Claims<a href="modeling-the-number-of-claims.html#modeling-the-number-of-claims" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="a.-5-points-create-a-table-to-present-the-distribution-of-the-number-of-claims-by-computing-the-proportion-of-each-possibility.-what-percent-of-the-policies-have-0-claims" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> a. (5 points) Create a table to present the distribution of the number of claims by computing the proportion of each possibility. What percent of the policies have 0 claims?<a href="modeling-the-number-of-claims.html#a.-5-points-create-a-table-to-present-the-distribution-of-the-number-of-claims-by-computing-the-proportion-of-each-possibility.-what-percent-of-the-policies-have-0-claims" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="modeling-the-number-of-claims.html#cb105-1" aria-hidden="true" tabindex="-1"></a>Plot_DF</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##   ClaimNb count etotal proportion
+##     &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;
+## 1       0 42685  44999   0.949   
+## 2       1  2224  44999   0.0494  
+## 3       2    84  44999   0.00187 
+## 4       3     6  44999   0.000133</code></pre>
+<p>The result shows that about 95% of the policies have 0 claims.</p>
 </div>
-<div id="programming" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Programming<a href="data-scientist-job.html#programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>SQL:</p>
-<ul>
-<li>Data quality validation Data manipulation and merging</li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid</a></li>
-</ul></li>
-<li><p>Python</p>
-<ul>
-<li><p><a href="https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165" class="uri">https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165</a></p></li>
-<li><p><a href="https://www.coursera.org/learn/python-data-analysis/home/week/1">Introduction to Data Science in Python - Week 1 | Coursera</a></p>
-<ul>
-<li><p>map()</p></li>
-<li><p>lambda list comprehension</p></li>
-<li><p>numpy library</p></li>
-<li><p>series, data frame</p></li>
-<li><p>groupby, pivot, merging</p></li>
-<li><p>Distribution</p></li>
-</ul></li>
-</ul></li>
-<li><p>R</p>
-<ul>
-<li><p>Base</p></li>
-<li><p>MAP → same function to all variables.</p></li>
-<li><p>Ggplot → viusalization</p></li>
-<li><p>Tidyr → data manipulation</p></li>
-<li><p><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ" class="uri">&lt;https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ&gt;</a></p>
-<ul>
-<li><p>basic commands</p></li>
-<li><p>model accuracy</p></li>
-<li><p>KNN</p></li>
-<li><p>Classification - LDA?</p></li>
-<li><p>Bootstraping</p></li>
-<li><p>Regularization</p></li>
-<li><p>Non-linear model</p></li>
-<li><p>Tree based</p></li>
-<li><p>SVM</p></li>
-<li><p>Unsupervised</p></li>
-</ul></li>
-</ul></li>
-</ul>
+<div id="b.-6-points-create-a-poisson-regression-to-predict-the-number-of-claims-in-the-year-using-only-the-variables-for-vehicle-age-driver-age-bonusmalus-and-density.-what-is-the-deviance-does-is-differ-significantly-from-the-null-deviance" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> b. (6 points) Create a Poisson regression to predict the number of claims in the year using only the variables for vehicle age, driver age, bonusMalus, and density. What is the deviance? Does is differ significantly from the null deviance?<a href="modeling-the-number-of-claims.html#b.-6-points-create-a-poisson-regression-to-predict-the-number-of-claims-in-the-year-using-only-the-variables-for-vehicle-age-driver-age-bonusmalus-and-density.-what-is-the-deviance-does-is-differ-significantly-from-the-null-deviance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="modeling-the-number-of-claims.html#cb107-1" aria-hidden="true" tabindex="-1"></a>Poisson_Mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(ClaimNb <span class="sc">~</span> VehAge <span class="sc">+</span> DrivAge <span class="sc">+</span> BonusMalus <span class="sc">+</span> Density, <span class="at">family=</span>poisson, Insurance)</span>
+<span id="cb107-2"><a href="modeling-the-number-of-claims.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Poisson_Mod)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = ClaimNb ~ VehAge + DrivAge + BonusMalus + Density, 
+##     family = poisson, data = Insurance)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.1306  -0.3375  -0.3039  -0.2816   4.3804  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.9772852  0.1330830 -37.400  &lt; 2e-16 ***
+## VehAge       0.0005833  0.0035970   0.162    0.871    
+## DrivAge      0.0110918  0.0014819   7.485 7.17e-14 ***
+## BonusMalus   0.0196450  0.0010601  18.532  &lt; 2e-16 ***
+## Density      0.0529343  0.0111655   4.741 2.13e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 14381  on 44998  degrees of freedom
+## Residual deviance: 14049  on 44994  degrees of freedom
+## AIC: 18744
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="modeling-the-number-of-claims.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S14</span></span>
+<span id="cb109-2"><a href="modeling-the-number-of-claims.html#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="modeling-the-number-of-claims.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(<span class="fu">summary</span>(Poisson_Mod)<span class="sc">$</span>deviance,Poisson_Mod<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>The deviance is 14049. It is not statistically different from the null model.</p>
 </div>
-<div id="statistics" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Statistics:<a href="data-scientist-job.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Statistical tests for differences:</p>
-<ul>
-<li>Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)</li>
-<li>Incrementality</li>
-<li>Regression</li>
-<li>Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis</li>
-<li>Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)</li>
-</ul></li>
-<li><p>Advanced: Causal inference</p>
-<ul>
-<li>Control for observables</li>
-<li>Mixed model / Hierachical linear model</li>
-<li>Difference in Difference</li>
-<li>Regression Discontinuity</li>
-<li>Modeling process</li>
-</ul></li>
-</ul>
+<div id="c.-4-points-generate-predictions-on-the-response-scale-µ-and-round-them-to-the-nearest-count.-create-a-table-as-in-part-a-and-comment-on-how-similar-or-dissimilar-this-result-is." class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> c. (4 points) Generate predictions on the response scale µ and round them to the nearest count. Create a table as in part a and comment on how similar or dissimilar this result is.<a href="modeling-the-number-of-claims.html#c.-4-points-generate-predictions-on-the-response-scale-µ-and-round-them-to-the-nearest-count.-create-a-table-as-in-part-a-and-comment-on-how-similar-or-dissimilar-this-result-is." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="modeling-the-number-of-claims.html#cb111-1" aria-hidden="true" tabindex="-1"></a>Predicted_Means <span class="ot">&lt;-</span> <span class="fu">predict</span>(Poisson_Mod,<span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb111-2"><a href="modeling-the-number-of-claims.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="co">#X2 &lt;- sum((Insurance$ClaimNb - Predicted_Means)ˆ2/Predicted_Means)</span></span>
+<span id="cb111-3"><a href="modeling-the-number-of-claims.html#cb111-3" aria-hidden="true" tabindex="-1"></a>Insurance<span class="sc">$</span>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">round</span>(Predicted_Means,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="modeling-the-number-of-claims.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Insurance, Predicted_Class)</span></span></code></pre></div>
+<p>The result is not very similar. There are way more 0 then the actual data.</p>
 </div>
-<div id="visualization" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Visualization<a href="data-scientist-job.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Drawing Interaction plot</li>
-<li>Decile plots</li>
-<li>Written report on the analysis</li>
-</ul>
+<div id="d.-3-points-fit-a-negative-binomial-model-to-the-data-and-generate-predictions-as-in-part-c.-did-this-solve-the-problem" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> d. (3 points) Fit a negative binomial model to the data and generate predictions as in part c. Did this solve the problem?<a href="modeling-the-number-of-claims.html#d.-3-points-fit-a-negative-binomial-model-to-the-data-and-generate-predictions-as-in-part-c.-did-this-solve-the-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modeling-the-number-of-claims.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S26</span></span>
+<span id="cb113-2"><a href="modeling-the-number-of-claims.html#cb113-2" aria-hidden="true" tabindex="-1"></a>NegBinom_Mod <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(ClaimNb <span class="sc">~</span> VehAge <span class="sc">+</span> DrivAge <span class="sc">+</span> BonusMalus <span class="sc">+</span> Density,Insurance)</span>
+<span id="cb113-3"><a href="modeling-the-number-of-claims.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert back to glm() style object</span></span>
+<span id="cb113-4"><a href="modeling-the-number-of-claims.html#cb113-4" aria-hidden="true" tabindex="-1"></a>NegBinom_Mod_glm <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.convert</span>(NegBinom_Mod)</span>
+<span id="cb113-5"><a href="modeling-the-number-of-claims.html#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="modeling-the-number-of-claims.html#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(NegBinom_Mod_glm, <span class="at">dispersion=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats::glm(formula = ClaimNb ~ VehAge + DrivAge + BonusMalus + 
+##     Density, data = Insurance, family = negative.binomial(theta = 2.89746020004541, 
+##     link = log))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.0799  -0.3360  -0.3026  -0.2805   4.1113  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.9864644  0.1358338 -36.710  &lt; 2e-16 ***
+## VehAge       0.0005578  0.0036355   0.153    0.878    
+## DrivAge      0.0111508  0.0015060   7.404 1.32e-13 ***
+## BonusMalus   0.0197329  0.0010930  18.053  &lt; 2e-16 ***
+## Density      0.0531295  0.0112863   4.707 2.51e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for Negative Binomial(2.8975) family taken to be 1)
+## 
+##     Null deviance: 13623  on 44998  degrees of freedom
+## Residual deviance: 13298  on 44994  degrees of freedom
+## AIC: 18738
+## 
+## Number of Fisher Scoring iterations: 1</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="modeling-the-number-of-claims.html#cb115-1" aria-hidden="true" tabindex="-1"></a>Predicted_Means_NB <span class="ot">&lt;-</span> <span class="fu">predict</span>(NegBinom_Mod,<span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb115-2"><a href="modeling-the-number-of-claims.html#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="modeling-the-number-of-claims.html#cb115-3" aria-hidden="true" tabindex="-1"></a>Insurance<span class="sc">$</span>Predicted_Class_NB <span class="ot">&lt;-</span> <span class="fu">round</span>(Predicted_Means_NB,<span class="dv">0</span>)</span>
+<span id="cb115-4"><a href="modeling-the-number-of-claims.html#cb115-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-5"><a href="modeling-the-number-of-claims.html#cb115-5" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Insurance, Predicted_Class_NB)</span></span></code></pre></div>
+<p>The negative Binomial result is quite similar to the Possion. Thus, it still has the issue of over-predicting 0s.</p>
 </div>
-<div id="automation" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Automation<a href="data-scientist-job.html#automation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Function building</li>
-<li>Analysis library</li>
-</ul>
+<div id="e.-5-points-now-fit-a-zero-inflation-poisson-model-zip-and-compute-the-fitted-proportion-of-zero-counts-as-on-slide-38-of-the-poisson-notes.-does-this-help" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> e. (5 points) Now fit a zero inflation Poisson model (ZIP) and compute the fitted proportion of zero counts as on slide 38 of the Poisson Notes. Does this help?<a href="modeling-the-number-of-claims.html#e.-5-points-now-fit-a-zero-inflation-poisson-model-zip-and-compute-the-fitted-proportion-of-zero-counts-as-on-slide-38-of-the-poisson-notes.-does-this-help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="modeling-the-number-of-claims.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S34</span></span>
+<span id="cb116-2"><a href="modeling-the-number-of-claims.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(pscl)</span></span>
+<span id="cb116-3"><a href="modeling-the-number-of-claims.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pscl)</span></code></pre></div>
+<pre><code>## Classes and Methods for R developed in the
+## Political Science Computational Laboratory
+## Department of Political Science
+## Stanford University
+## Simon Jackman
+## hurdle and zeroinfl functions by Achim Zeileis</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="modeling-the-number-of-claims.html#cb118-1" aria-hidden="true" tabindex="-1"></a>ZIP_Mod <span class="ot">&lt;-</span> <span class="fu">zeroinfl</span>(ClaimNb <span class="sc">~</span> VehAge <span class="sc">+</span> DrivAge <span class="sc">+</span> BonusMalus <span class="sc">+</span> Density,Insurance)</span>
+<span id="cb118-2"><a href="modeling-the-number-of-claims.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ZIP_Mod)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## zeroinfl(formula = ClaimNb ~ VehAge + DrivAge + BonusMalus + Density, 
+##     data = Insurance)
+## 
+## Pearson residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.7772 -0.2379 -0.2141 -0.1965 14.0577 
+## 
+## Count model coefficients (poisson with log link):
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.350206   0.244515 -17.791  &lt; 2e-16 ***
+## VehAge       0.055968   0.009113   6.141 8.17e-10 ***
+## DrivAge      0.006835   0.002815   2.428   0.0152 *  
+## BonusMalus   0.015519   0.001764   8.796  &lt; 2e-16 ***
+## Density      0.011674   0.019009   0.614   0.5391    
+## 
+## Zero-inflation model coefficients (binomial with logit link):
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  0.24320    0.90679   0.268  0.78855    
+## VehAge       0.20267    0.02203   9.198  &lt; 2e-16 ***
+## DrivAge     -0.02088    0.01168  -1.789  0.07368 .  
+## BonusMalus  -0.01744    0.00691  -2.524  0.01160 *  
+## Density     -0.17969    0.06359  -2.826  0.00471 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Number of iterations in BFGS optimization: 33 
+## Log-likelihood: -9333 on 10 Df</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="modeling-the-number-of-claims.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S38 </span></span>
+<span id="cb120-2"><a href="modeling-the-number-of-claims.html#cb120-2" aria-hidden="true" tabindex="-1"></a>Pred_zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(ZIP_Mod,<span class="at">type=</span><span class="st">&quot;zero&quot;</span>)</span>
+<span id="cb120-3"><a href="modeling-the-number-of-claims.html#cb120-3" aria-hidden="true" tabindex="-1"></a>Pred_Count <span class="ot">&lt;-</span> <span class="fu">predict</span>(ZIP_Mod,<span class="at">type=</span><span class="st">&quot;count&quot;</span>)</span>
+<span id="cb120-4"><a href="modeling-the-number-of-claims.html#cb120-4" aria-hidden="true" tabindex="-1"></a>Total_Prob0 <span class="ot">&lt;-</span> Pred_zero <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>Pred_zero)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>Pred_Count)</span>
+<span id="cb120-5"><a href="modeling-the-number-of-claims.html#cb120-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Total_Prob0)</span></code></pre></div>
+<pre><code>## [1] 0.9487571</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="modeling-the-number-of-claims.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Pred_zero)</span></span></code></pre></div>
+<p>Now it helps. The proportion of 0 is close to the actual data. Moreover, there are more other count (i.e., &gt;0) as well.</p>
 </div>
-</div>
-<div id="consumer-insight-track-aka.-marketing-research" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Consumer insight Track (aka. Marketing Research)<a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Qualitative study design</p></li>
-<li><p>Quantitative study design (i.e., survey)</p>
-<ul>
-<li>Qualtrics for questionnaire or experiment design</li>
-<li>Generating research questions</li>
-</ul></li>
-<li><p>Data analysis</p>
-<ul>
-<li>Meditation , Path Model</li>
-<li>Measurement model</li>
-</ul></li>
-</ul>
-</div>
-<div id="optimization-track-a.k.a-operational-research" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Optimization Track (a.k.a Operational Research)<a href="data-scientist-job.html#optimization-track-a.k.a-operational-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="model-optimization" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Model optimization<a href="data-scientist-job.html#model-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Machine learning - regularization</p>
-<ul>
-<li><a href="https://coggle.it/diagram/Yb6sPjXbzAp_60P4/t/machine-learning">Machine Learning (coggle.it)</a></li>
-</ul></li>
-<li><p>dimension reduction</p></li>
-<li><p><a href="https://bookdown.org/mike/advanced_data_analysis/model-stacking.html">Chapter 34 Model Stacking | Advanced Data Analysis (bookdown.org)</a></p></li>
-</ul>
-</div>
-<div id="macro-level-models" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Macro level models<a href="data-scientist-job.html#macro-level-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Marketing Mix Models</p>
-<ul>
-<li><a href="https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c" class="uri">https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c</a></li>
-<li>Ad stock function</li>
-<li>Media Attribution Modeling</li>
-<li><a href="https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python">Attribution Modeling in Marketing Python | Kaggle</a></li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1</a></li>
-</ul></li>
-</ul>
-</div>
-<div id="academic-paper-implementation" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Academic Paper implementation<a href="data-scientist-job.html#academic-paper-implementation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Conceptual understanding</p></li>
-<li><p>Composing or Modifying R, Python package per the paper’s idea</p>
-<ul>
-<li><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c" class="uri">https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c</a></li>
-</ul></li>
-</ul>
-
-</div>
+<div id="f.-8-points-interpret-the-signs-of-the-coefficient-estimates-out-of-the-zip-model-both-the-count-portion-as-well-as-the-zero-inflated-portion" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> f. (8 points) Interpret the signs of the coefficient estimates out of the ZIP model, both the count portion as well as the zero inflated portion!<a href="modeling-the-number-of-claims.html#f.-8-points-interpret-the-signs-of-the-coefficient-estimates-out-of-the-zip-model-both-the-count-portion-as-well-as-the-zero-inflated-portion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="modeling-the-number-of-claims.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">exp.coef =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(ZIP_Mod)))</span></code></pre></div>
+<pre><code>##                     exp.coef
+## count_(Intercept) 0.01290416
+## count_VehAge      1.05756403
+## count_DrivAge     1.00685853
+## count_BonusMalus  1.01563970
+## count_Density     1.01174223
+## zero_(Intercept)  1.27532174
+## zero_VehAge       1.22467152
+## zero_DrivAge      0.97933313
+## zero_BonusMalus   0.98271136
+## zero_Density      0.83552783</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="modeling-the-number-of-claims.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? why it cannot run as S36</span></span></code></pre></div>
+<p>The higher the driver age and bonus miles and density reduce the likelihood of fire a claim. The increase in vehicle age increases the likelihood to fire a claim.</p>
+<p>The higher the driver age and bonus miles and density increases the number of claims being fired once they fire for a claim. The vehicle age also increases the number of claim to be fired.</p>
 </div>
 </div>
             </section>
@@ -459,8 +480,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="database-marketing-substantive-domain.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="marketing-strategy-phd-skills.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="question-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modeling-the-average-claim-payout.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +512,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/lyf718718/Book2.git/edit/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -499,7 +520,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/lyf718718/Book2.git/blob/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW2.Rmd",
 "text": null
 },
 "download": null,

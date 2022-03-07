@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin</title>
+  <title>Chapter 10 3. Tweedie | ASM2_HW2 by Yufan Lin</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta property="og:title" content="Chapter 10 3. Tweedie | ASM2_HW2 by Yufan Lin" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta name="twitter:title" content="Chapter 10 3. Tweedie | ASM2_HW2 by Yufan Lin" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="database-marketing-substantive-domain.html"/>
-<link rel="next" href="marketing-strategy-phd-skills.html"/>
+<link rel="prev" href="modeling-the-average-claim-payout.html"/>
+
 <script src="libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -305,152 +305,230 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-scientist-job" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data Scientist Job<a href="data-scientist-job.html#data-scientist-job" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In general, the data scientist role can be divided into decision scientist and the machine scientist <a href="https://hbr.org/2018/11/the-kinds-of-data-scientist">The Kinds of Data Scientist (hbr.org)</a> <a href="https://www.udacity.com/blog/2018/01/4-types-data-science-jobs.html">4 Types of Data Science Jobs | Udacity</a></p>
-<p>The entry-level (i.e., data analyst) deals with basic analysis tools such as Excel and SQL programming skills to pull data. The middle-level (i.e., data scientist I) deals with more advanced analytics tools such as R, Python. The senior-level uses the same analytics tool but can write or modify the published package/ library. On a side note, the data product management side deals with data product/service, which is akin to the product manager in general.</p>
-<p>In practice, the substantive job content can be differentiated based on strategy, consumer behavior, and optimization tracks. The strategy track produces the analysis for managers to make further decisions. In the consumer behavior track, they produce the analysis to elucidate the psychological mechanism and come up with interesting mental models used by the consumers. The optimization track focuses on making things more efficient on a large scale or using machine learning to automate the analysis.</p>
-<p>I list the specific duties of each track below, along with the resources to develop the corresponding skills or business sense.</p>
-<div id="business-strategy-track-a.k.a-marketing-analytics" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Business strategy Track (a.k.a Marketing Analytics)<a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="database-marketing" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Database marketing<a href="data-scientist-job.html#database-marketing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>RFM targeting offer design, discount offer optimization See the Database marketing page</li>
-</ul>
+<div id="tweedie" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> 3. Tweedie<a href="tweedie.html#tweedie" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="a.-8-points-using-the-entire-dataset-create-a-profile-likelihood-of-the-index-values-p-for-use-in-a-glm-utilizing-the-tweedie-distribution-to-predict-purepremium-directly.-make-a-plot-of-the-profile-likelihood-and-select-the-best-value.-7520---3-points-for-graduate-students-i-expect-some-exploration-to-find-the-best-value-as-these-data-are-quite-poorly-behaved.-look-at-the-value-section-of-tweedie.profile-for-some-hints-and-i-would-suggest-narrowing-the-search-space-for-p-and-evaluating-it-on-a-somewhat-fine-grid." class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> a. (8 points) Using the entire dataset, create a profile likelihood of the index values p for use in a glm utilizing the Tweedie distribution to predict PurePremium directly. Make a plot of the profile likelihood and select the best value. (7520 - 3 points): For graduate students, I expect some <strong>exploration to find the best value as these data are quite poorly behaved</strong>. Look at the “Value” section of ?tweedie.profile for some hints, and I <strong>would suggest narrowing the search space for p and evaluating it on a somewhat fine grid.</strong><a href="tweedie.html#a.-8-points-using-the-entire-dataset-create-a-profile-likelihood-of-the-index-values-p-for-use-in-a-glm-utilizing-the-tweedie-distribution-to-predict-purepremium-directly.-make-a-plot-of-the-profile-likelihood-and-select-the-best-value.-7520---3-points-for-graduate-students-i-expect-some-exploration-to-find-the-best-value-as-these-data-are-quite-poorly-behaved.-look-at-the-value-section-of-tweedie.profile-for-some-hints-and-i-would-suggest-narrowing-the-search-space-for-p-and-evaluating-it-on-a-somewhat-fine-grid." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="tweedie.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tweedie)</span>
+<span id="cb135-2"><a href="tweedie.html#cb135-2" aria-hidden="true" tabindex="-1"></a>?tweedie.profile</span></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="tweedie.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">#per tweedie documentation on p.vec. if there is 0, below is the recommendated setting.</span></span>
+<span id="cb137-2"><a href="tweedie.html#cb137-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-3"><a href="tweedie.html#cb137-3" aria-hidden="true" tabindex="-1"></a>TW_p_log <span class="ot">&lt;-</span> <span class="fu">tweedie.profile</span>(AvgClaimAmount <span class="sc">~</span> .,</span>
+<span id="cb137-4"><a href="tweedie.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="at">p.vec =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="fl">1.2</span>,<span class="at">to=</span><span class="fl">1.8</span>,<span class="at">by=</span><span class="fl">0.1</span>),</span>
+<span id="cb137-5"><a href="tweedie.html#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="at">link.power =</span> <span class="dv">0</span>, <span class="at">do.plot =</span> <span class="cn">TRUE</span>,<span class="co"># log link</span></span>
+<span id="cb137-6"><a href="tweedie.html#cb137-6" aria-hidden="true" tabindex="-1"></a><span class="at">data=</span>Insurance)</span></code></pre></div>
+<pre><code>## 1.2 1.3 1.4 1.5 1.6 1.7 1.8 
+## .......Done.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="tweedie.html#cb139-1" aria-hidden="true" tabindex="-1"></a>TW_p_log <span class="ot">&lt;-</span> <span class="fu">tweedie.profile</span>(AvgClaimAmount <span class="sc">~</span> .,</span>
+<span id="cb139-2"><a href="tweedie.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="at">p.vec =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="fl">1.4</span>,<span class="at">to=</span><span class="fl">1.7</span>,<span class="at">by=</span><span class="fl">0.05</span>),</span>
+<span id="cb139-3"><a href="tweedie.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="at">link.power =</span> <span class="dv">0</span>, <span class="at">do.plot =</span> <span class="cn">TRUE</span>,<span class="co"># log link</span></span>
+<span id="cb139-4"><a href="tweedie.html#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="at">data=</span>Insurance)</span></code></pre></div>
+<pre><code>## 1.4 1.45 1.5 1.55 1.6 1.65 1.7 
+## .......Done.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="tweedie.html#cb141-1" aria-hidden="true" tabindex="-1"></a>Tweedie_p_log <span class="ot">=</span> TW_p_log<span class="sc">$</span>p.max</span>
+<span id="cb141-2"><a href="tweedie.html#cb141-2" aria-hidden="true" tabindex="-1"></a>Tweedie_p_log</span></code></pre></div>
+<pre><code>## [1] 1.522449</code></pre>
+<p>The best value is 1.52.</p>
 </div>
-<div id="programming" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Programming<a href="data-scientist-job.html#programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>SQL:</p>
-<ul>
-<li>Data quality validation Data manipulation and merging</li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid</a></li>
-</ul></li>
-<li><p>Python</p>
-<ul>
-<li><p><a href="https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165" class="uri">https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165</a></p></li>
-<li><p><a href="https://www.coursera.org/learn/python-data-analysis/home/week/1">Introduction to Data Science in Python - Week 1 | Coursera</a></p>
-<ul>
-<li><p>map()</p></li>
-<li><p>lambda list comprehension</p></li>
-<li><p>numpy library</p></li>
-<li><p>series, data frame</p></li>
-<li><p>groupby, pivot, merging</p></li>
-<li><p>Distribution</p></li>
-</ul></li>
-</ul></li>
-<li><p>R</p>
-<ul>
-<li><p>Base</p></li>
-<li><p>MAP → same function to all variables.</p></li>
-<li><p>Ggplot → viusalization</p></li>
-<li><p>Tidyr → data manipulation</p></li>
-<li><p><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ" class="uri">&lt;https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ&gt;</a></p>
-<ul>
-<li><p>basic commands</p></li>
-<li><p>model accuracy</p></li>
-<li><p>KNN</p></li>
-<li><p>Classification - LDA?</p></li>
-<li><p>Bootstraping</p></li>
-<li><p>Regularization</p></li>
-<li><p>Non-linear model</p></li>
-<li><p>Tree based</p></li>
-<li><p>SVM</p></li>
-<li><p>Unsupervised</p></li>
-</ul></li>
-</ul></li>
-</ul>
+<div id="b.-fit-the-tweedie-glm-model-using-the-optimal-power-value-you-computed-from-the-previous-question.-the-file-insurance_test.csv-contains-a-few-additional-observations-which-were-not-a-portion-of-the-data-used-to-fit-the-previous-models.-we-can-read-it-in-and-format-it-using-syntax-similar-to-when-we-started.-newdatapoints---read.csv.insurance_test.csv-newdatapointsvehbrand---as.factornewdatapointsvehbrand-newdatapointsvehpower---as.factornewdatapointsvehpower-newdatapointsvehgas---as.factornewdatapointsvehgas-newdatapointsregion---as.factornewdatapointsregion-newdatapointsarea---as.factornewdatapointsarea" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> b. Fit the Tweedie GLM model using the optimal power value you computed from the previous question. The file Insurance_test.csv contains a few additional observations which were not a portion of the data used to fit the previous models. We can read it in and format it using syntax similar to when we started. NewDataPoints &lt;- read.csv(“…./Insurance_test.csv”) NewDataPoints$VehBrand &lt;- as.factor(NewDataPoints$VehBrand) NewDataPoints$VehPower &lt;- as.factor(NewDataPoints$VehPower) NewDataPoints$VehGas &lt;- as.factor(NewDataPoints$VehGas) NewDataPoints$Region &lt;- as.factor(NewDataPoints$Region) NewDataPoints$Area &lt;- as.factor(NewDataPoints$Area)<a href="tweedie.html#b.-fit-the-tweedie-glm-model-using-the-optimal-power-value-you-computed-from-the-previous-question.-the-file-insurance_test.csv-contains-a-few-additional-observations-which-were-not-a-portion-of-the-data-used-to-fit-the-previous-models.-we-can-read-it-in-and-format-it-using-syntax-similar-to-when-we-started.-newdatapoints---read.csv.insurance_test.csv-newdatapointsvehbrand---as.factornewdatapointsvehbrand-newdatapointsvehpower---as.factornewdatapointsvehpower-newdatapointsvehgas---as.factornewdatapointsvehgas-newdatapointsregion---as.factornewdatapointsregion-newdatapointsarea---as.factornewdatapointsarea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="tweedie.html#cb143-1" aria-hidden="true" tabindex="-1"></a>NewDataPoints <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW2/Insurance_test.csv&quot;</span>) </span>
+<span id="cb143-2"><a href="tweedie.html#cb143-2" aria-hidden="true" tabindex="-1"></a>NewDataPoints<span class="sc">$</span>VehBrand <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(NewDataPoints<span class="sc">$</span>VehBrand) </span>
+<span id="cb143-3"><a href="tweedie.html#cb143-3" aria-hidden="true" tabindex="-1"></a>NewDataPoints<span class="sc">$</span>VehPower <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(NewDataPoints<span class="sc">$</span>VehPower) </span>
+<span id="cb143-4"><a href="tweedie.html#cb143-4" aria-hidden="true" tabindex="-1"></a>NewDataPoints<span class="sc">$</span>VehGas <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(NewDataPoints<span class="sc">$</span>VehGas) </span>
+<span id="cb143-5"><a href="tweedie.html#cb143-5" aria-hidden="true" tabindex="-1"></a>NewDataPoints<span class="sc">$</span>Region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(NewDataPoints<span class="sc">$</span>Region) </span>
+<span id="cb143-6"><a href="tweedie.html#cb143-6" aria-hidden="true" tabindex="-1"></a>NewDataPoints<span class="sc">$</span>Area <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(NewDataPoints<span class="sc">$</span>Area)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="tweedie.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statmod) <span class="co"># For tweedie family in glm()</span></span>
+<span id="cb144-2"><a href="tweedie.html#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="tweedie.html#cb144-3" aria-hidden="true" tabindex="-1"></a>clot_Tweedie_log <span class="ot">&lt;-</span> <span class="fu">glm</span>(AvgClaimAmount <span class="sc">~</span> ., <span class="at">data=</span>Insurance,</span>
+<span id="cb144-4"><a href="tweedie.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="at">family=</span><span class="fu">tweedie</span>(<span class="at">var.power=</span>TW_p_log<span class="sc">$</span>p.max,<span class="at">link.power=</span><span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="tweedie.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(clot_Tweedie_log)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = AvgClaimAmount ~ ., family = tweedie(var.power = TW_p_log$p.max, 
+##     link.power = 0), data = Insurance)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -143.413    -2.577    -2.358    -2.138    88.120  
+## 
+## Coefficients: (1 not defined because of singularities)
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        -1.636e+00  2.401e-01  -6.814 9.62e-12 ***
+## ClaimNb             5.551e+00  2.373e-02 233.891  &lt; 2e-16 ***
+## Exposure           -4.523e-01  6.460e-02  -7.002 2.56e-12 ***
+## AreaB              -6.157e-01  9.202e-02  -6.691 2.25e-11 ***
+## AreaC              -9.969e-01  1.217e-01  -8.193 2.62e-16 ***
+## AreaD              -1.432e+00  1.886e-01  -7.592 3.21e-14 ***
+## AreaE              -1.863e+00  2.469e-01  -7.547 4.54e-14 ***
+## AreaF              -2.206e+00  3.625e-01  -6.086 1.17e-09 ***
+## VehPower5           1.935e-01  7.206e-02   2.685 0.007252 ** 
+## VehPower6           1.713e-01  6.842e-02   2.504 0.012298 *  
+## VehPower7          -1.871e-01  6.894e-02  -2.713 0.006662 ** 
+## VehPower8          -1.024e-01  1.057e-01  -0.968 0.332876    
+## VehPower9           3.152e-01  1.066e-01   2.958 0.003098 ** 
+## VehPower10          4.430e-01  1.133e-01   3.910 9.23e-05 ***
+## VehPower11          7.907e-01  1.423e-01   5.556 2.78e-08 ***
+## VehPower12          6.662e-01  2.117e-01   3.146 0.001654 ** 
+## VehPower13          1.599e-01  2.723e-01   0.587 0.557015    
+## VehPower14         -2.349e+00  6.682e-01  -3.515 0.000441 ***
+## VehPower15          9.716e-01  4.146e-01   2.344 0.019100 *  
+## VehAge             -3.288e-03  4.003e-03  -0.821 0.411487    
+## DrivAge             1.230e-02  1.488e-03   8.271  &lt; 2e-16 ***
+## BonusMalus          7.315e-03  1.185e-03   6.171 6.84e-10 ***
+## VehBrandB10         7.370e-02  1.421e-01   0.519 0.603970    
+## VehBrandB11         7.272e-01  1.379e-01   5.275 1.33e-07 ***
+## VehBrandB12        -4.509e-01  9.113e-02  -4.948 7.54e-07 ***
+## VehBrandB13         1.093e+00  1.305e-01   8.376  &lt; 2e-16 ***
+## VehBrandB14         6.719e-01  2.192e-01   3.064 0.002182 ** 
+## VehBrandB2          9.120e-02  5.343e-02   1.707 0.087828 .  
+## VehBrandB3         -7.350e-02  7.786e-02  -0.944 0.345144    
+## VehBrandB4          3.675e-01  1.017e-01   3.614 0.000302 ***
+## VehBrandB5          4.190e-01  8.288e-02   5.055 4.33e-07 ***
+## VehBrandB6          3.926e-01  8.891e-02   4.416 1.01e-05 ***
+## VehGasRegular      -2.223e-01  4.420e-02  -5.028 4.97e-07 ***
+## Density             3.520e-01  4.718e-02   7.460 8.80e-14 ***
+## RegionR21           6.821e-01  4.580e-01   1.489 0.136462    
+## RegionR22           3.816e-01  2.036e-01   1.875 0.060840 .  
+## RegionR23           6.810e-01  3.349e-01   2.034 0.041990 *  
+## RegionR24           7.622e-01  1.072e-01   7.107 1.20e-12 ***
+## RegionR25           2.417e-02  1.975e-01   0.122 0.902627    
+## RegionR26           5.522e-01  2.320e-01   2.380 0.017305 *  
+## RegionR31           8.848e-01  1.478e-01   5.986 2.16e-09 ***
+## RegionR41          -3.213e-02  1.409e-01  -0.228 0.819610    
+## RegionR42           7.103e-02  2.552e-01   0.278 0.780753    
+## RegionR43           1.662e-01  7.882e-01   0.211 0.832964    
+## RegionR52           4.081e-01  1.255e-01   3.250 0.001153 ** 
+## RegionR53           7.129e-01  1.176e-01   6.061 1.36e-09 ***
+## RegionR54          -7.083e-02  1.370e-01  -0.517 0.605221    
+## RegionR72           5.431e-02  1.322e-01   0.411 0.681283    
+## RegionR73           6.923e-01  2.178e-01   3.179 0.001479 ** 
+## RegionR74          -6.384e-01  1.781e-01  -3.585 0.000337 ***
+## RegionR82           6.612e-01  1.075e-01   6.150 7.83e-10 ***
+## RegionR83          -8.528e-02  4.404e-01  -0.194 0.846456    
+## RegionR91           5.483e-01  1.659e-01   3.305 0.000949 ***
+## RegionR93           8.103e-01  1.147e-01   7.065 1.63e-12 ***
+## RegionR94          -2.268e-01  5.804e-01  -0.391 0.695913    
+## PurePremium         3.061e-07  1.992e-08  15.364  &lt; 2e-16 ***
+## Frequency           2.106e-02  1.861e-03  11.320  &lt; 2e-16 ***
+## Predicted_Class    -1.096e+00  4.752e-01  -2.307 0.021053 *  
+## Predicted_Class_NB         NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for Tweedie family taken to be 52.21709)
+## 
+##     Null deviance: 2712009  on 44998  degrees of freedom
+## Residual deviance:  620930  on 44941  degrees of freedom
+## AIC: NA
+## 
+## Number of Fisher Scoring iterations: 20</code></pre>
 </div>
-<div id="statistics" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Statistics:<a href="data-scientist-job.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Statistical tests for differences:</p>
-<ul>
-<li>Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)</li>
-<li>Incrementality</li>
-<li>Regression</li>
-<li>Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis</li>
-<li>Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)</li>
-</ul></li>
-<li><p>Advanced: Causal inference</p>
-<ul>
-<li>Control for observables</li>
-<li>Mixed model / Hierachical linear model</li>
-<li>Difference in Difference</li>
-<li>Regression Discontinuity</li>
-<li>Modeling process</li>
-</ul></li>
-</ul>
-</div>
-<div id="visualization" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Visualization<a href="data-scientist-job.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Drawing Interaction plot</li>
-<li>Decile plots</li>
-<li>Written report on the analysis</li>
-</ul>
-</div>
-<div id="automation" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Automation<a href="data-scientist-job.html#automation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Function building</li>
-<li>Analysis library</li>
-</ul>
-</div>
-</div>
-<div id="consumer-insight-track-aka.-marketing-research" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Consumer insight Track (aka. Marketing Research)<a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Qualitative study design</p></li>
-<li><p>Quantitative study design (i.e., survey)</p>
-<ul>
-<li>Qualtrics for questionnaire or experiment design</li>
-<li>Generating research questions</li>
-</ul></li>
-<li><p>Data analysis</p>
-<ul>
-<li>Meditation , Path Model</li>
-<li>Measurement model</li>
-</ul></li>
-</ul>
-</div>
-<div id="optimization-track-a.k.a-operational-research" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Optimization Track (a.k.a Operational Research)<a href="data-scientist-job.html#optimization-track-a.k.a-operational-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="model-optimization" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Model optimization<a href="data-scientist-job.html#model-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Machine learning - regularization</p>
-<ul>
-<li><a href="https://coggle.it/diagram/Yb6sPjXbzAp_60P4/t/machine-learning">Machine Learning (coggle.it)</a></li>
-</ul></li>
-<li><p>dimension reduction</p></li>
-<li><p><a href="https://bookdown.org/mike/advanced_data_analysis/model-stacking.html">Chapter 34 Model Stacking | Advanced Data Analysis (bookdown.org)</a></p></li>
-</ul>
-</div>
-<div id="macro-level-models" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Macro level models<a href="data-scientist-job.html#macro-level-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Marketing Mix Models</p>
-<ul>
-<li><a href="https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c" class="uri">https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c</a></li>
-<li>Ad stock function</li>
-<li>Media Attribution Modeling</li>
-<li><a href="https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python">Attribution Modeling in Marketing Python | Kaggle</a></li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1</a></li>
-</ul></li>
-</ul>
-</div>
-<div id="academic-paper-implementation" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Academic Paper implementation<a href="data-scientist-job.html#academic-paper-implementation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Conceptual understanding</p></li>
-<li><p>Composing or Modifying R, Python package per the paper’s idea</p>
-<ul>
-<li><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c" class="uri">https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c</a></li>
-</ul></li>
-</ul>
+<div id="c.7-points-use-your-poisson-model-from-1b-from-and-your-final-gamma-model-from-2d-to-generate-respective-predictions-for-the-number-of-claims-in-a-year-as-well-as-the-average-amount-per-claim.-multiply-these-together-and-call-this-product-purepremium_prod.-similarly-use-your-tweedie-model-from-3b-to-directly-predict-the-purepremium-value-and-store-this-in-purepremium_tw." class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> c.(7 points) Use your Poisson model from 1b from and your final Gamma model from 2d to generate respective predictions for the number of claims in a year as well as the average amount per claim. Multiply these together and call this product purepremium_prod. Similarly, use your Tweedie model from 3b to directly predict the PurePremium value and store this in purepremium_TW.<a href="tweedie.html#c.7-points-use-your-poisson-model-from-1b-from-and-your-final-gamma-model-from-2d-to-generate-respective-predictions-for-the-number-of-claims-in-a-year-as-well-as-the-average-amount-per-claim.-multiply-these-together-and-call-this-product-purepremium_prod.-similarly-use-your-tweedie-model-from-3b-to-directly-predict-the-purepremium-value-and-store-this-in-purepremium_tw." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="tweedie.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(Insurance, Predicted_Class)</span></code></pre></div>
+<pre><code>##   Predicted_Class     n
+## 1               0 44994
+## 2               1     4
+## 3               2     1</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="tweedie.html#cb149-1" aria-hidden="true" tabindex="-1"></a>amt_predict <span class="ot">=</span> <span class="fu">predict</span>(Insurance_GammaGLM)</span>
+<span id="cb149-2"><a href="tweedie.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(amt_predict)</span></code></pre></div>
+<pre><code>## [1] 7.360522</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="tweedie.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb151-2"><a href="tweedie.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(Insurance, Predicted_Class)</span></code></pre></div>
+<pre><code>##   Predicted_Class     n
+## 1               0 44994
+## 2               1     4
+## 3               2     1</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="tweedie.html#cb153-1" aria-hidden="true" tabindex="-1"></a>purepremium_prod <span class="ot">=</span> <span class="dv">44999</span> <span class="sc">*</span> <span class="fu">mean</span>(Total_Prob0) <span class="sc">*</span> <span class="fu">mean</span>(amt_predict) <span class="co">#using the ZIP model. total # of insurances * average claims predicted * average claim amount predicted. #??? won&#39;t it just be the average of the original dataset?</span></span>
+<span id="cb153-2"><a href="tweedie.html#cb153-2" aria-hidden="true" tabindex="-1"></a>purepremium_prod</span></code></pre></div>
+<pre><code>## [1] 314243.7</code></pre>
+<p>The purepremium_prod will be $314,268.8 using ZIP model</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="tweedie.html#cb155-1" aria-hidden="true" tabindex="-1"></a>clot_Tweedie_log_predict <span class="ot">&lt;-</span> <span class="fu">predict</span>(clot_Tweedie_log,<span class="at">data =</span> <span class="st">&#39;Insurance&#39;</span>, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb155-2"><a href="tweedie.html#cb155-2" aria-hidden="true" tabindex="-1"></a>p_MLE <span class="ot">&lt;-</span> TW_p_log<span class="sc">$</span>p.max</span>
+<span id="cb155-3"><a href="tweedie.html#cb155-3" aria-hidden="true" tabindex="-1"></a>phi_MLE <span class="ot">&lt;-</span> TW_p_log<span class="sc">$</span>phi.max</span>
+<span id="cb155-4"><a href="tweedie.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Prob_Zero_Model &lt;- exp(-mu.Phasesˆ(2 - p_MLE)/(phi_MLE*(2 - p_MLE)))</span></span>
+<span id="cb155-5"><a href="tweedie.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="co">#error unexpected input??? what does it mean?</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="tweedie.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S46: </span></span>
+<span id="cb156-2"><a href="tweedie.html#cb156-2" aria-hidden="true" tabindex="-1"></a>CPoiGam <span class="ot">&lt;-</span> <span class="fu">tweedie.convert</span>(<span class="at">xi=</span>p_MLE, <span class="at">mu=</span>clot_Tweedie_log_predict, <span class="at">phi=</span>phi_MLE)</span>
+<span id="cb156-3"><a href="tweedie.html#cb156-3" aria-hidden="true" tabindex="-1"></a>PoiGamPred <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">&quot;Poisson mean&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>poisson.lambda,</span>
+<span id="cb156-4"><a href="tweedie.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Gamma mean&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>gamma.mean,</span>
+<span id="cb156-5"><a href="tweedie.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Gamma dispersion&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>gamma.phi)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="tweedie.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(CPoiGam<span class="sc">$</span>poisson.lambda <span class="sc">*</span> CPoiGam<span class="sc">$</span>gamma.mean)</span></code></pre></div>
+<pre><code>## [1] 32.47151</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="tweedie.html#cb159-1" aria-hidden="true" tabindex="-1"></a>purepremium_TW <span class="ot">=</span> <span class="dv">44999</span> <span class="sc">*</span> <span class="dv">32</span></span>
+<span id="cb159-2"><a href="tweedie.html#cb159-2" aria-hidden="true" tabindex="-1"></a>purepremium_TW</span></code></pre></div>
+<pre><code>## [1] 1439968</code></pre>
+<p>The purepremium_TW will be $1,439,968 using Tweedie model</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="tweedie.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? why the two results are so different?</span></span></code></pre></div>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Bolander, Willy, Cinthia B. Satornino, Douglas E. Hughes, and Gerald R. Ferris. 2015. <span>“Social Networks Within Sales Organizations: Their Development and Importance for Salesperson Performance.”</span> <em>Journal of Marketing</em> 79 (6): 1–16. <a href="https://doi.org/10.1509/jm.14.0444">https://doi.org/10.1509/jm.14.0444</a>.
+</div>
+<div class="csl-entry">
+Boorom, M. L., J. R. Goolsby, and R. P. Ramsey. 1998. <span>“Relational Communication Traitsand Their Effect on Adaptiveness and Sales Performance.”</span> <em>Journal of the Academy of Marketing Science</em> 26 (1): 16–30. <a href="https://doi.org/10.1177/0092070398261003">https://doi.org/10.1177/0092070398261003</a>.
+</div>
+<div class="csl-entry">
+Campbell, Margaret C., and Amna Kirmani. 2000. <span>“Consumers’ Use of Persuasion Knowledge: The Effects of Accessibility and Cognitive Capacity on Perceptions of an Influence Agent.”</span> <em>Journal of Consumer Research</em> 27 (1): 69–83. <a href="https://doi.org/10.1086/314309">https://doi.org/10.1086/314309</a>.
+</div>
+<div class="csl-entry">
+Chase, Kevin S., and Brian Murtha. 2019. <span>“Selling to Barricaded Buyers.”</span> <em>Journal of Marketing</em> 83 (6): 2–20. <a href="https://doi.org/10.1177/0022242919874778">https://doi.org/10.1177/0022242919874778</a>.
+</div>
+<div class="csl-entry">
+Johlke, M. C., D. F. Duhan, R. D. Howell, and R. W. Wilkes. 2000. <span>“An Integrated Model of Sales Managers’ Communication Practices.”</span> <em>Journal of the Academy of Marketing Science</em> 28 (2): 263–77. <a href="https://doi.org/10.1177/0092070300282007">https://doi.org/10.1177/0092070300282007</a>.
+</div>
+<div class="csl-entry">
+Johnson, Jeff S., and Ravipreet S. Sohi. 2015. <span>“Understanding and Resolving Major Contractual Breaches in Buyer<span></span>seller Relationships: A Grounded Theory Approach.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (2): 185–205. <a href="https://doi.org/10.1007/s11747-015-0427-8">https://doi.org/10.1007/s11747-015-0427-8</a>.
+</div>
+<div class="csl-entry">
+Kidwell, Blair, David M Hardesty, Brian R Murtha, and Shibin Sheng. 2011. <span>“Emotional Intelligence in Marketing Exchanges.”</span> <em>Journal of Marketing</em> 75 (1): 78–95. <a href="https://doi.org/10.1509/jmkg.75.1.78">https://doi.org/10.1509/jmkg.75.1.78</a>.
+</div>
+<div class="csl-entry">
+Lam, Son K., Thomas E. DeCarlo, and Ashish Sharma. 2019. <span>“Salesperson Ambidexterity in Customer Engagement: Do Customer Base Characteristics Matter?”</span> <em>Journal of the Academy of Marketing Science</em> 47 (4): 659–80. <a href="https://doi.org/10.1007/s11747-019-00650-0">https://doi.org/10.1007/s11747-019-00650-0</a>.
+</div>
+<div class="csl-entry">
+Malshe, Avinash, and Scott B. Friend. 2018. <span>“Initiating Value Co-Creation: Dealing with Non-Receptive Customers.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 895–920. <a href="https://doi.org/10.1007/s11747-018-0577-6">https://doi.org/10.1007/s11747-018-0577-6</a>.
+</div>
+<div class="csl-entry">
+McFarland, Richard G., Joseph C. Rode, and Tasadduq A. Shervani. 2015. <span>“A Contingency Model of Emotional Intelligence in Professional Selling.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (1): 108–18. <a href="https://doi.org/10.1007/s11747-015-0435-8">https://doi.org/10.1007/s11747-015-0435-8</a>.
+</div>
+<div class="csl-entry">
+Mullins, Ryan R., Michael Ahearne, Son K. Lam, Zachary R. Hall, and Jeffrey P. Boichuk. 2014. <span>“Know Your Customer: How Salesperson Perceptions of Customer Relationship Quality Form and Influence Account Profitability.”</span> <em>Journal of Marketing</em> 78 (6): 38–58. <a href="https://doi.org/10.1509/jm.13.0300">https://doi.org/10.1509/jm.13.0300</a>.
+</div>
+<div class="csl-entry">
+Panagopoulos, Nikolaos G., Adam A. Rapp, and Jessica L. Ogilvie. 2017. <span>“Salesperson Solution Involvement and Sales Performance: The Contingent Role of Supplier Firm and Customer<span></span>Supplier Relationship Characteristics.”</span> <em>Journal of Marketing</em> 81 (4): 144–64. <a href="https://doi.org/10.1509/jm.15.0342">https://doi.org/10.1509/jm.15.0342</a>.
+</div>
+<div class="csl-entry">
+Roman Avila, Sergio Raul, and Dawn Iacobucci. 2010. <span>“Antecedents and Consequences of Adaptive Selling Confidence and Behavior: A Dyadic Analysis of Salespeople and Their Customers.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.2691640">https://doi.org/10.2139/ssrn.2691640</a>.
+</div>
+<div class="csl-entry">
+Salonen, Anna, Harri Terho, Eva Böhm, Ari Virtanen, and Risto Rajala. 2020. <span>“Engaging a Product-Focused Sales Force in Solution Selling: Interplay of Individual- and Organizational-Level Conditions.”</span> <em>Journal of the Academy of Marketing Science</em> 49 (1): 139–63. <a href="https://doi.org/10.1007/s11747-020-00729-z">https://doi.org/10.1007/s11747-020-00729-z</a>.
+</div>
+<div class="csl-entry">
+Singh, Sunil Kumar. n.d. <span>“Email B2b Sales Negotiation : Dynamic Use of Textual Cues as Influence Tactics.”</span> PhD thesis. <a href="https://doi.org/10.32469/10355/63791">https://doi.org/10.32469/10355/63791</a>.
+</div>
+<div class="csl-entry">
+Singh, Sunil, Detelina Marinova, Jagdip Singh, and Kenneth R. Evans. 2017. <span>“Customer Query Handling in Sales Interactions.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 837–56. <a href="https://doi.org/10.1007/s11747-017-0569-y">https://doi.org/10.1007/s11747-017-0569-y</a>.
+</div>
+<div class="csl-entry">
+Smith, J. Brock, and Donald W. Barclay. 1997. <span>“The Effects of Organizational Differences and Trust on the Effectiveness of Selling Partner Relationships.”</span> <em>Journal of Marketing</em> 61 (1): 3. <a href="https://doi.org/10.2307/1252186">https://doi.org/10.2307/1252186</a>.
+</div>
+<div class="csl-entry">
+Smith, Timothy M., Srinath Gopalakrishna, and Rabikar Chatterjee. 2006. <span>“A Three-Stage Model of Integrated Marketing Communications at the Marketing-Sales Interface.”</span> <em>Journal of Marketing Research</em> 43 (4): 564–79. <a href="https://doi.org/10.1509/jmkr.43.4.564">https://doi.org/10.1509/jmkr.43.4.564</a>.
+</div>
+<div class="csl-entry">
+Soldow, Gary F., and Gloria Penn Thomas. 1984. <span>“Relational Communication: Form Versus Content in the Sales Interaction.”</span> <em>Journal of Marketing</em> 48 (1): 84. <a href="https://doi.org/10.2307/1251314">https://doi.org/10.2307/1251314</a>.
+</div>
+<div class="csl-entry">
+Spiro, Rosann L., and Barton A. Weitz. 1990. <span>“Adaptive Selling: Conceptualization, Measurement, and Nomological Validity.”</span> <em>Journal of Marketing Research</em> 27 (1): 61. <a href="https://doi.org/10.2307/3172551">https://doi.org/10.2307/3172551</a>.
+</div>
+<div class="csl-entry">
+Thompson, Debora V., and Prashant Malaviya. 2013. <span>“Consumer-Generated Ads: Does Awareness of Advertising Co-Creation Help or Hurt Persuasion?”</span> <em>Journal of Marketing</em> 77 (3): 33–47. <a href="https://doi.org/10.1509/jm.11.0403">https://doi.org/10.1509/jm.11.0403</a>.
+</div>
 </div>
 </div>
 </div>
@@ -459,8 +537,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="database-marketing-substantive-domain.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="marketing-strategy-phd-skills.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modeling-the-average-claim-payout.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +569,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/lyf718718/Book2.git/edit/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -499,7 +577,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/lyf718718/Book2.git/blob/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW2.Rmd",
 "text": null
 },
 "download": null,

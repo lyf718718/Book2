@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin</title>
+  <title>Chapter 9 2) Modeling the Average Claim Payout | ASM2_HW2 by Yufan Lin</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta property="og:title" content="Chapter 9 2) Modeling the Average Claim Payout | ASM2_HW2 by Yufan Lin" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
   
@@ -20,7 +20,7 @@ set in the _output.yml file.</p>" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Data Scientist Job | ASM2_HW2 by Yufan Lin" />
+  <meta name="twitter:title" content="Chapter 9 2) Modeling the Average Claim Payout | ASM2_HW2 by Yufan Lin" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -37,8 +37,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="database-marketing-substantive-domain.html"/>
-<link rel="next" href="marketing-strategy-phd-skills.html"/>
+<link rel="prev" href="modeling-the-number-of-claims.html"/>
+<link rel="next" href="tweedie.html"/>
 <script src="libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -305,153 +305,188 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-scientist-job" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data Scientist Job<a href="data-scientist-job.html#data-scientist-job" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In general, the data scientist role can be divided into decision scientist and the machine scientist <a href="https://hbr.org/2018/11/the-kinds-of-data-scientist">The Kinds of Data Scientist (hbr.org)</a> <a href="https://www.udacity.com/blog/2018/01/4-types-data-science-jobs.html">4 Types of Data Science Jobs | Udacity</a></p>
-<p>The entry-level (i.e., data analyst) deals with basic analysis tools such as Excel and SQL programming skills to pull data. The middle-level (i.e., data scientist I) deals with more advanced analytics tools such as R, Python. The senior-level uses the same analytics tool but can write or modify the published package/ library. On a side note, the data product management side deals with data product/service, which is akin to the product manager in general.</p>
-<p>In practice, the substantive job content can be differentiated based on strategy, consumer behavior, and optimization tracks. The strategy track produces the analysis for managers to make further decisions. In the consumer behavior track, they produce the analysis to elucidate the psychological mechanism and come up with interesting mental models used by the consumers. The optimization track focuses on making things more efficient on a large scale or using machine learning to automate the analysis.</p>
-<p>I list the specific duties of each track below, along with the resources to develop the corresponding skills or business sense.</p>
-<div id="business-strategy-track-a.k.a-marketing-analytics" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Business strategy Track (a.k.a Marketing Analytics)<a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="database-marketing" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Database marketing<a href="data-scientist-job.html#database-marketing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>RFM targeting offer design, discount offer optimization See the Database marketing page</li>
-</ul>
+<div id="modeling-the-average-claim-payout" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> 2) Modeling the Average Claim Payout<a href="modeling-the-average-claim-payout.html#modeling-the-average-claim-payout" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="a.-3-points-in-this-problem-we-will-focus-on-modeling-the-positive-continuous-variable-avgclaimamount.-attempt-to-fit-a-gamma-regression-with-a-log-link-predicting-avgclaimamount-as-a-function-of-all-feature-variables-in-the-dataset.-what-happens-when-you-attempt-to-fit-this-model" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> a. (3 points) In this problem we will focus on modeling the positive continuous variable “AvgClaimAmount.” Attempt to fit a Gamma regression with a log link, predicting AvgClaimAmount as a function of all feature variables in the dataset. What happens when you attempt to fit this model?<a href="modeling-the-average-claim-payout.html#a.-3-points-in-this-problem-we-will-focus-on-modeling-the-positive-continuous-variable-avgclaimamount.-attempt-to-fit-a-gamma-regression-with-a-log-link-predicting-avgclaimamount-as-a-function-of-all-feature-variables-in-the-dataset.-what-happens-when-you-attempt-to-fit-this-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The model cannot run since 0 is not positive value.</p>
 </div>
-<div id="programming" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Programming<a href="data-scientist-job.html#programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>SQL:</p>
-<ul>
-<li>Data quality validation Data manipulation and merging</li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/ETfI6jNCUhhJvMF-edkqqZEBu5gcbJ0CD92edzkvNjPjwQ?e=u3MJid</a></li>
-</ul></li>
-<li><p>Python</p>
-<ul>
-<li><p><a href="https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165" class="uri">https://www.notion.so/Python-practice-110-2a8c3c764f6a489b911c8e1c432ea165</a></p></li>
-<li><p><a href="https://www.coursera.org/learn/python-data-analysis/home/week/1">Introduction to Data Science in Python - Week 1 | Coursera</a></p>
-<ul>
-<li><p>map()</p></li>
-<li><p>lambda list comprehension</p></li>
-<li><p>numpy library</p></li>
-<li><p>series, data frame</p></li>
-<li><p>groupby, pivot, merging</p></li>
-<li><p>Distribution</p></li>
-</ul></li>
-</ul></li>
-<li><p>R</p>
-<ul>
-<li><p>Base</p></li>
-<li><p>MAP → same function to all variables.</p></li>
-<li><p>Ggplot → viusalization</p></li>
-<li><p>Tidyr → data manipulation</p></li>
-<li><p><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ" class="uri">&lt;https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/Em8gdLAUHelNud9b7wGlTr8B6L5tVHwYiVyyh6t112Gvhg?e=i2r0PZ&gt;</a></p>
-<ul>
-<li><p>basic commands</p></li>
-<li><p>model accuracy</p></li>
-<li><p>KNN</p></li>
-<li><p>Classification - LDA?</p></li>
-<li><p>Bootstraping</p></li>
-<li><p>Regularization</p></li>
-<li><p>Non-linear model</p></li>
-<li><p>Tree based</p></li>
-<li><p>SVM</p></li>
-<li><p>Unsupervised</p></li>
-</ul></li>
-</ul></li>
-</ul>
+<div id="b.-5-points-create-a-new-dataset-consisting-of-the-rows-that-correspond-to-strictly-positive-realizations-of-avgclaimamount.-make-a-histogram-of-this-variable-on-standard-and-log-scale-and-describe-your-findings." class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> b. (5 points) Create a new dataset consisting of the rows that correspond to strictly positive realizations of AvgClaimAmount. Make a histogram of this variable on standard and log scale and describe your findings.<a href="modeling-the-average-claim-payout.html#b.-5-points-create-a-new-dataset-consisting-of-the-rows-that-correspond-to-strictly-positive-realizations-of-avgclaimamount.-make-a-histogram-of-this-variable-on-standard-and-log-scale-and-describe-your-findings." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="modeling-the-average-claim-payout.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? do I need to bin it?</span></span>
+<span id="cb126-2"><a href="modeling-the-average-claim-payout.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="co">#42:</span></span>
+<span id="cb126-3"><a href="modeling-the-average-claim-payout.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Insurance<span class="sc">$</span>AvgClaimAmount[Insurance<span class="sc">$</span>AvgClaimAmount<span class="sc">&gt;</span><span class="dv">0</span>])</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="modeling-the-average-claim-payout.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(Insurance<span class="sc">$</span>AvgClaimAmount[Insurance<span class="sc">$</span>AvgClaimAmount<span class="sc">&gt;</span><span class="dv">0</span>]))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p>The distribution is highly skewed to the right.</p>
+<p>Once I use the log scale, it is more normally distributed.</p>
 </div>
-<div id="statistics" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Statistics:<a href="data-scientist-job.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Statistical tests for differences:</p>
-<ul>
-<li>Independent, Paired T tests, F- tests, Chi-square tests (used for A/B testing, incrementality testing)</li>
-<li>Incrementality</li>
-<li>Regression</li>
-<li>Independent variables: dummy variable, variable transformation, exploratory/ descriptive analysis</li>
-<li>Dependent variable: Binary (logit, probit regression), Count (poission, negative binomial regression), Censored (Tobit, survival regression)</li>
-</ul></li>
-<li><p>Advanced: Causal inference</p>
-<ul>
-<li>Control for observables</li>
-<li>Mixed model / Hierachical linear model</li>
-<li>Difference in Difference</li>
-<li>Regression Discontinuity</li>
-<li>Modeling process</li>
-</ul></li>
-</ul>
+<div id="c.-4-points-fit-the-gamma-regression-proposed-in-part-a-to-the-filtered-dataset.-do-you-notice-anything-strange-how-many-iterations-did-it-take-glm-to-find-this-result" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> c. (4 points) Fit the Gamma regression proposed in part a to the filtered dataset. Do you notice anything strange? How many iterations did it take glm() to find this result?<a href="modeling-the-average-claim-payout.html#c.-4-points-fit-the-gamma-regression-proposed-in-part-a-to-the-filtered-dataset.-do-you-notice-anything-strange-how-many-iterations-did-it-take-glm-to-find-this-result" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="modeling-the-average-claim-payout.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how to stop the code from running when it is stuck???</span></span>
+<span id="cb128-2"><a href="modeling-the-average-claim-payout.html#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="modeling-the-average-claim-payout.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run the gamma</span></span>
+<span id="cb128-4"><a href="modeling-the-average-claim-payout.html#cb128-4" aria-hidden="true" tabindex="-1"></a>Insurance_GammaGLM <span class="ot">&lt;-</span> <span class="fu">glm</span>(AvgClaimAmount <span class="sc">~</span> .,</span>
+<span id="cb128-5"><a href="modeling-the-average-claim-payout.html#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="at">family =</span> <span class="fu">Gamma</span>(<span class="at">link =</span> log),<span class="at">data =</span> Insurance_filter)</span>
+<span id="cb128-6"><a href="modeling-the-average-claim-payout.html#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(Insurance_GammaGLM)$dispersion</span></span></code></pre></div>
+<p>It only shows not converged, so I am not sure how many iterations.</p>
 </div>
-<div id="visualization" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Visualization<a href="data-scientist-job.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Drawing Interaction plot</li>
-<li>Decile plots</li>
-<li>Written report on the analysis</li>
-</ul>
+<div id="d.-3-points-to-the-glm-function-add-the-argument-control-listmaxit-500.-what-do-you-think-this-will-do-fit-the-model-and-examine-the-summary-output-to-check-the-number-of-iterations-needed-for-convergence." class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> d. (3 points) To the glm() function, add the argument control = list(maxit = 500). What do you think this will do? Fit the model and examine the summary output to check the number of iterations needed for convergence.<a href="modeling-the-average-claim-payout.html#d.-3-points-to-the-glm-function-add-the-argument-control-listmaxit-500.-what-do-you-think-this-will-do-fit-the-model-and-examine-the-summary-output-to-check-the-number-of-iterations-needed-for-convergence." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="modeling-the-average-claim-payout.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># max iteration so that more chance to converge</span></span>
+<span id="cb129-2"><a href="modeling-the-average-claim-payout.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="co"># run the gamma</span></span>
+<span id="cb129-3"><a href="modeling-the-average-claim-payout.html#cb129-3" aria-hidden="true" tabindex="-1"></a>Insurance_GammaGLM <span class="ot">&lt;-</span> <span class="fu">glm</span>(AvgClaimAmount <span class="sc">~</span> .,</span>
+<span id="cb129-4"><a href="modeling-the-average-claim-payout.html#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="at">family =</span> <span class="fu">Gamma</span>(<span class="at">link =</span> log), <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">900</span>),<span class="at">data =</span> Insurance_filter)</span>
+<span id="cb129-5"><a href="modeling-the-average-claim-payout.html#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(Insurance_GammaGLM)$dispersion</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="modeling-the-average-claim-payout.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Insurance_GammaGLM)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = AvgClaimAmount ~ ., family = Gamma(link = log), 
+##     data = Insurance_filter, control = list(maxit = 900))
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -16.2061   -0.7292   -0.2798    0.0261    6.3709  
+## 
+## Coefficients: (1 not defined because of singularities)
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         6.281e+00  3.920e-01  16.024  &lt; 2e-16 ***
+## ClaimNb             1.477e-01  1.419e-01   1.041 0.298012    
+## Exposure           -4.400e-01  1.095e-01  -4.020 6.01e-05 ***
+## AreaB              -3.133e-01  1.453e-01  -2.155 0.031237 *  
+## AreaC              -2.948e-01  1.932e-01  -1.526 0.127122    
+## AreaD              -6.100e-01  2.942e-01  -2.074 0.038213 *  
+## AreaE              -8.155e-01  3.902e-01  -2.090 0.036733 *  
+## AreaF              -1.277e+00  5.543e-01  -2.304 0.021300 *  
+## VehPower5           4.092e-02  1.078e-01   0.380 0.704202    
+## VehPower6           1.642e-01  1.031e-01   1.593 0.111316    
+## VehPower7          -3.993e-02  1.024e-01  -0.390 0.696563    
+## VehPower8          -4.833e-02  1.577e-01  -0.306 0.759321    
+## VehPower9          -7.725e-03  1.616e-01  -0.048 0.961883    
+## VehPower10          1.492e-01  1.759e-01   0.848 0.396438    
+## VehPower11          3.790e-01  2.410e-01   1.573 0.115900    
+## VehPower12          3.186e-01  3.310e-01   0.963 0.335823    
+## VehPower13          1.404e-01  4.039e-01   0.348 0.728199    
+## VehPower14         -1.058e+00  8.402e-01  -1.259 0.208276    
+## VehPower15          4.558e-01  5.979e-01   0.762 0.445974    
+## VehAge             -2.100e-02  6.551e-03  -3.206 0.001363 ** 
+## DrivAge             5.308e-03  2.390e-03   2.221 0.026466 *  
+## BonusMalus          6.340e-03  1.742e-03   3.640 0.000279 ***
+## VehBrandB10         2.010e-02  1.998e-01   0.101 0.919877    
+## VehBrandB11         2.283e-01  2.390e-01   0.955 0.339649    
+## VehBrandB12        -1.283e-01  1.433e-01  -0.895 0.370723    
+## VehBrandB13         3.616e-01  2.233e-01   1.619 0.105495    
+## VehBrandB14         2.590e-01  3.274e-01   0.791 0.429056    
+## VehBrandB2          1.433e-02  7.957e-02   0.180 0.857078    
+## VehBrandB3         -1.154e-01  1.088e-01  -1.061 0.288934    
+## VehBrandB4         -1.700e-01  1.473e-01  -1.154 0.248656    
+## VehBrandB5          1.191e-01  1.303e-01   0.914 0.360851    
+## VehBrandB6         -3.775e-02  1.352e-01  -0.279 0.780187    
+## VehGasRegular      -3.469e-03  6.661e-02  -0.052 0.958473    
+## Density             1.588e-01  7.322e-02   2.169 0.030185 *  
+## RegionR21           3.089e-02  6.579e-01   0.047 0.962553    
+## RegionR22           1.837e-02  2.976e-01   0.062 0.950778    
+## RegionR23           7.812e-02  5.007e-01   0.156 0.876032    
+## RegionR24           1.612e-01  1.583e-01   1.018 0.308649    
+## RegionR25          -2.428e-01  2.707e-01  -0.897 0.369889    
+## RegionR26          -7.689e-02  3.279e-01  -0.234 0.814641    
+## RegionR31           8.568e-02  2.292e-01   0.374 0.708621    
+## RegionR41           2.435e-01  2.294e-01   1.062 0.288535    
+## RegionR42           1.646e-01  3.873e-01   0.425 0.670974    
+## RegionR43           2.754e-01  1.441e+00   0.191 0.848487    
+## RegionR52           2.032e-02  1.826e-01   0.111 0.911398    
+## RegionR53           1.453e-01  1.792e-01   0.811 0.417344    
+## RegionR54           1.153e-01  2.069e-01   0.557 0.577427    
+## RegionR72           1.186e-01  2.011e-01   0.590 0.555270    
+## RegionR73           4.518e-01  3.894e-01   1.160 0.246055    
+## RegionR74          -2.587e-02  2.827e-01  -0.091 0.927106    
+## RegionR82           1.446e-01  1.579e-01   0.916 0.359916    
+## RegionR83          -3.973e-02  6.592e-01  -0.060 0.951941    
+## RegionR91           3.616e-02  2.471e-01   0.146 0.883662    
+## RegionR93           4.024e-01  1.743e-01   2.308 0.021073 *  
+## RegionR94          -3.099e-01  8.420e-01  -0.368 0.712912    
+## PurePremium         7.572e-06  8.062e-08  93.925  &lt; 2e-16 ***
+## Frequency          -1.828e-02  3.574e-03  -5.113 3.43e-07 ***
+## Predicted_Class    -7.639e-01  5.701e-01  -1.340 0.180390    
+## Predicted_Class_NB         NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for Gamma family taken to be 2.03893)
+## 
+##     Null deviance: 3615.1  on 2313  degrees of freedom
+## Residual deviance: 2588.4  on 2256  degrees of freedom
+## AIC: 38837
+## 
+## Number of Fisher Scoring iterations: 776</code></pre>
+<p>I set the iterations maximum to be 900 since it used 777 iterations to get a converge.</p>
 </div>
-<div id="automation" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Automation<a href="data-scientist-job.html#automation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Function building</li>
-<li>Analysis library</li>
-</ul>
-</div>
-</div>
-<div id="consumer-insight-track-aka.-marketing-research" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Consumer insight Track (aka. Marketing Research)<a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Qualitative study design</p></li>
-<li><p>Quantitative study design (i.e., survey)</p>
-<ul>
-<li>Qualtrics for questionnaire or experiment design</li>
-<li>Generating research questions</li>
-</ul></li>
-<li><p>Data analysis</p>
-<ul>
-<li>Meditation , Path Model</li>
-<li>Measurement model</li>
-</ul></li>
-</ul>
-</div>
-<div id="optimization-track-a.k.a-operational-research" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Optimization Track (a.k.a Operational Research)<a href="data-scientist-job.html#optimization-track-a.k.a-operational-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="model-optimization" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Model optimization<a href="data-scientist-job.html#model-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Machine learning - regularization</p>
-<ul>
-<li><a href="https://coggle.it/diagram/Yb6sPjXbzAp_60P4/t/machine-learning">Machine Learning (coggle.it)</a></li>
-</ul></li>
-<li><p>dimension reduction</p></li>
-<li><p><a href="https://bookdown.org/mike/advanced_data_analysis/model-stacking.html">Chapter 34 Model Stacking | Advanced Data Analysis (bookdown.org)</a></p></li>
-</ul>
-</div>
-<div id="macro-level-models" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Macro level models<a href="data-scientist-job.html#macro-level-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Marketing Mix Models</p>
-<ul>
-<li><a href="https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c" class="uri">https://www.notion.so/A-Better-Way-to-Calculate-the-ROI-of-Your-Marketing-Investment-f0b034ef75154ffea26bf81b3fda2b2c</a></li>
-<li>Ad stock function</li>
-<li>Media Attribution Modeling</li>
-<li><a href="https://www.kaggle.com/koushiktcs12/attribution-modeling-in-marketing-python">Attribution Modeling in Marketing Python | Kaggle</a></li>
-<li><a href="https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1" class="uri">https://mailmissouri-my.sharepoint.com/:b:/g/personal/ylb3c_umsystem_edu/EfV-Ld_JH8FNiCqp6MtSkFMBAcWzyMHvVKmBhdCyLT7k2A?e=TtLaQ1</a></li>
-</ul></li>
-</ul>
-</div>
-<div id="academic-paper-implementation" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Academic Paper implementation<a href="data-scientist-job.html#academic-paper-implementation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Conceptual understanding</p></li>
-<li><p>Composing or Modifying R, Python package per the paper’s idea</p>
-<ul>
-<li><a href="https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c" class="uri">https://mailmissouri-my.sharepoint.com/:f:/g/personal/ylb3c_umsystem_edu/EkeM-q-_RDRHg5djz2H6kwYBRqV__im7kNP7NhJP4nKj1w?e=sb0t5c</a></li>
-</ul></li>
-</ul>
-
-</div>
+<div id="e.3-points-from-the-model-in-e.-interpret-the-parameter-estimate-for-a-vehicles-age" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> e.(3 points) From the model in e. Interpret the parameter estimate for a vehicle’s age<a href="modeling-the-average-claim-payout.html#e.3-points-from-the-model-in-e.-interpret-the-parameter-estimate-for-a-vehicles-age" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="modeling-the-average-claim-payout.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">exp.coef =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(Insurance_GammaGLM)))</span></code></pre></div>
+<pre><code>##                       exp.coef
+## (Intercept)        534.4196081
+## ClaimNb              1.1592162
+## Exposure             0.6440270
+## AreaB                0.7310581
+## AreaC                0.7446964
+## AreaD                0.5433356
+## AreaE                0.4424387
+## AreaF                0.2788054
+## VehPower5            1.0417724
+## VehPower6            1.1785087
+## VehPower7            0.9608558
+## VehPower8            0.9528167
+## VehPower9            0.9923051
+## VehPower10           1.1609080
+## VehPower11           1.4608336
+## VehPower12           1.3752012
+## VehPower13           1.1507308
+## VehPower14           0.3472931
+## VehPower15           1.5773632
+## VehAge               0.9792145
+## DrivAge              1.0053219
+## BonusMalus           1.0063602
+## VehBrandB10          1.0203055
+## VehBrandB11          1.2564385
+## VehBrandB12          0.8795597
+## VehBrandB13          1.4355945
+## VehBrandB14          1.2955724
+## VehBrandB2           1.0144353
+## VehBrandB3           0.8909914
+## VehBrandB4           0.8436909
+## VehBrandB5           1.1264397
+## VehBrandB6           0.9629577
+## VehGasRegular        0.9965371
+## Density              1.1721185
+## RegionR21            1.0313717
+## RegionR22            1.0185448
+## RegionR23            1.0812541
+## RegionR24            1.1748965
+## RegionR25            0.7844376
+## RegionR26            0.9259918
+## RegionR31            1.0894601
+## RegionR41            1.2757077
+## RegionR42            1.1788812
+## RegionR43            1.3169937
+## RegionR52            1.0205296
+## RegionR53            1.1564304
+## RegionR54            1.1222285
+## RegionR72            1.1259434
+## RegionR73            1.5711734
+## RegionR74            0.9744611
+## RegionR82            1.1555542
+## RegionR83            0.9610479
+## RegionR91            1.0368235
+## RegionR93            1.4954198
+## RegionR94            0.7335559
+## PurePremium          1.0000076
+## Frequency            0.9818884
+## Predicted_Class      0.4658244
+## Predicted_Class_NB          NA</code></pre>
+<p>As the vehicle’s age increases, the claim amount decreases by 3%.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="modeling-the-average-claim-payout.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Not make sense? how could the older car requires less claim? new car costs more to repair?</span></span></code></pre></div>
 </div>
 </div>
             </section>
@@ -459,8 +494,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="database-marketing-substantive-domain.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="marketing-strategy-phd-skills.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modeling-the-number-of-claims.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tweedie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +526,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/lyf718718/Book2.git/edit/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -499,7 +534,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/lyf718718/Book2.git/blob/master/04-Data_Scientist.Rmd",
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW2.Rmd",
 "text": null
 },
 "download": null,
