@@ -1,0 +1,166 @@
+---
+title: "ASM Exam 1_ Yufan Lin"
+author: "Yufan Lin"
+date: "3/7/2022"
+output: html_document
+---
+
+```{r ASM_Exam1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Applied Stats Model II - Exam 1
+
+## Short Answer
+
+## 1. (7 points) In a poisson regression problem with one explanatory variable x, the estimate of the β
+coefficient under a log link is βˆ = 0.5. If, when x = 1 we can obtain a predicted count of µˆ = 4.
+What is the predicted count when x = 3?
+
+## 
+2. (5 points) In a generalized linear model, why is the null deviance typically larger than the residual
+deviance?
+
+## 
+3. (5 points) Can standard linear regression ever be used when the data are counts? Explain why or
+why not.
+
+## 
+4. Take the following random effect model
+
+yij = µ + αi + εij .
+This model was fit using lmer() and analyzed with the below.
+TheModel \<- lmer(y \~ (1 \| alpha), data= TheData)
+summary(TheModel)
+#\# Linear mixed model fit by REML \['lmerMod'\]
+#\# Formula: y \~ (1 \| alpha)
+#\# Data: TheData
+##
+#\# REML criterion at convergence: 5035925
+##
+#\# Scaled residuals:
+#\# Min 1Q Median 3Q Max
+#\# -5.0460 -0.6744 -0.0009 0.6759 4.6942
+##
+#\# Random effects:
+#\# Groups Name Variance Std.Dev.
+#\# alpha (Intercept) 2.435 1.561
+#\# Residual 9.007 3.001
+#\# Number of obs: 1000000, groups: alpha, 10
+##
+#\# Fixed effects:
+#\# Estimate Std. Error t value
+#\# (Intercept) 14.9258 0.4935 30.25
+ranef(TheModel)\$alpha
+#\# (Intercept)
+#\# 1 1.8086783
+#\# 2 -0.5872736
+#\# 3 2.2398284
+#\# 4 -1.5152633
+#\# 5 0.1962228
+#\# 6 -2.0713461
+#\# 7 0.5250623
+#\# 8 -2.0133227
+#\# 9 -0.1044895
+#\# 10 1.5218990
+
+### 
+Complete the following:
+• (3 points) Find the intra class correlation coefficient.
+
+### • (2 points) Which level of the random effect α will have the largest predicted value?
+
+### • (2 points) Predict y for level 6 of the random effect.
+
+## 
+
+5. Utilizing the below code and output, answer the following:
+
+### • (3 points) Why are the residual and null deviance values the same?
+
+### • (2 points) Based on these deviance values, does the model "fit" well? Does this make sense?
+
+SomeData \<- rgamma(n = 30, shape = 1.5, scale = 1.5)
+AModel \<- glm( SomeData \~ 1, family = Gamma )
+summary(AModel)
+##
+#\# Call:
+#\# glm(formula = SomeData \~ 1, family = Gamma)
+##
+#\# Deviance Residuals:
+#\# Min 1Q Median 3Q Max
+#\# -1.79201 -0.83202 -0.02426 0.37460 2.05087
+##
+#\# Coefficients:
+#\# Estimate Std. Error t value Pr(>\|t\|)
+#\# (Intercept) 0.56393 0.09046 6.234 8.39e-07 \*\*\*
+#\# ---
+#\# Signif. codes: 0 '\*\*\*' 0.001 '\*\*' 0.01 '\*' 0.05 '.' 0.1 ' ' 1
+##
+#\# (Dispersion parameter for Gamma family taken to be 0.7718707)
+##
+#\# Null deviance: 21.906 on 29 degrees of freedom
+#\# Residual deviance: 21.906 on 29 degrees of freedom
+#\# AIC: 95.761
+##
+#\# Number of Fisher Scoring iterations: 6
+
+## 
+Problem 6
+Take the data given by Problem6Data.csv, which contains a continuous response y and two predictors
+x1 and x2.
+
+### 
+a. (5 points) Read the data into R and make some plots between the response and predictors. Describe
+the patterns and comment on behaviors you observe with exact 0s.
+
+### b. (5 points) Make a histogram of the response variable and comment on the shape. Are the values
+strictly positive?
+
+### c. (4 points) State the range that the index parameter p, for use in the Tweedie distribution, must be
+contained in. Why is this the case?
+
+### d. (6 points) Find an optimal value of p for use in the Tweedie Distribution, using a log link.
+
+### e. (5 points) Again using a log link, fit a Tweedie Distribution using the index parameter value you
+obtained in part d.
+
+### f. (6 points) For each of the values of x2 given by the R vector x2_vals \<- seq(0, 15, by= .01),
+use the compound Poisson-Gamma structure to predict the probability of obtaining an exact 0
+response when x1 is at its mean value.
+
+## 
+
+Problem 7
+The ships dataset in the MASS package provides the number of incidents(indicents) resulting in ship
+damage as a function of total months of service(service), ship type(type), as well as:
+• Year of ship construction(year)
+-- Broken into 5 year increments with the year's variable value indicating the beginning of this
+period. e.g. year=60 refers to 1960-1964
+• Period of operation(period) with realizations:
+-- 60: 1960 - 1974
+-- 75: 1975 - 1979
+The data can be loaded with:
+data(ships, package="MASS")
+
+### 
+a. (4 points) Use group_by and summarise to compute the average months of service for each
+combination of year of construction and period of operation. Explain why there is a 0 in the result.
+
+### b. (3 points) Create a new filtered dataset by removing the rows where service=0.
+
+### c. (10 points) Fit both a Poisson rate model and Negative Binomial rate model model using number of
+incidents per service month as the response and all other variables as predictors. Compare which
+model is better using AIC.
+
+### d. (7 points) Using the better model selected in part c, assess the significance of each term using
+drop1(). Which terms are insignificant? Remove the insignificant variables from the model in c,
+and refit.
+
+### e. (6 points) Statistically compare the residual deviance in your final model from d to the null deviance.
+
+### f. (4 points) Compare the AIC from the reduced model in d to the corresponding value from c. Is the
+change you see expected? Also examine the residual deviance of the model in d, what does it say
+about the model's fit to the data?
+
+### g. (6 points) Make a plot of the deviance residuals vs the predicted values(link scale). How is the fit?
