@@ -1,0 +1,150 @@
+---
+title: "ASM_II_Class_Note"
+author: "Yufan Lin"
+date: "3/8/2022"
+output: html_document
+---
+
+```{r ASM_II_Class_Note, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Applied Stats Model II Lecture Note
+
+## List of Questions:
+
+### HW1
+
+-   
+
+### HW2
+
+-   2b: bin it?
+
+### Midterm
+
+-   **Q1: ??? #the intercept is 3.5 #??? does the intercept needs the log?**
+
+-   GammaPoisson - why contains no 0s? -> only probability. unless I set a cut-off point.
+
+-   ICC random variance/ total variance.
+
+-   why specify the mean = mean() in summarise. duplicate --> creating a variable name
+
+-   Q7c: \# Convert back to glm() style object ??? why needs a conversion?
+
+    \# why alternative style reached? \# is it the aggregated model vs. individual count? or the same???
+
+-   Q7a \# then why the 70 and 60 combination has service???
+
+-   Q7f: #??? why is the actual data 10% 0, but here is 4.5%? Diff so much
+
+## Class content overview:
+
+Textbook: Extending the Linear Model with R, Second Edition, 2016 by Julian Faraway
+
+Topics: • Generalized Linear Models -- Models for Proportional data. -- Models for Count data. -- Models for **Positive continuous data**.
+
+• Mixed Models -- Random Effects -- Linear Mixed Models -- **Generalized** Linear Mixed Models -- Repeated Measures -- Longitudinal Data
+
+• Dependent Data -- Spatial Dependence. -- Spatial Point Patterns. -- Time Series.
+
+• Nonlinear Models -- Neural Networks -- Deep Learning
+
+## GLM-CategoricalData_SP2022
+
+## GLM-CountData_SP2022
+
+## GLMs_AdvancedTopics_SP2022
+
+```{r}
+data(quilpie,package = "GLMsData")
+quilpie$Phase <- as.factor(quilpie$Phase)
+#head(quilpie,3) |> DisplayTable
+```
+
+```{r}
+library(tweedie)
+Rain_TW_P <- tweedie.profile(Rain ~ Phase,
+p.vec = seq(from=1,to=3,by=0.01),
+do.plot=TRUE, data=quilpie)
+
+```
+
+```{r}
+rain_Tweedie <- glm(Rain ~ Phase, data=quilpie,
+family=tweedie(var.power=Rain_TW_P$p.max, 
+link.power=0))
+coef(summary(rain_Tweedie))
+```
+
+```{r}
+Phases <- data.frame(Phase = factor(c(1, 2, 3, 4, 5)))
+mu.Phases <- predict(rain_Tweedie, newdata=Phases,type="response")
+p_MLE <- Rain_TW_P$p.max    #tweedie profile
+phi_MLE <- Rain_TW_P$phi.max   #phi? -> dispersion para
+Prob_Zero_Model_orig <- exp(-mu.Phases^(2 - p_MLE)/(phi_MLE*(2 - p_MLE))) # probability of it being 0. prob of observe rain + how much rain. 
+
+#??? quilpie %>% group_by(Phase) %>% summarize(prop0_dat = mean(Rain==0)) %>% cbind(Prob_Zero_Model)
+
+
+```
+
+```{r}
+summary(Prob_Zero_Model_orig)
+```
+
+```{r}
+Phases <- data.frame(Phase = factor(c(1, 2, 3, 4, 5)))
+mu.Phases <- predict(rain_Tweedie, newdata=Phases,type="response") #some contribution from possion + gamma, always positive. 
+
+p_MLE <- Rain_TW_P$p.max
+phi_MLE <- Rain_TW_P$phi.max
+
+Prob_Zero_Model <- exp(-mu.Phases^(2 - p_MLE)/(phi_MLE*(2 - p_MLE)))
+library(tidyverse)
+#quilpie %>% group_by(Phase) %>% summarize(prop0_dat = mean(Rain==0)) %>% cbind(Prob_Zero_Model)
+
+```
+
+```{r}
+summary(mu.Phases)
+```
+
+```{r}
+summary(Prob_Zero_Model)
+```
+
+```{r}
+library(tidyverse) #package of packages. needed for the |> , groupby, summarise need tidyverse. 
+quilpie |> group_by(Phase) |> summarize(prop0_dat = mean(Rain==0)) |> cbind(Prob_Zero_Model)
+
+#prop0_dat: what % has , actual vs. predicted. quilpie's variable contains the Rain.
+# summarise(mean = mean())
+
+#86 count = a name
+```
+
+```{r}
+CPoiGam <- tweedie.convert(xi=p_MLE, mu=mu.Phases, phi=phi_MLE)
+PoiGamPred <- rbind("Poisson mean" = CPoiGam$poisson.lambda,
+"Gamma mean" = CPoiGam$gamma.mean,
+"Gamma dispersion" = CPoiGam$gamma.phi)
+colnames(PoiGamPred) <- paste0("Phase", 1:5)
+#PoiGamPred %>% round(4) %>% DisplayTable
+#??? the %>% = |> but not work?
+
+```
+
+```{r}
+PoiGamPred |> round(4) |> DisplayTable
+#https://stackoverflow.com/questions/67744604/what-does-pipe-greater-than-mean-in-r
+```
+
+```{r}
+PoiGamPred
+
+#??? no exact 0s?
+```
+
+## MM-RandomEffects_Spring2022

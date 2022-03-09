@@ -75,7 +75,7 @@ Insurance$Predicted_Class <- round(Predicted_Means,0)
 
 ```{r eval=FALSE, include=FALSE}
 
-# Why it gave me error???
+# Why it gave me error -> need to reload the package or use :: as prefix.
 #no applicable method for 'group_by' applied to an object of class "c('double', 'numeric')"
 #remove.packages("rlang")
 #install.packages("rlang")
@@ -198,7 +198,7 @@ Insurance_filter = filter(Insurance, Insurance$AvgClaimAmount>0)
 ```
 
 ```{r}
-# how to stop the code from running when it is stuck???
+# how to stop the code from running when it is stuck -> Use the source code mode not the visual
 
 # run the gamma
 Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
