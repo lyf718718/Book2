@@ -18,15 +18,15 @@ coefficient under a log link is βˆ = 0.5. If, when x = 1 we can obtain a predi
 ```{r}
 # since the link is log, I transform it back to the count or 1.65
 exp(0.5)
-#the intercept is 3.5 #??? does the intercept needs the log? 
-#4- 1*0.5  
+#the intercept is 0.8862944 = log(4)-1*0.5 #??? does the intercept needs the log? -> I assume mu is after the exp().Thus, I take a log().
+log(4)- 1*0.5  
 #when x = 3, 3*beta = 4.95 
 3 * 1.65 
 #Thus, the predicted count is 
-3.5 + 4.95 
+exp(0.8862944) + 3*1.65 
 ```
 
-The predicted count when the x =3 is 8.45 times.
+The predicted count when the x =3 is 7.37 or 7 times.
 
 ## 2. (5 points) In a generalized linear model, why is the null deviance typically larger than the residual deviance?
 
@@ -85,8 +85,6 @@ SomeData <- rgamma(n = 30, shape = 1.5, scale = 1.5)
 AModel <- glm( SomeData ~ 1, family = Gamma )
 summary(AModel)
 ```
-
-## 
 
 ## 6. Take the data given by Problem6Data.csv, which contains a continuous response y and two predictors x1 and x2.
 
