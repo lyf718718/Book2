@@ -137,7 +137,7 @@ colnames(PoiGamPred) <- paste0("Phase", 1:5)
 ```
 
 ```{r}
-PoiGamPred |> round(4) |> DisplayTable
+#PoiGamPred |> round(4) |> DisplayTable
 #https://stackoverflow.com/questions/67744604/what-does-pipe-greater-than-mean-in-r
 ```
 

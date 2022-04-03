@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Applied Stats Model II Lecture Note | ASM_II_Class_Note</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Applied Stats Model II Lecture Note | ASM_II_Class_Note" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://lyf718718.github.io/Book2/" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Applied Stats Model II Lecture Note | ASM_II_Class_Note" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Yufan Lin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"/>
+
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Frank second book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html"><i class="fa fa-check"></i><b>1</b> Selling and buying process:<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salespeople-skill-perception"><i class="fa fa-check"></i><b>1.1</b> Salespeople skill/ perception<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication---intraorganization"><i class="fa fa-check"></i><b>1.2</b> Communication - intraorganization<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication-interorganization---fle-interactions"><i class="fa fa-check"></i><b>1.3</b> Communication Interorganization - FLE interactions<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#sales-marketing-interface"><i class="fa fa-check"></i><b>1.4</b> Sales marketing interface<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#firm-level-impact-on-salespeople"><i class="fa fa-check"></i><b>1.5</b> Firm level impact on salespeople<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-trait-orientation"><i class="fa fa-check"></i><b>1.6</b> Salesperson trait orientation<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-non-sales-activity-service"><i class="fa fa-check"></i><b>1.7</b> Salesperson non-sales activity/ service<span></span></a></li>
+<li class="chapter" data-level="1.8" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#b2g-selling"><i class="fa fa-check"></i><b>1.8</b> B2G selling<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="literature-review-note.html"><a href="literature-review-note.html"><i class="fa fa-check"></i><b>2</b> Literature Review Note<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="literature-review-note.html"><a href="literature-review-note.html#persuasion-knowledge-model-review"><i class="fa fa-check"></i><b>2.1</b> Persuasion knowledge Model Review<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="literature-review-note.html"><a href="literature-review-note.html#summary-for-pkm-in-online-environment"><i class="fa fa-check"></i><b>2.1.1</b> Summary for PKM in online environment<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html"><i class="fa fa-check"></i><b>3</b> Database marketing substantive domain<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#key-issues"><i class="fa fa-check"></i><b>3.1</b> Key Issues<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#data-privacy"><i class="fa fa-check"></i><b>3.1.1</b> Data Privacy<span></span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#customer-lifetime-value-ltv"><i class="fa fa-check"></i><b>3.1.2</b> Customer lifetime value (LTV)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#method"><i class="fa fa-check"></i><b>3.2</b> Method<span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#rfm"><i class="fa fa-check"></i><b>3.2.1</b> RFM<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#market-basket-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Market basket analysis<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#collaborative-filtering"><i class="fa fa-check"></i><b>3.2.3</b> Collaborative filtering<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cluster-analysis"><i class="fa fa-check"></i><b>3.2.4</b> Cluster analysis<span></span></a></li>
+<li class="chapter" data-level="3.2.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#decision-trees"><i class="fa fa-check"></i><b>3.2.5</b> Decision trees<span></span></a></li>
+<li class="chapter" data-level="3.2.6" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#machine-learning"><i class="fa fa-check"></i><b>3.2.6</b> Machine learning<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#sub---substantive-areas"><i class="fa fa-check"></i><b>3.3</b> Sub - substantive areas<span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#acquisition"><i class="fa fa-check"></i><b>3.3.1</b> Acquisition<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#retention-churn-management"><i class="fa fa-check"></i><b>3.3.2</b> Retention/ Churn management<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cross-selling-and-up-selling"><i class="fa fa-check"></i><b>3.3.3</b> Cross-selling and up-selling<span></span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#reward-program"><i class="fa fa-check"></i><b>3.3.4</b> Reward program<span></span></a></li>
+<li class="chapter" data-level="3.3.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#multichannel-customer"><i class="fa fa-check"></i><b>3.3.5</b> Multichannel customer<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-scientist-job.html"><a href="data-scientist-job.html"><i class="fa fa-check"></i><b>4</b> Data Scientist Job<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics"><i class="fa fa-check"></i><b>4.1</b> Business strategy Track (a.k.a Marketing Analytics)<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#database-marketing"><i class="fa fa-check"></i><b>4.1.1</b> Database marketing<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#programming"><i class="fa fa-check"></i><b>4.1.2</b> Programming<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#statistics"><i class="fa fa-check"></i><b>4.1.3</b> Statistics:<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-scientist-job.html"><a href="data-scientist-job.html#visualization"><i class="fa fa-check"></i><b>4.1.4</b> Visualization<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-scientist-job.html"><a href="data-scientist-job.html#automation"><i class="fa fa-check"></i><b>4.1.5</b> Automation<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research"><i class="fa fa-check"></i><b>4.2</b> Consumer insight Track (aka. Marketing Research)<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#optimization-track-a.k.a-operational-research"><i class="fa fa-check"></i><b>4.3</b> Optimization Track (a.k.a Operational Research)<span></span></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#model-optimization"><i class="fa fa-check"></i><b>4.3.1</b> Model optimization<span></span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#macro-level-models"><i class="fa fa-check"></i><b>4.3.2</b> Macro level models<span></span></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#academic-paper-implementation"><i class="fa fa-check"></i><b>4.3.3</b> Academic Paper implementation<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html"><i class="fa fa-check"></i><b>5</b> Marketing Strategy PhD skills<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading"><i class="fa fa-check"></i><b>5.1</b> Reading<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#meta-skill-to-gain"><i class="fa fa-check"></i><b>5.1.1</b> Meta skill to gain<span></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading-purpose"><i class="fa fa-check"></i><b>5.1.2</b> Reading Purpose<span></span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#how-to-train"><i class="fa fa-check"></i><b>5.1.3</b> How to train<span></span></a></li>
+<li class="chapter" data-level="5.1.4" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#suggested-reading-optional"><i class="fa fa-check"></i><b>5.1.4</b> Suggested reading (optional)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#writing"><i class="fa fa-check"></i><b>5.2</b> Writing<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html"><i class="fa fa-check"></i><b>6</b> Applied Stats Model II - Exam 1<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-in-a-poisson-regression-problem-with-one-explanatory-variable-x-the-estimate-of-the-β"><i class="fa fa-check"></i><b>6.1</b> 1. (7 points) In a poisson regression problem with one explanatory variable x, the estimate of the β<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-in-a-generalized-linear-model-why-is-the-null-deviance-typically-larger-than-the-residual-deviance"><i class="fa fa-check"></i><b>6.2</b> 2. (5 points) In a generalized linear model, why is the null deviance typically larger than the residual deviance?<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-can-standard-linear-regression-ever-be-used-when-the-data-are-counts-explain-why-or-why-not."><i class="fa fa-check"></i><b>6.3</b> 3. (5 points) Can standard linear regression ever be used when the data are counts? Explain why or why not.<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#take-the-following-random-effect-model"><i class="fa fa-check"></i><b>6.4</b> 4. Take the following random effect model<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#section"><i class="fa fa-check"></i><b>6.4.1</b> </a></li>
+<li class="chapter" data-level="6.4.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-find-the-intra-class-correlation-coefficient."><i class="fa fa-check"></i><b>6.4.2</b> (3 points) Find the intra class correlation coefficient.<span></span></a></li>
+<li class="chapter" data-level="6.4.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-which-level-of-the-random-effect-α-will-have-the-largest-predicted-value"><i class="fa fa-check"></i><b>6.4.3</b> (2 points) Which level of the random effect α will have the largest predicted value?<span></span></a></li>
+<li class="chapter" data-level="6.4.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-predict-y-for-level-6-of-the-random-effect."><i class="fa fa-check"></i><b>6.4.4</b> (2 points) Predict y for level 6 of the random effect.<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#utilizing-the-below-code-and-output-answer-the-following"><i class="fa fa-check"></i><b>6.5</b> 5. Utilizing the below code and output, answer the following:<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-why-are-the-residual-and-null-deviance-values-the-same"><i class="fa fa-check"></i><b>6.5.1</b> • (3 points) Why are the residual and null deviance values the same?<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-based-on-these-deviance-values-does-the-model-fit-well-does-this-make-sense"><i class="fa fa-check"></i><b>6.5.2</b> • (2 points) Based on these deviance values, does the model “fit” well? Does this make sense?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#take-the-data-given-by-problem6data.csv-which-contains-a-continuous-response-y-and-two-predictors-x1-and-x2."><i class="fa fa-check"></i><b>6.6</b> 6. Take the data given by Problem6Data.csv, which contains a continuous response y and two predictors x1 and x2.<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#a.-5-points-read-the-data-into-r-and-make-some-plots-between-the-response-and-predictors.-describe-the-patterns-and-comment-on-behaviors-you-observe-with-exact-0s."><i class="fa fa-check"></i><b>6.6.1</b> a. (5 points) Read the data into R and make some plots between the response and predictors. Describe the patterns and comment on behaviors you observe with exact 0s.<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#b.-5-points-make-a-histogram-of-the-response-variable-and-comment-on-the-shape.-are-the-values-strictly-positive"><i class="fa fa-check"></i><b>6.6.2</b> b. (5 points) Make a histogram of the response variable and comment on the shape. Are the values strictly positive?<span></span></a></li>
+<li class="chapter" data-level="6.6.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#c.-4-points-state-the-range-that-the-index-parameter-p-for-use-in-the-tweedie-distribution-must-be-contained-in.-why-is-this-the-case"><i class="fa fa-check"></i><b>6.6.3</b> c. (4 points) State the range that the index parameter p, for use in the Tweedie distribution, must be contained in. Why is this the case?<span></span></a></li>
+<li class="chapter" data-level="6.6.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#d.-6-points-find-an-optimal-value-of-p-for-use-in-the-tweedie-distribution-using-a-log-link."><i class="fa fa-check"></i><b>6.6.4</b> d. (6 points) Find an optimal value of p for use in the Tweedie Distribution, using a log link.<span></span></a></li>
+<li class="chapter" data-level="6.6.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#e.-5-points-again-using-a-log-link-fit-a-tweedie-distribution-using-the-index-parameter-value-you-obtained-in-part-d."><i class="fa fa-check"></i><b>6.6.5</b> e. (5 points) Again using a log link, fit a Tweedie Distribution using the index parameter value you obtained in part d.<span></span></a></li>
+<li class="chapter" data-level="6.6.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#f.-6-points-for-each-of-the-values-of-x2-given-by-the-r-vector-x2_vals---seq0-15-by-.01-use-the-compound-poisson-gamma-structure-to-predict-the-probability-of-obtaining-an-exact-0-response-when-x1-is-at-its-mean-value."><i class="fa fa-check"></i><b>6.6.6</b> f. (6 points) For each of the values of x2 given by the R vector x2_vals &lt;- seq(0, 15, by= .01), use the compound Poisson-Gamma structure to predict the probability of obtaining an exact 0 response when x1 is at its mean value.<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#the-ships-dataset-in-the-mass-package-provides-the-number-of-incidentsindicents-resulting-in-ship-damage-as-a-function-of-total-months-of-serviceservice-ship-typetype-as-well-as-year-of-ship-constructionyear-broken-into-5-year-increments-with-the-years-variable-value-indicating-the-beginning-of-this-period.-e.g.-year60-refers-to-1960-1964-period-of-operationperiod-with-realizations-60-1960---1974-75-1975---1979-the-data-can-be-loaded-with-dataships-packagemass"><i class="fa fa-check"></i><b>6.7</b> 7. The ships dataset in the MASS package provides the number of incidents(indicents) resulting in ship damage as a function of total months of service(service), ship type(type), as well as: • Year of ship construction(year) – Broken into 5 year increments with the year’s variable value indicating the beginning of this period. e.g. year=60 refers to 1960-1964 • Period of operation(period) with realizations: – 60: 1960 - 1974 – 75: 1975 - 1979 The data can be loaded with: data(ships, package=“MASS”)<span></span></a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#a.-4-points-use-group_by-and-summarise-to-compute-the-average-months-of-service-for-each-combination-of-year-of-construction-and-period-of-operation.-explain-why-there-is-a-0-in-the-result."><i class="fa fa-check"></i><b>6.7.1</b> a. (4 points) Use group_by and summarise to compute the average months of service for each combination of year of construction and period of operation. Explain why there is a 0 in the result.<span></span></a></li>
+<li class="chapter" data-level="6.7.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#b.-3-points-create-a-new-filtered-dataset-by-removing-the-rows-where-service0."><i class="fa fa-check"></i><b>6.7.2</b> b. (3 points) Create a new filtered dataset by removing the rows where service=0.<span></span></a></li>
+<li class="chapter" data-level="6.7.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#c.-10-points-fit-both-a-poisson-rate-model-and-negative-binomial-rate-model-model-using-number-of-incidents-per-service-month-as-the-response-and-all-other-variables-as-predictors.-compare-which-model-is-better-using-aic."><i class="fa fa-check"></i><b>6.7.3</b> c. (10 points) Fit both a Poisson rate model and Negative Binomial rate model model using number of incidents per service month as the response and all other variables as predictors. Compare which model is better using AIC.<span></span></a></li>
+<li class="chapter" data-level="6.7.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#d.-7-points-using-the-better-model-selected-in-part-c-assess-the-significance-of-each-term-using-drop1.-which-terms-are-insignificant-remove-the-insignificant-variables-from-the-model-in-c-and-refit."><i class="fa fa-check"></i><b>6.7.4</b> d. (7 points) Using the better model selected in part c, assess the significance of each term using drop1(). Which terms are insignificant? Remove the insignificant variables from the model in c, and refit.<span></span></a></li>
+<li class="chapter" data-level="6.7.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#e.-6-points-statistically-compare-the-residual-deviance-in-your-final-model-from-d-to-the-null-deviance."><i class="fa fa-check"></i><b>6.7.5</b> e. (6 points) Statistically compare the residual deviance in your final model from d to the null deviance.<span></span></a></li>
+<li class="chapter" data-level="6.7.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#f.-4-points-compare-the-aic-from-the-reduced-model-in-d-to-the-corresponding-value-from-c.-is-the-change-you-see-expected-also-examine-the-residual-deviance-of-the-model-in-d-what-does-it-say-about-the-models-fit-to-the-data"><i class="fa fa-check"></i><b>6.7.6</b> f. (4 points) Compare the AIC from the reduced model in d to the corresponding value from c. Is the change you see expected? Also examine the residual deviance of the model in d, what does it say about the model’s fit to the data?<span></span></a></li>
+<li class="chapter" data-level="6.7.7" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#g.-6-points-make-a-plot-of-the-deviance-residuals-vs-the-predicted-valueslink-scale.-how-is-the-fit"><i class="fa fa-check"></i><b>6.7.7</b> g. (6 points) Make a plot of the deviance residuals vs the predicted values(link scale). How is the fit?<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="question-1.html"><a href="question-1.html"><i class="fa fa-check"></i><b>7</b> Question 1:<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="question-1.html"><a href="question-1.html#a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings."><i class="fa fa-check"></i><b>7.1</b> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="question-1.html"><a href="question-1.html#b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model."><i class="fa fa-check"></i><b>7.2</b> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="question-1.html"><a href="question-1.html#c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary."><i class="fa fa-check"></i><b>7.3</b> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().<span></span></a></li>
+<li class="chapter" data-level="7.4" data-path="question-1.html"><a href="question-1.html#d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis"><i class="fa fa-check"></i><b>7.4</b> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis<span></span></a></li>
+<li class="chapter" data-level="7.5" data-path="question-1.html"><a href="question-1.html#e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value."><i class="fa fa-check"></i><b>7.5</b> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.<span></span></a></li>
+<li class="chapter" data-level="7.6" data-path="question-1.html"><a href="question-1.html#f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model."><i class="fa fa-check"></i><b>7.6</b> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.<span></span></a></li>
+<li class="chapter" data-level="7.7" data-path="question-1.html"><a href="question-1.html#g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate"><i class="fa fa-check"></i><b>7.7</b> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?<span></span></a></li>
+<li class="chapter" data-level="7.8" data-path="question-1.html"><a href="question-1.html#h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident"><i class="fa fa-check"></i><b>7.8</b> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?<span></span></a></li>
+<li class="chapter" data-level="7.9" data-path="question-1.html"><a href="question-1.html#i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe."><i class="fa fa-check"></i><b>7.9</b> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.<span></span></a></li>
+<li class="chapter" data-level="7.10" data-path="question-1.html"><a href="question-1.html#j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model"><i class="fa fa-check"></i><b>7.10</b> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?<span></span></a></li>
+<li class="chapter" data-level="7.11" data-path="question-1.html"><a href="question-1.html#k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense"><i class="fa fa-check"></i><b>7.11</b> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?<span></span></a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="question-1.html"><a href="question-1.html#section-1"><i class="fa fa-check"></i><b>7.11.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="question-2.html"><a href="question-2.html"><i class="fa fa-check"></i><b>8</b> Question 2<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="question-2.html"><a href="question-2.html#a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes."><i class="fa fa-check"></i><b>8.1</b> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="question-2.html"><a href="question-2.html#b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results."><i class="fa fa-check"></i><b>8.2</b> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="question-2.html"><a href="question-2.html#c.-6-points-interpret-the-values-of-the-intercepts-θj-."><i class="fa fa-check"></i><b>8.3</b> c. (6 points) Interpret the values of the intercepts θj .<span></span></a></li>
+<li class="chapter" data-level="8.4" data-path="question-2.html"><a href="question-2.html#d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics."><i class="fa fa-check"></i><b>8.4</b> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.<span></span></a></li>
+<li class="chapter" data-level="8.5" data-path="question-2.html"><a href="question-2.html#e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis"><i class="fa fa-check"></i><b>8.5</b> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html"><i class="fa fa-check"></i><b>9</b> 1 1) Modeling the Number of Claims<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#a.-5-points-create-a-table-to-present-the-distribution-of-the-number-of-claims-by-computing-the-proportion-of-each-possibility.-what-percent-of-the-policies-have-0-claims"><i class="fa fa-check"></i><b>9.1</b> a. (5 points) Create a table to present the distribution of the number of claims by computing the proportion of each possibility. What percent of the policies have 0 claims?<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#b.-6-points-create-a-poisson-regression-to-predict-the-number-of-claims-in-the-year-using-only-the-variables-for-vehicle-age-driver-age-bonusmalus-and-density.-what-is-the-deviance-does-is-differ-significantly-from-the-null-deviance"><i class="fa fa-check"></i><b>9.2</b> b. (6 points) Create a Poisson regression to predict the number of claims in the year using only the variables for vehicle age, driver age, bonusMalus, and density. What is the deviance? Does is differ significantly from the null deviance?<span></span></a></li>
+<li class="chapter" data-level="9.3" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#c.-4-points-generate-predictions-on-the-response-scale-µ-and-round-them-to-the-nearest-count.-create-a-table-as-in-part-a-and-comment-on-how-similar-or-dissimilar-this-result-is."><i class="fa fa-check"></i><b>9.3</b> c. (4 points) Generate predictions on the response scale µ and round them to the nearest count. Create a table as in part a and comment on how similar or dissimilar this result is.<span></span></a></li>
+<li class="chapter" data-level="9.4" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#d.-3-points-fit-a-negative-binomial-model-to-the-data-and-generate-predictions-as-in-part-c.-did-this-solve-the-problem"><i class="fa fa-check"></i><b>9.4</b> d. (3 points) Fit a negative binomial model to the data and generate predictions as in part c. Did this solve the problem?<span></span></a></li>
+<li class="chapter" data-level="9.5" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#e.-5-points-now-fit-a-zero-inflation-poisson-model-zip-and-compute-the-fitted-proportion-of-zero-counts-as-on-slide-38-of-the-poisson-notes.-does-this-help"><i class="fa fa-check"></i><b>9.5</b> e. (5 points) Now fit a zero inflation Poisson model (ZIP) and compute the fitted proportion of zero counts as on slide 38 of the Poisson Notes. Does this help?<span></span></a></li>
+<li class="chapter" data-level="9.6" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#f.-8-points-interpret-the-signs-of-the-coefficient-estimates-out-of-the-zip-model-both-the-count-portion-as-well-as-the-zero-inflated-portion"><i class="fa fa-check"></i><b>9.6</b> f. (8 points) Interpret the signs of the coefficient estimates out of the ZIP model, both the count portion as well as the zero inflated portion!<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html"><i class="fa fa-check"></i><b>10</b> 2) Modeling the Average Claim Payout<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html#a.-3-points-in-this-problem-we-will-focus-on-modeling-the-positive-continuous-variable-avgclaimamount.-attempt-to-fit-a-gamma-regression-with-a-log-link-predicting-avgclaimamount-as-a-function-of-all-feature-variables-in-the-dataset.-what-happens-when-you-attempt-to-fit-this-model"><i class="fa fa-check"></i><b>10.1</b> a. (3 points) In this problem we will focus on modeling the positive continuous variable “AvgClaimAmount.” Attempt to fit a Gamma regression with a log link, predicting AvgClaimAmount as a function of all feature variables in the dataset. What happens when you attempt to fit this model?<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html#b.-5-points-create-a-new-dataset-consisting-of-the-rows-that-correspond-to-strictly-positive-realizations-of-avgclaimamount.-make-a-histogram-of-this-variable-on-standard-and-log-scale-and-describe-your-findings."><i class="fa fa-check"></i><b>10.2</b> b. (5 points) Create a new dataset consisting of the rows that correspond to strictly positive realizations of AvgClaimAmount. Make a histogram of this variable on standard and log scale and describe your findings.<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html#c.-4-points-fit-the-gamma-regression-proposed-in-part-a-to-the-filtered-dataset.-do-you-notice-anything-strange-how-many-iterations-did-it-take-glm-to-find-this-result"><i class="fa fa-check"></i><b>10.3</b> c. (4 points) Fit the Gamma regression proposed in part a to the filtered dataset. Do you notice anything strange? How many iterations did it take glm() to find this result?<span></span></a></li>
+<li class="chapter" data-level="10.4" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html#d.-3-points-to-the-glm-function-add-the-argument-control-listmaxit-500.-what-do-you-think-this-will-do-fit-the-model-and-examine-the-summary-output-to-check-the-number-of-iterations-needed-for-convergence."><i class="fa fa-check"></i><b>10.4</b> d. (3 points) To the glm() function, add the argument control = list(maxit = 500). What do you think this will do? Fit the model and examine the summary output to check the number of iterations needed for convergence.<span></span></a></li>
+<li class="chapter" data-level="10.5" data-path="modeling-the-average-claim-payout.html"><a href="modeling-the-average-claim-payout.html#e.3-points-from-the-model-in-e.-interpret-the-parameter-estimate-for-a-vehicles-age"><i class="fa fa-check"></i><b>10.5</b> e.(3 points) From the model in e. Interpret the parameter estimate for a vehicle’s age<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tweedie.html"><a href="tweedie.html"><i class="fa fa-check"></i><b>11</b> 3. Tweedie<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="tweedie.html"><a href="tweedie.html#a.-8-points-using-the-entire-dataset-create-a-profile-likelihood-of-the-index-values-p-for-use-in-a-glm-utilizing-the-tweedie-distribution-to-predict-purepremium-directly.-make-a-plot-of-the-profile-likelihood-and-select-the-best-value.-7520---3-points-for-graduate-students-i-expect-some-exploration-to-find-the-best-value-as-these-data-are-quite-poorly-behaved.-look-at-the-value-section-of-tweedie.profile-for-some-hints-and-i-would-suggest-narrowing-the-search-space-for-p-and-evaluating-it-on-a-somewhat-fine-grid."><i class="fa fa-check"></i><b>11.1</b> a. (8 points) Using the entire dataset, create a profile likelihood of the index values p for use in a glm utilizing the Tweedie distribution to predict PurePremium directly. Make a plot of the profile likelihood and select the best value. (7520 - 3 points): For graduate students, I expect some <strong>exploration to find the best value as these data are quite poorly behaved</strong>. Look at the “Value” section of ?tweedie.profile for some hints, and I <strong>would suggest narrowing the search space for p and evaluating it on a somewhat fine grid.</strong><span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="tweedie.html"><a href="tweedie.html#b.-fit-the-tweedie-glm-model-using-the-optimal-power-value-you-computed-from-the-previous-question.-the-file-insurance_test.csv-contains-a-few-additional-observations-which-were-not-a-portion-of-the-data-used-to-fit-the-previous-models.-we-can-read-it-in-and-format-it-using-syntax-similar-to-when-we-started.-newdatapoints---read.csv.insurance_test.csv-newdatapointsvehbrand---as.factornewdatapointsvehbrand-newdatapointsvehpower---as.factornewdatapointsvehpower-newdatapointsvehgas---as.factornewdatapointsvehgas-newdatapointsregion---as.factornewdatapointsregion-newdatapointsarea---as.factornewdatapointsarea"><i class="fa fa-check"></i><b>11.2</b> b. Fit the Tweedie GLM model using the optimal power value you computed from the previous question. The file Insurance_test.csv contains a few additional observations which were not a portion of the data used to fit the previous models. We can read it in and format it using syntax similar to when we started. NewDataPoints &lt;- read.csv(“…./Insurance_test.csv”) NewDataPoints$VehBrand &lt;- as.factor(NewDataPoints$VehBrand) NewDataPoints$VehPower &lt;- as.factor(NewDataPoints$VehPower) NewDataPoints$VehGas &lt;- as.factor(NewDataPoints$VehGas) NewDataPoints$Region &lt;- as.factor(NewDataPoints$Region) NewDataPoints$Area &lt;- as.factor(NewDataPoints$Area)<span></span></a></li>
+<li class="chapter" data-level="11.3" data-path="tweedie.html"><a href="tweedie.html#c.7-points-use-your-poisson-model-from-1b-from-and-your-final-gamma-model-from-2d-to-generate-respective-predictions-for-the-number-of-claims-in-a-year-as-well-as-the-average-amount-per-claim.-multiply-these-together-and-call-this-product-purepremium_prod.-similarly-use-your-tweedie-model-from-3b-to-directly-predict-the-purepremium-value-and-store-this-in-purepremium_tw."><i class="fa fa-check"></i><b>11.3</b> c.(7 points) Use your Poisson model from 1b from and your final Gamma model from 2d to generate respective predictions for the number of claims in a year as well as the average amount per claim. Multiply these together and call this product purepremium_prod. Similarly, use your Tweedie model from 3b to directly predict the PurePremium value and store this in purepremium_TW.<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><i class="fa fa-check"></i><b>12</b> STAT 4520/7520 - Homework 3 Spring 2022 Due: March 30, 2022<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#the-cake-dataset-in-the-lme4-package-contains-data-on-an-experiment-was-conducted-to-determine-the-effect-of-recipe-and-baking-temperature-on-chocolate-cake-quality.-fifteen-batches-of-cake-mix-for-each-recipe-were-prepared.-each-batch-was-sufficient-for-six-cakes.-each-of-the-six-cakes-was-baked-at-a-different-temperature-which-was-randomly-assigned.-as-an-indicator-of-quality-the-breakage-angle-of-the-cake-was-recorded."><i class="fa fa-check"></i><b>12.1</b> 1) The cake dataset in the lme4 package contains data on an experiment was conducted to determine the effect of recipe and baking temperature on chocolate cake quality. Fifteen batches of cake mix for each recipe were prepared. Each batch was sufficient for six cakes. Each of the six cakes was baked at a different temperature which was randomly assigned. As an indicator of quality, the breakage angle of the cake was recorded.<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#a.-of-the-explanatory-variables-recipe-temp-and-replicate-which-are-fixed-and-which-are-random-explain.-is-there-any-nesting-in-these-variables"><i class="fa fa-check"></i><b>12.1.1</b> a. Of the explanatory variables recipe, temp, and replicate, which are fixed and which are random? Explain. Is there any nesting in these variables?<span></span></a></li>
+<li class="chapter" data-level="12.1.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#b.-fit-a-linear-model-with-no-random-effects-for-breaking-angle-against-the-interaction-between-recipe-and-temperature.-which-variables-are-significant-what-is-the-t-value-for-temp-the-temperature-variable-what-is-the-rmse-of-this-model"><i class="fa fa-check"></i><b>12.1.2</b> b. Fit a linear model with no random effects for breaking angle against the interaction between recipe and temperature. Which variables are significant? What is the t value for temp the temperature variable? What is the RMSE of this model?<span></span></a></li>
+<li class="chapter" data-level="12.1.3" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#c.-fit-a-mixed-model-to-the-data-which-takes-into-account-the-replicates-of-the-recipes.-examine-the-variance-components.-is-there-variation-in-the-batches-made-with-each-recipe-how-does-the-residual-variance-component-compare-to-the-mse-from-b-what-is-the-t-value-for-temperature"><i class="fa fa-check"></i><b>12.1.3</b> c. Fit a mixed model to the data which takes into account the replicates of the recipes. Examine the variance components. Is there variation in the batches made with each recipe? How does the Residual variance component compare to the MSE from (b)? What is the t-value for temperature?<span></span></a></li>
+<li class="chapter" data-level="12.1.4" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#d.-test-for-a-recipe-and-temperature-effect."><i class="fa fa-check"></i><b>12.1.4</b> d. Test for a recipe and temperature effect.<span></span></a></li>
+<li class="chapter" data-level="12.1.5" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#e.-create-a-qq-plot-of-the-residuals-and-a-residual-vs-predicted-plot-for-the-linear-model-in-b-and-the-mixed-model-in-d-describe-how-well-the-model-assumptions-are-satisfied-for-each."><i class="fa fa-check"></i><b>12.1.5</b> e. Create a QQ plot of the residuals and a residual vs predicted plot for the linear model in (b) and the mixed model in (d), describe how well the model assumptions are satisfied for each.<span></span></a></li>
+<li class="chapter" data-level="12.1.6" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#f.-7510-only-examine-the-blups-from-the-mixed-model-in-d.-do-you-notice-any-patterns"><i class="fa fa-check"></i><b>12.1.6</b> f. (7510 only) Examine the BLUPs from the mixed model in (d). Do you notice any patterns?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#the-purpose-of-random-effects-is-to-remove-variation-from-known-sources.-in-this-problem-we-will-use-this-idea-and-see-how-it-can-work-with-a-popular-technique-for-predictive-modeling-the-random-forest.-random-forests-were-covered-in-the-prerequisite-course-and-can-be-fit-using-the-randomforest-function-in-the-randomforest-library.-the-dataset-problem-2.csv-has-a-simulated-dataset.-there-is-a-nonlinear-relationship-between-6-numeric-explanatory-variables-x1-.-.-.-x6-and-the-response-y-to-addition-to-a-grouping-effect-according-to-the-id-variable-which-has-100-levels."><i class="fa fa-check"></i><b>12.2</b> 2) The purpose of random effects is to remove variation from known sources. In this problem, we will use this idea and see how it can work with a popular technique for predictive modeling, the random forest. Random forests were covered in the prerequisite course, and can be fit using the randomForest function in the randomForest library. The dataset Problem-2.csv has a simulated dataset. There is a nonlinear relationship between 6 numeric explanatory variables x1, . . . x6 and the response y, to addition to a grouping effect according to the ID variable, which has 100 levels.<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#a.-read-in-the-dataset-and-split-the-data-into-a-training-and-test-set-using-95-of-the-data-for-the-training-set.-set-a-seed-of-1-for-consistency-of-results."><i class="fa fa-check"></i><b>12.2.1</b> a. Read in the dataset, and split the data into a training and test set, using 95% of the data for the training set. Set a seed of 1 for consistency of results.<span></span></a></li>
+<li class="chapter" data-level="12.2.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#b.-fit-a-random-forest-model-to-the-training-data-using-y-as-the-response-with-x1-.-.-.-x6-and-id-as-the-explanatory-variables.-use-the-model-to-predict-y-in-the-test-set-and-compute-the-test-root-mean-squared-error-rmse-."><i class="fa fa-check"></i><b>12.2.2</b> b. Fit a random forest model to the training data using y as the response with x1, . . . x6 and ID as the explanatory variables. Use the model to predict y in the test set and compute the test root mean squared error ( RMSE ).<span></span></a></li>
+<li class="chapter" data-level="12.2.3" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#c.-fit-the-mixed-model-yij-µ-idi-εij-to-the-training-data.-this-model-does-not-use-the-x_i-at-all-and-has-a-random-intercept-based-on-id.-after-fitting-the-model-extract-the-blups-for-id-and-add-them-to-the-constant-µˆ-the-estimate-of-the-overall-intercept.-what-do-these-values-represent-store-them-in-a-data-frame-along-with-a-column-storing-the-ids."><i class="fa fa-check"></i><b>12.2.3</b> c. Fit the mixed model yij = µ + IDi + εij to the training data. This model does not use the x_i at all, and has a random intercept based on ID. After fitting the model, extract the BLUPs for ID and add them to the constant µˆ, the estimate of the overall intercept. What do these values represent? Store them in a data frame along with a column storing the IDs.<span></span></a></li>
+<li class="chapter" data-level="12.2.4" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#d.-add-a-column-to-the-test-dataset-containing-the-values-obtained-in-part-c-joined-to-the-test-dataset-by-matching-the-ids.-note-with-the-dplyr-package-loaded-you-can-quickly-join-by-id-using-a-line-like-data.test---left_joindata.test-int_plus_blups-by-id-examine-the-first-few-rows-and-describe-what-the-new-column-represents."><i class="fa fa-check"></i><b>12.2.4</b> d. Add a column to the test dataset containing the values obtained in part c, joined to the test dataset by matching the IDs. Note: with the dplyr package loaded, you can quickly join by ID using a line like: Data.Test &lt;- left_join(Data.Test, int_plus_blups, by = “ID”) Examine the first few rows and describe what the new column represents.<span></span></a></li>
+<li class="chapter" data-level="12.2.5" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#e.-compute-the-residuals-of-the-mixed-model-fit-in-c-using-the-residuals-function-store-them-in-a-column-of-the-training-data."><i class="fa fa-check"></i><b>12.2.5</b> e. Compute the residuals of the mixed model fit in (c) using the residuals() function, store them in a column of the training data.<span></span></a></li>
+<li class="chapter" data-level="12.2.6" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#f.-fit-another-random-forest-model-to-the-training-data-using-the-residuals-from-part-e-as-the-response-and-only-x1-.-.-.-x6-as-the-explanatory-variables.-use-this-model-to-predict-into-the-test-data-and-store-these-predictions.-what-do-these-predictions-represent"><i class="fa fa-check"></i><b>12.2.6</b> f. Fit another random forest model to the training data, using the residuals from part (e) as the response and only x1, . . . x6 as the explanatory variables. Use this model to predict into the test data and store these predictions. What do these predictions represent?<span></span></a></li>
+<li class="chapter" data-level="12.2.7" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#g.-add-the-predictions-in-f-to-the-values-joined-to-the-test-data-in-d.-consider-these-values-test-predictions-and-compute-the-test-mse.-compare-this-to-the-test-mse-compared-in-part-b.-what-do-you-observe"><i class="fa fa-check"></i><b>12.2.7</b> g. Add the predictions in (f) to the values joined to the test data in (d). Consider these values test predictions, and compute the test MSE. Compare this to the test MSE compared in part (b). What do you observe?<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html"><i class="fa fa-check"></i><b>13</b> Applied Stats Model II Lecture Note<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#list-of-questions"><i class="fa fa-check"></i><b>13.1</b> List of Questions:<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#hw1"><i class="fa fa-check"></i><b>13.1.1</b> HW1<span></span></a></li>
+<li class="chapter" data-level="13.1.2" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#hw2"><i class="fa fa-check"></i><b>13.1.2</b> HW2<span></span></a></li>
+<li class="chapter" data-level="13.1.3" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#midterm"><i class="fa fa-check"></i><b>13.1.3</b> Midterm<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#class-content-overview"><i class="fa fa-check"></i><b>13.2</b> Class content overview:<span></span></a></li>
+<li class="chapter" data-level="13.3" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glm-categoricaldata_sp2022"><i class="fa fa-check"></i><b>13.3</b> GLM-CategoricalData_SP2022<span></span></a></li>
+<li class="chapter" data-level="13.4" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glm-countdata_sp2022"><i class="fa fa-check"></i><b>13.4</b> GLM-CountData_SP2022<span></span></a></li>
+<li class="chapter" data-level="13.5" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glms_advancedtopics_sp2022"><i class="fa fa-check"></i><b>13.5</b> GLMs_AdvancedTopics_SP2022<span></span></a></li>
+<li class="chapter" data-level="13.6" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#mm-randomeffects_spring2022"><i class="fa fa-check"></i><b>13.6</b> MM-RandomEffects_Spring2022<span></span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ASM_II_Class_Note</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applied-stats-model-ii-lecture-note" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Applied Stats Model II Lecture Note<a href="applied-stats-model-ii-lecture-note.html#applied-stats-model-ii-lecture-note" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="list-of-questions" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> List of Questions:<a href="applied-stats-model-ii-lecture-note.html#list-of-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="hw1" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> HW1<a href="applied-stats-model-ii-lecture-note.html#hw1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li></li>
+</ul>
+</div>
+<div id="hw2" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> HW2<a href="applied-stats-model-ii-lecture-note.html#hw2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>2b: bin it?</li>
+</ul>
+</div>
+<div id="midterm" class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Midterm<a href="applied-stats-model-ii-lecture-note.html#midterm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Q1: ??? #the intercept is 3.5 #??? does the intercept needs the log?</strong></p></li>
+<li><p>GammaPoisson - why contains no 0s? -&gt; only probability. unless I set a cut-off point.</p></li>
+<li><p>ICC random variance/ total variance.</p></li>
+<li><p>why specify the mean = mean() in summarise. duplicate –&gt; creating a variable name</p></li>
+<li><p>Q7c: # Convert back to glm() style object ??? why needs a conversion?</p>
+<p># why alternative style reached? # is it the aggregated model vs. individual count? or the same???</p></li>
+<li><p>Q7a # then why the 70 and 60 combination has service???</p></li>
+<li><p>Q7f: #??? why is the actual data 10% 0, but here is 4.5%? Diff so much</p></li>
+</ul>
+</div>
+</div>
+<div id="class-content-overview" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Class content overview:<a href="applied-stats-model-ii-lecture-note.html#class-content-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Textbook: Extending the Linear Model with R, Second Edition, 2016 by Julian Faraway</p>
+<p>Topics: • Generalized Linear Models – Models for Proportional data. – Models for Count data. – Models for <strong>Positive continuous data</strong>.</p>
+<p>• Mixed Models – Random Effects – Linear Mixed Models – <strong>Generalized</strong> Linear Mixed Models – Repeated Measures – Longitudinal Data</p>
+<p>• Dependent Data – Spatial Dependence. – Spatial Point Patterns. – Time Series.</p>
+<p>• Nonlinear Models – Neural Networks – Deep Learning</p>
+</div>
+<div id="glm-categoricaldata_sp2022" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> GLM-CategoricalData_SP2022<a href="applied-stats-model-ii-lecture-note.html#glm-categoricaldata_sp2022" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="glm-countdata_sp2022" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> GLM-CountData_SP2022<a href="applied-stats-model-ii-lecture-note.html#glm-countdata_sp2022" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="glms_advancedtopics_sp2022" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> GLMs_AdvancedTopics_SP2022<a href="applied-stats-model-ii-lecture-note.html#glms_advancedtopics_sp2022" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="applied-stats-model-ii-lecture-note.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(quilpie,<span class="at">package =</span> <span class="st">&quot;GLMsData&quot;</span>)</span>
+<span id="cb284-2"><a href="applied-stats-model-ii-lecture-note.html#cb284-2" aria-hidden="true" tabindex="-1"></a>quilpie<span class="sc">$</span>Phase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(quilpie<span class="sc">$</span>Phase)</span>
+<span id="cb284-3"><a href="applied-stats-model-ii-lecture-note.html#cb284-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(quilpie,3) |&gt; DisplayTable</span></span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="applied-stats-model-ii-lecture-note.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tweedie)</span>
+<span id="cb285-2"><a href="applied-stats-model-ii-lecture-note.html#cb285-2" aria-hidden="true" tabindex="-1"></a>Rain_TW_P <span class="ot">&lt;-</span> <span class="fu">tweedie.profile</span>(Rain <span class="sc">~</span> Phase,</span>
+<span id="cb285-3"><a href="applied-stats-model-ii-lecture-note.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="at">p.vec =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>,<span class="at">to=</span><span class="dv">3</span>,<span class="at">by=</span><span class="fl">0.01</span>),</span>
+<span id="cb285-4"><a href="applied-stats-model-ii-lecture-note.html#cb285-4" aria-hidden="true" tabindex="-1"></a><span class="at">do.plot=</span><span class="cn">TRUE</span>, <span class="at">data=</span>quilpie)</span></code></pre></div>
+<pre><code>## Values of p between 0 and 1 and less than zero have been removed: such values are not possible.
+## When the response variable contains exact zeros, all values of p must be between 1 and 2; other values have been removed.
+## 1.01 1.02 1.03 1.04 1.05 1.06 1.07 1.08 1.09 1.1 1.11 1.12 1.13 1.14 1.15 1.16 1.17 1.18 1.19 1.2 1.21 1.22 1.23 1.24 1.25 1.26 1.27 1.28 1.29 1.3 1.31 1.32 1.33 1.34 1.35 1.36 1.37 1.38 1.39 1.4 1.41 1.42 1.43 1.44 1.45 1.46 1.47 1.48 1.49 1.5 1.51 1.52 1.53 1.54 1.55 1.56 1.57 1.58 1.59 1.6 1.61 1.62 1.63 1.64 1.65 1.66 1.67 1.68 1.69 1.7 1.71 1.72 1.73 1.74 1.75 1.76 1.77 1.78 1.79 1.8 1.81 1.82 1.83 1.84 1.85 1.86 1.87 1.88 1.89 1.9 1.91 1.92 1.93 1.94 1.95 1.96 1.97 1.98 1.99 
+## ...................................................................................................Done.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="applied-stats-model-ii-lecture-note.html#cb287-1" aria-hidden="true" tabindex="-1"></a>rain_Tweedie <span class="ot">&lt;-</span> <span class="fu">glm</span>(Rain <span class="sc">~</span> Phase, <span class="at">data=</span>quilpie,</span>
+<span id="cb287-2"><a href="applied-stats-model-ii-lecture-note.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="at">family=</span><span class="fu">tweedie</span>(<span class="at">var.power=</span>Rain_TW_P<span class="sc">$</span>p.max, </span>
+<span id="cb287-3"><a href="applied-stats-model-ii-lecture-note.html#cb287-3" aria-hidden="true" tabindex="-1"></a><span class="at">link.power=</span><span class="dv">0</span>))</span>
+<span id="cb287-4"><a href="applied-stats-model-ii-lecture-note.html#cb287-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(rain_Tweedie))</span></code></pre></div>
+<pre><code>##              Estimate Std. Error   t value    Pr(&gt;|t|)
+## (Intercept) -2.169054   1.956012 -1.108916 0.271681607
+## Phase2       5.692284   1.967831  2.892670 0.005238606
+## Phase3       3.515270   2.060019  1.706426 0.092854120
+## Phase4       5.026875   1.972906  2.547954 0.013287172
+## Phase5       4.646792   1.973386  2.354730 0.021665216</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="applied-stats-model-ii-lecture-note.html#cb289-1" aria-hidden="true" tabindex="-1"></a>Phases <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Phase =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)))</span>
+<span id="cb289-2"><a href="applied-stats-model-ii-lecture-note.html#cb289-2" aria-hidden="true" tabindex="-1"></a>mu.Phases <span class="ot">&lt;-</span> <span class="fu">predict</span>(rain_Tweedie, <span class="at">newdata=</span>Phases,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb289-3"><a href="applied-stats-model-ii-lecture-note.html#cb289-3" aria-hidden="true" tabindex="-1"></a>p_MLE <span class="ot">&lt;-</span> Rain_TW_P<span class="sc">$</span>p.max    <span class="co">#tweedie profile</span></span>
+<span id="cb289-4"><a href="applied-stats-model-ii-lecture-note.html#cb289-4" aria-hidden="true" tabindex="-1"></a>phi_MLE <span class="ot">&lt;-</span> Rain_TW_P<span class="sc">$</span>phi.max   <span class="co">#phi? -&gt; dispersion para</span></span>
+<span id="cb289-5"><a href="applied-stats-model-ii-lecture-note.html#cb289-5" aria-hidden="true" tabindex="-1"></a>Prob_Zero_Model_orig <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>mu.Phases<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">-</span> p_MLE)<span class="sc">/</span>(phi_MLE<span class="sc">*</span>(<span class="dv">2</span> <span class="sc">-</span> p_MLE))) <span class="co"># probability of it being 0. prob of observe rain + how much rain. </span></span>
+<span id="cb289-6"><a href="applied-stats-model-ii-lecture-note.html#cb289-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-7"><a href="applied-stats-model-ii-lecture-note.html#cb289-7" aria-hidden="true" tabindex="-1"></a><span class="co">#??? quilpie %&gt;% group_by(Phase) %&gt;% summarize(prop0_dat = mean(Rain==0)) %&gt;% cbind(Prob_Zero_Model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="applied-stats-model-ii-lecture-note.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Prob_Zero_Model_orig)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.07252 0.17811 0.25719 0.39032 0.51390 0.92989</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="applied-stats-model-ii-lecture-note.html#cb292-1" aria-hidden="true" tabindex="-1"></a>Phases <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Phase =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)))</span>
+<span id="cb292-2"><a href="applied-stats-model-ii-lecture-note.html#cb292-2" aria-hidden="true" tabindex="-1"></a>mu.Phases <span class="ot">&lt;-</span> <span class="fu">predict</span>(rain_Tweedie, <span class="at">newdata=</span>Phases,<span class="at">type=</span><span class="st">&quot;response&quot;</span>) <span class="co">#some contribution from possion + gamma, always positive. </span></span>
+<span id="cb292-3"><a href="applied-stats-model-ii-lecture-note.html#cb292-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-4"><a href="applied-stats-model-ii-lecture-note.html#cb292-4" aria-hidden="true" tabindex="-1"></a>p_MLE <span class="ot">&lt;-</span> Rain_TW_P<span class="sc">$</span>p.max</span>
+<span id="cb292-5"><a href="applied-stats-model-ii-lecture-note.html#cb292-5" aria-hidden="true" tabindex="-1"></a>phi_MLE <span class="ot">&lt;-</span> Rain_TW_P<span class="sc">$</span>phi.max</span>
+<span id="cb292-6"><a href="applied-stats-model-ii-lecture-note.html#cb292-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-7"><a href="applied-stats-model-ii-lecture-note.html#cb292-7" aria-hidden="true" tabindex="-1"></a>Prob_Zero_Model <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>mu.Phases<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">-</span> p_MLE)<span class="sc">/</span>(phi_MLE<span class="sc">*</span>(<span class="dv">2</span> <span class="sc">-</span> p_MLE)))</span>
+<span id="cb292-8"><a href="applied-stats-model-ii-lecture-note.html#cb292-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb292-9"><a href="applied-stats-model-ii-lecture-note.html#cb292-9" aria-hidden="true" tabindex="-1"></a><span class="co">#quilpie %&gt;% group_by(Phase) %&gt;% summarize(prop0_dat = mean(Rain==0)) %&gt;% cbind(Prob_Zero_Model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="applied-stats-model-ii-lecture-note.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mu.Phases)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.1143  3.8429 11.9143 13.4377 17.4235 33.8937</code></pre>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="applied-stats-model-ii-lecture-note.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Prob_Zero_Model)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.07252 0.17811 0.25719 0.39032 0.51390 0.92989</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="applied-stats-model-ii-lecture-note.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#package of packages. needed for the |&gt; , groupby, summarise need tidyverse. </span></span>
+<span id="cb297-2"><a href="applied-stats-model-ii-lecture-note.html#cb297-2" aria-hidden="true" tabindex="-1"></a>quilpie <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Phase) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">prop0_dat =</span> <span class="fu">mean</span>(Rain<span class="sc">==</span><span class="dv">0</span>)) <span class="sc">|&gt;</span> <span class="fu">cbind</span>(Prob_Zero_Model)</span></code></pre></div>
+<pre><code>##   Phase prop0_dat Prob_Zero_Model
+## 1     1 0.8571429      0.92988539
+## 2     2 0.0000000      0.07252326
+## 3     3 0.7142857      0.51390033
+## 4     4 0.2352941      0.17810940
+## 5     5 0.2380952      0.25718557</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="applied-stats-model-ii-lecture-note.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co">#prop0_dat: what % has , actual vs. predicted. quilpie&#39;s variable contains the Rain.</span></span>
+<span id="cb299-2"><a href="applied-stats-model-ii-lecture-note.html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise(mean = mean())</span></span>
+<span id="cb299-3"><a href="applied-stats-model-ii-lecture-note.html#cb299-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-4"><a href="applied-stats-model-ii-lecture-note.html#cb299-4" aria-hidden="true" tabindex="-1"></a><span class="co">#86 count = a name</span></span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="applied-stats-model-ii-lecture-note.html#cb300-1" aria-hidden="true" tabindex="-1"></a>CPoiGam <span class="ot">&lt;-</span> <span class="fu">tweedie.convert</span>(<span class="at">xi=</span>p_MLE, <span class="at">mu=</span>mu.Phases, <span class="at">phi=</span>phi_MLE)</span>
+<span id="cb300-2"><a href="applied-stats-model-ii-lecture-note.html#cb300-2" aria-hidden="true" tabindex="-1"></a>PoiGamPred <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">&quot;Poisson mean&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>poisson.lambda,</span>
+<span id="cb300-3"><a href="applied-stats-model-ii-lecture-note.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Gamma mean&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>gamma.mean,</span>
+<span id="cb300-4"><a href="applied-stats-model-ii-lecture-note.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Gamma dispersion&quot;</span> <span class="ot">=</span> CPoiGam<span class="sc">$</span>gamma.phi)</span>
+<span id="cb300-5"><a href="applied-stats-model-ii-lecture-note.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(PoiGamPred) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Phase&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb300-6"><a href="applied-stats-model-ii-lecture-note.html#cb300-6" aria-hidden="true" tabindex="-1"></a><span class="co">#PoiGamPred %&gt;% round(4) %&gt;% DisplayTable</span></span>
+<span id="cb300-7"><a href="applied-stats-model-ii-lecture-note.html#cb300-7" aria-hidden="true" tabindex="-1"></a><span class="co">#??? the %&gt;% = |&gt; but not work?</span></span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="applied-stats-model-ii-lecture-note.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PoiGamPred |&gt; round(4) |&gt; DisplayTable</span></span>
+<span id="cb301-2"><a href="applied-stats-model-ii-lecture-note.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="co">#https://stackoverflow.com/questions/67744604/what-does-pipe-greater-than-mean-in-r</span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="applied-stats-model-ii-lecture-note.html#cb302-1" aria-hidden="true" tabindex="-1"></a>PoiGamPred</span></code></pre></div>
+<pre><code>##                      Phase1    Phase2     Phase3    Phase4     Phase5
+## Poisson mean     0.07269394  2.623848  0.6657259  1.725357  1.3579574
+## Gamma mean       0.16582834  1.362530  0.6088689  1.065178  0.9254371
+## Gamma dispersion 1.45160559 97.999331 19.5694557 59.892898 45.2090019</code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="applied-stats-model-ii-lecture-note.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? no exact 0s?</span></span></code></pre></div>
+</div>
+<div id="mm-randomeffects_spring2022" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> MM-RandomEffects_Spring2022<a href="applied-stats-model-ii-lecture-note.html#mm-randomeffects_spring2022" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>random effect:</p>
+<ul>
+<li><p>not interested in specific level. vs. fixed effect - not individual slope? dummy interaction with the focal variable.</p></li>
+<li><p>fixed effect test the mean vs. random effect test the variance (not interested in particular mean, want to see if mean actually varied across levels). ??? S11: variance depends on the random effect but mean is not affected?</p></li>
+<li><p>P14: reading the box plot. mean, median, range??? P15: what’s the n? What’s the Sum Sq?</p></li>
+<li><p>P21: shift in the mean vs. variance and mean 0. how do I know how much the mean is shifted???</p></li>
+<li></li>
+</ul>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="applied-stats-model-ii-lecture-note.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(pulp, <span class="at">package=</span><span class="st">&quot;faraway&quot;</span>)</span>
+<span id="cb305-2"><a href="applied-stats-model-ii-lecture-note.html#cb305-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y=</span>pulp<span class="sc">$</span>bright, <span class="at">x=</span>pulp<span class="sc">$</span>operator,<span class="at">xlab =</span> <span class="st">&quot;Operator&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Brightness&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-152-1.png" width="672" /></p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="applied-stats-model-ii-lecture-note.html#cb306-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bright <span class="sc">~</span> operator, pulp)</span>
+<span id="cb306-2"><a href="applied-stats-model-ii-lecture-note.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm_model)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: bright
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## operator   3   1.34 0.44667  4.2039 0.02261 *
+## Residuals 16   1.70 0.10625                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<ul>
+<li><p>Prediction for each operator is simply the sum of fixed and random effect = BLUP??? components. -&gt; S24: not in the data. new operator will take a 0 in intercept change? but the intercept can be predicted with the Xs??? -&gt; yes, if there is blocking. how is the blend different from the operator as blocking? discrete vs. continuous?</p></li>
+<li><p>S30: how does it match? shouldn’t it be mean + the BLUPS???</p></li>
+<li><p>S34: fixed are irrigation that is interest. field randomly = replications?</p></li>
+<li><p>Blocking</p></li>
+<li><p>Split plot</p></li>
+<li><p>Nested effect vs. random effect?</p></li>
+<li><p>Residual plots</p></li>
+<li><p>General: interaction terms = depends. must happen when sth happen then interaction.</p></li>
+</ul>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Bolander, Willy, Cinthia B. Satornino, Douglas E. Hughes, and Gerald R. Ferris. 2015. <span>“Social Networks Within Sales Organizations: Their Development and Importance for Salesperson Performance.”</span> <em>Journal of Marketing</em> 79 (6): 1–16. <a href="https://doi.org/10.1509/jm.14.0444">https://doi.org/10.1509/jm.14.0444</a>.
+</div>
+<div class="csl-entry">
+Boorom, M. L., J. R. Goolsby, and R. P. Ramsey. 1998. <span>“Relational Communication Traitsand Their Effect on Adaptiveness and Sales Performance.”</span> <em>Journal of the Academy of Marketing Science</em> 26 (1): 16–30. <a href="https://doi.org/10.1177/0092070398261003">https://doi.org/10.1177/0092070398261003</a>.
+</div>
+<div class="csl-entry">
+Campbell, Margaret C., and Amna Kirmani. 2000. <span>“Consumers’ Use of Persuasion Knowledge: The Effects of Accessibility and Cognitive Capacity on Perceptions of an Influence Agent.”</span> <em>Journal of Consumer Research</em> 27 (1): 69–83. <a href="https://doi.org/10.1086/314309">https://doi.org/10.1086/314309</a>.
+</div>
+<div class="csl-entry">
+Chase, Kevin S., and Brian Murtha. 2019. <span>“Selling to Barricaded Buyers.”</span> <em>Journal of Marketing</em> 83 (6): 2–20. <a href="https://doi.org/10.1177/0022242919874778">https://doi.org/10.1177/0022242919874778</a>.
+</div>
+<div class="csl-entry">
+Johlke, M. C., D. F. Duhan, R. D. Howell, and R. W. Wilkes. 2000. <span>“An Integrated Model of Sales Managers’ Communication Practices.”</span> <em>Journal of the Academy of Marketing Science</em> 28 (2): 263–77. <a href="https://doi.org/10.1177/0092070300282007">https://doi.org/10.1177/0092070300282007</a>.
+</div>
+<div class="csl-entry">
+Johnson, Jeff S., and Ravipreet S. Sohi. 2015. <span>“Understanding and Resolving Major Contractual Breaches in Buyer<span></span>seller Relationships: A Grounded Theory Approach.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (2): 185–205. <a href="https://doi.org/10.1007/s11747-015-0427-8">https://doi.org/10.1007/s11747-015-0427-8</a>.
+</div>
+<div class="csl-entry">
+Kidwell, Blair, David M Hardesty, Brian R Murtha, and Shibin Sheng. 2011. <span>“Emotional Intelligence in Marketing Exchanges.”</span> <em>Journal of Marketing</em> 75 (1): 78–95. <a href="https://doi.org/10.1509/jmkg.75.1.78">https://doi.org/10.1509/jmkg.75.1.78</a>.
+</div>
+<div class="csl-entry">
+Lam, Son K., Thomas E. DeCarlo, and Ashish Sharma. 2019. <span>“Salesperson Ambidexterity in Customer Engagement: Do Customer Base Characteristics Matter?”</span> <em>Journal of the Academy of Marketing Science</em> 47 (4): 659–80. <a href="https://doi.org/10.1007/s11747-019-00650-0">https://doi.org/10.1007/s11747-019-00650-0</a>.
+</div>
+<div class="csl-entry">
+Malshe, Avinash, and Scott B. Friend. 2018. <span>“Initiating Value Co-Creation: Dealing with Non-Receptive Customers.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 895–920. <a href="https://doi.org/10.1007/s11747-018-0577-6">https://doi.org/10.1007/s11747-018-0577-6</a>.
+</div>
+<div class="csl-entry">
+McFarland, Richard G., Joseph C. Rode, and Tasadduq A. Shervani. 2015. <span>“A Contingency Model of Emotional Intelligence in Professional Selling.”</span> <em>Journal of the Academy of Marketing Science</em> 44 (1): 108–18. <a href="https://doi.org/10.1007/s11747-015-0435-8">https://doi.org/10.1007/s11747-015-0435-8</a>.
+</div>
+<div class="csl-entry">
+Mullins, Ryan R., Michael Ahearne, Son K. Lam, Zachary R. Hall, and Jeffrey P. Boichuk. 2014. <span>“Know Your Customer: How Salesperson Perceptions of Customer Relationship Quality Form and Influence Account Profitability.”</span> <em>Journal of Marketing</em> 78 (6): 38–58. <a href="https://doi.org/10.1509/jm.13.0300">https://doi.org/10.1509/jm.13.0300</a>.
+</div>
+<div class="csl-entry">
+Panagopoulos, Nikolaos G., Adam A. Rapp, and Jessica L. Ogilvie. 2017. <span>“Salesperson Solution Involvement and Sales Performance: The Contingent Role of Supplier Firm and Customer<span></span>Supplier Relationship Characteristics.”</span> <em>Journal of Marketing</em> 81 (4): 144–64. <a href="https://doi.org/10.1509/jm.15.0342">https://doi.org/10.1509/jm.15.0342</a>.
+</div>
+<div class="csl-entry">
+Roman Avila, Sergio Raul, and Dawn Iacobucci. 2010. <span>“Antecedents and Consequences of Adaptive Selling Confidence and Behavior: A Dyadic Analysis of Salespeople and Their Customers.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.2691640">https://doi.org/10.2139/ssrn.2691640</a>.
+</div>
+<div class="csl-entry">
+Salonen, Anna, Harri Terho, Eva Böhm, Ari Virtanen, and Risto Rajala. 2020. <span>“Engaging a Product-Focused Sales Force in Solution Selling: Interplay of Individual- and Organizational-Level Conditions.”</span> <em>Journal of the Academy of Marketing Science</em> 49 (1): 139–63. <a href="https://doi.org/10.1007/s11747-020-00729-z">https://doi.org/10.1007/s11747-020-00729-z</a>.
+</div>
+<div class="csl-entry">
+Singh, Sunil Kumar. n.d. <span>“Email B2b Sales Negotiation : Dynamic Use of Textual Cues as Influence Tactics.”</span> PhD thesis. <a href="https://doi.org/10.32469/10355/63791">https://doi.org/10.32469/10355/63791</a>.
+</div>
+<div class="csl-entry">
+Singh, Sunil, Detelina Marinova, Jagdip Singh, and Kenneth R. Evans. 2017. <span>“Customer Query Handling in Sales Interactions.”</span> <em>Journal of the Academy of Marketing Science</em> 46 (5): 837–56. <a href="https://doi.org/10.1007/s11747-017-0569-y">https://doi.org/10.1007/s11747-017-0569-y</a>.
+</div>
+<div class="csl-entry">
+Smith, J. Brock, and Donald W. Barclay. 1997. <span>“The Effects of Organizational Differences and Trust on the Effectiveness of Selling Partner Relationships.”</span> <em>Journal of Marketing</em> 61 (1): 3. <a href="https://doi.org/10.2307/1252186">https://doi.org/10.2307/1252186</a>.
+</div>
+<div class="csl-entry">
+Smith, Timothy M., Srinath Gopalakrishna, and Rabikar Chatterjee. 2006. <span>“A Three-Stage Model of Integrated Marketing Communications at the Marketing-Sales Interface.”</span> <em>Journal of Marketing Research</em> 43 (4): 564–79. <a href="https://doi.org/10.1509/jmkr.43.4.564">https://doi.org/10.1509/jmkr.43.4.564</a>.
+</div>
+<div class="csl-entry">
+Soldow, Gary F., and Gloria Penn Thomas. 1984. <span>“Relational Communication: Form Versus Content in the Sales Interaction.”</span> <em>Journal of Marketing</em> 48 (1): 84. <a href="https://doi.org/10.2307/1251314">https://doi.org/10.2307/1251314</a>.
+</div>
+<div class="csl-entry">
+Spiro, Rosann L., and Barton A. Weitz. 1990. <span>“Adaptive Selling: Conceptualization, Measurement, and Nomological Validity.”</span> <em>Journal of Marketing Research</em> 27 (1): 61. <a href="https://doi.org/10.2307/3172551">https://doi.org/10.2307/3172551</a>.
+</div>
+<div class="csl-entry">
+Thompson, Debora V., and Prashant Malaviya. 2013. <span>“Consumer-Generated Ads: Does Awareness of Advertising Co-Creation Help or Hurt Persuasion?”</span> <em>Journal of Marketing</em> 77 (3): 33–47. <a href="https://doi.org/10.1509/jm.11.0403">https://doi.org/10.1509/jm.11.0403</a>.
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_Overview.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_Overview.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
