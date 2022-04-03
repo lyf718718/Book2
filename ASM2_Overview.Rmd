@@ -148,3 +148,39 @@ PoiGamPred
 ```
 
 ## MM-RandomEffects_Spring2022
+
+random effect:
+
+-   not interested in specific level. vs. fixed effect - not individual slope? dummy interaction with the focal variable.
+
+-   fixed effect test the mean vs. random effect test the variance (not interested in particular mean, want to see if mean actually varied across levels). ??? S11: variance depends on the random effect but mean is not affected?
+
+-   P14: reading the box plot. mean, median, range??? P15: what's the n? What's the Sum Sq?
+
+-   P21: shift in the mean vs. variance and mean 0. how do I know how much the mean is shifted???
+
+-   
+
+```{r}
+data(pulp, package="faraway")
+plot(y=pulp$bright, x=pulp$operator,xlab = "Operator", ylab = "Brightness")
+lm_model <- lm(bright ~ operator, pulp)
+anova(lm_model)
+
+```
+
+-   Prediction for each operator is simply the sum of fixed and random effect = BLUP??? components. -> S24: not in the data. new operator will take a 0 in intercept change? but the intercept can be predicted with the Xs??? -> yes, if there is blocking. how is the blend different from the operator as blocking? discrete vs. continuous?
+
+-   S30: how does it match? shouldn't it be mean + the BLUPS???
+
+-   S34: fixed are irrigation that is interest. field randomly = replications?
+
+-   Blocking
+
+-   Split plot
+
+-   Nested effect vs. random effect?
+
+-   Residual plots
+
+-   General: interaction terms = depends. must happen when sth happen then interaction.

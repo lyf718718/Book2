@@ -1,0 +1,240 @@
+---
+title: "ASM2_HW3"
+author: "Yufan Lin"
+date: "3/30/2022"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# STAT 4520/7520 - Homework 3 Spring 2022 Due: March 30, 2022
+
+## 1) The cake dataset in the lme4 package contains data on an experiment was conducted to determine the effect of recipe and baking temperature on chocolate cake quality. Fifteen batches of cake mix for each recipe were prepared. Each batch was sufficient for six cakes. Each of the six cakes was baked at a different temperature which was randomly assigned. As an indicator of quality, the breakage angle of the cake was recorded.
+
+Note: temperate randomly assigned.
+receipt, batches/replicate are nested in receipt!!!
+
+It contains the variables: • replicate: batch number from 1 to 15 • recipe: 3 Recipes, A, B, and C • temperature: temperature at which cake was baked: 175C 185C 195C 205C 215C 225C • angle: a numeric vector giving the angle at which the cake broke.
+• temp: numeric value of the baking temperature (degrees F).
+The data can be loaded with the command.
+
+```{r}
+data(cake,package = "lme4")
+```
+
+Additionally, we will only use the numeric version of temperature.
+
+```{r}
+#library(dplyr)
+#library(tidyverse)
+#??? Why negative before the temperature. what does it mean?
+cake <- cake |> dplyr::select(-temperature)
+```
+
+### a. Of the explanatory variables recipe, temp, and replicate, which are fixed and which are random? Explain. Is there any nesting in these variables?
+
+The recipe and Temp are fixed, since I am genuinely interested in their different levels.
+Replicate are random, since it is random sample of levels.
+I don't care about the different replications.
+
+The replicate/batch is nested within the recipe.
+
+```{r}
+# random affect has nothing to do with random assignment in actual???
+# S39: egg example, is the sample nested within technician? further split GH into G1 G2? not sure what it means. How about here is the temperature also nested??? when is it not nested? the sample are distributed across technician??? or technician switch between labs?
+```
+
+### b. Fit a linear model with no random effects for breaking angle against the interaction between recipe and temperature. Which variables are significant? What is the t value for temp the temperature variable? What is the RMSE of this model?
+
+```{r}
+lm_model <- lm(angle ~ recipe*temp, cake)
+summary(lm_model)
+anova(lm_model)
+```
+
+The temperature variable is significant.
+The t value is 3.195 The RMSE is 7.79487, the MSE is 60.76
+
+```{r}
+sqrt(60.76)
+```
+
+### c. Fit a mixed model to the data which takes into account the replicates of the recipes. Examine the variance components. Is there variation in the batches made with each recipe? How does the Residual variance component compare to the MSE from (b)? What is the t-value for temperature?
+
+```{r}
+# Test non-nested structure. 
+#library(lme4)
+#mixed_model <- lmer(angle ~ recipe*temp + (1 | replicate), cake)
+#summary(mixed_model)
+#anova(mixed_model)
+```
+
+```{r}
+# Test the nested structure
+library(lme4)
+mixed_model <- lmer(angle ~ recipe*temp + (1 | recipe) + (1 | recipe:replicate), cake)
+summary(mixed_model)
+anova(mixed_model)
+```
+
+Yes.
+There is variation in the batches made with each receipt.Since a significant portion of variance comes from the replicate (i.e., 66%) as below.
+
+```{r}
+41.7674  /(41.7674  +20.8862 + 0.5087)
+```
+
+The residual variance component is smaller now with 20 compared with 60 before.
+The t value for hte temperature is 5.4 or more significant than before.
+
+```{r}
+# ??? why replicate not receipt? as the levels? ??? why ANOVA table not match the random effect table?
+```
+
+### d. Test for a recipe and temperature effect.
+
+```{r}
+library(MCMCglmm)
+summary(MCMCglmm(angle ~ recipe*temp,random=~replicate, data=cake, verbose=FALSE))$solution
+
+#??? how to specific the random structure here?
+```
+
+There is no simple or interaction effect for recipe.
+The temperature is siginificant at 99% confidence level with pMCMC at 0.001.
+
+### e. Create a QQ plot of the residuals and a residual vs predicted plot for the linear model in (b) and the mixed model in (d), describe how well the model assumptions are satisfied for each.
+
+```{r}
+qqnorm(residuals(lm_model),main="QQ plot of Residuals - Linear model")
+qqline(residuals(lm_model))
+```
+
+```{r}
+qqnorm(residuals(mixed_model),main="QQ plot of Residuals - Mixed model")
+qqline(residuals(mixed_model))
+
+```
+
+The mixed model satisfied the normality assumption much better as the points are closer to the line on the QQ Plot.
+
+### f. (7510 only) Examine the BLUPs from the mixed model in (d). Do you notice any patterns?
+
+```{r}
+library(lme4)
+ranef(mixed_model)$replicate
+```
+
+```{r}
+ranef(mixed_model)$recipe
+```
+
+The number seems to be close to 0.
+
+```{r}
+#??? what patten central point?variance or intercept?
+#??? why replicate null? 
+#!!! Alternative solution: with nested structure for HW3. replication is nested within recipe.???
+```
+
+## 2) The purpose of random effects is to remove variation from known sources. In this problem, we will use this idea and see how it can work with a popular technique for predictive modeling, the random forest. Random forests were covered in the prerequisite course, and can be fit using the randomForest function in the randomForest library. The dataset Problem-2.csv has a simulated dataset. There is a nonlinear relationship between 6 numeric explanatory variables x1, . . . x6 and the response y, to addition to a grouping effect according to the ID variable, which has 100 levels.
+
+```{r}
+set.seed(1)
+Problem2 <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW3/Problem-2.csv", stringsAsFactors = TRUE)
+```
+
+### a. Read in the dataset, and split the data into a training and test set, using 95% of the data for the training set. Set a seed of 1 for consistency of results.
+
+```{r}
+train=sample(1:nrow(Problem2), nrow(Problem2)*0.95)
+Problem2.train = Problem2[train,]
+Problem2.test = Problem2[-train,]
+```
+
+### b. Fit a random forest model to the training data using y as the response with x1, . . . x6 and ID as the explanatory variables. Use the model to predict y in the test set and compute the test root mean squared error ( RMSE ).
+
+```{r}
+#install.packages("randomForest")
+library(randomForest)
+RF_model =randomForest(y~x1+x2+x3+x4+x5+x6+ID,data=Problem2,subset=train,importance=TRUE)
+
+```
+
+```{r}
+Problem2.test$y_RF <- predict(RF_model,newdata=Problem2.test)
+```
+
+```{r}
+sqrt(sum((Problem2.test$y_RF - Problem2.test$y)^2)/175)
+```
+
+The RMSE is 4.5
+
+### c. Fit the mixed model yij = µ + IDi + εij to the training data. This model does not use the x_i at all, and has a random intercept based on ID. After fitting the model, extract the BLUPs for ID and add them to the constant µˆ, the estimate of the overall intercept. What do these values represent? Store them in a data frame along with a column storing the IDs.
+
+```{r}
+P2_mixed_model <- lmer(y ~ 1 + (1 | ID), Problem2.train)
+summary(P2_mixed_model)
+```
+
+```{r}
+#P2_ID_BLUP = ranef(P2_mixed_model)$ID
+library(tidyverse)
+
+#S23:
+
+#predict(mixed_model, newdata=data.frame(operator="a"))
+
+Problem2.test$BLUP <- predict(P2_mixed_model, newdata=Problem2.test)
+
+```
+
+```{r}
+DF_BLUPx <- fixef(P2_mixed_model) + ranef(P2_mixed_model)$ID
+DF_BLUPx$ID <- 1:nrow(DF_BLUPx)
+```
+
+The values represent the intercept for each ID.
+
+### d. Add a column to the test dataset containing the values obtained in part c, joined to the test dataset by matching the IDs. Note: with the dplyr package loaded, you can quickly join by ID using a line like: Data.Test \<- left_join(Data.Test, int_plus_blups, by = "ID") Examine the first few rows and describe what the new column represents.
+
+```{r}
+Problem2.test <- left_join(Problem2.test, DF_BLUPx, by = "ID")
+```
+
+The new column represents the intercept for each ID in the test dataset.
+
+### e. Compute the residuals of the mixed model fit in (c) using the residuals() function, store them in a column of the training data.
+
+```{r}
+Problem2.train$residualx = residuals(P2_mixed_model)
+
+```
+
+### f. Fit another random forest model to the training data, using the residuals from part (e) as the response and only x1, . . . x6 as the explanatory variables. Use this model to predict into the test data and store these predictions. What do these predictions represent?
+
+```{r}
+#why I cannot use subset anymore??? diff dataaset?
+RF_residuals_model =randomForest(residualx~x1+x2+x3+x4+x5+x6,data=Problem2.train,importance=TRUE)
+```
+
+```{r}
+Problem2.test$y_RF_residual <- predict(RF_residuals_model,newdata=Problem2.test)
+```
+
+The prediction represents the additional variations beyond the ID's variation.
+
+### g. Add the predictions in (f) to the values joined to the test data in (d). Consider these values test predictions, and compute the test MSE. Compare this to the test MSE compared in part (b). What do you observe?
+
+```{r}
+sqrt(sum((Problem2.test$BLUP + Problem2.test$y_RF_residual - Problem2.test$y)^2)/175)
+```
+
+```{r}
+(3.6-4.5)/4.5
+```
+
+The RMSE is reduced from 4.5 to 3.6 or a 20% reduction.
+The model's prediction is greatly improved.
