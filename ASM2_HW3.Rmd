@@ -20,6 +20,7 @@ It contains the variables: • replicate: batch number from 1 to 15 • recipe: 
 The data can be loaded with the command.
 
 ```{r}
+# 175C has the same meaninig, across the receipe. 
 data(cake,package = "lme4")
 ```
 
@@ -28,8 +29,8 @@ Additionally, we will only use the numeric version of temperature.
 ```{r}
 #library(dplyr)
 #library(tidyverse)
-#??? Why negative before the temperature. what does it mean?
-cake <- cake |> dplyr::select(-temperature)
+#OK Why negative before the temperature. what does it mean?
+cake <- cake |> dplyr::select(-temperature) #remove the temperature from the set
 ```
 
 ### a. Of the explanatory variables recipe, temp, and replicate, which are fixed and which are random? Explain. Is there any nesting in these variables?
@@ -41,7 +42,9 @@ I don't care about the different replications.
 The replicate/batch is nested within the recipe.
 
 ```{r}
-# random affect has nothing to do with random assignment in actual???
+# random affect has nothing to do with random assignment in actual. OK not related. 
+#lab tech1 in A vs. B means different. 
+
 # S39: egg example, is the sample nested within technician? further split GH into G1 G2? not sure what it means. How about here is the temperature also nested??? when is it not nested? the sample are distributed across technician??? or technician switch between labs?
 ```
 
@@ -83,13 +86,14 @@ There is variation in the batches made with each receipt.Since a significant por
 
 ```{r}
 41.7674  /(41.7674  +20.8862 + 0.5087)
+# ANOVA table only shows fixed effect. 
 ```
 
 The residual variance component is smaller now with 20 compared with 60 before.
 The t value for hte temperature is 5.4 or more significant than before.
 
 ```{r}
-# ??? why replicate not receipt? as the levels? ??? why ANOVA table not match the random effect table?
+# OK why replicate not receipt? as the levels? OK why ANOVA table not match the random effect table?
 ```
 
 ### d. Test for a recipe and temperature effect.
@@ -123,7 +127,8 @@ The mixed model satisfied the normality assumption much better as the points are
 
 ```{r}
 library(lme4)
-ranef(mixed_model)$replicate
+ranef(mixed_model)$`recipe:replicate`
+# random effect normal dist mean 0, variance.
 ```
 
 ```{r}

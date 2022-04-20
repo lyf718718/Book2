@@ -2,7 +2,9 @@
 title: "ASM_II_Class_Note"
 author: "Yufan Lin"
 date: "3/8/2022"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r ASM_II_Class_Note, include=FALSE}
@@ -64,26 +66,26 @@ quilpie$Phase <- as.factor(quilpie$Phase)
 ```
 
 ```{r}
-library(tweedie)
-Rain_TW_P <- tweedie.profile(Rain ~ Phase,
-p.vec = seq(from=1,to=3,by=0.01),
-do.plot=TRUE, data=quilpie)
+#library(tweedie)
+#Rain_TW_P <- tweedie.profile(Rain ~ Phase,
+#p.vec = seq(from=1,to=3,by=0.01),
+#do.plot=TRUE, data=quilpie)
 
 ```
 
 ```{r}
-rain_Tweedie <- glm(Rain ~ Phase, data=quilpie,
-family=tweedie(var.power=Rain_TW_P$p.max, 
-link.power=0))
-coef(summary(rain_Tweedie))
+#rain_Tweedie <- glm(Rain ~ Phase, data=quilpie,
+#family=tweedie(var.power=Rain_TW_P$p.max, 
+#link.power=0))
+#coef(summary(rain_Tweedie))
 ```
 
 ```{r}
-Phases <- data.frame(Phase = factor(c(1, 2, 3, 4, 5)))
-mu.Phases <- predict(rain_Tweedie, newdata=Phases,type="response")
-p_MLE <- Rain_TW_P$p.max    #tweedie profile
-phi_MLE <- Rain_TW_P$phi.max   #phi? -> dispersion para
-Prob_Zero_Model_orig <- exp(-mu.Phases^(2 - p_MLE)/(phi_MLE*(2 - p_MLE))) # probability of it being 0. prob of observe rain + how much rain. 
+#Phases <- data.frame(Phase = factor(c(1, 2, 3, 4, 5)))
+#mu.Phases <- predict(rain_Tweedie, newdata=Phases,type="response")
+#p_MLE <- Rain_TW_P$p.max    #tweedie profile
+#phi_MLE <- Rain_TW_P$phi.max   #phi? -> dispersion para
+#Prob_Zero_Model_orig <- exp(-mu.Phases^(2 - p_MLE)/(phi_MLE*(2 - p_MLE))) # probability of it being 0. prob of observe rain + how much rain. 
 
 #??? quilpie %>% group_by(Phase) %>% summarize(prop0_dat = mean(Rain==0)) %>% cbind(Prob_Zero_Model)
 
@@ -91,10 +93,10 @@ Prob_Zero_Model_orig <- exp(-mu.Phases^(2 - p_MLE)/(phi_MLE*(2 - p_MLE))) # prob
 ```
 
 ```{r}
-summary(Prob_Zero_Model_orig)
+#summary(Prob_Zero_Model_orig)
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 Phases <- data.frame(Phase = factor(c(1, 2, 3, 4, 5)))
 mu.Phases <- predict(rain_Tweedie, newdata=Phases,type="response") #some contribution from possion + gamma, always positive. 
 
@@ -107,15 +109,15 @@ library(tidyverse)
 
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 summary(mu.Phases)
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 summary(Prob_Zero_Model)
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 library(tidyverse) #package of packages. needed for the |> , groupby, summarise need tidyverse. 
 quilpie |> group_by(Phase) |> summarize(prop0_dat = mean(Rain==0)) |> cbind(Prob_Zero_Model)
 
@@ -125,7 +127,7 @@ quilpie |> group_by(Phase) |> summarize(prop0_dat = mean(Rain==0)) |> cbind(Prob
 #86 count = a name
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 CPoiGam <- tweedie.convert(xi=p_MLE, mu=mu.Phases, phi=phi_MLE)
 PoiGamPred <- rbind("Poisson mean" = CPoiGam$poisson.lambda,
 "Gamma mean" = CPoiGam$gamma.mean,
@@ -141,7 +143,7 @@ colnames(PoiGamPred) <- paste0("Phase", 1:5)
 #https://stackoverflow.com/questions/67744604/what-does-pipe-greater-than-mean-in-r
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 PoiGamPred
 
 #??? no exact 0s?
@@ -184,3 +186,116 @@ anova(lm_model)
 -   Residual plots
 
 -   General: interaction terms = depends. must happen when sth happen then interaction.
+
+### HW4: Repeated measure, time and space dependence. 
+
+how to make R markdown slides???
+
+#### repeated measure and longitudinal data / growth model/ panel study a person answers multiple questions/ 
+All coding is simply the lanaguage the machine can understand. Succinct enough. 
+
+S4: variance may be correlated. when the variance is not multiple by a identify matrix. it means variance can correlate within group or the auto-correlation in a mini time series.??? how did the assumption change in repeated measure vs. regular group based random effect? 
+
+$y_{i}|\gamma_{i} = N(X_{i}\beta + Z_{i}\gamma_{i},\sigma^{2}I)$
+??? how to type the ~? 
+
+S8: what's the I(year - 68) , I() used for special ops???
+S9: What's year_fm_s | person , every person has a different slope on the year
+S13: not fit well??? why switch example? how to tell the tail. fat tail?
+S18: fortify.merMod ???
+
+
+#### Time and Space dependence 
+S3: without group correlation. how to calc besides variance? two obs corr???
+
+```{r}
+data(lap, package = "astsa")
+plot.ts(lap[,"tempr"]) #built in function, ts time series. lap data's tempr column. 
+```
+
+S9: stationary = no shfit in the time series. Simple seasonlity. as long as same distance aprt, the correlation will be the same. 
+
+S10: detrend using what as the base? what's the 0 here? 12 weeks = 3 months. roll = 0/ what does it mean ???
+
+```{r}
+time_lm <- lm(lap[,"tempr"] ~ time(lap)) #??? what's time() function
+time_lm_resid <- resid(time_lm) # residuals of lm will "detrend"
+acf(time_lm_resid) #??? what's acf? why show only 25 weeks not 52 weeks for the seasonality???
+```
+
+```{r}
+data(JohnsonJohnson)
+JJ<- JohnsonJohnson
+plot.ts(JJ)
+```
+
+```{r}
+JJlog <- log10(JJ)
+time_lm_JJ <- lm(JJlog ~ time(JJlog)) #???
+par(mfrow=c(1,2))
+plot.ts(JJlog)
+abline(time_lm_JJ, col="red", lty=2)
+acf(resid(time_lm_JJ))
+
+```
+
+S12: how you know the seaonality. the correlation happen at the same time/location each time.
+
+```{r}
+set.seed(1); n <- 50; eps_t <- rnorm(n, sd = 5)
+Y1 <- Y2 <- Y3 <- double(n) #??? what's this?
+Y1[1] <- Y2[1] <- Y3[1] <- 0
+# Y_t = phi * Y_(t-1) + eps_t
+for(i in 2:n) Y1[i] <- .75 * Y1[i-1] + eps_t[i]
+for(i in 2:n) Y2[i] <- 0.1 * Y2[i-1] + eps_t[i]
+#for(i in 2:n) Y3[i] <- (-.8) * Y3[i-1] + eps_t[i]
+for(i in 2:n) Y3[i] <- (2) * Y3[i-1] + eps_t[i] #exploded the graph. 
+plot.ts(Y1,ylim = c(-15,100)); lines(Y2, col="red"); lines(Y3, col="blue")
+#plot.ts(Y1,ylim = c(-15,30)); lines(Y2, col="red"); lines(Y3, col="blue")
+abline(h=0,lty=2)
+#??? blue and black should revserse but similar?
+
+```
+S16: it has moving average only, error only???
+
+```{r}
+Y4 <- Y5 <- double(n); Y4[1] <- Y5[1] <- 0
+for(i in 2:n) Y4[i] <- eps_t[i] + .95*eps_t[i-1] #??? how does the program know the error? what diff between obs vs. error corr?
+for(i in 2:n) Y5[i] <- eps_t[i] + .1*eps_t[i-1]
+plot.ts(Y4); lines(Y5,col="red")
+
+```
+S18: what's order = c(1,0,1)??? what's p q? parameter for AR vs. MA. 
+```{r}
+Y6 <- double(n); Y6[1] <- 0
+for(i in 2:n) Y6[i] <- .5 * Y6[i-1] + eps_t[i] + .4*eps_t[i-1]
+lm_resids <- resid( lm( Y6 ~ I(1:n) ) )
+# p q
+arima(lm_resids, order = c(1, 0, 1))
+```
+
+```{r}
+dt <- diff(time(lap))[1]
+```
+```{r}
+dt
+```
+
+
+```{r}
+dt <- diff(time(lap))[1] # differences between time points
+time_steps <- max(time(lap)) + (1:52)*dt # Time points we will predict at ??? what's the multiplication
+ARMA_p1q1 <- arima(lap[,"tempr"], order = c(1,0,1))
+ARMA_p1q1_pred <- predict( ARMA_p1q1, n.ahead=52 )$pred
+plot.ts(lap[,4],xlim = c(1970, 1981))
+lines(x = time_steps, y = ARMA_p1q1_pred, col="red")
+
+```
+S22: ??? how do we know the correct parameter (13 8 1)?
+S23:partial autocorr??? 
+
+
+#### Spatial - random = stationary in time-series. 
+??? random process but a process? poission? when not random?
+
+#### Neural network. python installation first?

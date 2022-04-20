@@ -1,0 +1,422 @@
+# STAT 4520/7520 - Homework 4 Spring 2022 Due: April 25, 2022
+
+## 1)
+The BodyWeight dataset in the nlme package contains data on the body weights of rats measured over 64 days. The body weights of the rats (in grams) are measured on day 1 and every seven days thereafter until day 64, with an extra measurement on day 44. The experiment started several weeks before “day 1.” There are three groups of rats, each on a different diet.
+It contains the variables:
+• weight: The body weight of the rat in grams.
+• Time: The time at which the measurement is made in number of days.
+• Rat: The rat whose weight is measured.
+• Diet: A factor with levels 1 to 3 indicating the diet that the rat receives.
+The data can be loaded with the following command.
+```{r}
+data(BodyWeight,package = "nlme")
+```
+
+
+### a. Make a plot of weight vs Time for the data with rat specific lines to show the subject specific trajectory. Describe your findings. (7510 only) Further, color the lines differently for the different diets. Do you notice anything further?
+
+```{r}
+#S7
+library(dplyr)
+library(ggplot2)
+ggplot(BodyWeight, aes(x=Time,y=weight))+
+geom_line()+ facet_wrap(~Rat) 
+```
+```{r}
+# color the lines differently for different diet. 
+library(dplyr)
+library(ggplot2)
+ggplot(BodyWeight, aes(x=Time,y=weight, color = Diet))+
+geom_line()+ facet_wrap(~Rat) 
+```
+
+
+### b. Use lm() to regress the weight onto the Time. What is the slope and intercept of this model? Is the slope significant?
+
+```{r}
+lm_model <- lm(weight ~ Time, BodyWeight)
+summary(lm_model)
+```
+The slope is 0.59, the intercept is 365. It means the average weight at the begining is 365.Every unit of increase in time increases the weight by 0.59. 
+However, the slope is not significant. 
+
+
+### c. Use the lmList function to fit a linear regression model that describes how weight varies with days for each individual rat. How do the slopes and intercepts vary? Do you notice any patterns with respect to diets?
+```{r}
+#how is c diff from d??? random intercept model vs. fixed effect here?
+# how is lmList (fit a series simple regression within the group) vs. lmer diff
+library(lme4)
+ml <- lmList(weight ~ I(Time-1) | Rat, BodyWeight)
+sapply(ml,coef)[,1:16] |> as.matrix()
+
+```
+The intercepts and slopes vary a lot across the rats. 
+Only Diet 2 (Rat 9-12) seems to have a positive slope. 
+
+
+
+### d. Fit a random intercept model to account for the different weights of each individual rat and continue to use Time as a fixed effect. Answer the following:
+• What proportion of the variation is explained by Rat?
+• Interpret the fixed effect intercept and comment on it’s value in the context of the variance component
+for rat.
+• Test for significance of the Time effect. What do you find? Is the conclusion different from part b?
+```{r}
+library(lmerTest)
+BodyWeight$Time_s <- BodyWeight$Time-1
+ml_intercept <- lmer(weight ~ Time_s + (1| Rat), data = BodyWeight)
+
+summary(ml_intercept)
+#??? why it says null for the Rat?
+```
+```{r}
+19640/ (19640 + 66.85)
+```
+```{r}
+sqrt(19640)
+```
+
+```{r}
+confint(ml_intercept, method="boot", oldNames = FALSE)
+
+```
+The % of variance explained by the rats is 99%
+The fixed effect is 365 or the average weight of the rat is 365 in the sample. However, the random effect standard deviation is 140 or almost half of the body weight. 
+The Time effect is significant at 99% confidence level. The boostrap tests show no 0 is contained in the interval. 
+
+
+
+### e. Obtain the BLUPs for the rats and list who is the most heavy.
+```{r}
+# Get the blup
+predict(ml_intercept)
+
+```
+```{r}
+max(predict(ml_intercept))
+```
+The rat 132 is heavist with a weight of 608. 
+
+### f. Fit a mixed effects model that describes how the weight varies linearly with time and allows for random variation in the intercepts and slopes of the rats. Then do the following:
+
+
+Note: Convergence of this model may be an issue. You can use the argument
+control=lmerControl(optimizer="Nelder_Mead") in lmer() to use a different optimizer.
+```{r}
+#??? why need a diff optimizer to converge? what's diff?
+ml_mix <- lmer(weight ~ Time_s + (Time_s| Rat), data = BodyWeight, control=lmerControl(optimizer="Nelder_Mead"))
+summary(ml_mix)
+```
+```{r}
+confint(ml_mix, method="boot", oldNames = FALSE)
+```
+
+• Compute confidence intervals for the random effects, do the slopes and intercepts seem to vary between subjects?
+
+The slopes and intercepts are both significant at 95% confidence level. Thus they both vary between subjects.  
+
+• Interpret the standard deviation of the slope random effect in the context of the fixed effect slope estimate. Does it seem large or small?
+```{r}
+0.3463 / 0.58568
+```
+The random effect of the slope is about 60% of the fixed effect, thus it seems large. 
+
+• Test for significance of the Time fixed effect again, and compare the result to parts b and d.
+
+The time fixed effect is significant with an estimate of 0.59 and the t value of 6.63. 
+In b is: the estimate is the same of 0.59 but it was not significant with the time value of 1.19.
+In d is: the estimate is the same of 0.59 but it was more significant at the t value of 18.49  
+In summary, the (f) result fits the data better. In b without considering the rat's random effect, it contains too much noise. In d, without the random slope, too much variations were attributed to the intercept. 
+
+
+```{r eval=FALSE, include=FALSE}
+
+#S20: time effect vs. firm. why no firm???
+library(lmerTest)
+BodyWeight$Time_s <- BodyWeight$Time-1
+ml_intercept <- lmer(weight ~ Time_s + (1| Rat), data = BodyWeight)
+
+panel2 <- lmer(invest ~ value + (value | firm), data = Grunfeld)
+Grunfeld_val <- lme4::fortify.merMod(panel2)
+ggplot(Grunfeld_val, aes(x=value,y=invest,color=firm))+geom_point() +
+geom_line(aes(x=value,y=.fitted,group=firm),color="black")
+
+panel_year <- lmer(invest ~ value + capital + (value + capital | year), data = Grunfeld)
+Grunfeld_yr <- lme4::fortify.merMod(panel_year)
+ggplot(Grunfeld_yr, aes(x=value,y=invest,color=firm))+geom_point() +
+geom_line(aes(x=value,y=.fitted,color=firm))
+
+```
+
+
+
+
+### g. Obtain the BLUPs for the model in part f. Which rat has the fastest rate of increase? The slowest?
+Compute the values of their specific slopes using the fixed effect estimate for time and their BLUP value. Print out the data for these two rats and comment on their minimum and maximum weights over the course of the study.
+```{r}
+#predict(ml_mix)
+ranef(ml_mix) 
+summary(ml_mix) #need to combine with the gloabl slope of 0.58 to get the actual slope. 
+#!!! how to seperate the effects for time growth?
+
+```
+
+### h. Add the (fixed) diet variable to the model in the form of an interaction with time. Does the diet effect weight? Is this effect different at different times?
+```{r}
+ml_mix_int <- lmer(weight ~ Time_s*Diet + (Time_s| Rat), data = BodyWeight, control=lmerControl(optimizer="Nelder_Mead"))
+#allow rat specific slope to vary. if I combine with another, no need to do both. The question only asks for two fixed effect interaction.
+#Time_s and Rat are interacted. depends on the rat. 
+
+```
+```{r}
+summary(ml_mix_int)
+#!!!do I need to interact when the Rat is the predictors for random slopes?
+```
+
+The diet affects the wieght. Both Diet2 and Diet3 have positive and significant fixed efect coefficients. Thus, they are more effective than Diet1 in gaining weight. 
+The Diet2 interact with the Time. As the time increases, the Diet2 is more effective in gaining the weight. 
+
+## 2) Time Series
+Recall the Johnson & Johnson data from course notes, which contains the quarterly earnings per Johnson & Johnson share from 1960 to 1980. We can read this in and convert it to a more familiar dataframe format with the following code.
+
+```{r}
+#Why read as vector in the dataframe -> final step add the trend back. Make the format as.vector -> strip out the meta data. 
+data(JohnsonJohnson)
+JJ <- data.frame(EPS= as.vector(JohnsonJohnson),
+Time= as.vector(time(JohnsonJohnson))) #matrix of year and quarter if without the vector. 1960 will be q1 -> 1960.25 vs. four columns for differetn period of the year
+```
+
+
+### a. Create a variable containing the log (base 10) of the EPS, then use lm() to regress it onto Time. Store the residuals of this regression in another variable in JJ. Make a plot of the residuals vs Time and describe your findings.
+```{r}
+JJ$EPS_lg = log(JJ$EPS)
+
+```
+```{r}
+lm_model_ts <- lm(EPS_lg ~ Time, JJ)
+summary(lm_model_ts)
+
+```
+```{r}
+lm_ts_resids <- resid(lm(EPS_lg ~ Time, JJ))
+```
+```{r}
+acf(lm_ts_resids)
+#weakly dependent process: The correlation is with which period? why does it keep decreasing? since it is further away?
+```
+There seems to be a seasonal cycle of every 4th periods. 
+
+
+### b. Run the detrended values through auto.arima() to find a good ARMA model. Note that you may want to use the additional argument stepwise = FALSE to allow auto.arima() to conduct a full grid search. What model was found?
+```{r}
+
+#arima(lm_ts_resids, order = c(1, 0, 1))
+library(forecast)
+auto.arima(lm_ts_resids,stepwise = FALSE)
+```
+The model is ARIMA(4,0,0)
+
+### c. Use the best model to forecast the detrended relationship 2 years (8 quarters) ahead. Make a plot of the result and comment on how reasonable your predictions look.
+
+
+```{r}
+#??? why is the JJ not need time() function?
+dt <- diff(JJ$Time)[1] # diff func gives the difference of adjacnet value. diff 1,2,3 -> 1,1. take the first element.  
+time_steps <- max(JJ$Time) + (1:8)*dt # Time points we will predict at
+ARMA_p1q1 <- arima(lm_ts_resids, order = c(4,0,0)) #!!! need to be on the residual. NOT in the JJ. 
+ARMA_p1q1_pred <- predict( ARMA_p1q1, n.ahead=8 )$pred
+plot(JJ$Time,lm_ts_resids,xlim = c(1970, 1990),type = 'l') #How to specify exactly how many periods here? the Time unit is off??? #no plot.ts stripe out the time function -> only if passing time-seris object. generic func may recognize it is time series. 
+lines(x = time_steps, y = ARMA_p1q1_pred, col="red")
+
+```
+```{r}
+ARMA_p1q1_pred
+#time_steps
+```
+
+The prediction seems to reflect the seasonal fluctuation and a reasonable average, thus the prediction looks good. 
+
+### d. Use the linear model from part a to predict the trend for the next 8 quarters, add the result to that of part c, transform back to the original scale, and plot the forecast along with the original data. Does the forecast seem reasonable?
+```{r}
+dt <- diff(JJ$Time)[1] # differences between time points ??? What's the diff?
+time_steps <- max(JJ$Time) + (1:8)*dt # Time points we will predict at
+
+#plot.ts(JJ[,3],xlim = c(1970, 1990)) #How to specify exactly how many periods here? the Time unit is off???
+#lines(x = time_steps, y = ARMA_lm_pred, col="red")
+
+```
+
+```{r}
+
+lm_model_ts_resid <- lm(lm_ts_resids ~ Time, JJ)
+ARMA_lm_pred <- predict(lm_model_ts_resid,n.ahead=8) #??? cannot predict the time series?
+
+
+ARMA_lm_pred_df <- data.frame(ARMA_lm_pred)
+ARMA_lm_pred_df[c(1:8),] #change it to the first 8 periods of prediction
+```
+
+
+```{r}
+plot(JJ$Time,lm_ts_resids,xlim = c(1970, 1990),type = 'l')
+lines(x = time_steps, y = ARMA_p1q1_pred, col="red")
+lines(x = time_steps, y = ARMA_lm_pred_df[c(1:8),], col="blue")
+```
+
+The forcast doesn't seem reasonable from the linear model. it is essentially a flat line that doesn't reflect the seasonality.
+
+```{r}
+#S25 !!!
+set.seed(1); n <- 2000; eps_t <- rnorm(n, sd = 2); par(mfrow=c(1,1))
+AR <- MA <- ARMA <- double(n)
+AR[1:2] <- MA[1:2] <- ARMA[1:2] <- 0
+for(i in 3:n) AR[i] <- sum(c(.6, .2) * AR[(i-1):(i-2)]) + eps_t[i]
+for(i in 3:n) MA[i] <- eps_t[i] + .8*eps_t[i-1]
+for(i in 3:n) ARMA[i] <- sum(c(.6, .2) * AR[(i-1):(i-2)]) + eps_t[i] + .8*eps_t[i-1]
+plot.ts(AR,ylim = c(-15,15)); lines(MA, col="red"); lines(ARMA, col="blue")
+abline(h=0,lty=2)
+```
+
+## 3) Spatial Point Process Analysis
+The mucosa datset in spatstat.data gives the locations of the centers of two types of cells in a cross-section of the gastric mucosa of a rat. For the purpose of this analysis, we will ignore the type of cell and focus on the locations of the cells only. The data can be loaded with the following command:
+```{r}
+library(spatstat)
+data(mucosa, package = "spatstat.data")
+```
+
+### a. Make a plot of the point pattern. Does the distribution of the points in space appear to be homogeneous Poisson process?
+```{r}
+#S43
+
+plot(mucosa, main=('mucosa'))
+
+```
+It doesn't appear to be homogeneous poisson since the distribution is more dense in the bottom of the plot in comparison with the top. 
+
+### b. Make plots of G(r) and F(r) and comment on what you observe.
+```{r}
+GCSR <- envelope(mucosa, Gest, verbose=FALSE) #??? how to judge if poisson? or all count poisson? just not homo?
+FCSR <- envelope(mucosa, Fest, verbose=FALSE)
+plot(GCSR); plot(FCSR)
+
+```
+According to the plot, it is not a homogeneous poisson process as the black line is outside the boundary
+
+### c. Fit a point process model with linear terms in both x and y. Are there any significant spatial relationships?
+```{r}
+#S62 - what's the z, why is it a func of x and y??? what's the weight on the distance here?
+#ppm function to look for gradience -> intensitivyt of point process. how many in diff grids. lower value of y has more.
+
+dat <- data.frame(mucosa)
+library(ggplot2)
+qplot(x, y, data=dat) 
+
+ppm(mucosa ~ x + y) #homogeneous poisson process , must have a point dataframe.note there is no DV. the first item is the dataset. not set as data = 
+#??? why the y coefficient is negative. how to interpret?
+
+#pp.dists <- cbind(dat$x, dat$y) |> dist() |> as.matrix()
+#pp.dists[1:3,1:3] #what's the distance here1:3!!! first three elements. 
+
+#pp.dists.inv <- 1/pp.dists
+#diag(pp.dists.inv) <- 0
+
+#ape::Moran.I(dat$x, pp.dists.inv) #!!! what weight should be here? -> ONLY if there are three dimensions for moran.
+
+```
+There is significant spatial relationship here. The y is significant. the lower the y the denser the units per grid. 
+
+
+## 4) Loading Keras
+
+Below you will find a block of code that can be used to simulate some simple noisy nonlinear data, fit an
+ANN to that data, and plot the fit.
+```{r}
+# Then, use the install_tensorflow() function to install TensorFlow. Note that on Windows you need a working installation of Anaconda.
+# already install the anaconda version of tensorflow https://tensorflow.rstudio.com/installation/
+#library(tensorflow)
+#install_tensorflow()
+```
+
+```{r}
+library(tensorflow)
+library(keras)
+N <- 100
+x <- runif(N, -2, 3) # Build a Gompertz function with some noise
+a <- 10 # ceiling parameter
+b <- 0 # horizontal shift parameter
+c <- 2 # growth rate parameter 
+y <- a*exp(-exp(b - c*x)) + rnorm(N, mean=0, sd= a/10)
+plot(x,y) # format data in a way model.fit() would like it
+x <- as.matrix(x)
+y <- as.matrix(y) # sequence along x for later prediction
+xnew <- as.matrix(seq(from=min(x), to=max(x), length.out=1000)) # Build and compile simple model
+model <- keras_model_sequential() |>
+layer_dense(units=32, activation="relu", input_shape=1) |>
+layer_dense(units=16, activation = "relu") |>
+layer_dense(units=1, activation="linear")
+model |> compile(
+loss = "mse",
+optimizer = "adam",
+metrics = list("mean_absolute_error")
+)
+# Fit model, get predictions, and display result.
+model |> summary()
+# Can change verbose > 0 to see plots and text output as model trains
+model |> fit(x, y, epochs = 20, verbose = 0)
+y_pred = model |> predict(xnew)
+plot(x, y)
+lines(xnew, y_pred, col="red")
+
+```
+
+
+
+
+Complete the following:
+
+### a. Mostly as an exercise to ensure you have Keras installed correctly, run the above code and comment onthe quality of the fit you observe. NOTE: I was unable to run the code within an RMarkdown cell, but this may be due to a system configuration issue.
+
+
+The fit is not well. It fits the first part of linear relationship well but not the second part of non-linear relationship. 
+
+
+### b. Modify the code in an attempt to improve the fit. Specifically, study the effects (as well as interactions) of:
+• Modifying how much data (N) we have.
+• The complexity of the model.
+• For how many epochs the model is trained.
+```{r}
+library(tensorflow)
+library(keras)
+N <- 10000
+x <- runif(N, -2, 3) # Build a Gompertz function with some noise
+a <- 10 # ceiling parameter
+b <- 0 # horizontal shift parameter
+c <- 2 # growth rate parameter 
+y <- a*exp(-exp(b - c*x)) + rnorm(N, mean=0, sd= a/10)
+plot(x,y) # format data in a way model.fit() would like it
+x <- as.matrix(x)
+y <- as.matrix(y) # sequence along x for later prediction
+xnew <- as.matrix(seq(from=min(x), to=max(x), length.out=1000)) # Build and compile simple model
+model <- keras_model_sequential() |>
+layer_dense(units=32, activation="relu", input_shape=1) |>
+layer_dense(units=16, activation = "relu") |>
+layer_dense(units=1, activation="linear")
+model |> compile(
+loss = "mse",
+optimizer = "adam",
+metrics = list("mean_absolute_error")
+)
+# Fit model, get predictions, and display result.
+model |> summary()
+# Can change verbose > 0 to see plots and text output as model trains
+model |> fit(x, y, epochs = 100, verbose = 0)
+y_pred = model |> predict(xnew)
+plot(x, y)
+lines(xnew, y_pred, col="red")
+
+```
+
+```{r}
+plot(x, y)
+lines(xnew, y_pred, col="red")
+```
+The model fits much better after I added more data for training and let it train for more iterations. 
