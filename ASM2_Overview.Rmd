@@ -299,3 +299,100 @@ S23:partial autocorr???
 ??? random process but a process? poission? when not random?
 
 #### Neural network. python installation first?
+
+ANN based model - base model
+CNN: space and image gride. 
+Transformer based for language AI. 
+
+Activation functions: a) identity, ReLU (same as the I()?), Sigmoid (a specific number. = probability?)
+```{r}
+x <- seq(-2, 2, length.out=100)
+identity <- x
+#ReLU <- ifelse(x>0,x,0) + .02 # shift up slightly
+ReLU <- ifelse(x>0,x,0) # delete the .02, no difference
+Sigmoid <- 1/(1 + exp(-x))
+Tanh <- (exp(x) - exp(-x))/(exp(x) + exp(-x))
+par(mfrow=c(2,2)) #put the image into 2 by 2 format. par sets the parameter, mfrow does the split screen.
+plot(x=x, y=identity, type="l", ylim=c(-2,2)); plot(x=x, y=ReLU, type="l", ylim=c(-2,2))
+#plot(x=x, y=Sigmoid, type="l", ylim=c(-2,2)); plot(x=x, y=Tanh, type="l", ylim=c(-2,2))
+plot(x=x, y=Sigmoid, type="l", ylim=c(-2,2)); plot(x=x, y=Tanh, type="l", ylim=c(-2,3))
+```
+
+S9: hidden layers. receive weight and bias. How are the weight and bias diff??? -> S11. specify different parts to add up. ; S10??? means what h?
+```{r}
+pi
+```
+```{r}
+x <- seq(0, 2*pi, length.out= 100)
+sin_x <- sin(x)
+plot(x,sin_x, type="l")
+
+```
+
+```{r}
+My_ReLU <- function(x) ifelse(x > 0, x, 0)
+# ReLU functions
+x <- seq(-2,2,length.out=100)
+# h_1
+y1 <- My_ReLU(2*x)
+# h_1 + h_2
+y2 <- My_ReLU(2*x) + My_ReLU(-3*x-4)
+plot(x,y1,type="l")
+plot(x,y2,type="l")
+
+```
+
+```{r}
+My_ReLU(2*x) # it only activates after 0 region.
+```
+
+S16: ??? why p+1? not p? Why called biase notation? 
+
+S27: = Exam Q5. 3X and 1 y. first laywer. size of input. 3 variabes where? input shape = 1??? 
+
+```{r}
+library(R6)
+Accumulator <- R6Class("Accumulator", list(
+sum = 0,
+add = function(x = 1) {
+self$sum <- self$sum + x
+invisible(self)
+})
+)
+x <- Accumulator$new()
+x
+
+```
+```{r}
+x$add(5)
+x$sum
+```
+
+CNN
+
+```{r}
+input <- c(1, 2, 2, 6, 2, 1, 2, 3, 8, 1, 0)
+kernal <- c(-1, 2, -1)
+output <- NULL
+for(i in 2:(length(input)-1)){
+value <- sum(input[(i-1):(i+1)] * kernal)
+output <- c(output, value)
+}
+print(output)
+# start from the second value to the second to last value
+#What does the kernal do???
+
+```
+```{r}
+remotes::install_github('nickwing/spatialfil')
+```
+
+```{r}
+#??? why not working
+library(spatialfil) 
+
+kernal <- convKernel(k = 'sobel') # ede detection
+print(kernal$matrix)
+
+```
+

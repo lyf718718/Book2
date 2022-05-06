@@ -1,0 +1,100 @@
+# SEM HW5 - code in the chunk but don't run them. copy them as a whole with the comments
+```{r}
+install.packages("lavaan")
+install.packages("semPlot")
+install.packages('haven')
+```
+
+
+```{r}
+
+library(haven)
+library(lavaan)
+library(semPlot)
+```
+
+
+```{r}
+data <- read_sav('E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/2022 Measurement Seminar Singh/DBAP643_Spring_2021 Sohana_Observed_Data_w_SDRS.sav')
+```
+
+
+## Replicate HW3
+
+
+```{r}
+#--CFA Models
+
+# the syntax is special. It has the '' on top 
+#one-factor model with loading fixed to 1
+model1<-'RD=~rd1 + rd2 + rd3 + rd4'
+fit1<-cfa(model1,data=data)
+summary(fit1,fit.measures=TRUE)
+parameterEstimates(fit1,standardized=TRUE)
+semPaths(fit1,what="paths",whatLabels="par")
+```
+
+```{r}
+library(dplyr) 
+# Standardize the variables 
+#data_std <- data |> mutate_at(c('rd1', 'rd2'), ~(scale(.) |> as.vector))
+#data_std
+data_std <- data %>% mutate_at(c('rd1', 'rd2','rd3','rd4','ra1','ra2','rc1','rc2','rc3',
+'cr1','cr2','cr3','cr4','lc1','lc2','lc3','lc4','de1','de2',
+'ap1','ap2','ap3','SDRS1','SDRS2','SDRS3','SDRS4','SDRS5'), ~(scale(.) %>% as.vector))
+
+
+#pip operator, what's the ~ before scale? what's difference between %>% and |>, not the same?
+#https://stackoverflow.com/questions/67744604/what-does-pipe-greater-than-mean-in-r
+#data_std <- data |> mutate_at(c('rd1', 'rd2'), ~(scale(.) |> as.vector))
+#data_std
+```
+
+
+Stata code: 
+sem (RD -> rd1std - rd4std) (RA -> ra1std ra2std) (RC -> rc1std - rc3std) , latent( RD  RA  RC )
+estat gof, stats(all)
+
+```{r}
+
+#--Three factors CFA Models
+
+model1<-'
+RD=~rd1 + rd2 + rd3 + rd4
+RA=~ ra1 + ra2
+RC=~ rc1 + rc2 + rc3
+'
+fit1<-cfa(model1,data=data_std)
+summary(fit1,fit.measures=TRUE)
+parameterEstimates(fit1,standardized=TRUE)
+semPaths(fit1,what="paths",whatLabels="par")
+
+```
+
+
+## most of the previous steps can be done in R and stata in parellel. 
+lavaan. 
+https://stats.oarc.ucla.edu/r/seminars/rcfa/#s2c
+
+
+```{r}
+library(installr)
+```
+
+
+## output the write up in the R. Only add Stata as complement. -> use TC as template. 
+
+
+## Goal is to understand the application of regression at different angle to fully understand it.
+```{r}
+library(lavaan)
+```
+
+```{r}
+out <- lavaan::mplus2lavaan('E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/2022 Measurement Seminar Singh/HW5/sample0.inp')
+#summary(out)
+```
+```{r}
+
+```
+

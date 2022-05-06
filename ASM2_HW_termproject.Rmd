@@ -1,0 +1,10 @@
+# ASM2 HW Term Project 
+
+## RQ: what workds based on what theory
+
+## Descriptive analysis 
+
+## Mixed Model 
+
+## Q&A: a) why small change b) prediction measurement, AUC make sense? c) interpretation residual centering in stats vs. econ. 
+ 
