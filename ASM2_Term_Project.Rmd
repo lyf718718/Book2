@@ -1,0 +1,414 @@
+---
+editor_options:
+  markdown:
+    wrap: sentence
+output: pdf_document
+---
+
+# Final Report
+
+## Introduction
+
+Sales negotiations over Internet-enabled live-chat portals are increasingly common in B2C durable product sales, but little is known about sales agent effectiveness in this context.
+Drawing from theories of scarcity and information processing, this study conceptualizes three sales agent tactics--- concession tactic, delay tactic, and value affirmation tactic---that interact to enhance the likelihood of closing sales.
+Unique live-chat data and archival performance data before Covid (i.e., 2017) from a national home appliance retailer were employed to develop a validated corpus of textual cues to capture sales--agent closing tactics and test the proposed hypotheses.
+
+Three tactics—the concession tactic, the value affirmation tactic, and the delay tactic—are key features of this theory that are interrelated with the heuristic processing mechanism. The concession tactic is defined as an agent’s offer or counter-offer to a customer’s bargaining request, along with other incentives to close the sale. For example, the salespeople will say:"I can give you $30 off". It is measured as a dummy variable 0 or 1 since the concession amount tend to be fairly small (e.g., $30 off on major home appliance with averages about $600).
+The value affirmation tactic is defined as an agent’s restatement of existing or advertised benefits to emphasize the perceived value of the purchase. For example, the salespeople will say:"the original price is \$XXX, the sales price is \$xxx, you are saving a lot!" or " the washer has wrinkle free cleaning technology which brings your clothes like new". It is measured as the percentage of the value affirmation tactic words out of the total salespeople words. 
+The delay tactic is defined as the time elapsed between the consumer’s bargaining request and the agent’s concession tactic or value affirmation tactic. It is measured as the actual time elapsed. 
+The research question is that what are the effective or ineffective combination of tactics on live chat sales closing with bargaining consumers. 
+
+### Hypothesis:
+
+H1: The concession tactic increases the likelihood of closing sales in bargaining during live chats between customers and sales agents. 
+
+H2: The delay tactic will positively moderate the concession tactic’s positive effect on the likelihood of a sales closing in bargaining live chats.
+
+H3: The value affirmation tactic diminishes the positive effect of the concession tactic on the likelihood of closing the sale in bargaining live chats.
+
+
+### Data Background
+
+I collaborated with a Fortune 500 national retailer to test the proposed framework with home appliance sales live chats (N = 975). The retailer was one of the top-three players in home appliance retailing when the data was collected. The retailer maintains a mix of online and in-store salespeople. Based on the research objective, I focused solely on live-chat salespeople. The retailer started conducting sales negotiations over live chat due to the shift from a traditional brick-and-mortar store to more online shopping. With e-retailing over big-ticket items becoming more of a trend, the retailer has formed a specialized home appliance live-chat sales team aiming to close more home appliance and extended warranty sales online. Home appliances account for a major part of the retailer’s business (more than 50%). 
+
+#### Sampling
+
+The following sampling criteria were used to meet the research objective.
+(1) Salesperson and consumer live chat exchanged during B2C sales negotiations for 10 months in 2017 and one month in 2016.
+I was advised to remove the period including major holiday seasons---Thanksgiving and Christmas (i.e., November, and December)---to ensure the results were generalizable for most of the time.
+In addition, the promotion and policy are also substantively different during those two months per the managers' interview.
+(2) The chats need to take place at a later stage in the consumer decision journey (i.e., a specific product is discussed at the beginning of the live-chat sales interaction), since my dependent variable is objective sales closings.
+The chats in the early stages cannot be closed during the chat or within a few days (usually captured by the system using browser cookies).
+(3) New product purchase: The chats must be sales rather than service chats or products from a prior purchase, such as negotiating for better compensation.
+Thus, the returned and exchanged related items are excluded.
+Since my objective is to increase sales closings rather than satisfaction, I require the sales chats.
+(5) The chats must contain the bargaining requests during the interactions---types of bargaining chats to be included and excluded in the study (e.g., not price matching type, not related to extended warranty bargaining, not initiated by the agent).
+The reason for excluding the price matching type is that it is hard to differentiate it from the retailer's specific policy.
+They also are less generalizable to other contexts.
+
+#### Unit of Analysis
+
+Individual live chat is the unit of analysis---more specifically, the bargaining episode within the chat (i.e., after the consumer's first bargaining request and before the order placement if the chat ends with a closed order).
+
+
+## Methods/Analysis
+
+Since the live chats are nested within salespeople (i.e., a salesperson can have more than one chat during the period) and the outcome is a 0/1 dummy variable of actual order placement, I will use a generalized mixed model (i.e., logistic regression) with random effects to test the hypotheses. The agent ID is considered as random effect since I am not interested in any specific agent. They are random samples of larger group of agents. 
+
+### Empirical Analysis
+
+The chats' sales outcome---closed or not closed---is represented by a binary choice that violates the assumption of the homoskedasticity of variance.
+Thus, an MLE probit/logit will be more appropriate.
+Moreover, the nested data structure (i.e., chats are nested within a salesperson) may lead to serial correlation in the error term and produce biased estimates if using traditional probit/logit regression.
+Raudenbush and Anthony (2002) advocate the use of the hierarchical linear model (HLM) to account for the nested structure of the data by modeling within- and between- salesperson variances.
+The mixed-effects model I employ in this study assumes that the two types of variations in effect sizes can be explained by the type of chat interaction variables, as well as other salesperson characteristics.
+Thus, my model is as follows:
+
+```{r}
+#math syntax
+#https://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html
+#??? How to display into multiple lines?
+#??? I cannot knit it to specific folder
+```
+
+Level 1 specification (i.e., each chat under the salesperson) $Logit(PrY_{ij} = 1|X_{ij}) = log\frac{(PrY_{ij} = 1|X_{ij})} {(1-PrY_{ij} = 1|X_{ij})}$
+
+$\eta_{ij} = \beta_{0j} + \beta_{1}Concession_{ij} + \beta_{2}Delay_{ij} + \beta_{3}ValueAffirm_{ij} + \beta\_{4}Concession\_Delay\_{ij} + \beta\_{5}Concession\_ValueAffirm\_{ij} + \beta_{6}DRT_{ij} + \beta_{7}CBMind_{ij} + \beta_{8j}MCB_{ij} + \beta_{9}Altermode_{ij} + \beta_{10}Drcls_{ij} + \beta_{11}LSM_{ij} + \beta_{12}Deny_{ij} + \epsilon\_{ij}$
+
+where subscript (i) is the chat nested within salespeople (j).
+"DlvrD" is the concession tactic, "Delay" is the delay tactic, "ValueAffirm" is the value affirmation tactic, "DRT" is the chat duration, "CBMind" is the consumer's bargaining mindset, "MCB" is the consumers' multiple distinct requests for bargaining, "Altermode" is the consumer's alternative mode of communication, "Drcls" is the salespeople's direct closing tactic, "LSM" is linguistic style matching, and "Deny" is the salespeople's deny tactic.
+The descriptive statistics can be found in Table 5.
+The Level 1 equation describes the impact of chat interaction measures, whereas the Level 2 equation describes the effect of salesperson characteristics on the intercept in the Level 1 equation.
+Consequently, my model follows: Intercept-as-outcome Model: $\beta_{0j} = \gamma_{00} + \gamma_{01}HAChatcnt_j +_ \gamma{02}Team_j + u\_{0j} \$ \$ u\_{0j} \sim N(0,\tau\_{00})$
+```{r}
+#??? should I model it as 1|AgentName + HAChatcnt + Team?
+```
+
+"HAchatcnt" is salespeople's experience with home appliance chats.
+"Team" is the salespeople's team status (home appliance or non-home appliance team).
+Since cross-level interaction is not the research interest, I do not use the random coefficient specification.
+I checked for multicollinearity using VIF.
+The results demonstrate that the interaction term of delay tactic and concession tactic has a high VIF (close to 10).
+I first tried to drop additional noncritical variables, but the procedure did not decrease the VIF.
+Accordingly, I followed the residual centering procedure recommended in (Lance 1988; De Jong, De Ruyter, and Wetzels 2005; Y. Zhang et al. 2007).
+After residual centering, all the VIFs are under 6, indicating that multicollinearity is not a concern.
+
+### Impact of Negotiation Tactics on the Likelihood of Closing Sales
+
+First, I explore the relationship between the dependent variable and the key independent variables. 
+Second, I fit the appropriate model with mulitple packages. 
+Third, I checked the model fit using deviance and ROC curve. 
+Fourth, I interpret the results with log transformation.
+
+
+#### Exploratory analysis with plots of the data and/or hypothesized relationships/ Model free evidence.
+
+```{r}
+library(dplyr)
+
+#Load dataset
+livechat <- read.csv("E:/Cloud/OneDrive - University of Missouri/Webchat_Data_Stata/Webchat_201701_10_2016_10_fullcontrolidx.csv", stringsAsFactors = TRUE)
+livechat$AgentName <- as.factor(livechat$AgentName) #convert the categorical variable into the numeric variable for the nested structure.  
+```
+
+```{r}
+# calculate new variables
+livechat$valcb_spwn <- livechat$ValueCBWn/livechat$SlsPWn
+#remove missing values
+livechat <- filter(livechat, Delay_max >=0 & valcb_spwn >= 0 & earlycb >= 0& idx != 102 & idx != 371&!is.na(HA_Cls)&!is.na(DlvrD)&!is.na(valcb_spwn)&!is.na(Delay_max)&!is.na(earlycb)&!is.na(LSM)&!is.na(EndChtD)&!is.na(MCB_IND)&!is.na(DrCls_IND)&!is.na(CB1BWn))
+```
+
+```{r}
+# filter to plot only when the concession is 1
+# https://rforhr.com/filter.html
+# cake <- cake |> dplyr::select(-temperature)
+
+
+#standardize variables
+livechat$valcb_spwn_std <- scale(livechat$valcb_spwn)
+livechat$delay_max_std <- scale(livechat$Delay_max)
+livechat$drt_std <- scale(livechat$Drt) 
+livechat$earlycb_std <- scale(livechat$earlycb)
+livechat$cb1bwn_std <- scale(livechat$CB1BWn)
+livechat$lsm_std <- scale(livechat$LSM)
+livechat$ha_chat_count_std <- scale(livechat$HA_Chat_count)
+livechat$earlycb_r <- 100 - livechat$earlycb
+livechat$earlycb_r_std <- scale(livechat$earlycb_r)
+livechat$cb1bwn_std <- scale(livechat$CB1BWn) 
+
+# calculate new variables - standardized
+livechat$i_valcb_dlvr <- livechat$valcb_spwn_std * livechat$DlvrD
+
+# Create exploratory dataset
+livechat_concession <- filter(livechat, DlvrD =="1")
+livechat_NOconcession <- filter(livechat, DlvrD =="0")
+```
+
+```{r}
+# group by the ID variable and get the count
+livechat_cnt <- livechat %>%
+group_by(AgtNm) %>%
+summarise(count=n()) 
+
+livechat_cnt <- filter(livechat_cnt, count >1) # remove the agents with only one chat to fulfill the requirement of the unbalanced panel for random and fixed effects. 
+```
+
+```{r}
+#Filter out the observations from the agent with less than 1 chat. 
+livechat <- livechat %>% filter(AgtNm %in% livechat_cnt$AgtNm)
+```
+
+
+```{r}
+#Exploratory analysis on the response variable -> histogram X -> do the plot with key variables.
+# seems like delay has a u shape while value affirmation is negative.
+par(mfrow = c(1,2))
+plot(as.factor(HA_Cls) ~ delay_max_std,livechat_concession)
+plot(as.factor(HA_Cls) ~ delay_max_std,livechat_NOconcession)
+```
+I notice that with concession, the delay tactic tends to increase the sales closing likelihood. When there is no concession, delay tactic tends to decrease the sales closing likelihood.
+
+```{r}
+par(mfrow = c(1,2))
+plot(as.factor(HA_Cls) ~ valcb_spwn_std,livechat_concession)
+plot(as.factor(HA_Cls) ~ valcb_spwn_std,livechat_NOconcession)
+```
+I notice that with concession, the value affirmation tactic tends to decrease the sales closing likelihood. When there is no concession, value affirmation tactic tends to have no effect on the sales closing likelihood.
+
+#### Model Testing 
+
+```{r}
+#test the VIF in pooled model 
+#https://stackoverflow.com/questions/20281055/test-for-multicollinearity-in-panel-data-r
+# https://www.statology.org/variance-inflation-factor-r/
+library(car)
+library(plm)
+form <- HA_Cls ~ DlvrD + delay_max_std + valcb_spwn_std + DlvrD*delay_max_std + DlvrD*valcb_spwn_std + drt_std + earlycb_r_std +  MCB_IND + cb1bwn_std + EndChtD + DrCls_IND + lsm_std + DnyD  + ha_chat_count_std + team_d
+HedStata_pool <- plm(form, livechat, model = "pooling", index = "AgentName", family = "binomial")
+vif(HedStata_pool)
+```
+
+Since the VIFs are high for delay tactic and its interaction term with Concession tactic, I adopt the residual centering approach. 
+
+```{r}
+#Residual centering to reduce the VIF
+
+lm_delay_dlvrd <- lm(delay_max_std ~ DlvrD, livechat)
+livechat$delay_max_std_rc <- residuals(lm_delay_dlvrd)
+livechat$i_delay_max_std_rc_dlvrd <- livechat$delay_max_std_rc * livechat$DlvrD
+lm_i_delay_max_std_rc_dlvrd <- lm(i_delay_max_std_rc_dlvrd ~ delay_max_std_rc + DlvrD, livechat)
+livechat$i_delay_max_std_rc_dlvrd_rc <- residuals(lm_i_delay_max_std_rc_dlvrd)
+
+```
+
+
+I then run the same hypothesized model with multiple packages to cross-validate the results. 
+
+```{r}
+livechat_model <- HA_Cls ~ DlvrD + delay_max_std + valcb_spwn_std + i_delay_max_std_rc_dlvrd_rc + i_valcb_dlvr + drt_std + earlycb_r_std +  MCB_IND + cb1bwn_std + EndChtD + DrCls_IND + lsm_std + DnyD  + ha_chat_count_std + team_d
+```
+
+```{r eval=FALSE, include=FALSE}
+#Why are there so many 1s???!
+livechat$AgentName
+```
+
+```{r}
+library(lme4)
+# glmer package 
+livechat$AgentName <- as.numeric(as.factor(livechat$AgentName))
+fm1 <- glmer(HA_Cls ~ DlvrD + delay_max_std + valcb_spwn_std + i_delay_max_std_rc_dlvrd_rc + i_valcb_dlvr + drt_std + earlycb_r_std +  MCB_IND + cb1bwn_std + EndChtD + DrCls_IND + lsm_std + DnyD  + ha_chat_count_std + team_d + (1|AgentName), livechat, family = binomial(link="logit"))
+summary(fm1)
+```
+
+```{r}
+#library(MASS)
+#model42 = glmmPQL(Agent_inSe ~ Sum_Scar*FU_1min + Sum_Value*FU_1min
+#                  + Sum_SalesClose + log(wn) +LSM,
+#                  random = ~ 1|ID, data = data_survey, family = binomial)
+#??? what's the sim ~1 why not 1|ID
+
+library(MASS)
+glmmPQL_re <- glmmPQL(livechat_model, random = ~ 1|AgentName, data = livechat, family = binomial)
+summary(glmmPQL_re)
+```
+
+
+```{r}
+# https://stackoverflow.com/questions/29764983/r-encode-character-variables-into-numeric
+# encode in stata will translate string into numeric. in R, two steps are needed.
+library(pglm)
+
+
+
+pglm_re <- pglm(form, livechat, model = "random", index = "AgentName", 
+                random.models = c("within", "between"), family = "binomial")
+
+summary(pglm_re)
+```
+
+
+
+
+```{r}
+#Test in Stata
+# https://stackoverflow.com/questions/59923956/trying-to-reproduce-xtreg-in-stata-with-plm-in-r
+#plm vs. stata: https://cran.r-project.org/web/packages/plm/vignettes/A_plmPackage.html
+# https://cran.r-project.org/web/packages/plm/vignettes/B_plmFunction.html
+library(RStata)
+options("RStata.StataPath" = "\"E:\\Cloud\\OneDrive - University of Missouri\\Program\\Stata 16\\StataMP-64\"")
+options("RStata.StataVersion" = 16)
+# Stata fe 
+stata_do1 <- '
+xtset AgentName
+xtlogit HA_Cls  DlvrD delay_max_std valcb_spwn_std i_delay_max_std_rc_dlvrd_rc i_valcb_dlvr drt_std earlycb_r_std MCB_IND cb1bwn_std EndChtD DrCls_IND lsm_std DnyD ha_chat_count_std team_d, re vce(cluster AgentName) 
+estat ic
+estimates store re
+estimates table, star(.1 .05 .01)
+collin DlvrD delay_max_std valcb_spwn_std i_delay_max_std_rc_dlvrd_rc i_valcb_dlvr drt_std earlycb_r_std MCB_IND cb1bwn_std EndChtD DrCls_IND lsm_std DnyD ha_chat_count_std team_d
+'
+stata(stata_do1, data.out = TRUE, data.in = livechat)
+```
+
+```{r}
+library(MASS)
+glmmPQL_r <- glmmPQL(livechat_model, random = ~ 1|AgentName, data = livechat, family = binomial)
+summary(glmmPQL_r)
+```
+
+I test the prediction performance through accuracy and ROC. Plm cannot be run with the predict function. Thus, I choose glmmPQL instead which gives the similar results. 
+
+```{r}
+# predictive accuracy + ROC
+# plm as model: https://www.princeton.edu/~otorres/Panel101R.pdf
+#plm not working??? with the prdict function
+#https://stackoverflow.com/questions/38623624/usemethodpredict-no-applicable-method-for-predict-applied-to-an-object-o
+library(caret)
+PredProb <- predict(glmmPQL_r,type="response")
+Preds <- ifelse(PredProb > 0.5, 1, 0)
+tab <- table(Preds,obs=livechat$HA_Cls)
+tab
+print((tab[2, 1] + tab[1, 2])/sum(tab))
+```
+
+```{r}
+# Average closing rate or # of 1s.
+mean(livechat$HA_Cls)
+```
+The misclassification rate is 20%. It is better than the 29% random guessing.  
+
+
+I then check the Area under the curve for ROC to show discriminant performance. 
+I test multiple cut off points since there is a trade off between sensitivity and specificity. 
+
+```{r include=FALSE}
+# find the optimal cut-off for ROC. 
+library(pROC)
+thresh <- seq(0.005, 0.995, length.out=1000)
+auc_r <- numeric(length(thresh))
+for(j in seq(along=thresh)){
+  Preds <- ifelse(PredProb > thresh[j], 1,0)
+  auc_r[j]<- auc(livechat$HA_Cls, Preds)
+}
+```
+
+```{r}
+max(auc_r)
+```
+```{r}
+#??? how to pick the index of the highest value?
+# filter:  https://www.statology.org/dplyr-filter-not-in/
+auc_r[297]
+thresh[297]
+```
+```{r}
+#https://www.statology.org/auc-in-r/
+library(pROC)
+Preds_max <- ifelse(PredProb > 0.3, 1, 0)
+auc(livechat$HA_Cls, Preds_max)
+
+```
+The area under the curve is 0.77 which is higher than the threshold of 0.7. Thus, the discriminant performance is satisfied. 
+
+
+```{r eval=FALSE, include=FALSE}
+#??? script out of bound
+# ROC curve 
+thresh <- seq(0.005, 0.995, length.out=1000)
+Sensitivity <- numeric(length(thresh))
+Specificity <- numeric(length(thresh))
+for(j in seq(along=thresh)){
+  Predicted_Class <- ifelse(PredProb > thresh[j], 1,0)
+  Conf_Matrix <- table(livechat$HA_Cls,Predicted_Class)
+  Specificity[j] <- Conf_Matrix[1,1]/(Conf_Matrix[1,1]+Conf_Matrix[1,2])
+  Sensitivity[j] <- Conf_Matrix[2,2]/(Conf_Matrix[2,1]+Conf_Matrix[2,2])
+}
+plot(1-Specificity,Sensitivity,type="l",main = "ROC curve",
+xlim = c(0,1),ylim = c(0,1))
+abline(0,1,lty=2)
+
+```
+
+Finally, I check the residuals. 
+
+```{r}
+# residual plot
+library(dplyr)
+plot_bin <- function(Y, X, bins = 100, return.DF = FALSE){
+Y_Name <- deparse(substitute(Y))
+X_Name <- deparse(substitute(X))
+Binned_Plot <- data.frame(Plot_Y = Y, Plot_X = X)
+Binned_Plot$bin <- cut(Binned_Plot$Plot_X,breaks = bins) |> as.numeric()
+Binned_Plot_summary <- Binned_Plot |>
+group_by(bin) |>
+summarise(Y_ave = mean(Plot_Y),
+X_ave = mean(Plot_X),
+Count = n()) |> as.data.frame()
+plot(y = Binned_Plot_summary$Y_ave, x = Binned_Plot_summary$X_ave,
+ylab = Y_Name, xlab = X_Name)
+if(return.DF) return(Binned_Plot_summary)
+}
+plot_bin(Y = residuals(glmmPQL_r), X = predict(glmmPQL_r,type="response"), bins = 200)
+
+#??? the variance is so much bigger close to 1? on a few observations. what does it mean? predict 1 but 0???
+```
+The result plots show that most of the range the prediction is good except when it is very close to 1. 
+Thus, the model fits the data well.
+
+#### Interpretation of the fixed effect coefficients
+```{r}
+# Interpretation ??? probability goes above 1? increase by 76%?
+#simple effect of concession tactic
+print(exp(0.3848989)/(1+exp(0.3848989)))  
+# interaction effect when used with delay 1SD
+print(exp(1.1635117)/(1+exp(1.1635117))) 
+# interaction effect when used with value affirmation 1SD
+print(exp(-0.7557323)/(1+exp(-0.7557323))) 
+```
+The results show that concession tactics increases the sales closing likelihood by 60% when everything else is at their mean level (i.e., x = 0). The result is not significant (p>0.1) when not considered the interactions with delay and value affirmation tactics (i.e., at the mean level of delay and value affirmation tactics). 
+
+When the concession is used with the delay tactic (1 SD+), the sales closing likelihood further increases by 76% (p < 0.05). 
+When the concession tactic is used with value affirmation tactic (1 SD+), the sales closing likelihood decreases by 32% (p < 0.05).
+
+
+```{r}
+#??? Test using HA team as instrument
+```
+
+
+### Research Implications
+
+Retailers intended live chat to be an information portal, but it became a bargain hunt that empowers consumers to sweeten the deal.
+salespeople need to gain a nuanced understanding of how to close the sale with scarcity mindset consumers.
+When cues do not fit consumers' information-processing mode, the cues can backfire.
+Thus, the adage less is more applicable for live-chat negotiation.
+I demonstrated that concurrent use of the concession tactic and the delay tactic is more effective.
+In contrast, concurrent use with the value affirmation tactic can even decrease the likelihood of closing sales, despite more efforts exerted by salespeople, since the tactic does not fit the heuristic processing of information activated by the concession tactic.
+Thus, the business may want salespeople to either use the value affirmation tactic throughout the chat or the concession tactic, but not both.
+
+
+```{r}
+#Q&A 
+#??? a) residual centering then how to interpret or show the results look simiar and use uncentered? otherwise, how to solve multi-corr. b) prediction accuracy cut-off ROC  c) can I test the squared relationship when the corr is high? d) optional: instrument. on the effect on the second level? 
+```
+

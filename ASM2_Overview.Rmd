@@ -389,10 +389,10 @@ remotes::install_github('nickwing/spatialfil')
 
 ```{r}
 #??? why not working
-library(spatialfil) 
+#library(spatialfil) 
 
-kernal <- convKernel(k = 'sobel') # ede detection
-print(kernal$matrix)
+#kernal <- convKernel(k = 'sobel') # ede detection
+#print(kernal$matrix)
 
 ```
 
