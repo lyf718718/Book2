@@ -9,8 +9,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# Question 1:
+# Applied Stats Model II - HW1 (Yufan Lin)
+## Question 1:
 
 $1$ Logistic Regression: Major League Baseball (MLB) maintains a public facing version of it's "Statcast" system. Since 2015, MLB teams have been leveraging data analytics to gain a competitive advantage using the raw data out of Statcast, which captures extremely high resolution views of player performance. Here we will study a dataset I have pulled and curated. We will examine which of several characteristics are predictive of a hit yielding a "home run." The selected variables are as follows: • pitch_speed: Speed of pitch in mph. • pitch_spin: Spin rate of pitch • pitch_horizontal_movement: Horizontal movement of the pitch in feet from the catcher's perspective. • pitch_vertical_movement: Vertical movement of the pitch in feet from the catcher's perpsective. • plate_x: Horizontal position of the ball when it crosses home plate from the catcher's perspective. • plate_z: Vertical position of the ball when it crosses home plate from the catcher's perspective. • pitcher_hand: Pitcher's throwing hand. • launch_angle: Launch angle of the batted ball. • launch_speed: Exit velocity of the batted ball (so, how fast it is going once hit by the batter) • stand: Side of the plate batter is standing from the pitcher's perspective. • home_run: 1/0, the target variable The dataset can be loaded with the command HomeRun \<- read.csv(".../HomeRunData.csv", stringsAsFactors = TRUE)
 
@@ -23,7 +23,7 @@ $1$ Logistic Regression: Major League Baseball (MLB) maintains a public facing v
 HomeRun <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/HomeRunData.csv", stringsAsFactors = TRUE)
 ```
 
-## a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.
+### a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.
 
 On the first plot between launch speed and the probability of a home run, as the launch speed increase to 80 and above, the home run chance increases.
 
@@ -49,7 +49,7 @@ facet_grid(~ class)
 
 ```
 
-## b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.
+### b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.
 
 I ran the logistic regression to predict home run using all other variables.
 
@@ -76,7 +76,7 @@ Test_Dev = summary(Logistic_Model)$null.deviance - summary(Logistic_Model)$devia
 #??? What does the 0 stands for here? significant?
 ```
 
-## c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().
+### c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().
 
 I conducted the deviance test using drop1 function. The pitch speed, plate_z, launch_angle, launch_speed and stand are significant at 95% confidence level.
 
@@ -92,7 +92,7 @@ drop1(Logistic_Model,test="F")
 
 ```
 
-## d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis
+### d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis
 
 I compare the smaller model with the larger model, they are not significantly different per the deviance test.
 
@@ -115,7 +115,7 @@ Test_Dev_better = summary(Logistic_Model_better)$deviance - summary(Logistic_Mod
 # The result shows insignificant difference between the two. Thus, better model is parsimony.
 ```
 
-## e. (7 points) How does the launch speed after the ball is hit affect the **odds of HomeRun occurring**? Provide a confidence interval for this value.
+### e. (7 points) How does the launch speed after the ball is hit affect the **odds of HomeRun occurring**? Provide a confidence interval for this value.
 
 The odds is 1.38. As the launch speed increase by 1, the chance of success will increase by 100% \* (1.38-1) = 38%
 
@@ -147,7 +147,7 @@ Confidence_Intervals <- confint(Logistic_Model_better)
 Confidence_Intervals |> exp()
 ```
 
-## f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.
+### f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.
 
 The model doesn't fit well. The residual gets bigger rather than smaller when the probability increases. Based on the theoretical distribution, as the probability increases, the variance should be smaller. Thus, there may be misspecification in the model.
 
@@ -197,7 +197,7 @@ abline(0,1,lty=2)
 #need more bins, the shape will follow theroy on S18 Chapter 2.
 ```
 
-## g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?
+### g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?
 
 The model predicts well as the accuracy rate is high.
 
@@ -223,7 +223,7 @@ Accuracy_rate = (table_classify[2,1]+table_classify[1,2])/(table_classify[1,1]+t
 1-Accuracy_rate
 ```
 
-## h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model's ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?
+### h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model's ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?
 
 The inverse relationship is strongly evident as the threshold increases.
 
@@ -252,7 +252,7 @@ xlim = c(0,1),ylim = c(0,1))
 abline(0,1,lty=2)
 ```
 
-## i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.
+### i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.
 
 The optimal threshold is 0.05.
 
@@ -268,7 +268,7 @@ xlab="Threshold",ylab="Proportion",lty=1:2)
 # abline, v = cutoff. 
 ```
 
-\# **Rewrie the answer**
+### **Rewrie the answer**
 
 ```{r}
 # confusion matrix 
@@ -290,7 +290,7 @@ Accuracy_rate = (table_classify[2,1]+table_classify[1,2])/(table_classify[1,1]+t
 1-Accuracy_rate
 ```
 
-## j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?
+### j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?
 
 The AIC of the model is 6203.
 
@@ -304,7 +304,7 @@ Logistic_Model_reduced <- glm(formula = home_run ~  launch_angle + launch_speed,
 summary(Logistic_Model_reduced)
 ```
 
-## k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?
+### k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?
 
 The model with dummy's AIC is 4508 which is much smaller than the 6203.
 
@@ -312,7 +312,6 @@ The dummy variable means when the launch_angle is between 20 and 40 degree the o
 
 The intercept is very small or 4.186275e-17 which means the chance of making a home run when all other variables are set to 0 is very small.
 
-### 
 
 ```{r}
 # compare with other temp, here is more likely.
@@ -342,7 +341,7 @@ Coef_LogOdds_d |> exp()
 (4.186275e-17)/(1-4.186275e-17)
 ```
 
-# Question 2
+## Question 2
 
 **2) Ordinal Regression** The DrugConsumption.csv file on Canvas contains records for 1458 respondents. For each respondent 12 attributes are known: Personality measurements which include NEO-FFI-R (neuroticism, extraversion, openness to experience, agreeableness, and conscientiousness), BIS-11 (impulsivity), and ImpSS (sensation seeking), level of education, age, gender and country of residence. In addition, participants were questioned concerning their use of 18 legal and illegal drugs, of which only LSD is included for our study. The variables are as follows: • LSD: Target variable, ordinal with levels CL0-CL5, which correspond to "Never Used", "Used over a Decade Ago", "Used in Last Decade", "Used in Last Year", "Used in Last Month", "Used in Last Week". • Age: Categorical age • Gender: Gender • Education: Categorical Educational level • Country: UK or USA • Nscore: NEO-FFI-R, a psychological measure of Neuroticism • Escore: NEO-FFI-R Extraversion. • Oscore: NEO-FFI-R Openness to experience • Ascore: NEO-FFI-R Agreeableness • Cscore: NEO-FFI-R Conscientiousness • Impulsive: Impulsiveness score measured by BIS-11 • SS: Impulsive Sensation Seeking measured by ImpSS You may read the data as follows: Drugs \<- read.csv(".../DrugConsumption.csv", stringsAsFactors = TRUE) Drugs\$LSD \<- ordered(Drugs\$LSD,levels = c(paste0("CL",0:5)))
 
@@ -360,7 +359,7 @@ library(tidyverse) # for mutate function
 #Drugs$LSD <- ordered(Drugs$LSD,levels = c(paste0("CL",0:5)))
 ```
 
-## a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.
+### a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.
 
 I re-coded the categories into descriptive names "Used over a Decade Ago", "Used in Last Decade", "Used in Last Year", "Used in Last Month", "Used in Last Week".
 
@@ -395,7 +394,7 @@ geom_line()
 Gender_Plot
 ```
 
-## b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.
+### b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.
 
 The significant variables are age 55+, GenderMale, CountryUSA, Oscore and Cscore.
 
@@ -423,7 +422,7 @@ drop1(PropOdds_Model,test="Chisq")
 # Drop1 will drop all in age variable. 
 ```
 
-## c. (6 points) Interpret the values of the intercepts θj .
+### c. (6 points) Interpret the values of the intercepts θj .
 
 The intercepts are listed as below:
 
@@ -454,7 +453,7 @@ exp(5.2439)
 #!not sure how to explain it. S97. Does it also needs a exp()? -> how to extract it automatically? does it mean % of ppl???
 ```
 
-## d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.
+### d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.
 
 The open to experience increase the odds of using the drugs by 1.81.
 
@@ -471,7 +470,7 @@ exp(0.597784)
 exp(-0.178554)
 ```
 
-## e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?
+### e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?
 
 I tested the interaction between demographic variables (age, gender and education) and personality measurements (Oscore, Cscore).
 

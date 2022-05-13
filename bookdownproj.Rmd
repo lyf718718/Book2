@@ -1,0 +1,717 @@
+--- 
+title: "Frank's second book"
+author: "Frank Lin"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+
+documentclass: book
+bibliography: [book.bib, packages.bib, references.bib]
+url: https://lyf718718.github.io/Book2/
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+# github-repo: rstudio/bookdown-demo
+---
+--- 
+title: "Frank's second book"
+author: "Frank Lin"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+
+documentclass: book
+bibliography: [book.bib, packages.bib, references.bib]
+url: https://lyf718718.github.io/Book2/
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+# github-repo: rstudio/bookdown-demo
+---
+
+
+```{r}
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Selling and buying process:
+
+Placeholder
+
+
+## Salespeople skill/ perception
+## Communication - intraorganization
+## Communication Interorganization - FLE interactions
+## Sales marketing interface
+## Firm level impact on salespeople
+## Salesperson trait orientation
+## Salesperson non-sales activity/ service
+## B2G selling
+
+<!--chapter:end:01-Sales.Rmd-->
+
+
+# Literature Review Note
+
+Placeholder
+
+
+## Persuasion knowledge Model Review
+#### Theoretical development
+#### Marketing strategy application
+### Summary for PKM in online environment
+
+<!--chapter:end:02-Theory.Rmd-->
+
+
+# Database marketing substantive domain
+
+Placeholder
+
+
+## Key Issues
+### Data Privacy
+### Customer lifetime value (LTV)
+## Method
+### RFM
+### Market basket analysis
+### Collaborative filtering
+### Cluster analysis
+### Decision trees
+### Machine learning
+## Sub - substantive areas
+### Acquisition
+### Retention/ Churn management
+### Cross-selling and up-selling
+### Reward program
+### Multichannel customer
+
+<!--chapter:end:03-Database_marketing.Rmd-->
+
+
+# Data Scientist Job
+
+Placeholder
+
+
+## Business strategy Track (a.k.a Marketing Analytics)
+### Database marketing
+### Programming
+### Statistics:
+### Visualization
+### Automation
+## Consumer insight Track (aka. Marketing Research)
+## Optimization Track (a.k.a Operational Research)
+### Model optimization
+### Macro level models
+### Academic Paper implementation
+
+<!--chapter:end:04-Data_Scientist.Rmd-->
+
+
+# Marketing Strategy PhD skills
+
+Placeholder
+
+
+## Reading
+### Meta skill to gain 
+### Reading Purpose
+#### Conversant reading/ narrow
+#### Get to know a field/ broad
+#### Method/ sectioning
+#### Hobby/ creative
+### How to train
+### Suggested reading (optional)
+## Writing
+
+<!--chapter:end:05-Meta.Rmd-->
+
+
+# Applied Stats Model II - Exam 1
+
+Placeholder
+
+
+## 1. (7 points) In a poisson regression problem with one explanatory variable x, the estimate of the β
+## 2. (5 points) In a generalized linear model, why is the null deviance typically larger than the residual deviance?
+## 3. (5 points) Can standard linear regression ever be used when the data are counts? Explain why or why not.
+## 4. Take the following random effect model
+### 
+### (3 points) Find the intra class correlation coefficient.
+### (2 points) Which level of the random effect α will have the largest predicted value?
+### (2 points) Predict y for level 6 of the random effect.
+## 5. Utilizing the below code and output, answer the following:
+### • (3 points) Why are the residual and null deviance values the same?
+### • (2 points) Based on these deviance values, does the model "fit" well? Does this make sense?
+## 6. Take the data given by Problem6Data.csv, which contains a continuous response y and two predictors x1 and x2.
+### a. (5 points) Read the data into R and make some plots between the response and predictors. Describe the patterns and comment on behaviors you observe with exact 0s.
+### b. (5 points) Make a histogram of the response variable and comment on the shape. Are the values strictly positive?
+### c. (4 points) State the range that the index parameter p, for use in the Tweedie distribution, must be contained in. Why is this the case?
+### d. (6 points) Find an optimal value of p for use in the Tweedie Distribution, using a log link.
+### e. (5 points) Again using a log link, fit a Tweedie Distribution using the index parameter value you obtained in part d.
+### f. (6 points) For each of the values of x2 given by the R vector x2_vals \<- seq(0, 15, by= .01), use the compound Poisson-Gamma structure to predict the probability of obtaining an exact 0 response when x1 is at its mean value.
+## 7. The ships dataset in the MASS package provides the number of incidents(indicents) resulting in ship damage as a function of total months of service(service), ship type(type), as well as: • Year of ship construction(year) -- Broken into 5 year increments with the year's variable value indicating the beginning of this period. e.g. year=60 refers to 1960-1964 • Period of operation(period) with realizations: -- 60: 1960 - 1974 -- 75: 1975 - 1979 The data can be loaded with: data(ships, package="MASS")
+### a. (4 points) Use group_by and summarise to compute the average months of service for each combination of year of construction and period of operation. Explain why there is a 0 in the result.
+### b. (3 points) Create a new filtered dataset by removing the rows where service=0.
+### c. (10 points) Fit both a Poisson rate model and Negative Binomial rate model model using number of incidents per service month as the response and all other variables as predictors. Compare which model is better using AIC.
+### d. (7 points) Using the better model selected in part c, assess the significance of each term using drop1(). Which terms are insignificant? Remove the insignificant variables from the model in c, and refit.
+### e. (6 points) Statistically compare the residual deviance in your final model from d to the null deviance.
+### f. (4 points) Compare the AIC from the reduced model in d to the corresponding value from c. Is the change you see expected? Also examine the residual deviance of the model in d, what does it say about the model's fit to the data?
+### g. (6 points) Make a plot of the deviance residuals vs the predicted values(link scale). How is the fit?
+
+<!--chapter:end:06-ASM_Exam1.Rmd-->
+
+
+# Applied Stats Model II - Exam Two STAT 4520/7520 - Exam 2
+
+Placeholder
+
+
+## 1. (7 points) Consider the two plots below, which show the exact same (x, y) data. The difference is that the right plot has colored points based on a grouping variable. Is there a relationship between x and y? If not, how can we explain the left plot? Finally, how would you model the response y?
+## 2. (3 points) Say we have a fitted ARMA(p,q) model given by$Y_t = .3Y_{t−1} + ε_t$ What are the values of p and q?
+## 3. Say we observe 100 events in a 20ft × 10ft spatial field under a homogeneous Poisson process:
+## 4. (6 points) Suppose we are measuring some response variable and our data contains 5 locations. How would our research goals be different if we considered the location factor as fixed vs random?
+## 5. (7 points) Using the below keras code and summary output, justify the number of parameters at each layer of the neural network.
+## 6. Consider the below ANN which was fit to predict a cereal's rating based on its protein content. Using the provided weights and biases with an input of protein=4, find:
+## 7. (7 points) Consider the following ACF plot.
+## 8. (5 points) The file 1dConvolutionData.csv contains a collection of 100 sequential points. Read them into R and convolve them with the kernal c(0.054, 0.242, 0.389, 0.242, 0.054). Place the orginal signal as well as the output from the convolution on the same plot(be sure to line them up properly). What did this kernal do?
+## 9. Time series (20 points)
+### a. (3 points) Write the model for Yt mathematically and explain the intuition behind this naming convention. 
+### b. (6 points) Using a random error process of ε ∼ N(0, 1), start a random walk from $Y_1 = 0$ and continue for 1000 steps. Plot the time series. 
+### c. (6 points) Provide both an autocorrelation plot as well as a partial autocorrelation plot. Explain why they are so different. 
+### d. (5 points) Change the value of φ
+## 10. Open Ended Analysis in R (29 points)
+
+<!--chapter:end:ASM2_Exam2.Rmd-->
+
+# ASM2 HW Term Project 
+
+## RQ: what workds based on what theory
+
+## Descriptive analysis 
+
+## Mixed Model 
+
+## Q&A: a) why small change b) prediction measurement, AUC make sense? c) interpretation residual centering in stats vs. econ. 
+ 
+
+<!--chapter:end:ASM2_HW_termproject.Rmd-->
+
+
+# Applied Stats Model II - HW1 (Yufan Lin)
+
+Placeholder
+
+
+## Question 1:
+### a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.
+### b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.
+### c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().
+### d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis
+### e. (7 points) How does the launch speed after the ball is hit affect the **odds of HomeRun occurring**? Provide a confidence interval for this value.
+### f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.
+### g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?
+### h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model's ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?
+### i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.
+### **Rewrie the answer**
+### j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?
+### k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?
+## Question 2
+### a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.
+### b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.
+### c. (6 points) Interpret the values of the intercepts θj .
+### d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.
+### e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?
+
+<!--chapter:end:ASM2_HW1.Rmd-->
+
+---
+title: "ASM2_HW2 by Yufan Lin"
+output: html_document
+---
+
+```{r setup_ASM2_HW2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#https://bookdown.org/yihui/rmarkdown-cookbook/duplicate-label.html
+```
+
+#STAT 4520/7520 - Homework 2 Spring 2022
+Due: March 6, 2022 The French Motor Third-Party Liability Claims dataset is located in Insurance.csv and contains records on insurance policies. A claim is the request made by a policyholder to the insurer to compensate for a loss covered by the insurance. **Insurance companies are interested in modeling how much they are expected to** payout per year. In other words the mean of the total claim amount per year also referred to as the **"pure premium."** The varibles in the dataset are as follows: "Feature" variables: • Area: The area code. • VehPower: The power of the car (ordered categorical but treat as numeric). • VehAge: The vehicle age, in years. • DrivAge: The driver age, in years. • BonusMalus: Bonus/malus, between 50 and 350 and relating to the carbon emissions of the vehicle: \< 100 means bonus(tax credit), \> 100 means malus(tax penalty). • VehBrand: The car brand (unknown categories). • VehGas: The car gas, Diesel or regular. • Density: The (log of) density of inhabitants (number of inhabitants per km2) in the city the driver of the car lives in. • Region: The policy regions in France (based on a standard French classification). "Target" variables: • ClaimNb: Total number of claims on the policy. • Exposure: Number of years the policy has been held. • Frequency: Average number of claims per year on the policy. • AvgClaimAmount: Average amount paid out per claim in the policy. • PurePremium: Expected total claim amount per year for each policy.
+
+There are several ways to create these predictions, we could: 1. Model the **number of claims with a count model,** and separately the average claim amount per claim and multiply the predictions of both in order to get the total claim amount. 2. Model the **total claim amount per exposure directly, typically with a Tweedie distribution.** We **will explore both of these options** here. The dataset can be loaded for properly formatted with the commands:
+
+```{r}
+
+Insurance <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW2/Insurance.csv", stringsAsFactors = TRUE)
+Insurance$VehBrand <- as.factor(Insurance$VehBrand)
+Insurance$VehPower <- as.factor(Insurance$VehPower)
+Insurance$VehGas <- as.factor(Insurance$VehGas)
+Insurance$Region <- as.factor(Insurance$Region)
+Insurance$Area <- as.factor(Insurance$Area)
+```
+
+## 1 1) Modeling the Number of Claims
+
+### a. (5 points) Create a table to present the distribution of the number of claims by computing the proportion of each possibility. What percent of the policies have 0 claims?
+
+```{r include=FALSE}
+#remove.packages("rlang")
+#install.packages("rlang")
+library(tidyverse) # for mutate function
+Plot_DF <- Insurance |>
+group_by(ClaimNb) |>
+summarise(count=n()) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+```
+
+```{r}
+Plot_DF
+```
+
+The result shows that about 95% of the policies have 0 claims.
+
+### b. (6 points) Create a Poisson regression to predict the number of claims in the year using only the variables for vehicle age, driver age, bonusMalus, and density. What is the deviance? Does is differ significantly from the null deviance?
+
+```{r}
+Poisson_Mod <- glm(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density, family=poisson, Insurance)
+summary(Poisson_Mod)
+
+```
+
+```{r}
+# S14
+
+pchisq(summary(Poisson_Mod)$deviance,Poisson_Mod$df.residual, lower.tail = FALSE)
+```
+
+The deviance is 14049. It is not statistically different from the null model.
+
+### c. (4 points) Generate predictions on the response scale µ and round them to the nearest count. Create a table as in part a and comment on how similar or dissimilar this result is.
+
+```{r}
+Predicted_Means <- predict(Poisson_Mod,type = "response")
+#X2 <- sum((Insurance$ClaimNb - Predicted_Means)ˆ2/Predicted_Means)
+Insurance$Predicted_Class <- round(Predicted_Means,0)
+
+  
+```
+
+```{r}
+#count(Insurance, Predicted_Class)
+```
+
+```{r eval=FALSE, include=FALSE}
+
+# Why it gave me error -> need to reload the package or use :: as prefix.
+#no applicable method for 'group_by' applied to an object of class "c('double', 'numeric')"
+#remove.packages("rlang")
+#install.packages("rlang")
+library(tidyverse) # for mutate function
+Plot_DF_predict <- Insurance$Predicted_Class |>
+group_by(Predicted_Class) |>
+summarise(count=n()) |>
+mutate(etotal=sum(count), proportion=count/etotal)
+```
+
+The result is not very similar. There are way more 0 then the actual data.
+
+### d. (3 points) Fit a negative binomial model to the data and generate predictions as in part c. Did this solve the problem?
+
+```{r}
+#S26
+NegBinom_Mod <- MASS::glm.nb(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density,Insurance)
+# Convert back to glm() style object
+NegBinom_Mod_glm <- MASS::glm.convert(NegBinom_Mod)
+
+summary(NegBinom_Mod_glm, dispersion=1)
+
+```
+
+```{r}
+Predicted_Means_NB <- predict(NegBinom_Mod,type = "response")
+
+Insurance$Predicted_Class_NB <- round(Predicted_Means_NB,0)
+
+#count(Insurance, Predicted_Class_NB)
+```
+
+The negative Binomial result is quite similar to the Possion. Thus, it still has the issue of over-predicting 0s.
+
+### e. (5 points) Now fit a zero inflation Poisson model (ZIP) and compute the fitted proportion of zero counts as on slide 38 of the Poisson Notes. Does this help?
+
+```{r}
+
+#S34
+#install.packages(pscl)
+library(pscl)
+ZIP_Mod <- zeroinfl(ClaimNb ~ VehAge + DrivAge + BonusMalus + Density,Insurance)
+summary(ZIP_Mod)
+
+#S38 
+Pred_zero <- predict(ZIP_Mod,type="zero")
+Pred_Count <- predict(ZIP_Mod,type="count")
+Total_Prob0 <- Pred_zero + (1-Pred_zero)*exp(-Pred_Count)
+mean(Total_Prob0)
+
+```
+
+```{r}
+
+```
+
+```{r eval=FALSE, include=FALSE}
+#??? Why I cannot use the predict function on ZIP?
+Predicted_Means_ZIP <- predict(ZIP_Mod,type = "response")
+
+Insurance$Predicted_Class_ZIP <- round(Predicted_Means_ZIP,0)
+
+#count(Insurance, Predicted_Class_ZIP)
+```
+
+```{r}
+#count(Pred_zero)
+
+```
+
+Now it helps. The proportion of 0 is close to the actual data. Moreover, there are more other count (i.e., \>0) as well.
+
+### f. (8 points) Interpret the signs of the coefficient estimates out of the ZIP model, both the count portion as well as the zero inflated portion!
+
+```{r}
+data.frame(exp.coef = exp(coef(ZIP_Mod)))
+#??? why it cannot run as S36
+```
+
+The higher the driver age and bonus miles and density reduce the likelihood of fire a claim. The increase in vehicle age increases the likelihood to fire a claim.
+
+The higher the driver age and bonus miles and density increases the number of claims being fired once they fire for a claim. The vehicle age also increases the number of claim to be fired.
+
+## 2) Modeling the Average Claim Payout
+
+### a. (3 points) In this problem we will focus on modeling the positive continuous variable "AvgClaimAmount." Attempt to fit a Gamma regression with a log link, predicting AvgClaimAmount as a function of all feature variables in the dataset. What happens when you attempt to fit this model?
+
+```{r eval=FALSE, include=FALSE}
+#S19: pos continous. #24, need to fix the non-neg to 0.
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log),data = Insurance)
+summary(Insurance_NormalGLM)$dispersion
+
+```
+
+The model cannot run since 0 is not positive value.
+
+### b. (5 points) Create a new dataset consisting of the rows that correspond to strictly positive realizations of AvgClaimAmount. Make a histogram of this variable on standard and log scale and describe your findings.
+
+```{r}
+#??? do I need to bin it?
+#42:
+hist(Insurance$AvgClaimAmount[Insurance$AvgClaimAmount>0])
+```
+
+```{r}
+hist(log(Insurance$AvgClaimAmount[Insurance$AvgClaimAmount>0]))
+```
+
+The distribution is highly skewed to the right.
+
+Once I use the log scale, it is more normally distributed.
+
+### c. (4 points) Fit the Gamma regression proposed in part a to the filtered dataset. Do you notice anything strange? How many iterations did it take glm() to find this result?
+
+```{r include=FALSE}
+library(dplyr) #must run the library again to avoid the duplicated names
+# filter the data
+Insurance_filter = filter(Insurance, Insurance$AvgClaimAmount>0)
+```
+
+```{r}
+# how to stop the code from running when it is stuck -> Use the source code mode not the visual
+
+# run the gamma
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log),data = Insurance_filter)
+#summary(Insurance_GammaGLM)$dispersion
+```
+
+It only shows not converged, so I am not sure how many iterations.
+
+### d. (3 points) To the glm() function, add the argument control = list(maxit = 500). What do you think this will do? Fit the model and examine the summary output to check the number of iterations needed for convergence.
+
+```{r}
+
+# max iteration so that more chance to converge
+# run the gamma
+Insurance_GammaGLM <- glm(AvgClaimAmount ~ .,
+family = Gamma(link = log), control = list(maxit = 900),data = Insurance_filter)
+#summary(Insurance_GammaGLM)$dispersion
+```
+
+```{r}
+summary(Insurance_GammaGLM)
+
+```
+
+I set the iterations maximum to be 900 since it used 777 iterations to get a converge.
+
+### e.(3 points) From the model in e. Interpret the parameter estimate for a vehicle's age
+
+```{r}
+data.frame(exp.coef = exp(coef(Insurance_GammaGLM)))
+```
+
+As the vehicle's age increases, the claim amount decreases by 3%.
+
+```{r}
+#??? Not make sense? how could the older car requires less claim? new car costs more to repair?
+```
+
+## 3. Tweedie
+
+### a. (8 points) Using the entire dataset, create a profile likelihood of the index values p for use in a glm utilizing the Tweedie distribution to predict PurePremium directly. Make a plot of the profile likelihood and select the best value. (7520 - 3 points): For graduate students, I expect some **exploration to find the best value as these data are quite poorly behaved**. Look at the "Value" section of ?tweedie.profile for some hints, and I **would suggest narrowing the search space for p and evaluating it on a somewhat fine grid.**
+
+```{r}
+library(tweedie)
+?tweedie.profile
+
+```
+
+```{r}
+#per tweedie documentation on p.vec. if there is 0, below is the recommendated setting.
+
+TW_p_log <- tweedie.profile(AvgClaimAmount ~ .,
+p.vec = seq(from=1.2,to=1.8,by=0.1),
+link.power = 0, do.plot = TRUE,# log link
+data=Insurance)
+
+
+```
+
+```{r}
+TW_p_log <- tweedie.profile(AvgClaimAmount ~ .,
+p.vec = seq(from=1.4,to=1.7,by=0.05),
+link.power = 0, do.plot = TRUE,# log link
+data=Insurance)
+
+```
+
+```{r}
+Tweedie_p_log = TW_p_log$p.max
+Tweedie_p_log
+```
+
+The best value is 1.52.
+
+### b. Fit the Tweedie GLM model using the optimal power value you computed from the previous question. The file Insurance_test.csv contains a few additional observations which were not a portion of the data used to fit the previous models. We can read it in and format it using syntax similar to when we started. NewDataPoints \<- read.csv("..../Insurance_test.csv") NewDataPoints\$VehBrand \<- as.factor(NewDataPoints\$VehBrand) NewDataPoints\$VehPower \<- as.factor(NewDataPoints\$VehPower) NewDataPoints\$VehGas \<- as.factor(NewDataPoints\$VehGas) NewDataPoints\$Region \<- as.factor(NewDataPoints\$Region) NewDataPoints\$Area \<- as.factor(NewDataPoints\$Area)
+
+```{r}
+NewDataPoints <- read.csv("E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW2/Insurance_test.csv") 
+NewDataPoints$VehBrand <- as.factor(NewDataPoints$VehBrand) 
+NewDataPoints$VehPower <- as.factor(NewDataPoints$VehPower) 
+NewDataPoints$VehGas <- as.factor(NewDataPoints$VehGas) 
+NewDataPoints$Region <- as.factor(NewDataPoints$Region) 
+NewDataPoints$Area <- as.factor(NewDataPoints$Area)
+
+```
+
+```{r}
+library(statmod) # For tweedie family in glm()
+
+clot_Tweedie_log <- glm(AvgClaimAmount ~ ., data=Insurance,
+family=tweedie(var.power=TW_p_log$p.max,link.power=0))
+
+
+```
+
+```{r}
+summary(clot_Tweedie_log)
+```
+
+### c.(7 points) Use your Poisson model from 1b from and your final Gamma model from 2d to generate respective predictions for the number of claims in a year as well as the average amount per claim. Multiply these together and call this product purepremium_prod. Similarly, use your Tweedie model from 3b to directly predict the PurePremium value and store this in purepremium_TW.
+
+```{r}
+count(Insurance, Predicted_Class)
+amt_predict = predict(Insurance_GammaGLM)
+mean(amt_predict)
+```
+
+```{r}
+library(dplyr)
+count(Insurance, Predicted_Class)
+```
+
+```{r}
+purepremium_prod = 44999 * mean(Total_Prob0) * mean(amt_predict) #using the ZIP model. total # of insurances * average claims predicted * average claim amount predicted. #??? won't it just be the average of the original dataset?
+purepremium_prod
+```
+
+The purepremium_prod will be \$314,268.8 using ZIP model
+
+```{r}
+clot_Tweedie_log_predict <- predict(clot_Tweedie_log,data = 'Insurance', type="response")
+p_MLE <- TW_p_log$p.max
+phi_MLE <- TW_p_log$phi.max
+#Prob_Zero_Model <- exp(-mu.Phasesˆ(2 - p_MLE)/(phi_MLE*(2 - p_MLE)))
+#error unexpected input??? what does it mean?
+```
+
+```{r}
+#S46: 
+CPoiGam <- tweedie.convert(xi=p_MLE, mu=clot_Tweedie_log_predict, phi=phi_MLE)
+PoiGamPred <- rbind("Poisson mean" = CPoiGam$poisson.lambda,
+"Gamma mean" = CPoiGam$gamma.mean,
+"Gamma dispersion" = CPoiGam$gamma.phi)
+
+```
+
+```{r}
+mean(CPoiGam$poisson.lambda * CPoiGam$gamma.mean)
+```
+
+```{r}
+purepremium_TW = 44999 * 32
+purepremium_TW
+```
+
+The purepremium_TW will be \$1,439,968 using Tweedie model
+
+```{r}
+#??? why the two results are so different?
+```
+
+<!--chapter:end:ASM2_HW2.Rmd-->
+
+
+# STAT 4520/7520 - Homework 3 Spring 2022 Due: March 30, 2022
+
+Placeholder
+
+
+## 1) The cake dataset in the lme4 package contains data on an experiment was conducted to determine the effect of recipe and baking temperature on chocolate cake quality. Fifteen batches of cake mix for each recipe were prepared. Each batch was sufficient for six cakes. Each of the six cakes was baked at a different temperature which was randomly assigned. As an indicator of quality, the breakage angle of the cake was recorded.
+### a. Of the explanatory variables recipe, temp, and replicate, which are fixed and which are random? Explain. Is there any nesting in these variables?
+### b. Fit a linear model with no random effects for breaking angle against the interaction between recipe and temperature. Which variables are significant? What is the t value for temp the temperature variable? What is the RMSE of this model?
+### c. Fit a mixed model to the data which takes into account the replicates of the recipes. Examine the variance components. Is there variation in the batches made with each recipe? How does the Residual variance component compare to the MSE from (b)? What is the t-value for temperature?
+### d. Test for a recipe and temperature effect.
+### e. Create a QQ plot of the residuals and a residual vs predicted plot for the linear model in (b) and the mixed model in (d), describe how well the model assumptions are satisfied for each.
+### f. (7510 only) Examine the BLUPs from the mixed model in (d). Do you notice any patterns?
+## 2) The purpose of random effects is to remove variation from known sources. In this problem, we will use this idea and see how it can work with a popular technique for predictive modeling, the random forest. Random forests were covered in the prerequisite course, and can be fit using the randomForest function in the randomForest library. The dataset Problem-2.csv has a simulated dataset. There is a nonlinear relationship between 6 numeric explanatory variables x1, . . . x6 and the response y, to addition to a grouping effect according to the ID variable, which has 100 levels.
+### a. Read in the dataset, and split the data into a training and test set, using 95% of the data for the training set. Set a seed of 1 for consistency of results.
+### b. Fit a random forest model to the training data using y as the response with x1, . . . x6 and ID as the explanatory variables. Use the model to predict y in the test set and compute the test root mean squared error ( RMSE ).
+### c. Fit the mixed model yij = µ + IDi + εij to the training data. This model does not use the x_i at all, and has a random intercept based on ID. After fitting the model, extract the BLUPs for ID and add them to the constant µˆ, the estimate of the overall intercept. What do these values represent? Store them in a data frame along with a column storing the IDs.
+### d. Add a column to the test dataset containing the values obtained in part c, joined to the test dataset by matching the IDs. Note: with the dplyr package loaded, you can quickly join by ID using a line like: Data.Test \<- left_join(Data.Test, int_plus_blups, by = "ID") Examine the first few rows and describe what the new column represents.
+### e. Compute the residuals of the mixed model fit in (c) using the residuals() function, store them in a column of the training data.
+### f. Fit another random forest model to the training data, using the residuals from part (e) as the response and only x1, . . . x6 as the explanatory variables. Use this model to predict into the test data and store these predictions. What do these predictions represent?
+### g. Add the predictions in (f) to the values joined to the test data in (d). Consider these values test predictions, and compute the test MSE. Compare this to the test MSE compared in part (b). What do you observe?
+
+<!--chapter:end:ASM2_HW3.Rmd-->
+
+
+# STAT 4520/7520 - Homework 4 Spring 2022 Due: April 25, 2022
+
+Placeholder
+
+
+## 1)
+### a. Make a plot of weight vs Time for the data with rat specific lines to show the subject specific trajectory. Describe your findings. (7510 only) Further, color the lines differently for the different diets. Do you notice anything further?
+### b. Use lm() to regress the weight onto the Time. What is the slope and intercept of this model? Is the slope significant?
+### c. Use the lmList function to fit a linear regression model that describes how weight varies with days for each individual rat. How do the slopes and intercepts vary? Do you notice any patterns with respect to diets?
+### d. Fit a random intercept model to account for the different weights of each individual rat and continue to use Time as a fixed effect. Answer the following:
+### e. Obtain the BLUPs for the rats and list who is the most heavy.
+### f. Fit a mixed effects model that describes how the weight varies linearly with time and allows for random variation in the intercepts and slopes of the rats. Then do the following:
+### g. Obtain the BLUPs for the model in part f. Which rat has the fastest rate of increase? The slowest?
+### h. Add the (fixed) diet variable to the model in the form of an interaction with time. Does the diet effect weight? Is this effect different at different times?
+## 2) Time Series
+### a. Create a variable containing the log (base 10) of the EPS, then use lm() to regress it onto Time. Store the residuals of this regression in another variable in JJ. Make a plot of the residuals vs Time and describe your findings.
+### b. Run the detrended values through auto.arima() to find a good ARMA model. Note that you may want to use the additional argument stepwise = FALSE to allow auto.arima() to conduct a full grid search. What model was found?
+### c. Use the best model to forecast the detrended relationship 2 years (8 quarters) ahead. Make a plot of the result and comment on how reasonable your predictions look.
+### d. Use the linear model from part a to predict the trend for the next 8 quarters, add the result to that of part c, transform back to the original scale, and plot the forecast along with the original data. Does the forecast seem reasonable?
+## 3) Spatial Point Process Analysis
+### a. Make a plot of the point pattern. Does the distribution of the points in space appear to be homogeneous Poisson process?
+### b. Make plots of G(r) and F(r) and comment on what you observe.
+### c. Fit a point process model with linear terms in both x and y. Are there any significant spatial relationships?
+## 4) Loading Keras
+### a. Mostly as an exercise to ensure you have Keras installed correctly, run the above code and comment onthe quality of the fit you observe. NOTE: I was unable to run the code within an RMarkdown cell, but this may be due to a system configuration issue.
+### b. Modify the code in an attempt to improve the fit. Specifically, study the effects (as well as interactions) of:
+
+<!--chapter:end:ASM2_HW4.Rmd-->
+
+
+# Applied Stats Model II Lecture Note
+
+Placeholder
+
+
+## List of Questions:
+### HW1
+### HW2
+### Midterm
+## Class content overview:
+## GLM-CategoricalData_SP2022
+## GLM-CountData_SP2022
+## GLMs_AdvancedTopics_SP2022
+## MM-RandomEffects_Spring2022
+### HW4: Repeated measure, time and space dependence. 
+#### repeated measure and longitudinal data / growth model/ panel study a person answers multiple questions/ 
+#### Time and Space dependence 
+#### Spatial - random = stationary in time-series. 
+#### Neural network. python installation first?
+
+<!--chapter:end:ASM2_Overview.Rmd-->
+
+
+# Final Report
+
+Placeholder
+
+
+## Introduction
+### Hypothesis:
+### Data Background
+#### Sampling
+#### Unit of Analysis
+## Methods/Analysis
+### Empirical Analysis
+### Impact of Negotiation Tactics on the Likelihood of Closing Sales
+#### Exploratory analysis with plots of the data and/or hypothesized relationships/ Model free evidence.
+#### Model Testing 
+#### Interpretation of the fixed effect coefficients
+### Research Implications
+
+<!--chapter:end:ASM2_Term_Project.Rmd-->
+
+
+# Experimental Data Analysis
+
+Placeholder
+
+
+## PROCESS Macro
+## Data cleaning
+## Mediation analysis
+## Adding more controls
+## EFA And CFA Analysis / Measurement analysis
+
+<!--chapter:end:Experiment_Analysis.Rmd-->
+
+
+# SEM HW5 - code in the chunk but don't run them. copy them as a whole with the comments
+
+Placeholder
+
+
+## Replicate HW3
+## most of the previous steps can be done in R and stata in parellel. 
+## output the write up in the R. Only add Stata as complement. -> use TC as template. 
+## Goal is to understand the application of regression at different angle to fully understand it.
+
+<!--chapter:end:SEM_HW5.Rmd-->
+

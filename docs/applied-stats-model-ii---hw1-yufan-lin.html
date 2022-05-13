@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Applied Stats Model II - HW1 (Yufan Lin) | Applied Stats Model II - HW1 (Yufan Lin)</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Applied Stats Model II - HW1 (Yufan Lin) | Applied Stats Model II - HW1 (Yufan Lin)" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Applied Stats Model II - HW1 (Yufan Lin) | Applied Stats Model II - HW1 (Yufan Lin)" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Frank Lin" />
+
+
+<meta name="date" content="2022-05-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="asm2-hw-term-project.html"/>
+<link rel="next" href="modeling-the-number-of-claims.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Frank second book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html"><i class="fa fa-check"></i><b>1</b> Selling and buying process:</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salespeople-skill-perception"><i class="fa fa-check"></i><b>1.1</b> Salespeople skill/ perception</a></li>
+<li class="chapter" data-level="1.2" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication---intraorganization"><i class="fa fa-check"></i><b>1.2</b> Communication - intraorganization</a></li>
+<li class="chapter" data-level="1.3" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#communication-interorganization---fle-interactions"><i class="fa fa-check"></i><b>1.3</b> Communication Interorganization - FLE interactions</a></li>
+<li class="chapter" data-level="1.4" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#sales-marketing-interface"><i class="fa fa-check"></i><b>1.4</b> Sales marketing interface</a></li>
+<li class="chapter" data-level="1.5" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#firm-level-impact-on-salespeople"><i class="fa fa-check"></i><b>1.5</b> Firm level impact on salespeople</a></li>
+<li class="chapter" data-level="1.6" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-trait-orientation"><i class="fa fa-check"></i><b>1.6</b> Salesperson trait orientation</a></li>
+<li class="chapter" data-level="1.7" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#salesperson-non-sales-activity-service"><i class="fa fa-check"></i><b>1.7</b> Salesperson non-sales activity/ service</a></li>
+<li class="chapter" data-level="1.8" data-path="selling-and-buying-process.html"><a href="selling-and-buying-process.html#b2g-selling"><i class="fa fa-check"></i><b>1.8</b> B2G selling</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="literature-review-note.html"><a href="literature-review-note.html"><i class="fa fa-check"></i><b>2</b> Literature Review Note</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="literature-review-note.html"><a href="literature-review-note.html#persuasion-knowledge-model-review"><i class="fa fa-check"></i><b>2.1</b> Persuasion knowledge Model Review</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="literature-review-note.html"><a href="literature-review-note.html#summary-for-pkm-in-online-environment"><i class="fa fa-check"></i><b>2.1.1</b> Summary for PKM in online environment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html"><i class="fa fa-check"></i><b>3</b> Database marketing substantive domain</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#key-issues"><i class="fa fa-check"></i><b>3.1</b> Key Issues</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#data-privacy"><i class="fa fa-check"></i><b>3.1.1</b> Data Privacy</a></li>
+<li class="chapter" data-level="3.1.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#customer-lifetime-value-ltv"><i class="fa fa-check"></i><b>3.1.2</b> Customer lifetime value (LTV)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#method"><i class="fa fa-check"></i><b>3.2</b> Method</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#rfm"><i class="fa fa-check"></i><b>3.2.1</b> RFM</a></li>
+<li class="chapter" data-level="3.2.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#market-basket-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Market basket analysis</a></li>
+<li class="chapter" data-level="3.2.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#collaborative-filtering"><i class="fa fa-check"></i><b>3.2.3</b> Collaborative filtering</a></li>
+<li class="chapter" data-level="3.2.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cluster-analysis"><i class="fa fa-check"></i><b>3.2.4</b> Cluster analysis</a></li>
+<li class="chapter" data-level="3.2.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#decision-trees"><i class="fa fa-check"></i><b>3.2.5</b> Decision trees</a></li>
+<li class="chapter" data-level="3.2.6" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#machine-learning"><i class="fa fa-check"></i><b>3.2.6</b> Machine learning</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#sub---substantive-areas"><i class="fa fa-check"></i><b>3.3</b> Sub - substantive areas</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#acquisition"><i class="fa fa-check"></i><b>3.3.1</b> Acquisition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#retention-churn-management"><i class="fa fa-check"></i><b>3.3.2</b> Retention/ Churn management</a></li>
+<li class="chapter" data-level="3.3.3" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#cross-selling-and-up-selling"><i class="fa fa-check"></i><b>3.3.3</b> Cross-selling and up-selling</a></li>
+<li class="chapter" data-level="3.3.4" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#reward-program"><i class="fa fa-check"></i><b>3.3.4</b> Reward program</a></li>
+<li class="chapter" data-level="3.3.5" data-path="database-marketing-substantive-domain.html"><a href="database-marketing-substantive-domain.html#multichannel-customer"><i class="fa fa-check"></i><b>3.3.5</b> Multichannel customer</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-scientist-job.html"><a href="data-scientist-job.html"><i class="fa fa-check"></i><b>4</b> Data Scientist Job</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#business-strategy-track-a.k.a-marketing-analytics"><i class="fa fa-check"></i><b>4.1</b> Business strategy Track (a.k.a Marketing Analytics)</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#database-marketing"><i class="fa fa-check"></i><b>4.1.1</b> Database marketing</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#programming"><i class="fa fa-check"></i><b>4.1.2</b> Programming</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#statistics"><i class="fa fa-check"></i><b>4.1.3</b> Statistics:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-scientist-job.html"><a href="data-scientist-job.html#visualization"><i class="fa fa-check"></i><b>4.1.4</b> Visualization</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-scientist-job.html"><a href="data-scientist-job.html#automation"><i class="fa fa-check"></i><b>4.1.5</b> Automation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#consumer-insight-track-aka.-marketing-research"><i class="fa fa-check"></i><b>4.2</b> Consumer insight Track (aka. Marketing Research)</a></li>
+<li class="chapter" data-level="4.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#optimization-track-a.k.a-operational-research"><i class="fa fa-check"></i><b>4.3</b> Optimization Track (a.k.a Operational Research)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-scientist-job.html"><a href="data-scientist-job.html#model-optimization"><i class="fa fa-check"></i><b>4.3.1</b> Model optimization</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-scientist-job.html"><a href="data-scientist-job.html#macro-level-models"><i class="fa fa-check"></i><b>4.3.2</b> Macro level models</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-scientist-job.html"><a href="data-scientist-job.html#academic-paper-implementation"><i class="fa fa-check"></i><b>4.3.3</b> Academic Paper implementation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html"><i class="fa fa-check"></i><b>5</b> Marketing Strategy PhD skills</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading"><i class="fa fa-check"></i><b>5.1</b> Reading</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#meta-skill-to-gain"><i class="fa fa-check"></i><b>5.1.1</b> Meta skill to gain</a></li>
+<li class="chapter" data-level="5.1.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#reading-purpose"><i class="fa fa-check"></i><b>5.1.2</b> Reading Purpose</a></li>
+<li class="chapter" data-level="5.1.3" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#how-to-train"><i class="fa fa-check"></i><b>5.1.3</b> How to train</a></li>
+<li class="chapter" data-level="5.1.4" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#suggested-reading-optional"><i class="fa fa-check"></i><b>5.1.4</b> Suggested reading (optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="marketing-strategy-phd-skills.html"><a href="marketing-strategy-phd-skills.html#writing"><i class="fa fa-check"></i><b>5.2</b> Writing</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html"><i class="fa fa-check"></i><b>6</b> Applied Stats Model II - Exam 1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-in-a-poisson-regression-problem-with-one-explanatory-variable-x-the-estimate-of-the-β"><i class="fa fa-check"></i><b>6.1</b> 1. (7 points) In a poisson regression problem with one explanatory variable x, the estimate of the β</a></li>
+<li class="chapter" data-level="6.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-in-a-generalized-linear-model-why-is-the-null-deviance-typically-larger-than-the-residual-deviance"><i class="fa fa-check"></i><b>6.2</b> 2. (5 points) In a generalized linear model, why is the null deviance typically larger than the residual deviance?</a></li>
+<li class="chapter" data-level="6.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-can-standard-linear-regression-ever-be-used-when-the-data-are-counts-explain-why-or-why-not."><i class="fa fa-check"></i><b>6.3</b> 3. (5 points) Can standard linear regression ever be used when the data are counts? Explain why or why not.</a></li>
+<li class="chapter" data-level="6.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#take-the-following-random-effect-model"><i class="fa fa-check"></i><b>6.4</b> 4. Take the following random effect model</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#section"><i class="fa fa-check"></i><b>6.4.1</b> </a></li>
+<li class="chapter" data-level="6.4.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-find-the-intra-class-correlation-coefficient."><i class="fa fa-check"></i><b>6.4.2</b> (3 points) Find the intra class correlation coefficient.</a></li>
+<li class="chapter" data-level="6.4.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-which-level-of-the-random-effect-α-will-have-the-largest-predicted-value"><i class="fa fa-check"></i><b>6.4.3</b> (2 points) Which level of the random effect α will have the largest predicted value?</a></li>
+<li class="chapter" data-level="6.4.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-predict-y-for-level-6-of-the-random-effect."><i class="fa fa-check"></i><b>6.4.4</b> (2 points) Predict y for level 6 of the random effect.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#utilizing-the-below-code-and-output-answer-the-following"><i class="fa fa-check"></i><b>6.5</b> 5. Utilizing the below code and output, answer the following:</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-why-are-the-residual-and-null-deviance-values-the-same"><i class="fa fa-check"></i><b>6.5.1</b> • (3 points) Why are the residual and null deviance values the same?</a></li>
+<li class="chapter" data-level="6.5.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#points-based-on-these-deviance-values-does-the-model-fit-well-does-this-make-sense"><i class="fa fa-check"></i><b>6.5.2</b> • (2 points) Based on these deviance values, does the model “fit” well? Does this make sense?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#take-the-data-given-by-problem6data.csv-which-contains-a-continuous-response-y-and-two-predictors-x1-and-x2."><i class="fa fa-check"></i><b>6.6</b> 6. Take the data given by Problem6Data.csv, which contains a continuous response y and two predictors x1 and x2.</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#a.-5-points-read-the-data-into-r-and-make-some-plots-between-the-response-and-predictors.-describe-the-patterns-and-comment-on-behaviors-you-observe-with-exact-0s."><i class="fa fa-check"></i><b>6.6.1</b> a. (5 points) Read the data into R and make some plots between the response and predictors. Describe the patterns and comment on behaviors you observe with exact 0s.</a></li>
+<li class="chapter" data-level="6.6.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#b.-5-points-make-a-histogram-of-the-response-variable-and-comment-on-the-shape.-are-the-values-strictly-positive"><i class="fa fa-check"></i><b>6.6.2</b> b. (5 points) Make a histogram of the response variable and comment on the shape. Are the values strictly positive?</a></li>
+<li class="chapter" data-level="6.6.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#c.-4-points-state-the-range-that-the-index-parameter-p-for-use-in-the-tweedie-distribution-must-be-contained-in.-why-is-this-the-case"><i class="fa fa-check"></i><b>6.6.3</b> c. (4 points) State the range that the index parameter p, for use in the Tweedie distribution, must be contained in. Why is this the case?</a></li>
+<li class="chapter" data-level="6.6.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#d.-6-points-find-an-optimal-value-of-p-for-use-in-the-tweedie-distribution-using-a-log-link."><i class="fa fa-check"></i><b>6.6.4</b> d. (6 points) Find an optimal value of p for use in the Tweedie Distribution, using a log link.</a></li>
+<li class="chapter" data-level="6.6.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#e.-5-points-again-using-a-log-link-fit-a-tweedie-distribution-using-the-index-parameter-value-you-obtained-in-part-d."><i class="fa fa-check"></i><b>6.6.5</b> e. (5 points) Again using a log link, fit a Tweedie Distribution using the index parameter value you obtained in part d.</a></li>
+<li class="chapter" data-level="6.6.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#f.-6-points-for-each-of-the-values-of-x2-given-by-the-r-vector-x2_vals---seq0-15-by-.01-use-the-compound-poisson-gamma-structure-to-predict-the-probability-of-obtaining-an-exact-0-response-when-x1-is-at-its-mean-value."><i class="fa fa-check"></i><b>6.6.6</b> f. (6 points) For each of the values of x2 given by the R vector x2_vals &lt;- seq(0, 15, by= .01), use the compound Poisson-Gamma structure to predict the probability of obtaining an exact 0 response when x1 is at its mean value.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#the-ships-dataset-in-the-mass-package-provides-the-number-of-incidentsindicents-resulting-in-ship-damage-as-a-function-of-total-months-of-serviceservice-ship-typetype-as-well-as-year-of-ship-constructionyear-broken-into-5-year-increments-with-the-years-variable-value-indicating-the-beginning-of-this-period.-e.g.-year60-refers-to-1960-1964-period-of-operationperiod-with-realizations-60-1960---1974-75-1975---1979-the-data-can-be-loaded-with-dataships-packagemass"><i class="fa fa-check"></i><b>6.7</b> 7. The ships dataset in the MASS package provides the number of incidents(indicents) resulting in ship damage as a function of total months of service(service), ship type(type), as well as: • Year of ship construction(year) – Broken into 5 year increments with the year’s variable value indicating the beginning of this period. e.g. year=60 refers to 1960-1964 • Period of operation(period) with realizations: – 60: 1960 - 1974 – 75: 1975 - 1979 The data can be loaded with: data(ships, package=“MASS”)</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#a.-4-points-use-group_by-and-summarise-to-compute-the-average-months-of-service-for-each-combination-of-year-of-construction-and-period-of-operation.-explain-why-there-is-a-0-in-the-result."><i class="fa fa-check"></i><b>6.7.1</b> a. (4 points) Use group_by and summarise to compute the average months of service for each combination of year of construction and period of operation. Explain why there is a 0 in the result.</a></li>
+<li class="chapter" data-level="6.7.2" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#b.-3-points-create-a-new-filtered-dataset-by-removing-the-rows-where-service0."><i class="fa fa-check"></i><b>6.7.2</b> b. (3 points) Create a new filtered dataset by removing the rows where service=0.</a></li>
+<li class="chapter" data-level="6.7.3" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#c.-10-points-fit-both-a-poisson-rate-model-and-negative-binomial-rate-model-model-using-number-of-incidents-per-service-month-as-the-response-and-all-other-variables-as-predictors.-compare-which-model-is-better-using-aic."><i class="fa fa-check"></i><b>6.7.3</b> c. (10 points) Fit both a Poisson rate model and Negative Binomial rate model model using number of incidents per service month as the response and all other variables as predictors. Compare which model is better using AIC.</a></li>
+<li class="chapter" data-level="6.7.4" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#d.-7-points-using-the-better-model-selected-in-part-c-assess-the-significance-of-each-term-using-drop1.-which-terms-are-insignificant-remove-the-insignificant-variables-from-the-model-in-c-and-refit."><i class="fa fa-check"></i><b>6.7.4</b> d. (7 points) Using the better model selected in part c, assess the significance of each term using drop1(). Which terms are insignificant? Remove the insignificant variables from the model in c, and refit.</a></li>
+<li class="chapter" data-level="6.7.5" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#e.-6-points-statistically-compare-the-residual-deviance-in-your-final-model-from-d-to-the-null-deviance."><i class="fa fa-check"></i><b>6.7.5</b> e. (6 points) Statistically compare the residual deviance in your final model from d to the null deviance.</a></li>
+<li class="chapter" data-level="6.7.6" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#f.-4-points-compare-the-aic-from-the-reduced-model-in-d-to-the-corresponding-value-from-c.-is-the-change-you-see-expected-also-examine-the-residual-deviance-of-the-model-in-d-what-does-it-say-about-the-models-fit-to-the-data"><i class="fa fa-check"></i><b>6.7.6</b> f. (4 points) Compare the AIC from the reduced model in d to the corresponding value from c. Is the change you see expected? Also examine the residual deviance of the model in d, what does it say about the model’s fit to the data?</a></li>
+<li class="chapter" data-level="6.7.7" data-path="applied-stats-model-ii---exam-1.html"><a href="applied-stats-model-ii---exam-1.html#g.-6-points-make-a-plot-of-the-deviance-residuals-vs-the-predicted-valueslink-scale.-how-is-the-fit"><i class="fa fa-check"></i><b>6.7.7</b> g. (6 points) Make a plot of the deviance residuals vs the predicted values(link scale). How is the fit?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><i class="fa fa-check"></i><b>7</b> Applied Stats Model II - Exam Two STAT 4520/7520 - Exam 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-consider-the-two-plots-below-which-show-the-exact-same-x-y-data.-the-difference-is-that-the-right-plot-has-colored-points-based-on-a-grouping-variable.-is-there-a-relationship-between-x-and-y-if-not-how-can-we-explain-the-left-plot-finally-how-would-you-model-the-response-y"><i class="fa fa-check"></i><b>7.1</b> 1. (7 points) Consider the two plots below, which show the exact same (x, y) data. The difference is that the right plot has colored points based on a grouping variable. Is there a relationship between x and y? If not, how can we explain the left plot? Finally, how would you model the response y?</a></li>
+<li class="chapter" data-level="7.2" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-say-we-have-a-fitted-armapq-model-given-byy_t-.3y_t1-ε_t-what-are-the-values-of-p-and-q"><i class="fa fa-check"></i><b>7.2</b> 2. (3 points) Say we have a fitted ARMA(p,q) model given by<span class="math inline">\(Y_t = .3Y_{t−1} + ε_t\)</span> What are the values of p and q?</a></li>
+<li class="chapter" data-level="7.3" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#say-we-observe-100-events-in-a-20ft-10ft-spatial-field-under-a-homogeneous-poisson-process"><i class="fa fa-check"></i><b>7.3</b> 3. Say we observe 100 events in a 20ft × 10ft spatial field under a homogeneous Poisson process:</a></li>
+<li class="chapter" data-level="7.4" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-suppose-we-are-measuring-some-response-variable-and-our-data-contains-5-locations.-how-would-our-research-goals-be-different-if-we-considered-the-location-factor-as-fixed-vs-random"><i class="fa fa-check"></i><b>7.4</b> 4. (6 points) Suppose we are measuring some response variable and our data contains 5 locations. How would our research goals be different if we considered the location factor as fixed vs random?</a></li>
+<li class="chapter" data-level="7.5" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-using-the-below-keras-code-and-summary-output-justify-the-number-of-parameters-at-each-layer-of-the-neural-network."><i class="fa fa-check"></i><b>7.5</b> 5. (7 points) Using the below keras code and summary output, justify the number of parameters at each layer of the neural network.</a></li>
+<li class="chapter" data-level="7.6" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#consider-the-below-ann-which-was-fit-to-predict-a-cereals-rating-based-on-its-protein-content.-using-the-provided-weights-and-biases-with-an-input-of-protein4-find"><i class="fa fa-check"></i><b>7.6</b> 6. Consider the below ANN which was fit to predict a cereal’s rating based on its protein content. Using the provided weights and biases with an input of protein=4, find:</a></li>
+<li class="chapter" data-level="7.7" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-consider-the-following-acf-plot."><i class="fa fa-check"></i><b>7.7</b> 7. (7 points) Consider the following ACF plot.</a></li>
+<li class="chapter" data-level="7.8" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#points-the-file-1dconvolutiondata.csv-contains-a-collection-of-100-sequential-points.-read-them-into-r-and-convolve-them-with-the-kernal-c0.054-0.242-0.389-0.242-0.054.-place-the-orginal-signal-as-well-as-the-output-from-the-convolution-on-the-same-plotbe-sure-to-line-them-up-properly.-what-did-this-kernal-do"><i class="fa fa-check"></i><b>7.8</b> 8. (5 points) The file 1dConvolutionData.csv contains a collection of 100 sequential points. Read them into R and convolve them with the kernal c(0.054, 0.242, 0.389, 0.242, 0.054). Place the orginal signal as well as the output from the convolution on the same plot(be sure to line them up properly). What did this kernal do?</a></li>
+<li class="chapter" data-level="7.9" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#time-series-20-points"><i class="fa fa-check"></i><b>7.9</b> 9. Time series (20 points)</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#a.-3-points-write-the-model-for-yt-mathematically-and-explain-the-intuition-behind-this-naming-convention."><i class="fa fa-check"></i><b>7.9.1</b> a. (3 points) Write the model for Yt mathematically and explain the intuition behind this naming convention.</a></li>
+<li class="chapter" data-level="7.9.2" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#b.-6-points-using-a-random-error-process-of-ε-n0-1-start-a-random-walk-from-y_1-0-and-continue-for-1000-steps.-plot-the-time-series."><i class="fa fa-check"></i><b>7.9.2</b> b. (6 points) Using a random error process of ε ∼ N(0, 1), start a random walk from <span class="math inline">\(Y_1 = 0\)</span> and continue for 1000 steps. Plot the time series.</a></li>
+<li class="chapter" data-level="7.9.3" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#c.-6-points-provide-both-an-autocorrelation-plot-as-well-as-a-partial-autocorrelation-plot.-explain-why-they-are-so-different."><i class="fa fa-check"></i><b>7.9.3</b> c. (6 points) Provide both an autocorrelation plot as well as a partial autocorrelation plot. Explain why they are so different.</a></li>
+<li class="chapter" data-level="7.9.4" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#d.-5-points-change-the-value-of-φ"><i class="fa fa-check"></i><b>7.9.4</b> d. (5 points) Change the value of φ</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html"><a href="applied-stats-model-ii---exam-two-stat-45207520---exam-2.html#open-ended-analysis-in-r-29-points"><i class="fa fa-check"></i><b>7.10</b> 10. Open Ended Analysis in R (29 points)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="asm2-hw-term-project.html"><a href="asm2-hw-term-project.html"><i class="fa fa-check"></i><b>8</b> ASM2 HW Term Project</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="asm2-hw-term-project.html"><a href="asm2-hw-term-project.html#rq-what-workds-based-on-what-theory"><i class="fa fa-check"></i><b>8.1</b> RQ: what workds based on what theory</a></li>
+<li class="chapter" data-level="8.2" data-path="asm2-hw-term-project.html"><a href="asm2-hw-term-project.html#descriptive-analysis"><i class="fa fa-check"></i><b>8.2</b> Descriptive analysis</a></li>
+<li class="chapter" data-level="8.3" data-path="asm2-hw-term-project.html"><a href="asm2-hw-term-project.html#mixed-model"><i class="fa fa-check"></i><b>8.3</b> Mixed Model</a></li>
+<li class="chapter" data-level="8.4" data-path="asm2-hw-term-project.html"><a href="asm2-hw-term-project.html#qa-a-why-small-change-b-prediction-measurement-auc-make-sense-c-interpretation-residual-centering-in-stats-vs.-econ."><i class="fa fa-check"></i><b>8.4</b> Q&amp;A: a) why small change b) prediction measurement, AUC make sense? c) interpretation residual centering in stats vs. econ.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html"><i class="fa fa-check"></i><b>9</b> Applied Stats Model II - HW1 (Yufan Lin)</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#question-1"><i class="fa fa-check"></i><b>9.1</b> Question 1:</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings."><i class="fa fa-check"></i><b>9.1.1</b> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.</a></li>
+<li class="chapter" data-level="9.1.2" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model."><i class="fa fa-check"></i><b>9.1.2</b> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.</a></li>
+<li class="chapter" data-level="9.1.3" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary."><i class="fa fa-check"></i><b>9.1.3</b> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().</a></li>
+<li class="chapter" data-level="9.1.4" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis"><i class="fa fa-check"></i><b>9.1.4</b> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis</a></li>
+<li class="chapter" data-level="9.1.5" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value."><i class="fa fa-check"></i><b>9.1.5</b> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.</a></li>
+<li class="chapter" data-level="9.1.6" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model."><i class="fa fa-check"></i><b>9.1.6</b> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.</a></li>
+<li class="chapter" data-level="9.1.7" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate"><i class="fa fa-check"></i><b>9.1.7</b> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?</a></li>
+<li class="chapter" data-level="9.1.8" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident"><i class="fa fa-check"></i><b>9.1.8</b> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?</a></li>
+<li class="chapter" data-level="9.1.9" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe."><i class="fa fa-check"></i><b>9.1.9</b> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.</a></li>
+<li class="chapter" data-level="9.1.10" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#rewrie-the-answer"><i class="fa fa-check"></i><b>9.1.10</b> <strong>Rewrie the answer</strong></a></li>
+<li class="chapter" data-level="9.1.11" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model"><i class="fa fa-check"></i><b>9.1.11</b> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?</a></li>
+<li class="chapter" data-level="9.1.12" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense"><i class="fa fa-check"></i><b>9.1.12</b> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#question-2"><i class="fa fa-check"></i><b>9.2</b> Question 2</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes."><i class="fa fa-check"></i><b>9.2.1</b> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.</a></li>
+<li class="chapter" data-level="9.2.2" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results."><i class="fa fa-check"></i><b>9.2.2</b> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.</a></li>
+<li class="chapter" data-level="9.2.3" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#c.-6-points-interpret-the-values-of-the-intercepts-θj-."><i class="fa fa-check"></i><b>9.2.3</b> c. (6 points) Interpret the values of the intercepts θj .</a></li>
+<li class="chapter" data-level="9.2.4" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics."><i class="fa fa-check"></i><b>9.2.4</b> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.</a></li>
+<li class="chapter" data-level="9.2.5" data-path="applied-stats-model-ii---hw1-yufan-lin.html"><a href="applied-stats-model-ii---hw1-yufan-lin.html#e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis"><i class="fa fa-check"></i><b>9.2.5</b> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html"><i class="fa fa-check"></i><b>10</b> 1 1) Modeling the Number of Claims</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#a.-5-points-create-a-table-to-present-the-distribution-of-the-number-of-claims-by-computing-the-proportion-of-each-possibility.-what-percent-of-the-policies-have-0-claims"><i class="fa fa-check"></i><b>10.1</b> a. (5 points) Create a table to present the distribution of the number of claims by computing the proportion of each possibility. What percent of the policies have 0 claims?</a></li>
+<li class="chapter" data-level="10.2" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#b.-6-points-create-a-poisson-regression-to-predict-the-number-of-claims-in-the-year-using-only-the-variables-for-vehicle-age-driver-age-bonusmalus-and-density.-what-is-the-deviance-does-is-differ-significantly-from-the-null-deviance"><i class="fa fa-check"></i><b>10.2</b> b. (6 points) Create a Poisson regression to predict the number of claims in the year using only the variables for vehicle age, driver age, bonusMalus, and density. What is the deviance? Does is differ significantly from the null deviance?</a></li>
+<li class="chapter" data-level="10.3" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#c.-4-points-generate-predictions-on-the-response-scale-µ-and-round-them-to-the-nearest-count.-create-a-table-as-in-part-a-and-comment-on-how-similar-or-dissimilar-this-result-is."><i class="fa fa-check"></i><b>10.3</b> c. (4 points) Generate predictions on the response scale µ and round them to the nearest count. Create a table as in part a and comment on how similar or dissimilar this result is.</a></li>
+<li class="chapter" data-level="10.4" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#d.-3-points-fit-a-negative-binomial-model-to-the-data-and-generate-predictions-as-in-part-c.-did-this-solve-the-problem"><i class="fa fa-check"></i><b>10.4</b> d. (3 points) Fit a negative binomial model to the data and generate predictions as in part c. Did this solve the problem?</a></li>
+<li class="chapter" data-level="10.5" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#e.-5-points-now-fit-a-zero-inflation-poisson-model-zip-and-compute-the-fitted-proportion-of-zero-counts-as-on-slide-38-of-the-poisson-notes.-does-this-help"><i class="fa fa-check"></i><b>10.5</b> e. (5 points) Now fit a zero inflation Poisson model (ZIP) and compute the fitted proportion of zero counts as on slide 38 of the Poisson Notes. Does this help?</a></li>
+<li class="chapter" data-level="10.6" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#f.-8-points-interpret-the-signs-of-the-coefficient-estimates-out-of-the-zip-model-both-the-count-portion-as-well-as-the-zero-inflated-portion"><i class="fa fa-check"></i><b>10.6</b> f. (8 points) Interpret the signs of the coefficient estimates out of the ZIP model, both the count portion as well as the zero inflated portion!</a></li>
+<li class="chapter" data-level="10.7" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#a.-3-points-in-this-problem-we-will-focus-on-modeling-the-positive-continuous-variable-avgclaimamount.-attempt-to-fit-a-gamma-regression-with-a-log-link-predicting-avgclaimamount-as-a-function-of-all-feature-variables-in-the-dataset.-what-happens-when-you-attempt-to-fit-this-model"><i class="fa fa-check"></i><b>10.7</b> a. (3 points) In this problem we will focus on modeling the positive continuous variable “AvgClaimAmount.” Attempt to fit a Gamma regression with a log link, predicting AvgClaimAmount as a function of all feature variables in the dataset. What happens when you attempt to fit this model?</a></li>
+<li class="chapter" data-level="10.8" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#b.-5-points-create-a-new-dataset-consisting-of-the-rows-that-correspond-to-strictly-positive-realizations-of-avgclaimamount.-make-a-histogram-of-this-variable-on-standard-and-log-scale-and-describe-your-findings."><i class="fa fa-check"></i><b>10.8</b> b. (5 points) Create a new dataset consisting of the rows that correspond to strictly positive realizations of AvgClaimAmount. Make a histogram of this variable on standard and log scale and describe your findings.</a></li>
+<li class="chapter" data-level="10.9" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#c.-4-points-fit-the-gamma-regression-proposed-in-part-a-to-the-filtered-dataset.-do-you-notice-anything-strange-how-many-iterations-did-it-take-glm-to-find-this-result"><i class="fa fa-check"></i><b>10.9</b> c. (4 points) Fit the Gamma regression proposed in part a to the filtered dataset. Do you notice anything strange? How many iterations did it take glm() to find this result?</a></li>
+<li class="chapter" data-level="10.10" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#d.-3-points-to-the-glm-function-add-the-argument-control-listmaxit-500.-what-do-you-think-this-will-do-fit-the-model-and-examine-the-summary-output-to-check-the-number-of-iterations-needed-for-convergence."><i class="fa fa-check"></i><b>10.10</b> d. (3 points) To the glm() function, add the argument control = list(maxit = 500). What do you think this will do? Fit the model and examine the summary output to check the number of iterations needed for convergence.</a></li>
+<li class="chapter" data-level="10.11" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#e.3-points-from-the-model-in-e.-interpret-the-parameter-estimate-for-a-vehicles-age"><i class="fa fa-check"></i><b>10.11</b> e.(3 points) From the model in e. Interpret the parameter estimate for a vehicle’s age</a></li>
+<li class="chapter" data-level="10.12" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#a.-8-points-using-the-entire-dataset-create-a-profile-likelihood-of-the-index-values-p-for-use-in-a-glm-utilizing-the-tweedie-distribution-to-predict-purepremium-directly.-make-a-plot-of-the-profile-likelihood-and-select-the-best-value.-7520---3-points-for-graduate-students-i-expect-some-exploration-to-find-the-best-value-as-these-data-are-quite-poorly-behaved.-look-at-the-value-section-of-tweedie.profile-for-some-hints-and-i-would-suggest-narrowing-the-search-space-for-p-and-evaluating-it-on-a-somewhat-fine-grid."><i class="fa fa-check"></i><b>10.12</b> a. (8 points) Using the entire dataset, create a profile likelihood of the index values p for use in a glm utilizing the Tweedie distribution to predict PurePremium directly. Make a plot of the profile likelihood and select the best value. (7520 - 3 points): For graduate students, I expect some <strong>exploration to find the best value as these data are quite poorly behaved</strong>. Look at the “Value” section of ?tweedie.profile for some hints, and I <strong>would suggest narrowing the search space for p and evaluating it on a somewhat fine grid.</strong></a></li>
+<li class="chapter" data-level="10.13" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#b.-fit-the-tweedie-glm-model-using-the-optimal-power-value-you-computed-from-the-previous-question.-the-file-insurance_test.csv-contains-a-few-additional-observations-which-were-not-a-portion-of-the-data-used-to-fit-the-previous-models.-we-can-read-it-in-and-format-it-using-syntax-similar-to-when-we-started.-newdatapoints---read.csv.insurance_test.csv-newdatapointsvehbrand---as.factornewdatapointsvehbrand-newdatapointsvehpower---as.factornewdatapointsvehpower-newdatapointsvehgas---as.factornewdatapointsvehgas-newdatapointsregion---as.factornewdatapointsregion-newdatapointsarea---as.factornewdatapointsarea"><i class="fa fa-check"></i><b>10.13</b> b. Fit the Tweedie GLM model using the optimal power value you computed from the previous question. The file Insurance_test.csv contains a few additional observations which were not a portion of the data used to fit the previous models. We can read it in and format it using syntax similar to when we started. NewDataPoints &lt;- read.csv(“…./Insurance_test.csv”) NewDataPoints$VehBrand &lt;- as.factor(NewDataPoints$VehBrand) NewDataPoints$VehPower &lt;- as.factor(NewDataPoints$VehPower) NewDataPoints$VehGas &lt;- as.factor(NewDataPoints$VehGas) NewDataPoints$Region &lt;- as.factor(NewDataPoints$Region) NewDataPoints$Area &lt;- as.factor(NewDataPoints$Area)</a></li>
+<li class="chapter" data-level="10.14" data-path="modeling-the-number-of-claims.html"><a href="modeling-the-number-of-claims.html#c.7-points-use-your-poisson-model-from-1b-from-and-your-final-gamma-model-from-2d-to-generate-respective-predictions-for-the-number-of-claims-in-a-year-as-well-as-the-average-amount-per-claim.-multiply-these-together-and-call-this-product-purepremium_prod.-similarly-use-your-tweedie-model-from-3b-to-directly-predict-the-purepremium-value-and-store-this-in-purepremium_tw."><i class="fa fa-check"></i><b>10.14</b> c.(7 points) Use your Poisson model from 1b from and your final Gamma model from 2d to generate respective predictions for the number of claims in a year as well as the average amount per claim. Multiply these together and call this product purepremium_prod. Similarly, use your Tweedie model from 3b to directly predict the PurePremium value and store this in purepremium_TW.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><i class="fa fa-check"></i><b>11</b> STAT 4520/7520 - Homework 3 Spring 2022 Due: March 30, 2022</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#the-cake-dataset-in-the-lme4-package-contains-data-on-an-experiment-was-conducted-to-determine-the-effect-of-recipe-and-baking-temperature-on-chocolate-cake-quality.-fifteen-batches-of-cake-mix-for-each-recipe-were-prepared.-each-batch-was-sufficient-for-six-cakes.-each-of-the-six-cakes-was-baked-at-a-different-temperature-which-was-randomly-assigned.-as-an-indicator-of-quality-the-breakage-angle-of-the-cake-was-recorded."><i class="fa fa-check"></i><b>11.1</b> 1) The cake dataset in the lme4 package contains data on an experiment was conducted to determine the effect of recipe and baking temperature on chocolate cake quality. Fifteen batches of cake mix for each recipe were prepared. Each batch was sufficient for six cakes. Each of the six cakes was baked at a different temperature which was randomly assigned. As an indicator of quality, the breakage angle of the cake was recorded.</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#a.-of-the-explanatory-variables-recipe-temp-and-replicate-which-are-fixed-and-which-are-random-explain.-is-there-any-nesting-in-these-variables"><i class="fa fa-check"></i><b>11.1.1</b> a. Of the explanatory variables recipe, temp, and replicate, which are fixed and which are random? Explain. Is there any nesting in these variables?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#b.-fit-a-linear-model-with-no-random-effects-for-breaking-angle-against-the-interaction-between-recipe-and-temperature.-which-variables-are-significant-what-is-the-t-value-for-temp-the-temperature-variable-what-is-the-rmse-of-this-model"><i class="fa fa-check"></i><b>11.1.2</b> b. Fit a linear model with no random effects for breaking angle against the interaction between recipe and temperature. Which variables are significant? What is the t value for temp the temperature variable? What is the RMSE of this model?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#c.-fit-a-mixed-model-to-the-data-which-takes-into-account-the-replicates-of-the-recipes.-examine-the-variance-components.-is-there-variation-in-the-batches-made-with-each-recipe-how-does-the-residual-variance-component-compare-to-the-mse-from-b-what-is-the-t-value-for-temperature"><i class="fa fa-check"></i><b>11.1.3</b> c. Fit a mixed model to the data which takes into account the replicates of the recipes. Examine the variance components. Is there variation in the batches made with each recipe? How does the Residual variance component compare to the MSE from (b)? What is the t-value for temperature?</a></li>
+<li class="chapter" data-level="11.1.4" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#d.-test-for-a-recipe-and-temperature-effect."><i class="fa fa-check"></i><b>11.1.4</b> d. Test for a recipe and temperature effect.</a></li>
+<li class="chapter" data-level="11.1.5" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#e.-create-a-qq-plot-of-the-residuals-and-a-residual-vs-predicted-plot-for-the-linear-model-in-b-and-the-mixed-model-in-d-describe-how-well-the-model-assumptions-are-satisfied-for-each."><i class="fa fa-check"></i><b>11.1.5</b> e. Create a QQ plot of the residuals and a residual vs predicted plot for the linear model in (b) and the mixed model in (d), describe how well the model assumptions are satisfied for each.</a></li>
+<li class="chapter" data-level="11.1.6" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#f.-7510-only-examine-the-blups-from-the-mixed-model-in-d.-do-you-notice-any-patterns"><i class="fa fa-check"></i><b>11.1.6</b> f. (7510 only) Examine the BLUPs from the mixed model in (d). Do you notice any patterns?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#the-purpose-of-random-effects-is-to-remove-variation-from-known-sources.-in-this-problem-we-will-use-this-idea-and-see-how-it-can-work-with-a-popular-technique-for-predictive-modeling-the-random-forest.-random-forests-were-covered-in-the-prerequisite-course-and-can-be-fit-using-the-randomforest-function-in-the-randomforest-library.-the-dataset-problem-2.csv-has-a-simulated-dataset.-there-is-a-nonlinear-relationship-between-6-numeric-explanatory-variables-x1-.-.-.-x6-and-the-response-y-to-addition-to-a-grouping-effect-according-to-the-id-variable-which-has-100-levels."><i class="fa fa-check"></i><b>11.2</b> 2) The purpose of random effects is to remove variation from known sources. In this problem, we will use this idea and see how it can work with a popular technique for predictive modeling, the random forest. Random forests were covered in the prerequisite course, and can be fit using the randomForest function in the randomForest library. The dataset Problem-2.csv has a simulated dataset. There is a nonlinear relationship between 6 numeric explanatory variables x1, . . . x6 and the response y, to addition to a grouping effect according to the ID variable, which has 100 levels.</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#a.-read-in-the-dataset-and-split-the-data-into-a-training-and-test-set-using-95-of-the-data-for-the-training-set.-set-a-seed-of-1-for-consistency-of-results."><i class="fa fa-check"></i><b>11.2.1</b> a. Read in the dataset, and split the data into a training and test set, using 95% of the data for the training set. Set a seed of 1 for consistency of results.</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#b.-fit-a-random-forest-model-to-the-training-data-using-y-as-the-response-with-x1-.-.-.-x6-and-id-as-the-explanatory-variables.-use-the-model-to-predict-y-in-the-test-set-and-compute-the-test-root-mean-squared-error-rmse-."><i class="fa fa-check"></i><b>11.2.2</b> b. Fit a random forest model to the training data using y as the response with x1, . . . x6 and ID as the explanatory variables. Use the model to predict y in the test set and compute the test root mean squared error ( RMSE ).</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#c.-fit-the-mixed-model-yij-µ-idi-εij-to-the-training-data.-this-model-does-not-use-the-x_i-at-all-and-has-a-random-intercept-based-on-id.-after-fitting-the-model-extract-the-blups-for-id-and-add-them-to-the-constant-µˆ-the-estimate-of-the-overall-intercept.-what-do-these-values-represent-store-them-in-a-data-frame-along-with-a-column-storing-the-ids."><i class="fa fa-check"></i><b>11.2.3</b> c. Fit the mixed model yij = µ + IDi + εij to the training data. This model does not use the x_i at all, and has a random intercept based on ID. After fitting the model, extract the BLUPs for ID and add them to the constant µˆ, the estimate of the overall intercept. What do these values represent? Store them in a data frame along with a column storing the IDs.</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#d.-add-a-column-to-the-test-dataset-containing-the-values-obtained-in-part-c-joined-to-the-test-dataset-by-matching-the-ids.-note-with-the-dplyr-package-loaded-you-can-quickly-join-by-id-using-a-line-like-data.test---left_joindata.test-int_plus_blups-by-id-examine-the-first-few-rows-and-describe-what-the-new-column-represents."><i class="fa fa-check"></i><b>11.2.4</b> d. Add a column to the test dataset containing the values obtained in part c, joined to the test dataset by matching the IDs. Note: with the dplyr package loaded, you can quickly join by ID using a line like: Data.Test &lt;- left_join(Data.Test, int_plus_blups, by = “ID”) Examine the first few rows and describe what the new column represents.</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#e.-compute-the-residuals-of-the-mixed-model-fit-in-c-using-the-residuals-function-store-them-in-a-column-of-the-training-data."><i class="fa fa-check"></i><b>11.2.5</b> e. Compute the residuals of the mixed model fit in (c) using the residuals() function, store them in a column of the training data.</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#f.-fit-another-random-forest-model-to-the-training-data-using-the-residuals-from-part-e-as-the-response-and-only-x1-.-.-.-x6-as-the-explanatory-variables.-use-this-model-to-predict-into-the-test-data-and-store-these-predictions.-what-do-these-predictions-represent"><i class="fa fa-check"></i><b>11.2.6</b> f. Fit another random forest model to the training data, using the residuals from part (e) as the response and only x1, . . . x6 as the explanatory variables. Use this model to predict into the test data and store these predictions. What do these predictions represent?</a></li>
+<li class="chapter" data-level="11.2.7" data-path="stat-45207520---homework-3-spring-2022-due-march-30-2022.html"><a href="stat-45207520---homework-3-spring-2022-due-march-30-2022.html#g.-add-the-predictions-in-f-to-the-values-joined-to-the-test-data-in-d.-consider-these-values-test-predictions-and-compute-the-test-mse.-compare-this-to-the-test-mse-compared-in-part-b.-what-do-you-observe"><i class="fa fa-check"></i><b>11.2.7</b> g. Add the predictions in (f) to the values joined to the test data in (d). Consider these values test predictions, and compute the test MSE. Compare this to the test MSE compared in part (b). What do you observe?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><i class="fa fa-check"></i><b>12</b> STAT 4520/7520 - Homework 4 Spring 2022 Due: April 25, 2022</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#section-1"><i class="fa fa-check"></i><b>12.1</b> 1)</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#a.-make-a-plot-of-weight-vs-time-for-the-data-with-rat-specific-lines-to-show-the-subject-specific-trajectory.-describe-your-findings.-7510-only-further-color-the-lines-differently-for-the-different-diets.-do-you-notice-anything-further"><i class="fa fa-check"></i><b>12.1.1</b> a. Make a plot of weight vs Time for the data with rat specific lines to show the subject specific trajectory. Describe your findings. (7510 only) Further, color the lines differently for the different diets. Do you notice anything further?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#b.-use-lm-to-regress-the-weight-onto-the-time.-what-is-the-slope-and-intercept-of-this-model-is-the-slope-significant"><i class="fa fa-check"></i><b>12.1.2</b> b. Use lm() to regress the weight onto the Time. What is the slope and intercept of this model? Is the slope significant?</a></li>
+<li class="chapter" data-level="12.1.3" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#c.-use-the-lmlist-function-to-fit-a-linear-regression-model-that-describes-how-weight-varies-with-days-for-each-individual-rat.-how-do-the-slopes-and-intercepts-vary-do-you-notice-any-patterns-with-respect-to-diets"><i class="fa fa-check"></i><b>12.1.3</b> c. Use the lmList function to fit a linear regression model that describes how weight varies with days for each individual rat. How do the slopes and intercepts vary? Do you notice any patterns with respect to diets?</a></li>
+<li class="chapter" data-level="12.1.4" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#d.-fit-a-random-intercept-model-to-account-for-the-different-weights-of-each-individual-rat-and-continue-to-use-time-as-a-fixed-effect.-answer-the-following"><i class="fa fa-check"></i><b>12.1.4</b> d. Fit a random intercept model to account for the different weights of each individual rat and continue to use Time as a fixed effect. Answer the following:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#e.-obtain-the-blups-for-the-rats-and-list-who-is-the-most-heavy."><i class="fa fa-check"></i><b>12.1.5</b> e. Obtain the BLUPs for the rats and list who is the most heavy.</a></li>
+<li class="chapter" data-level="12.1.6" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#f.-fit-a-mixed-effects-model-that-describes-how-the-weight-varies-linearly-with-time-and-allows-for-random-variation-in-the-intercepts-and-slopes-of-the-rats.-then-do-the-following"><i class="fa fa-check"></i><b>12.1.6</b> f. Fit a mixed effects model that describes how the weight varies linearly with time and allows for random variation in the intercepts and slopes of the rats. Then do the following:</a></li>
+<li class="chapter" data-level="12.1.7" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#g.-obtain-the-blups-for-the-model-in-part-f.-which-rat-has-the-fastest-rate-of-increase-the-slowest"><i class="fa fa-check"></i><b>12.1.7</b> g. Obtain the BLUPs for the model in part f. Which rat has the fastest rate of increase? The slowest?</a></li>
+<li class="chapter" data-level="12.1.8" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#h.-add-the-fixed-diet-variable-to-the-model-in-the-form-of-an-interaction-with-time.-does-the-diet-effect-weight-is-this-effect-different-at-different-times"><i class="fa fa-check"></i><b>12.1.8</b> h. Add the (fixed) diet variable to the model in the form of an interaction with time. Does the diet effect weight? Is this effect different at different times?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#time-series"><i class="fa fa-check"></i><b>12.2</b> 2) Time Series</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#a.-create-a-variable-containing-the-log-base-10-of-the-eps-then-use-lm-to-regress-it-onto-time.-store-the-residuals-of-this-regression-in-another-variable-in-jj.-make-a-plot-of-the-residuals-vs-time-and-describe-your-findings."><i class="fa fa-check"></i><b>12.2.1</b> a. Create a variable containing the log (base 10) of the EPS, then use lm() to regress it onto Time. Store the residuals of this regression in another variable in JJ. Make a plot of the residuals vs Time and describe your findings.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#b.-run-the-detrended-values-through-auto.arima-to-find-a-good-arma-model.-note-that-you-may-want-to-use-the-additional-argument-stepwise-false-to-allow-auto.arima-to-conduct-a-full-grid-search.-what-model-was-found"><i class="fa fa-check"></i><b>12.2.2</b> b. Run the detrended values through auto.arima() to find a good ARMA model. Note that you may want to use the additional argument stepwise = FALSE to allow auto.arima() to conduct a full grid search. What model was found?</a></li>
+<li class="chapter" data-level="12.2.3" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#c.-use-the-best-model-to-forecast-the-detrended-relationship-2-years-8-quarters-ahead.-make-a-plot-of-the-result-and-comment-on-how-reasonable-your-predictions-look."><i class="fa fa-check"></i><b>12.2.3</b> c. Use the best model to forecast the detrended relationship 2 years (8 quarters) ahead. Make a plot of the result and comment on how reasonable your predictions look.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#d.-use-the-linear-model-from-part-a-to-predict-the-trend-for-the-next-8-quarters-add-the-result-to-that-of-part-c-transform-back-to-the-original-scale-and-plot-the-forecast-along-with-the-original-data.-does-the-forecast-seem-reasonable"><i class="fa fa-check"></i><b>12.2.4</b> d. Use the linear model from part a to predict the trend for the next 8 quarters, add the result to that of part c, transform back to the original scale, and plot the forecast along with the original data. Does the forecast seem reasonable?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#spatial-point-process-analysis"><i class="fa fa-check"></i><b>12.3</b> 3) Spatial Point Process Analysis</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#a.-make-a-plot-of-the-point-pattern.-does-the-distribution-of-the-points-in-space-appear-to-be-homogeneous-poisson-process"><i class="fa fa-check"></i><b>12.3.1</b> a. Make a plot of the point pattern. Does the distribution of the points in space appear to be homogeneous Poisson process?</a></li>
+<li class="chapter" data-level="12.3.2" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#b.-make-plots-of-gr-and-fr-and-comment-on-what-you-observe."><i class="fa fa-check"></i><b>12.3.2</b> b. Make plots of G(r) and F(r) and comment on what you observe.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#c.-fit-a-point-process-model-with-linear-terms-in-both-x-and-y.-are-there-any-significant-spatial-relationships"><i class="fa fa-check"></i><b>12.3.3</b> c. Fit a point process model with linear terms in both x and y. Are there any significant spatial relationships?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#loading-keras"><i class="fa fa-check"></i><b>12.4</b> 4) Loading Keras</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#a.-mostly-as-an-exercise-to-ensure-you-have-keras-installed-correctly-run-the-above-code-and-comment-onthe-quality-of-the-fit-you-observe.-note-i-was-unable-to-run-the-code-within-an-rmarkdown-cell-but-this-may-be-due-to-a-system-configuration-issue."><i class="fa fa-check"></i><b>12.4.1</b> a. Mostly as an exercise to ensure you have Keras installed correctly, run the above code and comment onthe quality of the fit you observe. NOTE: I was unable to run the code within an RMarkdown cell, but this may be due to a system configuration issue.</a></li>
+<li class="chapter" data-level="12.4.2" data-path="stat-45207520---homework-4-spring-2022-due-april-25-2022.html"><a href="stat-45207520---homework-4-spring-2022-due-april-25-2022.html#b.-modify-the-code-in-an-attempt-to-improve-the-fit.-specifically-study-the-effects-as-well-as-interactions-of"><i class="fa fa-check"></i><b>12.4.2</b> b. Modify the code in an attempt to improve the fit. Specifically, study the effects (as well as interactions) of:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html"><i class="fa fa-check"></i><b>13</b> Applied Stats Model II Lecture Note</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#list-of-questions"><i class="fa fa-check"></i><b>13.1</b> List of Questions:</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#hw1"><i class="fa fa-check"></i><b>13.1.1</b> HW1</a></li>
+<li class="chapter" data-level="13.1.2" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#hw2"><i class="fa fa-check"></i><b>13.1.2</b> HW2</a></li>
+<li class="chapter" data-level="13.1.3" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#midterm"><i class="fa fa-check"></i><b>13.1.3</b> Midterm</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#class-content-overview"><i class="fa fa-check"></i><b>13.2</b> Class content overview:</a></li>
+<li class="chapter" data-level="13.3" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glm-categoricaldata_sp2022"><i class="fa fa-check"></i><b>13.3</b> GLM-CategoricalData_SP2022</a></li>
+<li class="chapter" data-level="13.4" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glm-countdata_sp2022"><i class="fa fa-check"></i><b>13.4</b> GLM-CountData_SP2022</a></li>
+<li class="chapter" data-level="13.5" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#glms_advancedtopics_sp2022"><i class="fa fa-check"></i><b>13.5</b> GLMs_AdvancedTopics_SP2022</a></li>
+<li class="chapter" data-level="13.6" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#mm-randomeffects_spring2022"><i class="fa fa-check"></i><b>13.6</b> MM-RandomEffects_Spring2022</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="applied-stats-model-ii-lecture-note.html"><a href="applied-stats-model-ii-lecture-note.html#hw4-repeated-measure-time-and-space-dependence."><i class="fa fa-check"></i><b>13.6.1</b> HW4: Repeated measure, time and space dependence.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-report.html"><a href="final-report.html"><i class="fa fa-check"></i><b>14</b> Final Report</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="final-report.html"><a href="final-report.html#introduction"><i class="fa fa-check"></i><b>14.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-report.html"><a href="final-report.html#hypothesis"><i class="fa fa-check"></i><b>14.1.1</b> Hypothesis:</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-report.html"><a href="final-report.html#data-background"><i class="fa fa-check"></i><b>14.1.2</b> Data Background</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="final-report.html"><a href="final-report.html#methodsanalysis"><i class="fa fa-check"></i><b>14.2</b> Methods/Analysis</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="final-report.html"><a href="final-report.html#empirical-analysis"><i class="fa fa-check"></i><b>14.2.1</b> Empirical Analysis</a></li>
+<li class="chapter" data-level="14.2.2" data-path="final-report.html"><a href="final-report.html#impact-of-negotiation-tactics-on-the-likelihood-of-closing-sales"><i class="fa fa-check"></i><b>14.2.2</b> Impact of Negotiation Tactics on the Likelihood of Closing Sales</a></li>
+<li class="chapter" data-level="14.2.3" data-path="final-report.html"><a href="final-report.html#research-implications"><i class="fa fa-check"></i><b>14.2.3</b> Research Implications</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html"><i class="fa fa-check"></i><b>15</b> Experimental Data Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html#process-macro"><i class="fa fa-check"></i><b>15.1</b> PROCESS Macro</a></li>
+<li class="chapter" data-level="15.2" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html#data-cleaning"><i class="fa fa-check"></i><b>15.2</b> Data cleaning</a></li>
+<li class="chapter" data-level="15.3" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html#mediation-analysis"><i class="fa fa-check"></i><b>15.3</b> Mediation analysis</a></li>
+<li class="chapter" data-level="15.4" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html#adding-more-controls"><i class="fa fa-check"></i><b>15.4</b> Adding more controls</a></li>
+<li class="chapter" data-level="15.5" data-path="experimental-data-analysis.html"><a href="experimental-data-analysis.html#efa-and-cfa-analysis-measurement-analysis"><i class="fa fa-check"></i><b>15.5</b> EFA And CFA Analysis / Measurement analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><a href="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><i class="fa fa-check"></i><b>16</b> SEM HW5 - code in the chunk but don’t run them. copy them as a whole with the comments</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><a href="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html#replicate-hw3"><i class="fa fa-check"></i><b>16.1</b> Replicate HW3</a></li>
+<li class="chapter" data-level="16.2" data-path="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><a href="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html#most-of-the-previous-steps-can-be-done-in-r-and-stata-in-parellel."><i class="fa fa-check"></i><b>16.2</b> most of the previous steps can be done in R and stata in parellel.</a></li>
+<li class="chapter" data-level="16.3" data-path="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><a href="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html#output-the-write-up-in-the-r.-only-add-stata-as-complement.---use-tc-as-template."><i class="fa fa-check"></i><b>16.3</b> output the write up in the R. Only add Stata as complement. -&gt; use TC as template.</a></li>
+<li class="chapter" data-level="16.4" data-path="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html"><a href="sem-hw5---code-in-the-chunk-but-dont-run-them.-copy-them-as-a-whole-with-the-comments.html#goal-is-to-understand-the-application-of-regression-at-different-angle-to-fully-understand-it."><i class="fa fa-check"></i><b>16.4</b> Goal is to understand the application of regression at different angle to fully understand it.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Stats Model II - HW1 (Yufan Lin)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applied-stats-model-ii---hw1-yufan-lin" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Applied Stats Model II - HW1 (Yufan Lin)<a href="applied-stats-model-ii---hw1-yufan-lin.html#applied-stats-model-ii---hw1-yufan-lin" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="question-1" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Question 1:<a href="applied-stats-model-ii---hw1-yufan-lin.html#question-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(1\)</span> Logistic Regression: Major League Baseball (MLB) maintains a public facing version of it’s “Statcast” system. Since 2015, MLB teams have been leveraging data analytics to gain a competitive advantage using the raw data out of Statcast, which captures extremely high resolution views of player performance. Here we will study a dataset I have pulled and curated. We will examine which of several characteristics are predictive of a hit yielding a “home run.” The selected variables are as follows: • pitch_speed: Speed of pitch in mph. • pitch_spin: Spin rate of pitch • pitch_horizontal_movement: Horizontal movement of the pitch in feet from the catcher’s perspective. • pitch_vertical_movement: Vertical movement of the pitch in feet from the catcher’s perpsective. • plate_x: Horizontal position of the ball when it crosses home plate from the catcher’s perspective. • plate_z: Vertical position of the ball when it crosses home plate from the catcher’s perspective. • pitcher_hand: Pitcher’s throwing hand. • launch_angle: Launch angle of the batted ball. • launch_speed: Exit velocity of the batted ball (so, how fast it is going once hit by the batter) • stand: Side of the plate batter is standing from the pitcher’s perspective. • home_run: 1/0, the target variable The dataset can be loaded with the command HomeRun &lt;- read.csv(“…/HomeRunData.csv”, stringsAsFactors = TRUE)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Cannot knit the single document?</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input the dataset</span></span>
+<span id="cb3-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb3-2" aria-hidden="true" tabindex="-1"></a>HomeRun <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/HomeRunData.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings." class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> a. (8 points) Create plots to examine how launch speed and angle may affect the probability of a home run and describe your findings.<a href="applied-stats-model-ii---hw1-yufan-lin.html#a.-8-points-create-plots-to-examine-how-launch-speed-and-angle-may-affect-the-probability-of-a-home-run-and-describe-your-findings." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On the first plot between launch speed and the probability of a home run, as the launch speed increase to 80 and above, the home run chance increases.</p>
+<p>On the second plot between launch angle and the probability of a home run, as the launch angle increase to be above 10, the chance of home run increases. However, when it surpass 50 the chance of home run decreases.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S39. class is the DV, thickness is the IV. ??? why it doesn&#39;t need binning but deviances needs it? Why is my output different from the ppt?</span></span>
+<span id="cb4-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(home_run <span class="sc">~</span> launch_speed,HomeRun)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as the lauch speed increase to 80, the home run chance increase.</span></span>
+<span id="cb5-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(home_run <span class="sc">~</span> launch_angle,HomeRun)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seems to have an u-shape effect. less than 0 and more than 50 are both bad. </span></span></code></pre></div>
+</div>
+<div id="b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model." class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> b. (9 points) Fit a logistic regression model with home_run as the response and all other variables as predictors. Conduct a deviance test to assess if this model is better than the null model.<a href="applied-stats-model-ii---hw1-yufan-lin.html#b.-9-points-fit-a-logistic-regression-model-with-home_run-as-the-response-and-all-other-variables-as-predictors.-conduct-a-deviance-test-to-assess-if-this-model-is-better-than-the-null-model." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I ran the logistic regression to predict home run using all other variables.</p>
+<p>The results show the pitch_speed, launch angle and launch speed are statistically significant predictors at 95% confidence level.</p>
+<p>I then conducted the deviance test. The result is significant. Thus, the model is better than the null model.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model with all variables. Note &lt;- not =  </span></span>
+<span id="cb7-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb7-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model <span class="ot">&lt;-</span> <span class="fu">glm</span>(home_run <span class="sc">~</span> ., <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span>
+<span id="cb7-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred. ??? What does the warning mean? still can run. move on for now. </span></span>
+<span id="cb7-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.statology.org/glm-fit-fitted-probabilities-numerically-0-or-1-occurred/</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ ., family = binomial, data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7030  -0.1785  -0.0455  -0.0036   4.2501  
+## 
+## Coefficients:
+##                             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)               -3.288e+01  1.073e+00 -30.632  &lt; 2e-16 ***
+## pitch_speed               -5.416e-02  8.723e-03  -6.209 5.32e-10 ***
+## pitch_spin                 6.729e-05  1.221e-04   0.551    0.581    
+## pitch_horizontal_movement -2.779e-02  5.151e-02  -0.539    0.590    
+## pitch_vertical_movement   -5.401e-02  7.207e-02  -0.749    0.454    
+## plate_x                   -4.299e-02  8.223e-02  -0.523    0.601    
+## plate_z                    1.040e-01  7.133e-02   1.458    0.145    
+## pitcher_handR             -6.163e-02  9.391e-02  -0.656    0.512    
+## launch_angle               9.850e-02  2.962e-03  33.253  &lt; 2e-16 ***
+## launch_speed               3.250e-01  7.796e-03  41.691  &lt; 2e-16 ***
+## standR                    -8.384e-02  7.141e-02  -1.174    0.240    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6109.7  on 29585  degrees of freedom
+## AIC: 6131.7
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(Logistic_Model)$coefficients</span></span>
+<span id="cb10-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># S22: change the df per the summary stats above. </span></span>
+<span id="cb10-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb10-3" aria-hidden="true" tabindex="-1"></a>Test_Dev <span class="ot">=</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>null.deviance <span class="sc">-</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>deviance</span>
+<span id="cb10-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="at">q =</span> Test_Dev, <span class="at">df =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? What does the 0 stands for here? significant?</span></span></code></pre></div>
+</div>
+<div id="c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary." class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> c. (8 points) Conduct deviance tests with the drop1() function to assess the significance of each individual variable and report the results. Compare the p-values to those obtained from summary().<a href="applied-stats-model-ii---hw1-yufan-lin.html#c.-8-points-conduct-deviance-tests-with-the-drop1-function-to-assess-the-significance-of-each-individual-variable-and-report-the-results.-compare-the-p-values-to-those-obtained-from-summary." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I conducted the deviance test using drop1 function. The pitch speed, plate_z, launch_angle, launch_speed and stand are significant at 95% confidence level.</p>
+<p>The p-value are different from the summary. Plate_z went from 0.145 to 0.001; Stand went 0.240 from to 0.01. All other variables have similar p values as before.</p>
+<p>I would trust the drop1 function’s results as it doesn’t rely on the unreliable walt’s test.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S30, S67: stepwise selection - backward. large predictors some will randomly be significant. but note, you are not eliminate the one with p at border? once your predictors number is small enough. it is ok? </span></span>
+<span id="cb13-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Why no reaction for a long time?</span></span>
+<span id="cb13-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(Logistic_Model,<span class="at">test=</span><span class="st">&quot;F&quot;</span>)</span></code></pre></div>
+<pre><code>## Single term deletions
+## 
+## Model:
+## home_run ~ pitch_speed + pitch_spin + pitch_horizontal_movement + 
+##     pitch_vertical_movement + plate_x + plate_z + pitcher_hand + 
+##     launch_angle + launch_speed + stand
+##                           Df Deviance     AIC    F value    Pr(&gt;F)    
+## &lt;none&gt;                         6109.7  6131.7                         
+## pitch_speed                1   6147.7  6167.7   183.9705 &lt; 2.2e-16 ***
+## pitch_spin                 1   6110.0  6130.0     1.4772  0.224219    
+## pitch_horizontal_movement  1   6110.0  6130.0     1.4068  0.235594    
+## pitch_vertical_movement    1   6110.3  6130.3     2.7214  0.099019 .  
+## plate_x                    1   6110.0  6130.0     1.3233  0.250003    
+## plate_z                    1   6111.8  6131.8    10.2774  0.001348 ** 
+## pitcher_hand               1   6110.1  6130.1     2.0781  0.149433    
+## launch_angle               1   7716.6  7736.6  7781.3469 &lt; 2.2e-16 ***
+## launch_speed               1  10133.9 10153.9 19486.6009 &lt; 2.2e-16 ***
+## stand                      1   6111.1  6131.1     6.6608  0.009861 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> d. (6 points) Fit a smaller model after removing all variables which are insignificant using α = 0.05. Compare this model to the larger model, are they significantly different? What are the implications of this with regard to model selection? Until the end of this question, use the smaller model for all analysis<a href="applied-stats-model-ii---hw1-yufan-lin.html#d.-6-points-fit-a-smaller-model-after-removing-all-variables-which-are-insignificant-using-α-0.05.-compare-this-model-to-the-larger-model-are-they-significantly-different-what-are-the-implications-of-this-with-regard-to-model-selection-until-the-end-of-this-question-use-the-smaller-model-for-all-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I compare the smaller model with the larger model, they are not significantly different per the deviance test.</p>
+<p>The result suggests that larger model doesn’t add much explanation power. I should use the smaller model for parsimonious explanation.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb15-1" aria-hidden="true" tabindex="-1"></a>Logistic_Model_better <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span> pitch_speed<span class="sc">+</span> plate_z <span class="sc">+</span> launch_angle <span class="sc">+</span> launch_speed <span class="sc">+</span> stand, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_better)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ pitch_speed + plate_z + launch_angle + 
+##     launch_speed + stand, family = binomial, data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7028  -0.1792  -0.0455  -0.0036   4.2511  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -32.484157   0.935687 -34.717   &lt;2e-16 ***
+## pitch_speed   -0.057392   0.006136  -9.354   &lt;2e-16 ***
+## plate_z        0.096252   0.070659   1.362    0.173    
+## launch_angle   0.098273   0.002941  33.420   &lt;2e-16 ***
+## launch_speed   0.324831   0.007788  41.711   &lt;2e-16 ***
+## standR        -0.088306   0.069221  -1.276    0.202    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6111.3  on 29590  degrees of freedom
+## AIC: 6123.3
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? Is sthe plate_Z and standR just noise? random significant on the backward selection drop1 process?</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the df difference 11 (baseline all variable) - 5 (better model) = 6</span></span>
+<span id="cb19-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb19-2" aria-hidden="true" tabindex="-1"></a>Test_Dev_better <span class="ot">=</span> <span class="fu">summary</span>(Logistic_Model_better)<span class="sc">$</span>deviance <span class="sc">-</span> <span class="fu">summary</span>(Logistic_Model)<span class="sc">$</span>deviance</span>
+<span id="cb19-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="at">q =</span> Test_Dev_better, <span class="at">df =</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9502016</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The result shows insignificant difference between the two. Thus, better model is parsimony.</span></span></code></pre></div>
+</div>
+<div id="e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value." class="section level3 hasAnchor" number="9.1.5">
+<h3><span class="header-section-number">9.1.5</span> e. (7 points) How does the launch speed after the ball is hit affect the <strong>odds of HomeRun occurring</strong>? Provide a confidence interval for this value.<a href="applied-stats-model-ii---hw1-yufan-lin.html#e.-7-points-how-does-the-launch-speed-after-the-ball-is-hit-affect-the-odds-of-homerun-occurring-provide-a-confidence-interval-for-this-value." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The odds is 1.38. As the launch speed increase by 1, the chance of success will increase by 100% * (1.38-1) = 38%</p>
+<p>The confidence interval for the odds is between 1.36 to 1.40.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S57/ </span></span>
+<span id="cb22-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb22-3" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(Logistic_Model_better)</span>
+<span id="cb22-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb22-4" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##  (Intercept)  pitch_speed      plate_z launch_angle launch_speed       standR 
+## 7.803867e-15 9.442236e-01 1.101037e+00 1.103264e+00 1.383797e+00 9.154811e-01</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1.383797e+00  ??? interpret e+00 menas integer? 1.38 more success than failure to hit home rum </span></span>
+<span id="cb24-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S17: When launch speed increases by 1, the odds of success increases by a factor of 1.38 pr 100% * (1.38-1) = 38% increase in chance/ odds??? of sucess. </span></span>
+<span id="cb24-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#What if I want the chance vs. odds???</span></span>
+<span id="cb24-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># why the number different? 1.38/(1+1.38) = .57 </span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type of confidenec interval</span></span>
+<span id="cb25-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#??? What if I use directly the CI from the model? violate assumption in binomial family?</span></span>
+<span id="cb25-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A lot of warning message: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred ???</span></span>
+<span id="cb25-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#S44: </span></span>
+<span id="cb25-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Confidence_Intervals &lt;- confint(Logistic_Model_better)</span></span>
+<span id="cb25-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Confidence_Intervals</span></span>
+<span id="cb25-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb25-8" aria-hidden="true" tabindex="-1"></a>Confidence_Intervals <span class="ot">&lt;-</span> <span class="fu">confint</span>(Logistic_Model_better)</span></code></pre></div>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb27-1" aria-hidden="true" tabindex="-1"></a>Confidence_Intervals <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##                     2.5 %       97.5 %
+## (Intercept)  1.218007e-15 4.773109e-14
+## pitch_speed  9.329500e-01 9.556669e-01
+## plate_z      9.584535e-01 1.264379e+00
+## launch_angle 1.096995e+00 1.109715e+00
+## launch_speed 1.363138e+00 1.405399e+00
+## standR       7.995274e-01 1.048816e+00</code></pre>
+</div>
+<div id="f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model." class="section level3 hasAnchor" number="9.1.6">
+<h3><span class="header-section-number">9.1.6</span> f. (5 points) Using the deviance residuals, make a binned residual vs fitted probability plot and comment on the fit of the model.<a href="applied-stats-model-ii---hw1-yufan-lin.html#f.-5-points-using-the-deviance-residuals-make-a-binned-residual-vs-fitted-probability-plot-and-comment-on-the-fit-of-the-model." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The model doesn’t fit well. The residual gets bigger rather than smaller when the probability increases. Based on the theoretical distribution, as the probability increases, the variance should be smaller. Thus, there may be misspecification in the model.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bin plot vs. fitted plt </span></span>
+<span id="cb29-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># random subset is not required.</span></span>
+<span id="cb29-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.7     ✔ dplyr   1.0.8
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-1" aria-hidden="true" tabindex="-1"></a>plot_bin <span class="ot">&lt;-</span> <span class="cf">function</span>(Y, X, <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">return.DF =</span> <span class="cn">FALSE</span>){</span>
+<span id="cb33-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-2" aria-hidden="true" tabindex="-1"></a>Y_Name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(Y))</span>
+<span id="cb33-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-3" aria-hidden="true" tabindex="-1"></a>X_Name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(X))</span>
+<span id="cb33-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-4" aria-hidden="true" tabindex="-1"></a>Binned_Plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Plot_Y =</span> Y, <span class="at">Plot_X =</span> X)</span>
+<span id="cb33-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-5" aria-hidden="true" tabindex="-1"></a>Binned_Plot<span class="sc">$</span>bin <span class="ot">&lt;-</span> <span class="fu">cut</span>(Binned_Plot<span class="sc">$</span>Plot_X,<span class="at">breaks =</span> bins) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>()</span>
+<span id="cb33-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-7" aria-hidden="true" tabindex="-1"></a>Binned_Plot_summary <span class="ot">&lt;-</span> Binned_Plot <span class="sc">|&gt;</span></span>
+<span id="cb33-8"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(bin) <span class="sc">|&gt;</span></span>
+<span id="cb33-9"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">Y_ave =</span> <span class="fu">mean</span>(Plot_Y),</span>
+<span id="cb33-10"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="at">X_ave =</span> <span class="fu">mean</span>(Plot_X),</span>
+<span id="cb33-11"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="at">Count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb33-12"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y =</span> Binned_Plot_summary<span class="sc">$</span>Y_ave,</span>
+<span id="cb33-13"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> Binned_Plot_summary<span class="sc">$</span>X_ave,</span>
+<span id="cb33-14"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="at">ylab =</span> Y_Name,<span class="at">xlab =</span> X_Name)</span>
+<span id="cb33-15"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(return.DF) <span class="fu">return</span>(Binned_Plot_summary)</span>
+<span id="cb33-16"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb33-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#S32: vs. fitted probability plot rather than individual variable. ??? When to use the individual variable on?</span></span>
+<span id="cb34-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-3" aria-hidden="true" tabindex="-1"></a>Logistic_better_Resids <span class="ot">&lt;-</span> <span class="fu">residuals</span>(Logistic_Model_better,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb34-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-4" aria-hidden="true" tabindex="-1"></a>Logistic_better_Predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better,<span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb34-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-6" aria-hidden="true" tabindex="-1"></a>NumBins <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb34-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-7" aria-hidden="true" tabindex="-1"></a>Binned_Data <span class="ot">&lt;-</span> <span class="fu">plot_bin</span>(<span class="at">Y =</span> Logistic_better_Resids,</span>
+<span id="cb34-8"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="at">X =</span> Logistic_better_Predictions,</span>
+<span id="cb34-9"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="at">bins =</span> NumBins,</span>
+<span id="cb34-10"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="at">return.DF =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-11"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The model doesn&#39;t fit well??? why? </span></span>
+<span id="cb35-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S28 ??? why deviance not the same. why no u shape. np vs. npq.</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#need more bins, the shape will follow theroy on S18 Chapter 2.</span></span></code></pre></div>
+</div>
+<div id="g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate" class="section level3 hasAnchor" number="9.1.7">
+<h3><span class="header-section-number">9.1.7</span> g. (4 points) Using a probability of 0.5 as the threshold for predicting an observation yielding a home run, create a table classifying the predictions against the observed values. Describe your findings. What is the misclassification rate?<a href="applied-stats-model-ii---hw1-yufan-lin.html#g.-4-points-using-a-probability-of-0.5-as-the-threshold-for-predicting-an-observation-yielding-a-home-run-create-a-table-classifying-the-predictions-against-the-observed-values.-describe-your-findings.-what-is-the-misclassification-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The model predicts well as the accuracy rate is high.</p>
+<p>The misclassification rate is 0.043 or 4%. However, the sensitivity and specificity are poor.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix </span></span>
+<span id="cb37-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># S47:</span></span>
+<span id="cb37-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-4" aria-hidden="true" tabindex="-1"></a>Predicted_Prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb37-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-5" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> <span class="fl">0.5</span>,<span class="at">yes =</span> <span class="st">&quot;home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;no_home_run&quot;</span>)</span>
+<span id="cb37-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-6" aria-hidden="true" tabindex="-1"></a>Observed_Class <span class="ot">&lt;-</span> HomeRun<span class="sc">$</span>home_run</span>
+<span id="cb37-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Observed_Class,Predicted_Class)</span></code></pre></div>
+<pre><code>##               Predicted_Class
+## Observed_Class home_run no_home_run
+##              0      190       28113
+##              1      274        1019</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Misclassification rate:</span></span>
+<span id="cb39-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb39-3" aria-hidden="true" tabindex="-1"></a>table_classify <span class="ot">=</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb39-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb39-4" aria-hidden="true" tabindex="-1"></a>Accuracy_rate <span class="ot">=</span> (table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>])<span class="sc">/</span>(table_classify[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb39-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>Accuracy_rate</span></code></pre></div>
+<pre><code>## [1] 0.04085011</code></pre>
+</div>
+<div id="h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident" class="section level3 hasAnchor" number="9.1.8">
+<h3><span class="header-section-number">9.1.8</span> h. (6 points) Using probability thresholds from 0.005 to 0.995, obtain the sensitivities and specificity of the resulting predictions. Create an ROC plot and comment on the effectiveness of the model’s ability to correctly classify the response. As we vary the threshold to determine classifications, is inverse relationship between sensitivity and specificity strongly evident?<a href="applied-stats-model-ii---hw1-yufan-lin.html#h.-6-points-using-probability-thresholds-from-0.005-to-0.995-obtain-the-sensitivities-and-specificity-of-the-resulting-predictions.-create-an-roc-plot-and-comment-on-the-effectiveness-of-the-models-ability-to-correctly-classify-the-response.-as-we-vary-the-threshold-to-determine-classifications-is-inverse-relationship-between-sensitivity-and-specificity-strongly-evident" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The inverse relationship is strongly evident as the threshold increases.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ROC curve</span></span>
+<span id="cb41-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#S48: </span></span>
+<span id="cb41-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-4" aria-hidden="true" tabindex="-1"></a>thresh <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.005</span>,<span class="fl">0.995</span>,<span class="fl">0.001</span>)</span>
+<span id="cb41-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-5" aria-hidden="true" tabindex="-1"></a>Sensitivity <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(thresh))</span>
+<span id="cb41-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-6" aria-hidden="true" tabindex="-1"></a>Specificity <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(thresh))</span>
+<span id="cb41-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">along=</span>thresh)){</span>
+<span id="cb41-8"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-8" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> thresh[j],</span>
+<span id="cb41-9"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="at">yes =</span> <span class="st">&quot;1_home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;0_no_home_run&quot;</span>)</span>
+<span id="cb41-10"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Conf_Matrix <span class="ot">&lt;-</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb41-11"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb41-12"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-12" aria-hidden="true" tabindex="-1"></a>Specificity[j] <span class="ot">&lt;-</span> Conf_Matrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">/</span>(Conf_Matrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>Conf_Matrix[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb41-13"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb41-14"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-14" aria-hidden="true" tabindex="-1"></a>Sensitivity[j] <span class="ot">&lt;-</span> Conf_Matrix[<span class="dv">2</span>,<span class="dv">2</span>]<span class="sc">/</span>(Conf_Matrix[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>Conf_Matrix[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb41-15"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb41-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">-</span>Specificity,Sensitivity,<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">main =</span> <span class="st">&quot;ROC curve&quot;</span>,</span>
+<span id="cb42-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb42-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+<div id="i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe." class="section level3 hasAnchor" number="9.1.9">
+<h3><span class="header-section-number">9.1.9</span> i. (5 points) Produce a plot of the sensitivity and specificity against the threshold. Is there a threshold for classification you would recommend that provides a good balance between the two? Make another confusion matrix using this cutoff, how does the result compare to the previous one? Consider the types of errors you observe.<a href="applied-stats-model-ii---hw1-yufan-lin.html#i.-5-points-produce-a-plot-of-the-sensitivity-and-specificity-against-the-threshold.-is-there-a-threshold-for-classification-you-would-recommend-that-provides-a-good-balance-between-the-two-make-another-confusion-matrix-using-this-cutoff-how-does-the-result-compare-to-the-previous-one-consider-the-types-of-errors-you-observe." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The optimal threshold is 0.05.</p>
+<p>The result is better than 0.5 as the cut-off: The accuracy is worse but sensitivity and specificity are higher or more discriminant. The accuracy rate is not a good indicator of model performance when the outcomes is rare such as home run.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#! The result is better than 0.5 as the cut-off  The accuracy is worse but senstivity and specificity is higher</span></span>
+<span id="cb43-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#S50</span></span>
+<span id="cb43-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(thresh,<span class="fu">cbind</span>(Sensitivity,Specificity),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
+<span id="cb43-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">&quot;Threshold&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Proportion&quot;</span>,<span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># abline, v = cutoff. </span></span></code></pre></div>
+</div>
+<div id="rewrie-the-answer" class="section level3 hasAnchor" number="9.1.10">
+<h3><span class="header-section-number">9.1.10</span> <strong>Rewrie the answer</strong><a href="applied-stats-model-ii---hw1-yufan-lin.html#rewrie-the-answer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix </span></span>
+<span id="cb45-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># when we lower the threshold, more on the home run category. if choose 0.5, for the rare. </span></span>
+<span id="cb45-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># S47:</span></span>
+<span id="cb45-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-4" aria-hidden="true" tabindex="-1"></a>Predicted_Prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(Logistic_Model_better, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb45-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-5" aria-hidden="true" tabindex="-1"></a>Predicted_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Predicted_Prob <span class="sc">&gt;</span> <span class="fl">0.05</span>,<span class="at">yes =</span> <span class="st">&quot;home_run&quot;</span>,<span class="at">no =</span> <span class="st">&quot;no_home_run&quot;</span>)</span>
+<span id="cb45-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-6" aria-hidden="true" tabindex="-1"></a>Observed_Class <span class="ot">&lt;-</span> HomeRun<span class="sc">$</span>home_run</span>
+<span id="cb45-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Observed_Class,Predicted_Class)</span></code></pre></div>
+<pre><code>##               Predicted_Class
+## Observed_Class home_run no_home_run
+##              0     4222       24081
+##              1     1182         111</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Misclassification rate:</span></span>
+<span id="cb47-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb47-3" aria-hidden="true" tabindex="-1"></a>table_classify <span class="ot">=</span> <span class="fu">table</span>(Observed_Class,Predicted_Class)</span>
+<span id="cb47-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb47-4" aria-hidden="true" tabindex="-1"></a>Accuracy_rate <span class="ot">=</span> (table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>])<span class="sc">/</span>(table_classify[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span>table_classify[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb47-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>Accuracy_rate</span></code></pre></div>
+<pre><code>## [1] 0.1464049</code></pre>
+</div>
+<div id="j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model" class="section level3 hasAnchor" number="9.1.11">
+<h3><span class="header-section-number">9.1.11</span> j. (3 points) Consider a logistic model with only launch_angle and launch_speed being used to predict the probability of a home run. What is the AIC of this model?<a href="applied-stats-model-ii---hw1-yufan-lin.html#j.-3-points-consider-a-logistic-model-with-only-launch_angle-and-launch_speed-being-used-to-predict-the-probability-of-a-home-run.-what-is-the-aic-of-this-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The AIC of the model is 6203.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce AIC </span></span>
+<span id="cb49-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb49-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model_reduced <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span>  launch_angle <span class="sc">+</span> launch_speed, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7202  -0.1812  -0.0479  -0.0038   4.2110  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -36.664943   0.835606  -43.88   &lt;2e-16 ***
+## launch_angle   0.097468   0.002849   34.22   &lt;2e-16 ***
+## launch_speed   0.317479   0.007616   41.69   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6197.6  on 29593  degrees of freedom
+## AIC: 6203.6
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+</div>
+<div id="k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense" class="section level3 hasAnchor" number="9.1.12">
+<h3><span class="header-section-number">9.1.12</span> k. (11 points) Create a dummy variable which is 1 if launch_angle is between 20 and 40 degrees and use this variable in your model instead of the raw value for launch_angle. Then, complete the following: 1. Compare the AIC of this model to the model in part j, which model is better? 2. What does the coefficient of your dummy variable mean? Interpret the value. 3. Interpret the value of the intercept by converting to a probability. Does this result make sense?<a href="applied-stats-model-ii---hw1-yufan-lin.html#k.-11-points-create-a-dummy-variable-which-is-1-if-launch_angle-is-between-20-and-40-degrees-and-use-this-variable-in-your-model-instead-of-the-raw-value-for-launch_angle.-then-complete-the-following-1.-compare-the-aic-of-this-model-to-the-model-in-part-j-which-model-is-better-2.-what-does-the-coefficient-of-your-dummy-variable-mean-interpret-the-value.-3.-interpret-the-value-of-the-intercept-by-converting-to-a-probability.-does-this-result-make-sense" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The model with dummy’s AIC is 4508 which is much smaller than the 6203.</p>
+<p>The dummy variable means when the launch_angle is between 20 and 40 degree the odds of success is higher than the launch_angle outside the window. Thus, there is a optimal point of the launch angle.</p>
+<p>The intercept is very small or 4.186275e-17 which means the chance of making a home run when all other variables are set to 0 is very small.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare with other temp, here is more likely.</span></span>
+<span id="cb52-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb52-3" aria-hidden="true" tabindex="-1"></a>HomeRun<span class="sc">$</span>launch_angle_d <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(HomeRun<span class="sc">$</span>launch_angle <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> HomeRun<span class="sc">$</span>launch_angle <span class="sc">&lt;=</span> <span class="dv">40</span> ,<span class="dv">1</span>,<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produce AIC </span></span>
+<span id="cb53-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb53-2" aria-hidden="true" tabindex="-1"></a>Logistic_Model_reduced_d <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> home_run <span class="sc">~</span>  launch_angle_d <span class="sc">+</span> launch_speed, <span class="at">family =</span> binomial, <span class="at">data =</span> HomeRun) </span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.7202  -0.1812  -0.0479  -0.0038   4.2110  
+## 
+## Coefficients:
+##                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -36.664943   0.835606  -43.88   &lt;2e-16 ***
+## launch_angle   0.097468   0.002849   34.22   &lt;2e-16 ***
+## launch_speed   0.317479   0.007616   41.69   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  6197.6  on 29593  degrees of freedom
+## AIC: 6203.6
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Logistic_Model_reduced_d)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = home_run ~ launch_angle_d + launch_speed, family = binomial, 
+##     data = HomeRun)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.1862  -0.0780  -0.0148  -0.0025   3.9332  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)    -37.712135   0.991093  -38.05   &lt;2e-16 ***
+## launch_angle_d   5.329550   0.156367   34.08   &lt;2e-16 ***
+## launch_speed     0.313245   0.009108   34.39   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 10624.6  on 29595  degrees of freedom
+## Residual deviance:  4502.2  on 29593  degrees of freedom
+## AIC: 4508.2
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb58-1" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds_d <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(Logistic_Model_reduced_d)</span>
+<span id="cb58-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb58-2" aria-hidden="true" tabindex="-1"></a>Coef_LogOdds_d <span class="sc">|&gt;</span> <span class="fu">exp</span>()</span></code></pre></div>
+<pre><code>##    (Intercept) launch_angle_d   launch_speed 
+##   4.186275e-17   2.063451e+02   1.367857e+00</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert intercept to probability odds/ (1+odds)</span></span>
+<span id="cb60-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb60-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">4.186275e-17</span>)<span class="sc">/</span>(<span class="dv">1</span><span class="fl">-4.186275e-17</span>)</span></code></pre></div>
+<pre><code>## [1] 4.186275e-17</code></pre>
+</div>
+</div>
+<div id="question-2" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Question 2<a href="applied-stats-model-ii---hw1-yufan-lin.html#question-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>2) Ordinal Regression</strong> The DrugConsumption.csv file on Canvas contains records for 1458 respondents. For each respondent 12 attributes are known: Personality measurements which include NEO-FFI-R (neuroticism, extraversion, openness to experience, agreeableness, and conscientiousness), BIS-11 (impulsivity), and ImpSS (sensation seeking), level of education, age, gender and country of residence. In addition, participants were questioned concerning their use of 18 legal and illegal drugs, of which only LSD is included for our study. The variables are as follows: • LSD: Target variable, ordinal with levels CL0-CL5, which correspond to “Never Used”, “Used over a Decade Ago”, “Used in Last Decade”, “Used in Last Year”, “Used in Last Month”, “Used in Last Week”. • Age: Categorical age • Gender: Gender • Education: Categorical Educational level • Country: UK or USA • Nscore: NEO-FFI-R, a psychological measure of Neuroticism • Escore: NEO-FFI-R Extraversion. • Oscore: NEO-FFI-R Openness to experience • Ascore: NEO-FFI-R Agreeableness • Cscore: NEO-FFI-R Conscientiousness • Impulsive: Impulsiveness score measured by BIS-11 • SS: Impulsive Sensation Seeking measured by ImpSS You may read the data as follows: Drugs &lt;- read.csv(“…/DrugConsumption.csv”, stringsAsFactors = TRUE) Drugs$LSD &lt;- ordered(Drugs$LSD,levels = c(paste0(“CL”,0:5)))</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb62-1" aria-hidden="true" tabindex="-1"></a>Drugs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;E:/Cloud/OneDrive - University of Missouri/Mizzou_PhD/Class plan/Applied Stats Model II/HW1/DrugConsumption.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb63-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for mutate function</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? the following code gave me error. What is it?</span></span>
+<span id="cb64-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Drugs$LSD &lt;- ordered(Drugs$LSD,levels = c(paste0(&quot;CL&quot;,0:5)))</span></span></code></pre></div>
+<div id="a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes." class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> a. (5 points) Make a plot or set of tables showing the distribution of LSD use between genders and interpret. You can use code similar to that on slide 84 of the course notes.<a href="applied-stats-model-ii---hw1-yufan-lin.html#a.-5-points-make-a-plot-or-set-of-tables-showing-the-distribution-of-lsd-use-between-genders-and-interpret.-you-can-use-code-similar-to-that-on-slide-84-of-the-course-notes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I re-coded the categories into descriptive names “Used over a Decade Ago”, “Used in Last Decade”, “Used in Last Year”, “Used in Last Month”, “Used in Last Week”.</p>
+<p>Based on the plot, male are more likely to use drugs than female. Many female never used any drugs.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-1" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb65-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-2" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL0&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Never Used&quot;</span></span>
+<span id="cb65-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-3" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL1&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used over a Decade Ago&quot;</span></span>
+<span id="cb65-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-4" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL2&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Decade&quot;</span></span>
+<span id="cb65-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-5" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL3&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Year&quot;</span></span>
+<span id="cb65-6"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-6" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL4&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Month&quot;</span></span>
+<span id="cb65-7"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-7" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o[Drugs<span class="sc">$</span>LSD <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;CL5&quot;</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;Used in Last Week&quot;</span></span>
+<span id="cb65-8"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Drugs<span class="sc">$</span>LSD_o)</span></code></pre></div>
+<pre><code>## 
+##             Never Used    Used in Last Decade     Used in Last Month 
+##                    866                    134                     62 
+##      Used in Last Week      Used in Last Year Used over a Decade Ago 
+##                     40                    146                    210</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb67-1" aria-hidden="true" tabindex="-1"></a>Plot_DF <span class="ot">&lt;-</span> Drugs <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Gender, LSD_o) <span class="sc">|&gt;</span></span>
+<span id="cb67-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb67-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Gender) <span class="sc">|&gt;</span></span>
+<span id="cb67-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">etotal=</span><span class="fu">sum</span>(count), <span class="at">proportion=</span>count<span class="sc">/</span>etotal)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;Gender&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(Age_Grp=cut_number(age,4)) |&gt;  not used since the gender is not continous.</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot_DF -&gt; only a dataframe</span></span>
+<span id="cb70-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb70-2" aria-hidden="true" tabindex="-1"></a>Gender_Plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Plot_DF, <span class="fu">aes</span>(<span class="at">x=</span>Gender, <span class="at">y=</span>proportion,</span>
+<span id="cb70-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="at">group=</span>LSD_o, <span class="at">linetype=</span>LSD_o))<span class="sc">+</span></span>
+<span id="cb70-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>()</span>
+<span id="cb70-5"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb70-5" aria-hidden="true" tabindex="-1"></a>Gender_Plot</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+</div>
+<div id="b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results." class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> b. (9 points) Fit a proportional odds model using LSD as the response variable and the other variables listed above as predictors. Using drop1(), test if the variables are significant or insignificant and describe 2 your results.<a href="applied-stats-model-ii---hw1-yufan-lin.html#b.-9-points-fit-a-proportional-odds-model-using-lsd-as-the-response-variable-and-the-other-variables-listed-above-as-predictors.-using-drop1-test-if-the-variables-are-significant-or-insignificant-and-describe-2-your-results." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The significant variables are age 55+, GenderMale, CountryUSA, Oscore and Cscore.</p>
+<p>The drop1 function shows gender, country, Oscore and Cscore are significant but not the age 55+. Strangely the drop1 function doesn’t factorize the categorical variables such as age and education.</p>
+<p>Overall, the two results are quite consistent with each other.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb74-1" aria-hidden="true" tabindex="-1"></a>Drugs<span class="sc">$</span>LSD_o <span class="ot">&lt;-</span> <span class="fu">ordered</span>(Drugs<span class="sc">$</span>LSD_o,</span>
+<span id="cb74-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Never Used&quot;</span>, <span class="st">&quot;Used over a Decade Ago&quot;</span>, <span class="st">&quot;Used in Last Decade&quot;</span>, <span class="st">&quot;Used in Last Year&quot;</span>, <span class="st">&quot;Used in Last Month&quot;</span>, <span class="st">&quot;Used in Last Week&quot;</span>))</span>
+<span id="cb74-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb74-3" aria-hidden="true" tabindex="-1"></a>PropOdds_Model <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">polr</span>(LSD_o <span class="sc">~</span> Age <span class="sc">+</span> Gender <span class="sc">+</span> Education <span class="sc">+</span> Country <span class="sc">+</span> Nscore <span class="sc">+</span> Escore <span class="sc">+</span> Oscore <span class="sc">+</span> Ascore <span class="sc">+</span> Cscore, Drugs)</span>
+<span id="cb74-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<pre><code>## Call:
+## MASS::polr(formula = LSD_o ~ Age + Gender + Education + Country + 
+##     Nscore + Escore + Oscore + Ascore + Cscore, data = Drugs)
+## 
+## Coefficients:
+##                               Value Std. Error  t value
+## Age25-34                  -0.097001    0.16037 -0.60486
+## Age35-44                  -0.006247    0.17504 -0.03569
+## Age45-54                  -0.218738    0.18630 -1.17412
+## Age55+                    -0.671385    0.26083 -2.57408
+## GenderMale                 0.773020    0.12094  6.39159
+## EducationHighSchool       -0.105167    0.29551 -0.35588
+## EducationHSDropout         0.124446    0.22553  0.55180
+## EducationPostGraduate     -0.294833    0.17637 -1.67163
+## EducationProfessionalCert  0.011469    0.19528  0.05873
+## EducationSomeCollege       0.078480    0.16218  0.48392
+## CountryUSA                 1.708138    0.13773 12.40252
+## Nscore                    -0.110185    0.06866 -1.60469
+## Escore                     0.014487    0.06745  0.21478
+## Oscore                     0.597784    0.06685  8.94237
+## Ascore                    -0.018913    0.05870 -0.32221
+## Cscore                    -0.178554    0.06696 -2.66662
+## 
+## Intercepts:
+##                                            Value   Std. Error t value
+## Never Used|Used over a Decade Ago           1.2133  0.1750     6.9337
+## Used over a Decade Ago|Used in Last Decade  2.1296  0.1832    11.6275
+## Used in Last Decade|Used in Last Year       2.9048  0.1887    15.3969
+## Used in Last Year|Used in Last Month        4.1597  0.2054    20.2562
+## Used in Last Month|Used in Last Week        5.2439  0.2415    21.7105
+## 
+## Residual Deviance: 3143.917 
+## AIC: 3185.917</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#problen with converge if I include the same variable LSD. need to remove it.</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(PropOdds_Model,<span class="at">test=</span><span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<pre><code>## Single term deletions
+## 
+## Model:
+## LSD_o ~ Age + Gender + Education + Country + Nscore + Escore + 
+##     Oscore + Ascore + Cscore
+##           Df    AIC     LRT  Pr(&gt;Chi)    
+## &lt;none&gt;       3185.9                      
+## Age        4 3186.2   8.270  0.082171 .  
+## Gender     1 3225.3  41.410 1.234e-10 ***
+## Education  5 3181.0   5.122  0.401142    
+## Country    1 3343.6 159.732 &lt; 2.2e-16 ***
+## Nscore     1 3186.5   2.573  0.108671    
+## Escore     1 3184.0   0.046  0.829943    
+## Oscore     1 3266.8  82.918 &lt; 2.2e-16 ***
+## Ascore     1 3184.0   0.104  0.747364    
+## Cscore     1 3191.1   7.183  0.007359 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop1(PropOdds_Model)</span></span>
+<span id="cb80-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"># why is the age not broken down as factors? </span></span>
+<span id="cb80-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop1 will drop all in age variable. </span></span></code></pre></div>
+</div>
+<div id="c.-6-points-interpret-the-values-of-the-intercepts-θj-." class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> c. (6 points) Interpret the values of the intercepts θj .<a href="applied-stats-model-ii---hw1-yufan-lin.html#c.-6-points-interpret-the-values-of-the-intercepts-θj-." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The intercepts are listed as below:</p>
+<p>Never Used|Used over a Decade Ago 3.364569 . It means cumulative odds of being never used is 3.36 when all other variables are set to 0.</p>
+<p>Used over a Decade Ago|Used in Last Decade 8.411502 It means cumulative odds of being Used in last decade is 8.411502 when all other variables are set to 0.</p>
+<p>Used in Last Decade|Used in Last Year 18.26159 It means cumulative odds of being Used in last year is 18.2615 when all other variables are set to 0.</p>
+<p>Used in Last Year|Used in Last Month 64.0523 It means cumulative odds of being Used in last month is 64.0523 when all other variables are set to 0.</p>
+<p>Used in Last Month|Used in Last Week 189.4074 It means cumulative odds of being Used in last week is 189 when all other variables are set to 0.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb81-1" aria-hidden="true" tabindex="-1"></a>PropOdds_Model_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PropOdds_Model_sum$coefficients    </span></span>
+<span id="cb83-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">1.2133</span>)</span></code></pre></div>
+<pre><code>## [1] 3.364569</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.1296</span>)</span></code></pre></div>
+<pre><code>## [1] 8.411502</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">2.9048</span>)</span></code></pre></div>
+<pre><code>## [1] 18.26159</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">4.1597</span>)</span></code></pre></div>
+<pre><code>## [1] 64.0523</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">5.2439</span>)</span></code></pre></div>
+<pre><code>## [1] 189.4074</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!not sure how to explain it. S97. Does it also needs a exp()? -&gt; how to extract it automatically? does it mean % of ppl???</span></span></code></pre></div>
+</div>
+<div id="d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics." class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> d. (10 points) Print the coefficient table and interpret the values of the significant personality characteristics.<a href="applied-stats-model-ii---hw1-yufan-lin.html#d.-10-points-print-the-coefficient-table-and-interpret-the-values-of-the-significant-personality-characteristics." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The open to experience increase the odds of using the drugs by 1.81.</p>
+<p>Conscientiousness decreases the odds of using the drugs by 0.8.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(PropOdds_Model)</span></code></pre></div>
+<pre><code>##                  Age25-34                  Age35-44                  Age45-54 
+##              -0.097000990              -0.006246867              -0.218738114 
+##                    Age55+                GenderMale       EducationHighSchool 
+##              -0.671384707               0.773019582              -0.105166700 
+##        EducationHSDropout     EducationPostGraduate EducationProfessionalCert 
+##               0.124446396              -0.294833364               0.011469188 
+##      EducationSomeCollege                CountryUSA                    Nscore 
+##               0.078480163               1.708138461              -0.110184787 
+##                    Escore                    Oscore                    Ascore 
+##               0.014486532               0.597783608              -0.018912601 
+##                    Cscore 
+##              -0.178553588</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">#??? are the coefficient intercept or beta?</span></span>
+<span id="cb96-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Both personality significant. The higher the less likely to move ?!!!</span></span>
+<span id="cb96-3"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Oscore </span></span>
+<span id="cb96-4"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">0.597784</span>) </span></code></pre></div>
+<pre><code>## [1] 1.818085</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cscore</span></span>
+<span id="cb98-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.178554</span>)</span></code></pre></div>
+<pre><code>## [1] 0.8364789</code></pre>
+</div>
+<div id="e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis" class="section level3 hasAnchor" number="9.2.5">
+<h3><span class="header-section-number">9.2.5</span> e. (7250 only) (6 points) Explore interacting some of the categorical demographic variables with the personality measurements and report your findings, does the nature of any personality characteristics affect on LSD usage change according to your analysis?<a href="applied-stats-model-ii---hw1-yufan-lin.html#e.-7250-only-6-points-explore-interacting-some-of-the-categorical-demographic-variables-with-the-personality-measurements-and-report-your-findings-does-the-nature-of-any-personality-characteristics-affect-on-lsd-usage-change-according-to-your-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I tested the interaction between demographic variables (age, gender and education) and personality measurements (Oscore, Cscore).</p>
+<p>I found the following significant interactions:</p>
+<p>Age35-44:Oscore -0.396513</p>
+<p>Age25-34:Cscore -0.368074</p>
+<p>Age35-44:Cscore -0.590439</p>
+<p>Age45-54:Cscore -0.587787</p>
+<p>Age55+:Cscore -0.614652</p>
+<p>The results have a consistent theme that more mature people (age above 18-24) and higher on open to experience or conscientiousness scores are less likely to use drugs.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb100-1" aria-hidden="true" tabindex="-1"></a>PropOdds_Model_int <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">polr</span>(LSD_o <span class="sc">~</span> Age <span class="sc">+</span> Gender <span class="sc">+</span> Education <span class="sc">+</span> Country <span class="sc">+</span> Nscore <span class="sc">+</span> Escore <span class="sc">+</span> Oscore <span class="sc">+</span> Ascore <span class="sc">+</span> Cscore <span class="sc">+</span> Age<span class="sc">*</span>Oscore <span class="sc">+</span> Age<span class="sc">*</span>Cscore <span class="sc">+</span> Gender<span class="sc">*</span>Oscore <span class="sc">+</span> Gender<span class="sc">*</span>Cscore <span class="sc">+</span> Education<span class="sc">*</span>Oscore <span class="sc">+</span> Education <span class="sc">*</span>Cscore, Drugs)</span>
+<span id="cb100-2"><a href="applied-stats-model-ii---hw1-yufan-lin.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PropOdds_Model_int)</span></code></pre></div>
+<pre><code>## 
+## Re-fitting to get Hessian</code></pre>
+<pre><code>## Call:
+## MASS::polr(formula = LSD_o ~ Age + Gender + Education + Country + 
+##     Nscore + Escore + Oscore + Ascore + Cscore + Age * Oscore + 
+##     Age * Cscore + Gender * Oscore + Gender * Cscore + Education * 
+##     Oscore + Education * Cscore, data = Drugs)
+## 
+## Coefficients:
+##                                      Value Std. Error  t value
+## Age25-34                         -0.172081    0.17273 -0.99623
+## Age35-44                         -0.104423    0.18315 -0.57016
+## Age45-54                         -0.280105    0.19515 -1.43533
+## Age55+                           -0.654289    0.26780 -2.44318
+## GenderMale                        0.774285    0.12648  6.12198
+## EducationHighSchool               0.019760    0.32261  0.06125
+## EducationHSDropout               -0.102915    0.24983 -0.41194
+## EducationPostGraduate            -0.306062    0.19143 -1.59878
+## EducationProfessionalCert         0.046031    0.20393  0.22572
+## EducationSomeCollege              0.070706    0.17446  0.40528
+## CountryUSA                        1.744167    0.14162 12.31579
+## Nscore                           -0.118884    0.06971 -1.70541
+## Escore                            0.038420    0.06843  0.56143
+## Oscore                            0.685866    0.17126  4.00483
+## Ascore                           -0.018826    0.06047 -0.31131
+## Cscore                            0.116770    0.16389  0.71247
+## Age25-34:Oscore                   0.004876    0.17067  0.02857
+## Age35-44:Oscore                  -0.396513    0.17969 -2.20666
+## Age45-54:Oscore                  -0.143649    0.21006 -0.68386
+## Age55+:Oscore                    -0.227344    0.27432 -0.82876
+## Age25-34:Cscore                  -0.368074    0.16557 -2.22312
+## Age35-44:Cscore                  -0.590439    0.17650 -3.34527
+## Age45-54:Cscore                  -0.587787    0.19676 -2.98727
+## Age55+:Cscore                    -0.614652    0.29484 -2.08467
+## GenderMale:Oscore                 0.009991    0.12113  0.08248
+## GenderMale:Cscore                -0.052592    0.12510 -0.42040
+## EducationHighSchool:Oscore       -0.293782    0.27753 -1.05855
+## EducationHSDropout:Oscore        -0.255640    0.25420 -1.00565
+## EducationPostGraduate:Oscore      0.058642    0.19749  0.29693
+## EducationProfessionalCert:Oscore  0.303077    0.21251  1.42618
+## EducationSomeCollege:Oscore       0.012843    0.16599  0.07737
+## EducationHighSchool:Cscore        0.056019    0.32688  0.17138
+## EducationHSDropout:Cscore        -0.226221    0.24937 -0.90717
+## EducationPostGraduate:Cscore      0.254668    0.19192  1.32694
+## EducationProfessionalCert:Cscore  0.101606    0.21581  0.47082
+## EducationSomeCollege:Cscore       0.026077    0.16748  0.15571
+## 
+## Intercepts:
+##                                            Value   Std. Error t value
+## Never Used|Used over a Decade Ago           1.1821  0.1815     6.5142
+## Used over a Decade Ago|Used in Last Decade  2.1166  0.1893    11.1805
+## Used in Last Decade|Used in Last Year       2.9087  0.1952    14.9009
+## Used in Last Year|Used in Last Month        4.1936  0.2136    19.6321
+## Used in Last Month|Used in Last Week        5.2923  0.2499    21.1740
+## 
+## Residual Deviance: 3108.449 
+## AIC: 3190.449</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="asm2-hw-term-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modeling-the-number-of-claims.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/lyf718718/Book2.git/edit/master/ASM2_HW1.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/lyf718718/Book2.git/blob/master/ASM2_HW1.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

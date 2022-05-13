@@ -212,3 +212,6 @@ research-implications
 interpretation-of-the-fixed-effect-coefficients
 introduction
 methodsanalysis
+applied-stats-model-ii---hw1-yufan-lin
+rewrie-the-answer
+question-2
